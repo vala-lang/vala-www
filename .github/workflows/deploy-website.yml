@@ -6,7 +6,8 @@ on:
       - components/**
       - pages/**
       - public/**
-      - next-dnv.d.ts
+      - next-env.d.ts
+      - next.config.js
       - package-lock.json
       - package.json
       - postcss.config.js
