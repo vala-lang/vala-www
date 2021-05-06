@@ -1,0 +1,4 @@
+.menuItem a {
+  @apply p-4;
+  @apply w-full;
+}
