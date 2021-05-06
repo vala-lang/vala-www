@@ -10,7 +10,7 @@ const Feature: IFeature = ({ children, className, icon }) => {
 
   return (
     <article
-      className={`flex flex-col space-y-4 items-center ${className ?? ''}`}
+      className={`flex flex-col space-y-4 items-center self-start ${className ?? ''}`}
     >
       <Icon size="32" className="text-grape-500" />
       <p>{children}</p>
