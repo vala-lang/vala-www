@@ -44,8 +44,8 @@ const Home: IHome = ({ sampleCode }) => (
         <Main.Title>A Modern, Fast, Open Source Language</Main.Title>
         <Main.Description>
           Vala is a programming language that allows you to write high-level
-          code without imposing additional runtimes, and without using a
-          different ABI compared to applications and libraries written in C.
+          code without imposing additional runtimes and without using an ABI
+          different from that of applications and libraries written in C.
         </Main.Description>
         <Main.ActionArea>
           <ContainedButton href="#" className="py-2 px-4">
@@ -65,8 +65,8 @@ const Home: IHome = ({ sampleCode }) => (
         {sampleCode}
       </SyntaxHighlighter>
       <Feature className="md:col-span-2" icon={FaCube}>
-        Familiar to anyone who's seen C#, but maintains API/ABI compatibility
-        with C.
+        Familiar to anyone who&apos;s seen C#, but maintains API/ABI
+        compatibility with C.
       </Feature>
       <Feature className="md:col-span-2" icon={FaRocket}>
         Low memory requirements, native execution, and purpose-built for
@@ -87,7 +87,7 @@ const getStaticProps: GetStaticProps = async () => ({
     sampleCode: (
       await readFile(
         __dirname +
-          '/../../../pages/sample.vala' /* TODO: There must be a better way to do this */,
+          '/../../../pages/sample.vala' /* XXX: There must be a better way to do this */,
         {
           encoding: 'utf-8',
         }
