@@ -1,14 +1,15 @@
-import React, { Children, useState } from 'react'
+import React, { Children, FC, useState } from 'react'
 import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import styles from './Header.module.css'
+import Link from 'next/link'
 
 import OutlinedButton from './OutlinedButton'
 
 import '@fontsource/inter/400.css'
 import '@fontsource/lobster/400.css'
 
-type IHeader = React.FC<{ className?: string }> & { NavLink: INavLink }
-type INavLink = React.FC<{
+type IHeader = FC<{ className?: string }> & { NavLink: INavLink }
+type INavLink = FC<{
   className?: string
   external?: boolean
   href?: string
@@ -23,9 +24,9 @@ const Header: IHeader = ({ children, className }) => {
         className ?? ''
       }`}
     >
-      <a href="/" className="text-4xl font-cursive">
-        Vala
-      </a>
+      <Link href="/">
+        <a className="text-4xl font-cursive">Vala</a>
+      </Link>
       <nav className="hidden md:block">
         <ul className="flex space-x-4">
           {Children.map(children, (child, index) => (
@@ -52,9 +53,9 @@ const Header: IHeader = ({ children, className }) => {
         }`}
       >
         <div className="flex justify-between items-center p-4">
-          <a href="/" className="text-4xl font-cursive">
-            Vala
-          </a>
+          <Link href="/">
+            <a className="text-4xl font-cursive">Vala</a>
+          </Link>
           <button onClick={() => setIsMenuOpen(false)} className="p-2">
             <FaTimes />
           </button>
@@ -73,15 +74,34 @@ const Header: IHeader = ({ children, className }) => {
   )
 }
 
-Header.NavLink = ({ children, className, external, href }) => (
-  <a
-    href={href}
-    className={`flex space-x-1 items-center hover:underline ${className ?? ''}`}
-    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-  >
-    <p>{children}</p>
-    {external ? <FaExternalLinkAlt /> : null}
-  </a>
-)
+Header.NavLink = ({ children, className, external, href }) => {
+  const classes = `flex space-x-1 items-center hover:underline ${
+    className ?? ''
+  }`
+
+  const MyLink: FC = external
+    ? ({ children }) => (
+        <a
+          className={classes}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {children}
+        </a>
+      )
+    : ({ children }) => (
+        <Link href={href}>
+          <a className={classes}>{children}</a>
+        </Link>
+      )
+
+  return (
+    <MyLink>
+      <p>{children}</p>
+      {external ? <FaExternalLinkAlt /> : null}
+    </MyLink>
+  )
+}
 
 export default Header
