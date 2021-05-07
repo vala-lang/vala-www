@@ -27,14 +27,14 @@ const Home: IHome = ({ sampleCode }) => (
     </Head>
     <Container className="grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
       <Header className="md:col-span-6">
-        <Header.NavLink href="/overview">Overview</Header.NavLink>
+        <Header.NavLink href="/about">About</Header.NavLink>
         <Header.NavLink href="/learn">Learn</Header.NavLink>
         <Header.NavLink href="/community">Community</Header.NavLink>
         <Header.NavLink href="https://valadoc.org" external>
           API Reference
         </Header.NavLink>
         <Header.NavLink href="https://gitlab.gnome.org/GNOME/vala" external>
-          Code
+          Source Code
         </Header.NavLink>
         <Header.NavLink href="https://planet.vala-project.org" external>
           News
@@ -43,9 +43,9 @@ const Home: IHome = ({ sampleCode }) => (
       <Main className="md:col-span-3">
         <Main.Title>A Modern, Fast, Open Source Language</Main.Title>
         <Main.Description>
-          Vala is a programming language that allows you to write high-level
-          code without imposing additional runtimes and without using an ABI
-          different from that of applications and libraries written in C.
+          Be able to write modern, high-level code, with fully native
+          performance, without requiring any additional runtime and maintaining
+          full API/ABI compatibility with your C applications and libraries.
         </Main.Description>
         <Main.ActionArea>
           <ContainedButton href="#" className="py-2 px-4">
@@ -65,16 +65,16 @@ const Home: IHome = ({ sampleCode }) => (
         {sampleCode}
       </SyntaxHighlighter>
       <Feature className="md:col-span-2" icon={FaCube}>
-        Familiar to anyone who&apos;s seen C#, but maintains API/ABI
-        compatibility with C.
+        Familiar to anyone who has worked with Java or C#, but maintaining
+        API/ABI compatibility with C.
       </Feature>
       <Feature className="md:col-span-2" icon={FaRocket}>
-        Low memory requirements, native execution, and purpose-built for
-        GObject.
+        Low memory requirements, fully native execution, and created targeting
+        the GLib object system.
       </Feature>
       <Feature className="md:col-span-2" icon={FaCogs}>
         Signals, properties, generics, lambdas, assisted memory management,
-        exception handling, type inference, async/yield &amp; more.
+        exception handling, type inference, asynchronous programming, and more.
       </Feature>
     </Container>
   </>
