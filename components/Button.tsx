@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
-
-import '@fontsource/inter/500.css'
+import styles from './Button.module.css'
 
 export type IButton = FC<{
   className?: string
@@ -13,7 +12,7 @@ const Button: IButton = ({ children, className, href, onClick }) => {
 
   return (
     <CustomTag
-      className={`font-medium ${className ?? ''}`}
+      className={`${styles.button} ${className ?? ''}`}
       {...(onClick ? { onClick: () => onClick() } : {})}
       {...(href ? { href } : {})}
     >

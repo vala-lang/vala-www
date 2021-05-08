@@ -1,4 +1,104 @@
+@import '~@fontsource/lobster/400.css';
+
+.header {
+  align-items: center;
+  color: var(--header-foreground);
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: Lobster, cursive;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+.navBar {
+  display: none;
+}
+
+.navBar > ul {
+  display: flex;
+}
+
+.navBar > ul > * + * {
+  margin-left: 1rem;
+}
+
+.menuShadow {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: opacity cubic-bezier(0.4, 0, 1, 1) 200ms;
+}
+
+.menuShadow.active {
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity cubic-bezier(0, 0, 0.2, 1) 250ms;
+}
+
+.menu {
+  background: white;
+  bottom: 0;
+  left: 0;
+  max-width: 20rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(-100%);
+  transition: box-shadow cubic-bezier(0.4, 0, 1, 1) 200ms,
+    transform cubic-bezier(0.4, 0, 1, 1) 200ms;
+}
+
+.menu.active {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  transform: translateX(0);
+  transition: box-shadow cubic-bezier(0, 0, 0.2, 1) 250ms,
+    transform cubic-bezier(0, 0, 0.2, 1) 250ms;
+}
+
+.menu > div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.closeButton {
+  padding: 0.5rem;
+}
+
 .menuItem a {
-  @apply p-4;
-  @apply w-full;
+  padding: 1rem;
+  width: 100%;
+}
+
+.navLink {
+  align-items: center;
+  display: flex;
+}
+
+.navLink > * + * {
+  margin-left: 0.25rem;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .navBar {
+    display: block;
+  }
+
+  .menuButton {
+    display: none;
+  }
 }

@@ -1,0 +1,17 @@
+@import '~@fontsource/inter/500.css';
+
+.button {
+  align-items: center;
+  display: flex;
+  font-weight: 500;
+}
+
+.button > * + * {
+  margin-left: 0.5rem;
+}
+
+@supports (font-variation-settings: normal) {
+  .button {
+    font-variation-settings: 'wght' 500;
+  }
+}

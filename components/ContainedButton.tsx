@@ -1,12 +1,11 @@
 import React from 'react'
 
 import Button, { IButton } from './Button'
+import styles from './ContainedButton.module.css'
 
 const ContainedButton: IButton = ({ children, className, href, onClick }) => (
   <Button
-    className={`flex items-center space-x-2 bg-grape-500 filter hover:brightness-105 rounded p-2 text-white shadow hover:shadow-xl transition ${
-      className ?? ''
-    }`}
+    className={`${styles.containedButton} ${className ?? ''}`}
     {...{ href, onClick }}
   >
     {children}

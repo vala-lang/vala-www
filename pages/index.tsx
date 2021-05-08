@@ -14,6 +14,7 @@ import Main from '../components/Main'
 import ContainedButton from '../components/ContainedButton'
 import OutlinedButton from '../components/OutlinedButton'
 import Feature from '../components/Feature'
+import styles from './index.module.css'
 
 type IHome = FC<{ sampleCode: string }>
 
@@ -25,8 +26,8 @@ const Home: IHome = ({ sampleCode }) => (
       <title>Vala Programming Language</title>
       <meta name="theme-color" content="#fff" />
     </Head>
-    <Container className="grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
-      <Header className="md:col-span-6">
+    <Container className={styles.grid}>
+      <Header className={styles.header}>
         <Header.NavLink href="/about">About</Header.NavLink>
         <Header.NavLink href="/learn">Learn</Header.NavLink>
         <Header.NavLink href="/community">Community</Header.NavLink>
@@ -40,7 +41,7 @@ const Home: IHome = ({ sampleCode }) => (
           News
         </Header.NavLink>
       </Header>
-      <Main className="md:col-span-3">
+      <Main className={styles.main}>
         <Main.Title>A Modern, Fast, Open Source Language</Main.Title>
         <Main.Description>
           Be able to write modern, high-level code, with fully native
@@ -48,31 +49,31 @@ const Home: IHome = ({ sampleCode }) => (
           full API/ABI compatibility with your C applications and libraries.
         </Main.Description>
         <Main.ActionArea>
-          <ContainedButton href="#" className="py-2 px-4">
+          <ContainedButton href="#" className={styles.button}>
             GET STARTED
           </ContainedButton>
-          <OutlinedButton href="#" className="py-2 px-4">
+          <OutlinedButton href="#" className={styles.button}>
             WHY VALA?
           </OutlinedButton>
         </Main.ActionArea>
       </Main>
       <SyntaxHighlighter
         language="vala"
-        className="rounded md:col-span-3"
+        className={styles.sampleCode}
         style={solarizedlight}
         showLineNumbers
       >
         {sampleCode}
       </SyntaxHighlighter>
-      <Feature className="md:col-span-2" icon={FaCube}>
+      <Feature className={styles.feature} icon={FaCube}>
         Familiar to anyone who has worked with Java or C#, but maintaining
         API/ABI compatibility with C.
       </Feature>
-      <Feature className="md:col-span-2" icon={FaRocket}>
+      <Feature className={styles.feature} icon={FaRocket}>
         Low memory requirements, fully native execution, and created targeting
         the GLib object system.
       </Feature>
-      <Feature className="md:col-span-2" icon={FaCogs}>
+      <Feature className={styles.feature} icon={FaCogs}>
         Signals, properties, generics, lambdas, assisted memory management,
         exception handling, type inference, asynchronous programming, and more.
       </Feature>

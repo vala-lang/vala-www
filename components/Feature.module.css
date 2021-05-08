@@ -1,0 +1,13 @@
+.feature {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  color: var(--feature-icon-foreground);
+}
+
+.feature > * + * {
+  margin-top: 1rem;
+}

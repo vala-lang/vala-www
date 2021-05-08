@@ -1,0 +1,12 @@
+.outlinedButton {
+  background: var(--outlined-button-background);
+  border-radius: 0.25rem;
+  border: 2px solid var(--outlined-button-border);
+  color: var(--outlined-button-foreground);
+  padding: 0.5rem;
+  transition: filter cubic-bezier(0.4, 0, 0.2, 1) 100ms;
+}
+
+.outlinedButton:hover {
+  filter: brightness(0.95);
+}

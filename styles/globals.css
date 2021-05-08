@@ -1,0 +1,28 @@
+@import './preflight.css';
+@import '~@fontsource/inter/400.css';
+@import '~@fontsource/inter/variable.css';
+
+:root {
+  --contained-button-background: #a56de2;
+  --contained-button-foreground: white;
+
+  --feature-icon-foreground: #a56de2;
+
+  --header-foreground: #a56de2;
+
+  --outlined-button-background: white;
+  --outlined-button-border: #a56de233;
+  --outlined-button-foreground: #a56de2;
+}
+
+html {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: InterVariable, sans-serif;
+    font-variation-settings: 'wght' 400;
+  }
+}

@@ -1,12 +1,9 @@
 import React, { Children, FC, useState } from 'react'
 import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
-import styles from './Header.module.css'
 import Link from 'next/link'
 
 import OutlinedButton from './OutlinedButton'
-
-import '@fontsource/inter/400.css'
-import '@fontsource/lobster/400.css'
+import styles from './Header.module.css'
 
 type IHeader = FC<{ className?: string }> & { NavLink: INavLink }
 type INavLink = FC<{
@@ -19,16 +16,12 @@ const Header: IHeader = ({ children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header
-      className={`flex justify-between items-center text-grape-500 ${
-        className ?? ''
-      }`}
-    >
+    <header className={`${styles.header} ${className ?? ''}`}>
       <Link href="/">
-        <a className="text-4xl font-cursive">Vala</a>
+        <a className={styles.logo}>Vala</a>
       </Link>
-      <nav className="hidden md:block">
-        <ul className="flex space-x-4">
+      <nav className={styles.navBar}>
+        <ul>
           {Children.map(children, (child, index) => (
             <li key={index}>{child}</li>
           ))}
@@ -36,27 +29,24 @@ const Header: IHeader = ({ children, className }) => {
       </nav>
       <OutlinedButton
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="md:hidden"
+        className={styles.menuButton}
       >
         <p>MENU</p>
         <FaBars />
       </OutlinedButton>
       <div
         onClick={() => setIsMenuOpen(false)}
-        className={`fixed bg-black bg-opacity-30 inset-0 transition-opacity ${
-          isMenuOpen ? '' : 'pointer-events-none opacity-0'
-        }`}
+        className={`${styles.menuShadow} ${isMenuOpen ? styles.active : ''}`}
       />
-      <div
-        className={`fixed bg-white inset-0 max-w-xs transform transition ${
-          isMenuOpen ? 'shadow-2xl' : '-translate-x-full'
-        }`}
-      >
-        <div className="flex justify-between items-center p-4">
+      <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
+        <div>
           <Link href="/">
-            <a className="text-4xl font-cursive">Vala</a>
+            <a className={styles.logo}>Vala</a>
           </Link>
-          <button onClick={() => setIsMenuOpen(false)} className="p-2">
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className={styles.closeButton}
+          >
             <FaTimes />
           </button>
         </div>
@@ -75,9 +65,7 @@ const Header: IHeader = ({ children, className }) => {
 }
 
 Header.NavLink = ({ children, className, external, href }) => {
-  const classes = `flex space-x-1 items-center hover:underline ${
-    className ?? ''
-  }`
+  const classes = `${styles.navLink} ${className ?? ''}`
 
   const MyLink: FC = external
     ? ({ children }) => (
