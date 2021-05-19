@@ -14,7 +14,7 @@ import Main from '../components/Main'
 import ContainedButton from '../components/ContainedButton'
 import OutlinedButton from '../components/OutlinedButton'
 import Feature from '../components/Feature'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 type IHome = FC<{ sampleCode: string }>
 

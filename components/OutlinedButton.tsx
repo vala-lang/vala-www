@@ -1,5 +1,5 @@
 import Button, { IButton } from './Button'
-import styles from './OutlinedButton.module.css'
+import styles from './OutlinedButton.module.scss'
 
 const OutlinedButton: IButton = ({ children, className, href, onClick }) => (
   <Button

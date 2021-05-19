@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import styles from './Container.module.css'
+import styles from './Container.module.scss'
 
 type IContainer = FC<{ className?: string }>
 

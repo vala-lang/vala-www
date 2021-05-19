@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import styles from './Button.module.css'
+import styles from './Button.module.scss'
 
 export type IButton = FC<{
   className?: string

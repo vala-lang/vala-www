@@ -15,14 +15,18 @@
 
 .navBar {
   display: none;
-}
 
-.navBar > ul {
-  display: flex;
-}
+  @media (min-width: 768px) {
+    display: block;
+  }
 
-.navBar > ul > * + * {
-  margin-left: 1rem;
+  > ul {
+    display: flex;
+
+    > * + * {
+      margin-left: 1rem;
+    }
+  }
 }
 
 .menuShadow {
@@ -35,12 +39,12 @@
   right: 0;
   top: 0;
   transition: opacity cubic-bezier(0.4, 0, 1, 1) 200ms;
-}
 
-.menuShadow.active {
-  pointer-events: auto;
-  opacity: 1;
-  transition: opacity cubic-bezier(0, 0, 0.2, 1) 250ms;
+  &.active {
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity cubic-bezier(0, 0, 0.2, 1) 250ms;
+  }
 }
 
 .menu {
@@ -54,21 +58,21 @@
   transform: translateX(-100%);
   transition: box-shadow cubic-bezier(0.4, 0, 1, 1) 200ms,
     transform cubic-bezier(0.4, 0, 1, 1) 200ms;
-}
 
-.menu.active {
-  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
-    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
-  transform: translateX(0);
-  transition: box-shadow cubic-bezier(0, 0, 0.2, 1) 250ms,
-    transform cubic-bezier(0, 0, 0.2, 1) 250ms;
-}
+  &.active {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+      0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    transform: translateX(0);
+    transition: box-shadow cubic-bezier(0, 0, 0.2, 1) 250ms,
+      transform cubic-bezier(0, 0, 0.2, 1) 250ms;
+  }
 
-.menu > div {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
 }
 
 .closeButton {
@@ -83,22 +87,18 @@
 .navLink {
   align-items: center;
   display: flex;
-}
 
-.navLink > * + * {
-  margin-left: 0.25rem;
-}
-
-.navLink:hover {
-  text-decoration: underline;
-}
-
-@media (min-width: 768px) {
-  .navBar {
-    display: block;
+  > * + * {
+    margin-left: 0.25rem;
   }
 
-  .menuButton {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.menuButton {
+  @media (min-width: 768px) {
     display: none;
   }
 }

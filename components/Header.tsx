@@ -3,7 +3,7 @@ import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import Link from 'next/link'
 
 import OutlinedButton from './OutlinedButton'
-import styles from './Header.module.css'
+import styles from './Header.module.scss'
 
 type IHeader = FC<{ className?: string }> & { NavLink: INavLink }
 type INavLink = FC<{

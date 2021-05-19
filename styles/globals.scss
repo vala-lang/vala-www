@@ -1,4 +1,4 @@
-@import './preflight.css';
+@use './preflight.scss';
 @import '~@fontsource/inter/400.css';
 @import '~@fontsource/inter/variable.css';
 
@@ -18,10 +18,8 @@
 html {
   font-family: Inter, sans-serif;
   font-weight: 400;
-}
 
-@supports (font-variation-settings: normal) {
-  html {
+  @supports (font-variation-settings: normal) {
     font-family: InterVariable, sans-serif;
     font-variation-settings: 'wght' 400;
   }

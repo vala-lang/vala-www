@@ -1,5 +1,5 @@
 import Button, { IButton } from './Button'
-import styles from './ContainedButton.module.css'
+import styles from './ContainedButton.module.scss'
 
 const ContainedButton: IButton = ({ children, className, href, onClick }) => (
   <Button

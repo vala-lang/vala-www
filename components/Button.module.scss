@@ -4,14 +4,12 @@
   align-items: center;
   display: flex;
   font-weight: 500;
-}
 
-.button > * + * {
-  margin-left: 0.5rem;
-}
+  > * + * {
+    margin-left: 0.5rem;
+  }
 
-@supports (font-variation-settings: normal) {
-  .button {
+  @supports (font-variation-settings: normal) {
     font-variation-settings: 'wght' 500;
   }
 }
