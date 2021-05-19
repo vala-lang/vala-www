@@ -21,5 +21,4 @@ You can start editing the page by modifying `pages/index.tsx` or any file under 
 ## Additional Resources
 
 - [Next.js Documentation](https://nextjs.org/docs/getting-started)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [MDN Web Docs](https://developer.mozilla.org/es/)
