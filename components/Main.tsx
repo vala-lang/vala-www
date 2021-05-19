@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import classNames from 'classnames'
 
 import styles from './Main.module.scss'
 
@@ -12,11 +13,11 @@ type IDescription = FC<{ className?: string }>
 type IActionArea = FC<{ className?: string }>
 
 const Main: IMain = ({ children, className }) => {
-  return <main className={`${styles.main} ${className ?? ''}`}>{children}</main>
+  return <main className={classNames(styles.main, className)}>{children}</main>
 }
 
 Main.Title = ({ children, className }) => (
-  <h1 className={`${styles.title} ${className ?? ''}`}>{children}</h1>
+  <h1 className={classNames(styles.title, className)}>{children}</h1>
 )
 
 Main.Description = ({ children, className }) => (
@@ -24,7 +25,7 @@ Main.Description = ({ children, className }) => (
 )
 
 Main.ActionArea = ({ children, className }) => (
-  <div className={`${styles.actionArea} ${className ?? ''}`}>{children}</div>
+  <div className={classNames(styles.actionArea, className)}>{children}</div>
 )
 
 export default Main

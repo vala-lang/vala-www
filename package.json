@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/inter": "^4.2.2",
     "@fontsource/lobster": "^4.2.2",
+    "classnames": "^2.3.1",
     "next": "^10.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

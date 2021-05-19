@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
+import classNames from 'classnames'
 
 import styles from './Feature.module.scss'
 
@@ -9,7 +10,7 @@ const Feature: IFeature = ({ children, className, icon }) => {
   const Icon = icon
 
   return (
-    <article className={`${styles.feature} ${className ?? ''}`}>
+    <article className={classNames(styles.feature, className)}>
       <Icon size="32" className={styles.icon} />
       <p>{children}</p>
     </article>

@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import classNames from 'classnames'
 
 import styles from './Button.module.scss'
 
@@ -13,7 +14,7 @@ const Button: IButton = ({ children, className, href, onClick }) => {
 
   return (
     <CustomTag
-      className={`${styles.button} ${className ?? ''}`}
+      className={classNames(styles.button, className)}
       {...(onClick ? { onClick: () => onClick() } : {})}
       {...(href ? { href } : {})}
     >

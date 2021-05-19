@@ -1,6 +1,7 @@
 import { Children, FC, useState } from 'react'
 import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import Link from 'next/link'
+import classNames from 'classnames'
 
 import OutlinedButton from './OutlinedButton'
 import styles from './Header.module.scss'
@@ -16,7 +17,7 @@ const Header: IHeader = ({ children, className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className={`${styles.header} ${className ?? ''}`}>
+    <header className={classNames(styles.header, className)}>
       <Link href="/">
         <a className={styles.logo}>Vala</a>
       </Link>
@@ -36,9 +37,11 @@ const Header: IHeader = ({ children, className }) => {
       </OutlinedButton>
       <div
         onClick={() => setIsMenuOpen(false)}
-        className={`${styles.menuShadow} ${isMenuOpen ? styles.active : ''}`}
+        className={classNames(styles.menuShadow, {
+          [styles.active]: isMenuOpen,
+        })}
       />
-      <div className={`${styles.menu} ${isMenuOpen ? styles.active : ''}`}>
+      <div className={classNames(styles.menu, { [styles.active]: isMenuOpen })}>
         <div>
           <Link href="/">
             <a className={styles.logo}>Vala</a>
@@ -65,7 +68,7 @@ const Header: IHeader = ({ children, className }) => {
 }
 
 Header.NavLink = ({ children, className, external, href }) => {
-  const classes = `${styles.navLink} ${className ?? ''}`
+  const classes = classNames(styles.navLink, className)
 
   const MyLink: FC = external
     ? ({ children }) => (
