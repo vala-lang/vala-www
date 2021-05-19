@@ -1,4 +1,4 @@
-import React, { Children, FC, useState } from 'react'
+import { Children, FC, useState } from 'react'
 import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import Link from 'next/link'
 

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { IconType } from 'react-icons/lib'
 
 import styles from './Feature.module.css'

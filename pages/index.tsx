@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Head from 'next/head'
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import vala from 'react-syntax-highlighter/dist/cjs/languages/prism/vala'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Button, { IButton } from './Button'
 import styles from './OutlinedButton.module.css'
 
