@@ -1,6 +1,6 @@
 @use './preflight.scss';
-@import '~@fontsource/inter/400.css';
-@import '~@fontsource/inter/variable.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/variable.css';
 
 :root {
   --contained-button-background: #a56de2;
