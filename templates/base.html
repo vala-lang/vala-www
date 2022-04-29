@@ -1,0 +1,32 @@
+{% import "macros/body.html" as body_macros %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block head %} {% endblock head %}
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+  <header>
+    <nav>
+      <a href="/"><span>Vala Logo</span></a>
+        <ul>
+      {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
+        </ul>
+      <!-- Link to Installation section of tutorial -->
+      <a href="#">Get Started</a>
+    </nav>
+  </header>
+  <main id="main-content">
+    {% block main_content %} {% endblock %}
+  </main>
+
+  <footer>
+    {% block footer %} {% endblock %}
+  </footer>
+
+  {% block body_end %} {% endblock %}
+
+</body>
+</html>

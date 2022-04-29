@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="/css/prism.css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+{% endblock %}
+
+{% block main_content %}
+  {% set sample_code = load_data(path="content/sample.vala") %}
+
+  <h1>A Modern, Fast Open Source Language</h1>
+  <pre class="line-numbers"><code class="language-vala">{{ sample_code }}</code></pre>
+{% endblock %}
+
+{% block body_end %}
+<script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.js"></script>
+{% endblock %}
