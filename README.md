@@ -20,4 +20,5 @@ You can edit the index page by modifying `templates/index.html`. The rest of the
 ## Additional Resources
 
 - [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)
+- [Tera Documentation](https://tera.netlify.app/)
 - [MDN Web Docs](https://developer.mozilla.org)
