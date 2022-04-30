@@ -1,4 +1,4 @@
-# Vala on the World Wide
+# Vala on the Web
 
 Website of the Vala programming language.
 
