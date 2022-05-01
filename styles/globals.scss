@@ -3,6 +3,8 @@
 @import '@fontsource/inter/variable.css';
 
 :root {
+  --foreground: black;
+  --background: white;
   --contained-button-background: #a56de2;
   --contained-button-foreground: white;
 
@@ -22,5 +24,18 @@ html {
   @supports (font-variation-settings: normal) {
     font-family: InterVariable, sans-serif;
     font-variation-settings: 'wght' 400;
+  }
+}
+
+body {
+  color: var(--foregound);
+  background: var(--background);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1a1a1a;
+    --foregound: white;
   }
 }
