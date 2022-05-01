@@ -1,6 +1,6 @@
 import { Children, FC, useState } from 'react'
-import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import Link from 'next/link'
+import { FaBars, FaExternalLinkAlt, FaTimes } from 'react-icons/fa'
 import classNames from 'classnames'
 
 import OutlinedButton from './OutlinedButton'
@@ -28,41 +28,6 @@ const Header: IHeader = ({ children, className }) => {
           ))}
         </ul>
       </nav>
-      <OutlinedButton
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className={styles.menuButton}
-      >
-        <p>MENU</p>
-        <FaBars />
-      </OutlinedButton>
-      <div
-        onClick={() => setIsMenuOpen(false)}
-        className={classNames(styles.menuShadow, {
-          [styles.active]: isMenuOpen,
-        })}
-      />
-      <div className={classNames(styles.menu, { [styles.active]: isMenuOpen })}>
-        <div>
-          <Link href="/">
-            <a className={styles.logo}>Vala</a>
-          </Link>
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className={styles.closeButton}
-          >
-            <FaTimes />
-          </button>
-        </div>
-        <nav>
-          <ul>
-            {Children.map(children, (child, index) => (
-              <li className={styles.menuItem} key={index}>
-                {child}
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
     </header>
   )
 }

@@ -5,6 +5,11 @@
   color: var(--header-foreground);
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 .logo {
@@ -14,19 +19,37 @@
 }
 
 .navBar {
-  display: none;
-
-  @media (min-width: 768px) {
-    display: block;
-  }
-
+  display: block;
   > ul {
     display: flex;
+    // flex-wrap: wrap;
+    // align-items: center;
 
-    > * + * {
-      margin-left: 1rem;
+
+    > * {
+      margin-right: 1rem;
+    }
+
+    > :last-child {
+      margin-right: 0;
+    }
+
+    @media (max-width: 768px) {
+      margin-top: 1rem;
+      flex-direction: column;
+
+      > * {
+        margin-right: 0;
+        margin-bottom: 1rem;
+      }
+
+      > :last-child {
+        margin-bottom: 0;
+      }
     }
   }
+
+
 }
 
 .menuShadow {
@@ -75,10 +98,6 @@
   }
 }
 
-.closeButton {
-  padding: 0.5rem;
-}
-
 .menuItem a {
   padding: 1rem;
   width: 100%;
@@ -94,11 +113,5 @@
 
   &:hover {
     text-decoration: underline;
-  }
-}
-
-.menuButton {
-  @media (min-width: 768px) {
-    display: none;
   }
 }
