@@ -1,0 +1,48 @@
+:root {
+	--accent-color: #a56de2;
+  --accent-color-light-2: #e4c6fa;
+  --accent-color-light-1: #cd9ef7;
+  --accent-color-dark-1: #7239b3;
+  --accent-color-dark-2: #452981;
+	--foreground-color: black;
+	--background-color: white;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: "InterVariable";
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: $font-weight-bold;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: var(--accent-color-dark-1);
+}
+
+a:active {
+  color: var(--accent-color-dark-2);
+}
+
+#bypass-block {
+  @extend %screen-reader-only;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-color: white;
+    --background-color: #1a1a1a;
+  }
+}
