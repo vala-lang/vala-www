@@ -2,10 +2,24 @@
   max-width: 16.25rem;
 }
 
+.feature .icon {
+  width: 4rem;
+  height: 4rem;
+  fill: var(--accent-color)
+}
+
 .features {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.features .feature {
+  margin-top: 4rem
+}
+
+.features .feature:first-child {
+  margin-top: 0;
 }
 
 @media (min-width: 700px) {
@@ -15,6 +29,11 @@
   }
 
   .features .feature {
+    margin-top: 0;
+    margin-right: 4rem;
+  }
 
+  .features .feature:last-child {
+    margin-right: 0;
   }
 }

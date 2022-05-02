@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
+<title>Yes</title>
 <link rel="stylesheet" href="/css/index.css">
 <link rel="stylesheet" href="/css/prism-one-light.css">
 <link rel="stylesheet" href="/css/prism-one-dark.css" media="(prefers-color-scheme: dark)">
@@ -11,7 +12,7 @@
   <header class="extended">
     <div>
       <nav>
-        <a href="/">
+        <a aria-label="Home" href="/">
           {{ icon_macros::vala_text()|safe }}
         </a>
         <ul>
