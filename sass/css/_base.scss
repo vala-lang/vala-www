@@ -36,6 +36,11 @@ main {
   flex-direction: column;
 }
 
+article {
+  text-align: left;
+  max-width: 600px;
+}
+
 footer {
   --foreground-color: white;
   color: var(--foreground-color);

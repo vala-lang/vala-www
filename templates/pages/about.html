@@ -7,3 +7,9 @@
   <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
   <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
 {% endblock %}
+
+{% block main_content %}
+<article>
+  {{ page.content|safe }}
+</article>
+{% endblock %}
