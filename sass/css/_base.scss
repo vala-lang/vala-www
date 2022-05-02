@@ -21,16 +21,21 @@ body {
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground-color);
+}
+
 h1 {
   font-size: 3rem;
   letter-spacing: -0.04rem;
   font-weight: $font-weight-bold;
   font-variation-settings: 'wght' $font-weight-bold;
 }
-
-// h2 {
-
-// }
 
 ul {
   list-style-type: none;
