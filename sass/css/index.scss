@@ -1,10 +1,20 @@
 body > header.extended {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
-  padding: 0 0 6rem 0;
+  padding: 0 0 30vh 0;
 }
 
 body > header.extended h1 {
   text-align: center;
   margin-top: 5rem;
   display: block;
+}
+
+main {
+  position: relative;
+  margin-top: -30vh;
+}
+
+main > pre,
+main > pre + p {
+  max-width: 45rem;
 }

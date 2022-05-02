@@ -10,6 +10,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   background-color: var(--background-color);
   color: var(--foreground-color);
   font-family: "Inter", Arial, Helvetica, sans-serif;
@@ -19,6 +21,17 @@ body {
   body {
     font-family: "Inter Variable", Arial, Helvetica, sans-serif;
   }
+}
+
+body > div {
+  flex: 1 1 0%;
+}
+
+main {
+  display: flex;
+  overflow-x: auto;
+  text-align: center;
+  flex-direction: column;
 }
 
 h1,
@@ -78,5 +91,11 @@ a:active {
   :root {
     --foreground-color: white;
     --background-color: #1a1a1a;
+  }
+}
+
+@media (min-width: 740px) {
+  main {
+    align-items: center;
   }
 }
