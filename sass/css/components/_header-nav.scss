@@ -6,7 +6,7 @@ header {
 }
 
 header > div  {
-  @extend %container !optional;
+  padding: 0.75rem 1rem;
   margin: 0 auto;
   max-width: 76.25rem;
 }
