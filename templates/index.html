@@ -1,3 +1,5 @@
+{% import "macros/body.html" as body_macros %}
+
 {% extends "base.html" %}
 
 {% block head %}
@@ -32,6 +34,8 @@
   <pre class="line-numbers"><code class="language-vala">{{ sample_code }}</code></pre>
 
   <p>Vala allows you to write modern, high-level code, with fully native performance, without requiring any additional runtime and maintaining full API/ABI compatibility with your C applications and libraries.</p>
+
+  {{ body_macros::features() }}
 {% endblock %}
 
 
