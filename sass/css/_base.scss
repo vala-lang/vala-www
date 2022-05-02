@@ -34,6 +34,22 @@ main {
   flex-direction: column;
 }
 
+footer {
+  --foreground-color: white;
+  color: var(--foreground-color);
+  background: var(--vala-gradient);
+  padding: 1rem;
+}
+
+footer a {
+  display: block;
+  color: var(--accent-color-light-2);
+}
+
+footer a:hover {
+  color: white;
+}
+
 h1,
 h2,
 h3,

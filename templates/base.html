@@ -30,9 +30,7 @@
     </main>
   </div>
 
-  <footer>
-    {% block footer %} {% endblock %}
-  </footer>
+  {{ body_macros::footer() }}
 
   {% block body_end %} {% endblock %}
 
