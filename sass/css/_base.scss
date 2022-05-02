@@ -46,7 +46,8 @@ footer a {
   color: var(--accent-color-light-2);
 }
 
-footer a:hover {
+footer a:hover,
+footer a:focus {
   color: white;
 }
 

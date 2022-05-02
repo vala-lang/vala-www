@@ -21,12 +21,24 @@ body > header nav ul {
   flex: 1 0 auto;
 }
 
+body > header nav > :first-child svg {
+  fill: white;
+  width: 4rem;
+  height: 1.6rem;
+}
+
+body > header nav > :first-child:hover svg,
+body > header nav > :first-child:focus svg {
+  fill: var(--accent-color-light-1);
+}
+
 body > header a {
   color: var(--accent-color-light-2);
   text-decoration: none;
 }
 
-body > header a:hover {
+body > header a:hover,
+body > header a:focus {
   color: white;
 }
 
