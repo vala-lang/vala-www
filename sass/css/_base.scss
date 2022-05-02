@@ -11,12 +11,19 @@
 body {
   background-color: var(--background-color);
   color: var(--foreground-color);
-  font-family: "InterVariable";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter Variable", Arial, Helvetica, sans-serif;
+  }
 }
 
 h1 {
   font-size: 3rem;
   font-weight: $font-weight-bold;
+  font-variation-settings: 'wght' $font-weight-bold;
 }
 
 ul {
