@@ -1,9 +1,9 @@
-header.extended {
+body > header.extended {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
   padding: 0 0 6rem 0;
 }
 
-header.extended h1 {
+body > header.extended h1 {
   text-align: center;
   margin-top: 5rem;
   display: block;

@@ -1,4 +1,4 @@
-header {
+body > header {
   // @extend %container !optional;
   width: 100%;
   background: linear-gradient(157deg, #9141ac, #813d9c);
@@ -6,51 +6,51 @@ header {
   --foreground-color: white;
 }
 
-header > div  {
+body > header > div  {
   padding: 0.75rem 1rem;
   margin: 0 auto;
   max-width: 76.25rem;
 }
 
-header nav {
+body > header nav {
   display: flex;
   flex-direction: column;
 }
 
-header nav ul {
+body > header nav ul {
   flex: 1 0 auto;
 }
 
-header a {
+body > header a {
   color: white;
 }
 
 @media (min-width: 700px) {
-  header {
+  body > header {
     margin: auto 0;
   }
 
-  header nav {
+  body > header nav {
     flex-direction: row;
     align-items: center;
   }
 
-  header nav > :first-child,
-  header nav > :last-child {
+  body > header nav > :first-child,
+  body > header nav > :last-child {
     flex: 0 1 20%;
   }
 
-  header nav > :last-child {
+  body > header nav > :last-child {
     text-align: right;
   }
 
-  header nav ul {
+  body > header nav ul {
     display: flex;
     text-align: center;
     justify-content: center;
   }
 
-  header nav ul li {
+  body > header nav ul li {
     display: inline-block;
     margin-right: 1rem;
   }
