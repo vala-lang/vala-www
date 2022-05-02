@@ -56,11 +56,10 @@ a:active {
   display: block;
   text-align: center;
   font-size: 2rem;
-  // margin-top: 1rem;
   z-index: -2;
   background: var(--vala-gradient);
   opacity: 0;
-  width: 100vw;
+  width: 100%;
   color: white;
   padding: 1rem;
 }
