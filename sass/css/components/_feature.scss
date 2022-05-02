@@ -5,10 +5,16 @@
 .features {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 @media (min-width: 700px) {
   .features {
+    align-items: stretch;
     flex-direction: row;
+  }
+
+  .features .feature {
+
   }
 }
