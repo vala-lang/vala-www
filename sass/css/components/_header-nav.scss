@@ -22,6 +22,11 @@ body > header nav ul {
 }
 
 body > header a {
+  color: var(--accent-color-light-2);
+  text-decoration: none;
+}
+
+body > header a:hover {
   color: white;
 }
 
