@@ -6,12 +6,12 @@ header {
 }
 
 header > div  {
+  @extend %container !optional;
   margin: 0 auto;
   max-width: 76.25rem;
 }
 
 header nav {
-  @extend %container !optional;
   display: flex;
   flex-direction: column;
 }
