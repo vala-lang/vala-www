@@ -1,0 +1,58 @@
+header {
+  // @extend %container !optional;
+  width: 100%;
+  background: linear-gradient(157deg, #9141ac, #813d9c);
+  display: block
+}
+
+header > div  {
+  margin: 0 auto;
+  max-width: 76.25rem;
+}
+
+header nav {
+  @extend %container !optional;
+  display: flex;
+  flex-direction: column;
+}
+
+header nav ul {
+  flex: 1 0 auto;
+}
+
+header a {
+  color: white;
+}
+
+@media (min-width: 700px) {
+  header {
+    margin: auto 0;
+  }
+
+  header nav {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  header nav > :first-child,
+  header nav > :last-child {
+    flex: 0 1 20%;
+  }
+
+  header nav > :last-child {
+    text-align: right;
+  }
+
+  header nav ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  header nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+}
+

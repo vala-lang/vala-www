@@ -11,14 +11,16 @@
   <a id="bypass-block" href="#main-content">Skip to main content</a>
   {% block top_level_header %}
   <header>
-    <nav>
-      <a href="/"><span>Vala Logo</span></a>
-        <ul>
-      {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
-        </ul>
-      <!-- Link to Installation section of tutorial -->
-      <a href="#">Get Started</a>
-    </nav>
+    <div>
+      <nav>
+        <a href="/"><span>Vala Logo</span></a>
+          <ul>
+        {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
+          </ul>
+        <!-- Link to Installation section of tutorial -->
+        <a href="#">Get Started</a>
+      </nav>
+    </div>
   </header>
   {% endblock %}
   <main id="main-content">
