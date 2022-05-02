@@ -3,6 +3,7 @@ body > header {
   background: linear-gradient(157deg, #9141ac, #813d9c);
   display: block;
   --foreground-color: white;
+  color: var(--foreground-color);
 }
 
 body > header > div  {
