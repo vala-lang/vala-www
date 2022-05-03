@@ -1,0 +1,15 @@
+{% extends "page.html" %}
+
+{% block header_links %}
+  <li>About</li>
+  <li><a href="#">Docs</a></li>
+  <li><a href="#">Community</a></li>
+  <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
+  <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
+{% endblock %}
+
+{% block main_content %}
+<article>
+  {{ page.content|safe }}
+</article>
+{% endblock %}

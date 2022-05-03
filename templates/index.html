@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Vala Programming Language</title>
+<link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/prism-one-light.css">
+<link rel="stylesheet" href="/css/prism-one-dark.css" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+{% endblock %}
+
+{% block top_level_header %}
+  <header class="extended">
+    <div>
+      <nav>
+        <a aria-label="Home" href="/">
+          {{ icon_macros::vala_text()|safe }}
+        </a>
+        <ul>
+          <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
+          <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
+        </ul>
+        <!-- Link to Installation section of tutorial -->
+        <a href="#">Get Started</a>
+      </nav>
+      <h1>A Modern, Fast Open Source Language</h1>
+    </div>
+  </header>
+{% endblock %}
+
+{% block main_content %}
+
+  <pre class="line-numbers" tabindex="-1"><code class="language-vala">{{ load_data(path="content/sample.vala") }}</code></pre>
+
+  <p>Vala allows you to write modern, high-level code, with fully native performance, without requiring any additional runtime and maintaining full API/ABI compatibility with your C applications and libraries.</p>
+
+  {{ body_macros::features() }}
+{% endblock %}
+
+
+{% block body_end %}
+<script src="/js/prism.js"></script>
+<script src="/js/prism-line-numbers.js"></script>
+{% endblock %}

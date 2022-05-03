@@ -1,0 +1,75 @@
+/**
+ * TODO: Reduce to only font-weights and files actually being used in the site.
+ */
+
+$font-weight-thin: 100;
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+$font-weight-black: 900;
+
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/Inter-Variable.ttf") format('truetype');
+  font-weight: $font-weight-thin $font-weight-black;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Thin.ttf") format('truetype');
+  font-weight: $font-weight-thin;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-ExtraLight.ttf") format('truetype');
+  font-weight: $font-weight-extra-light;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Light.ttf") format('truetype');
+  font-weight: $font-weight-light;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.ttf") format('truetype');
+  font-weight: $font-weight-regular;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Medium.ttf") format('truetype');
+  font-weight: $font-weight-medium;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-SemiBold.ttf") format('truetype');
+  font-weight: $font-weight-semi-bold;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.ttf") format('truetype');
+  font-weight: $font-weight-bold;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-ExtraBold.ttf") format('truetype');
+  font-weight: $font-weight-extra-bold;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Black.ttf") format('truetype');
+  font-weight: $font-weight-black;
+}
+
+

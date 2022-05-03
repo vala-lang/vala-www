@@ -1,24 +1,24 @@
-This is Work in Progress (WIP) to create a new frontpage for the Vala programming language.
+# Vala on the Web
+
+Website of the Vala programming language.
 
 ## System Requirements
 
-- [Node.js 10.13](https://nodejs.org) or higher
-- Linux, Windows, or MacOS
+- [Zola](https://www.getzola.org)
 
-## Getting Started
+## Getting started
 
-First, run the development server:
-
+First, start the development server:
 ```sh
-npm i
-npm run dev
+zola serve
 ```
 
-Open http://localhost:3000 with your preferred browser to see the result.
+Then you should be able to access the wesbite on your browser by navigating to: [http://localhost:1111](http://localhost:1111).
 
-You can start editing the page by modifying `pages/index.tsx` or any file under the `components` folder.
+You can edit the index page by modifying `templates/index.html`. The rest of the pages are defined in `content`.
 
 ## Additional Resources
 
-- [Next.js Documentation](https://nextjs.org/docs/getting-started)
-- [MDN Web Docs](https://developer.mozilla.org/es/)
+- [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)
+- [Tera Documentation](https://tera.netlify.app/)
+- [MDN Web Docs](https://developer.mozilla.org)

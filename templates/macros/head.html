@@ -1,0 +1,14 @@
+{% macro og_data(title, description) %}
+  {{ self::og_data_with_image (title=title, description=description, image_url='') }}
+{% endmacro %}
+
+{% macro og_data_with_image(title, description, image_url) %}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ current_url }}">
+
+  {%- if image_url|trim == '' %}
+    <meta property="og:image" content="{{ image_url }}">
+  {% endif %}
+{% endmacro %}

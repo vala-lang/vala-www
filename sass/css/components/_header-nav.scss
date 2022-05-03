@@ -1,0 +1,106 @@
+body > header {
+  width: 100%;
+  background: linear-gradient(157deg, #9141ac, #813d9c);
+  display: block;
+  --foreground-color: white;
+  color: var(--foreground-color);
+}
+
+body > header > div  {
+  padding: 1.5rem 1rem;
+  margin: 0 auto;
+  max-width: 76.25rem;
+}
+
+body > header nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Align better with Vala Logo */
+body > header nav ul,
+body > header nav > :last-child {
+  margin-left: 0.25rem;
+}
+
+
+body > header nav ul {
+  flex: 1 0 auto;
+}
+
+body > header nav > :first-child svg {
+  fill: white;
+  width: 4rem;
+  height: 1.6rem;
+}
+
+body > header nav > :first-child:hover svg,
+body > header nav > :first-child:focus svg {
+  fill: var(--accent-color-light-1);
+}
+
+body > header nav ul li {
+  margin-top: 1rem;
+}
+body > header nav ul li:first-child {
+  margin-top: 0;
+}
+
+body > header a {
+  display: block;
+  color: var(--accent-color-light-2);
+  text-decoration: none;
+}
+
+body > header a:hover,
+body > header a:focus {
+  color: white;
+}
+
+@media (min-width: 700px) {
+  body > header {
+    margin: auto 0;
+  }
+
+  body > header > div  {
+    padding: 0.75rem 1rem;
+  }
+
+  body > header nav {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  body > header nav > :first-child,
+  body > header nav > :last-child {
+    flex: 0 1 20%;
+  }
+
+  body > header nav > :last-child {
+    text-align: right;
+  }
+
+  body > header nav ul,
+  body > header nav :last-child {
+    margin-left: 0rem;
+  }
+
+  body > header nav ul {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-left: 0.25rem;
+  }
+
+  body > header nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 0;
+  }
+
+  body > header nav ul li:last-chiild {
+    margin-right: 0;
+  }
+
+}
+

@@ -1,0 +1,42 @@
+{% import "macros/body.html" as body_macros %}
+{% import "macros/icon.html" as icon_macros %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/global.css">
+  {% block head %} {% endblock head %}
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+  {% block top_level_header %}
+  <header>
+    <div>
+      <nav>
+        <a aria-label="Home" href="/">
+          {{ icon_macros::vala_text() }}
+        </a>
+          <ul>
+        {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
+          </ul>
+        <!-- Link to Installation section of tutorial -->
+        <a href="#">Get Started</a>
+      </nav>
+    </div>
+  </header>
+  {% endblock %}
+
+  <div class="container">
+    <main id="main-content">
+      {% block main_content %} {% endblock %}
+    </main>
+  </div>
+
+  {{ body_macros::footer() }}
+
+  {% block body_end %} {% endblock %}
+
+</body>
+</html>

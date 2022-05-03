@@ -1,0 +1,10 @@
+{% macro vala_text() %}
+{{ load_data(path="assets/vala-text-logo.svg")|safe }}
+{% endmacro %}
+
+{% macro sprite_icon(name, label="", aria_hidden=true) %}
+
+<svg {% if aria_hidden == true -%}aria-hidden="true"{%- endif -%} {% if label != "" %}aria-label="{{ label }}"{%- endif -%} class="icon">
+  <use href="/icons/spritemap.svg#sprite-{{name}}"></use>
+</svg>
+{% endmacro %}

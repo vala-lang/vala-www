@@ -1,0 +1,45 @@
+{% import "macros/icon.html" as icon_macros %}
+
+{% macro default_header_links() %}
+  <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
+  <li><a href="#">Docs</a></li>
+  <li><a href="#">Community</a></li>
+  <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
+  <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
+{% endmacro %}
+
+{% macro features() %}
+<ul class="features">
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <p class="description">
+      Familiar to anyone who has worked with Java or C#, but maintaining API/ABI compatibility with C
+    </p>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="rocket") }}</span>
+    </div>
+    <p class="description">
+      Low memory requirements, fully native execution, and created targeting the GLib Object System
+    </p>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="gears") }}</span>
+    </div>
+    <p class="description">
+      Signals, properties, generics, assisted memory management, error handling, asynchronous programming, and more
+    </p>
+  </li>
+</ul>
+{% endmacro %}
+
+{% macro footer() %}
+<footer>
+  <div>Made by the Vala Community</div>
+  <a href="https://github.com/colinkiama/vala-www">View The Source Code</a>
+</footer>
+{% endmacro %}

@@ -1,0 +1,41 @@
+body > header.extended {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  padding: 0 0 30vh 0;
+}
+
+body > header.extended h1 {
+  text-align: center;
+  margin-top: 5rem;
+  display: block;
+}
+
+main {
+  margin-top: -40vh;
+  /* Gives enough space for code example's shadow to spread */
+  padding-top: 10vh;
+}
+
+main > pre,
+main > pre + p {
+  max-width: 45rem;
+}
+
+main > pre {
+  border-radius: 0.5rem;
+}
+
+.features {
+  margin-top: 4rem;
+}
+
+@media (min-width: 800px) {
+  main > pre {
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@media (min-width: 800px) and (prefers-color-scheme: dark) {
+  main > pre {
+    box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.3);
+  }
+}
