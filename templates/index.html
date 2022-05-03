@@ -14,9 +14,11 @@
   <header class="extended">
     <div>
       <nav>
-        <a aria-label="Home" href="{{ get_url(path='/') }}">
-          {{ icon_macros::vala_text()|safe }}
-        </a>
+        <div>
+          <a aria-label="Home" href="{{ get_url(path='/') }}">
+            {{ icon_macros::vala_text()|safe }}
+          </a>
+        </div>
         <ul>
           <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
           <li><a href="#">Docs</a></li>
@@ -25,7 +27,9 @@
           <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
         </ul>
         <!-- Link to Installation section of tutorial -->
-        <a href="#">Get Started</a>
+        <div>
+          <a href="#">Get Started</a>
+        </div>
       </nav>
       <h1>A Modern, Fast, Open Source Language</h1>
     </div>

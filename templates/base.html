@@ -20,14 +20,18 @@
   <header>
     <div>
       <nav>
-        <a aria-label="Home" href="{{ get_url(path='/') }}">
-          {{ icon_macros::vala_text() }}
-        </a>
+        <div>
+          <a aria-label="Home" href="{{ get_url(path='/') }}">
+            {{ icon_macros::vala_text() }}
+          </a>
+        </div>
           <ul>
         {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
           </ul>
         <!-- Link to Installation section of tutorial -->
-        <a href="#">Get Started</a>
+        <div>
+          <a href="#">Get Started</a>
+        </div>
       </nav>
     </div>
   </header>

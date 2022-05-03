@@ -34,8 +34,8 @@ body > header nav > :first-child svg {
   height: 1.6rem;
 }
 
-body > header nav > :first-child:hover svg,
-body > header nav > :first-child:focus svg {
+body > header nav > :first-child a:hover  svg,
+body > header nav > :first-child a:focus svg {
   fill: var(--accent-color-light-1);
 }
 
@@ -60,6 +60,10 @@ body > header a:focus {
 @media (min-width: 700px) {
   body > header {
     margin: auto 0;
+  }
+
+  body > header a {
+    display: inline-block;
   }
 
   body > header > div  {
