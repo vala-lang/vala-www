@@ -1,6 +1,6 @@
 body > header {
   width: 100%;
-  background: linear-gradient(157deg, #9141ac, #813d9c);
+  background: var(--vala-gradient);
   display: block;
   --foreground-color: white;
   color: var(--foreground-color);
