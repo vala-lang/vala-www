@@ -5,6 +5,6 @@
 {% macro sprite_icon(name, label="", aria_hidden=true) %}
 
 <svg {% if aria_hidden == true -%}aria-hidden="true"{%- endif -%} {% if label != "" %}aria-label="{{ label }}"{%- endif -%} class="icon">
-  <use href="/icons/spritemap.svg#sprite-{{name}}"></use>
+  <use href="/vala-www/icons/spritemap.svg#sprite-{{name}}"></use>
 </svg>
 {% endmacro %}
