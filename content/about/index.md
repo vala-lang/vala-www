@@ -5,6 +5,8 @@ template = "pages/about.html"
 
 # About Vala
 
+**TODO: Update content. Current content below is from the [GNOME Vala Wiki](https://wiki.gnome.org/Projects/Vala/About). Please see: [https://github.com/colinkiama/vala-www/issues/1](https://github.com/colinkiama/vala-www/issues/1)**
+
 valac, the Vala compiler, is a self-hosting compiler that translates Vala source code into C source and header files. It uses the GObject type system to create classes and interfaces declared in the Vala source code.
 
 The syntax of Vala is similar to C#, modified to better fit the GObject type system. Vala supports modern language features as the following:
