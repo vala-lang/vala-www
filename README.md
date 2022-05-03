@@ -17,6 +17,10 @@ Then you should be able to access the wesbite on your browser by navigating to: 
 
 You can edit the index page by modifying `templates/index.html`. The rest of the pages are defined in `content`.
 
+## Contributing
+
+Please refer to the [contributor guide](docs/CONTRIBUTING.md).
+
 ## Additional Resources
 
 - [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)

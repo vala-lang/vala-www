@@ -1,4 +1,4 @@
-# Contribution Guide
+# Contributor Guide
 
 Please make sure that you are following the [GitHub Community Guidelines](https://docs.github.com/en/site-policy/github-terms/github-community-guidelines)
 
