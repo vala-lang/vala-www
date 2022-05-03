@@ -3,9 +3,9 @@
 {% block head %}
 <title>Vala Programming Language</title>
 <link rel="stylesheet" href="/vala-www/css/index.css">
-<link rel="stylesheet" href="/vala-www/css/prism-one-light.css">
-<link rel="stylesheet" href="/vala-www/css/prism-one-dark.css" media="(prefers-color-scheme: dark)">
-<link rel="stylesheet" href="/vala-www/css/prism-line-numbers.css">
+<link rel="stylesheet" href="{{ get_url(path='css/prism-one-light.css') }}">
+<link rel="stylesheet" href="{{ get_url(path='css/prism-one-dark.css') }}" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="{{ get_url(path='css/prism-line-numbers.css') }}">
 {% endblock %}
 
 {% block top_level_header %}
@@ -41,6 +41,6 @@
 
 
 {% block body_end %}
-<script src="/vala-www/js/prism.js"></script>
-<script src="/vala-www/js/prism-line-numbers.js"></script>
+<script src="{{ get_url(path='js/prism.js') }}"></script>
+<script src="{{ get_url(path='js/prism-line-numbers.js') }}"></script>
 {% endblock %}
