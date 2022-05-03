@@ -18,3 +18,4 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
+gh_pages_url="https://colinkiama.github.io/vala-www"
