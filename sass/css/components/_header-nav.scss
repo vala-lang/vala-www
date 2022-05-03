@@ -80,8 +80,13 @@ body > header a:focus {
     flex: 0 1 20%;
   }
 
+  body > header nav > :first-child {
+    padding-left: env(safe-area-inset-left);
+  }
+
   body > header nav > :last-child {
     text-align: right;
+    padding-right: env(safe-area-inset-right);
   }
 
   body > header nav ul,

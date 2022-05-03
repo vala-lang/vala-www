@@ -16,7 +16,7 @@ body {
   color: var(--foreground-color);
   font-family: "Inter", Arial, Helvetica, sans-serif;
   height: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh + env(safe-area-inset-bottom));
   line-height: 1.5;
 }
 
@@ -47,6 +47,7 @@ footer {
   color: var(--foreground-color);
   background: var(--vala-gradient);
   padding: 1rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 
 footer a {
