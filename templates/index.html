@@ -19,7 +19,6 @@
             {{ icon_macros::vala_text()|safe }}
           </a>
         </div>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <ul>
           <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
           <li><a href="#">Docs</a></li>
@@ -27,9 +26,9 @@
           <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
           <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
         </ul>
-        <label class="menu-toggle-button" for="menu-toggle">
+        <button class="menu-toggle">
           <span class="hamburger"></span>
-        </label>
+        </button>
         <!-- Link to Installation section of tutorial -->
         <div>
           <a href="#">Get Started</a>

@@ -26,13 +26,12 @@
             {{ icon_macros::vala_text() }}
           </a>
         </div>
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <ul>
           {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
         </ul>
-        <label class="menu-toggle-button" for="menu-toggle">
+        <button class="menu-toggle">
           <span class="hamburger"></span>
-        </label>
+        </button>
         <!-- Link to Installation section of tutorial -->
         <div>
           <a href="#">Get Started</a>
@@ -49,6 +48,9 @@
   </div>
 
   {% include "partials/footer.html" %}
+
+  <script src="{{ get_url(path='js/base.js') }}"></script>
+  <script src="{{ get_url(path='js/navbar.js') }}"></script>
 
   {% block body_end %} {% endblock %}
 
