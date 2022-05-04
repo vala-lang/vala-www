@@ -26,9 +26,13 @@
             {{ icon_macros::vala_text() }}
           </a>
         </div>
-          <ul>
-        {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
-          </ul>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <ul>
+          {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
+        </ul>
+        <label class="menu-toggle-button" for="menu-toggle">
+          <span class="hamburger"></span>
+        </label>
         <!-- Link to Installation section of tutorial -->
         <div>
           <a href="#">Get Started</a>
