@@ -24,5 +24,5 @@ Please refer to the [contributor guide](docs/CONTRIBUTING.md).
 ## Additional Resources
 
 - [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)
-- [Tera Documentation](https://tera.netlify.app/)
+- [Tera Documentation](https://tera.netlify.app/docs/)
 - [MDN Web Docs](https://developer.mozilla.org)
