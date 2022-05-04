@@ -16,7 +16,6 @@ body > header nav {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr auto auto;
-  gap: 1rem;
 }
 
 /* Align better with Vala Logo */
@@ -29,6 +28,13 @@ body > header nav > :last-child {
 body > header nav ul {
   grid-area: 2 / 1 / auto / -1;
   flex: 1 0 auto;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  margin-block: 0;
+  margin-left: 0.25rem;
 }
 
 body > header nav > :first-child svg {
@@ -40,13 +46,6 @@ body > header nav > :first-child svg {
 body > header nav > :first-child a:hover  svg,
 body > header nav > :first-child a:focus svg {
   fill: var(--accent-color-light-1);
-}
-
-body > header nav ul li {
-  margin-top: 1rem;
-}
-body > header nav ul li:first-child {
-  margin-top: 0;
 }
 
 body > header a {
@@ -67,18 +66,14 @@ body > header nav > :last-child {
 
 .menu-toggle {
   display: none;
-}
-
-.menu-toggle-button {
   grid-column-end: -1;
+  padding: 0.3rem;
+  aspect-ratio: 1;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid var(--accent-color-light-2);
   border-radius: 0.3rem;
-  padding: 0.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 1;
   cursor: pointer;
 }
 
@@ -102,29 +97,40 @@ body > header nav > :last-child {
 
   &::before { bottom: 300%; }
   &::after { top: 300%; }
-}
 
-@media (max-width: 700px) {
-  body > header nav ul {
-    margin-block: 0px;
-    overflow-y: hidden;
-    max-height: 0;
-    transition: max-height 0.2s ease;
-  }
-
-  .menu-toggle:checked + ul {
-    // without JS we can't calculate the element height,
-    // so we need to set max-height to some number that is imposible to reach
-    max-height: 200vmax;
-  }
-
-  // select hamburger icon that comes after checked toggler and menu
-  .menu-toggle:checked + ul + .menu-toggle-button .hamburger {
+  &.open {
     background-color: transparent;
 
     &::before, &::after { inset: 0; }
     &::before { transform: rotate(45deg); }
     &::after { transform: rotate(-45deg); }
+  }
+}
+
+@media (max-width: 700px) {
+
+  body > header nav > :last-child {
+    margin-inline: 1rem;
+  }
+
+  body:not(.js-enabled) > header nav ul {
+    margin: 2rem 0 0 0;
+  }
+
+  body.js-enabled > header nav ul {
+    display: block;
+    text-align: left;
+    margin-block: 0px;
+    overflow-y: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease;
+
+    li { margin-top: 1rem; }
+    li:first-child { margin-top: 2rem; }
+  }
+
+  body.js-enabled .menu-toggle {
+    display: flex;
   }
 }
 
@@ -164,26 +170,4 @@ body > header nav > :last-child {
   body > header nav :last-child {
     margin-left: 0rem;
   }
-
-  body > header nav ul {
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    margin-left: 0.25rem;
-  }
-
-  body > header nav ul li {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-top: 0;
-  }
-
-  body > header nav ul li:last-chiild {
-    margin-right: 0;
-  }
-
-  .menu-toggle {
-    display: none;
-  }
 }
-
