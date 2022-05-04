@@ -13,8 +13,10 @@ body > header > div  {
 }
 
 body > header nav {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
 }
 
 /* Align better with Vala Logo */
@@ -25,6 +27,7 @@ body > header nav > :last-child {
 
 
 body > header nav ul {
+  grid-area: 2 / 1 / auto / -1;
   flex: 1 0 auto;
 }
 
@@ -57,6 +60,62 @@ body > header a:focus {
   color: white;
 }
 
+body > header nav > :last-child {
+  grid-row: 1;
+  grid-column-end: -2;
+}
+
+.menu-toggle {
+  grid-column-end: -1;
+  background: none;
+  border: 1px solid var(--accent-color-light-2);
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  height: 2px;
+  width: 1rem;
+  background-color: var(--accent-color-light-2);
+  transition: all 0.2s ease;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--accent-color-light-2);
+    transition: all 0.2s ease;
+  }
+
+  &::before { bottom: 300%; }
+  &::after { top: 300%; }
+
+  &.open {
+    background-color: transparent;
+
+    &::before, &::after { inset: 0; }
+    &::before { transform: rotate(45deg); }
+    &::after { transform: rotate(-45deg); }
+  }
+}
+
+@media (max-width: 700px) {
+  body > header nav ul {
+    margin-block: 0px;
+    overflow-y: hidden;
+    max-height: 0;
+    transition: max-height 0.2s ease;
+  }
+}
+
 @media (min-width: 700px) {
   body > header {
     margin: auto 0;
@@ -71,7 +130,7 @@ body > header a:focus {
   }
 
   body > header nav {
-    flex-direction: row;
+    display: flex;
     align-items: center;
   }
 
@@ -111,5 +170,8 @@ body > header a:focus {
     margin-right: 0;
   }
 
+  .menu-toggle {
+    display: none;
+  }
 }
 

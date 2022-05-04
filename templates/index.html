@@ -26,6 +26,9 @@
           <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
           <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
         </ul>
+        <button class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
         <!-- Link to Installation section of tutorial -->
         <div>
           <a href="#">Get Started</a>
@@ -47,6 +50,7 @@
 
 
 {% block body_end %}
+<script src="{{ get_url(path='js/navbar.js') }}"></script>
 <script src="{{ get_url(path='js/prism.js') }}"></script>
 <script src="{{ get_url(path='js/prism-line-numbers.js') }}"></script>
 {% endblock %}
