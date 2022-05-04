@@ -66,6 +66,10 @@ body > header nav > :last-child {
 }
 
 .menu-toggle {
+  display: none;
+}
+
+.menu-toggle-button {
   grid-column-end: -1;
   background: none;
   border: 1px solid var(--accent-color-light-2);
@@ -97,14 +101,6 @@ body > header nav > :last-child {
 
   &::before { bottom: 300%; }
   &::after { top: 300%; }
-
-  &.open {
-    background-color: transparent;
-
-    &::before, &::after { inset: 0; }
-    &::before { transform: rotate(45deg); }
-    &::after { transform: rotate(-45deg); }
-  }
 }
 
 @media (max-width: 700px) {
@@ -113,6 +109,21 @@ body > header nav > :last-child {
     overflow-y: hidden;
     max-height: 0;
     transition: max-height 0.2s ease;
+  }
+
+  .menu-toggle:checked + ul {
+    // without JS we can't calculate the element height,
+    // so we need to set max-height to some number that is imposible to reach
+    max-height: 200vmax;
+  }
+
+  // select hamburger icon that comes after checked toggler and menu
+  .menu-toggle:checked + ul + .menu-toggle-button .hamburger {
+    background-color: transparent;
+
+    &::before, &::after { inset: 0; }
+    &::before { transform: rotate(45deg); }
+    &::after { transform: rotate(-45deg); }
   }
 }
 
