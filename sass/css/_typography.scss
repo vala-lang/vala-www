@@ -17,8 +17,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-thin;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Thin.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Thin.woff") format("woff");
+  src: url("/fonts/Inter-Thin.woff2") format("woff2"),
+       url("/fonts/Inter-Thin.woff") format("woff");
 }
 
 @font-face {
@@ -26,8 +26,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-extra-light;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-ExtraLight.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-ExtraLight.woff") format("woff");
+  src: url("/fonts/Inter-ExtraLight.woff2") format("woff2"),
+       url("/fonts/Inter-ExtraLight.woff") format("woff");
 }
 
 @font-face {
@@ -35,8 +35,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-light;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Light.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Light.woff") format("woff");
+  src: url("/fonts/Inter-Light.woff2") format("woff2"),
+       url("/fonts/Inter-Light.woff") format("woff");
 }
 
 @font-face {
@@ -44,8 +44,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-regular;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Regular.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Regular.woff") format("woff");
+  src: url("/fonts/Inter-Regular.woff2") format("woff2"),
+       url("/fonts/Inter-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -53,8 +53,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-medium;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Medium.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Medium.woff") format("woff");
+  src: url("/fonts/Inter-Medium.woff2") format("woff2"),
+       url("/fonts/Inter-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -62,8 +62,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-semi-bold;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-SemiBold.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-SemiBold.woff") format("woff");
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2"),
+       url("/fonts/Inter-SemiBold.woff") format("woff");
 }
 
 @font-face {
@@ -71,8 +71,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-bold;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Bold.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Bold.woff") format("woff");
+  src: url("/fonts/Inter-Bold.woff2") format("woff2"),
+       url("/fonts/Inter-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -80,8 +80,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-extra-bold;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-ExtraBold.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-ExtraBold.woff") format("woff");
+  src: url("/fonts/Inter-ExtraBold.woff2") format("woff2"),
+       url("/fonts/Inter-ExtraBold.woff") format("woff");
 }
 
 @font-face {
@@ -89,8 +89,8 @@ $font-weight-black: 900;
   font-style: normal;
   font-weight: $font-weight-black;
   font-display: swap;
-  src: url("#{$base-path}/fonts/Inter-Black.woff2") format("woff2"),
-       url("#{$base-path}/fonts/Inter-Black.woff") format("woff");
+  src: url("/fonts/Inter-Black.woff2") format("woff2"),
+       url("/fonts/Inter-Black.woff") format("woff");
 }
 
 @font-face {
@@ -99,5 +99,5 @@ $font-weight-black: 900;
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url("#{$base-path}/fonts/Inter-roman.var.woff2") format("woff2");
+  src: url("/fonts/Inter-roman.var.woff2") format("woff2");
 }

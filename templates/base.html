@@ -7,11 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#9141ac">
-{% if config.base_url == config.extra.gh_pages_url %}
-    <link rel="stylesheet" href="{{ get_url(path='css/global.css')}}">
-  {% else %}
-    <link rel="stylesheet" href="{{ get_url(path='css/global-dev.css')}}">
-  {% endif %}
+  <link rel="stylesheet" href="{{ get_url(path='css/global.css')}}">
   {% block head %} {% endblock head %}
 </head>
 <body>
