@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://colinkiama.github.io/vala-www"
+base_url = "https://vala.dev"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -18,4 +18,4 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-gh_pages_url="https://colinkiama.github.io/vala-www"
+gh_pages_url="https://vala.dev"
