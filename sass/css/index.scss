@@ -39,3 +39,16 @@ main > pre {
     box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.3);
   }
 }
+
+@media (max-width: 800px) {
+  main > pre {
+    border: 1px solid #d4d4d4;
+    border-radius: 2px;
+  }
+}
+
+@media (max-width: 800px) and (prefers-color-scheme: dark) {
+  main > pre {
+    border: 1px solid #333333;
+  }
+}
