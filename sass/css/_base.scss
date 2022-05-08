@@ -54,6 +54,7 @@ footer {
   padding: 2rem;
   padding-left: calc(2rem + env(safe-area-inset-left));
   padding-bottom: calc(3rem + env(safe-area-inset-bottom));
+  padding-right: calc(2rem + env(safe-area-inset-right));
 }
 
 footer a {
