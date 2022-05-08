@@ -1,11 +1,24 @@
 .feature {
   max-width: 16.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color-dark-1);
+  border-radius: 100%;
+  width: 8rem;
+  height: 8rem;
 }
 
 .feature .icon {
   width: 4rem;
   height: 4rem;
-  fill: var(--accent-color)
+  fill: white;
 }
 
 .features {

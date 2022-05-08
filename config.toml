@@ -18,8 +18,6 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-gh_pages_url="https://vala.dev"
-
 docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
 
 tutorial_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides.html"
