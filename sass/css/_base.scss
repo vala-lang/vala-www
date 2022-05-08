@@ -130,6 +130,15 @@ a:active {
   #bypass-block {
     color: white; // When off-screen, it contrasts the body backround
   }
+
+  a {
+    color: var(--accent-color-light-1);
+  }
+
+  a:hover,
+  a:active {
+    color: var(--accent-color);
+  }
 }
 
 @media (min-width: 740px) {
