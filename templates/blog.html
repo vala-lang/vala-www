@@ -1,9 +1,29 @@
 {% extends "base.html" %}
 
-{% block header_links %}
-  <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
-  <li><a href="#">Docs</a></li>
-  <li><a href="#">Community</a></li>
-  <li>Blog</li>
-  <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
+{% block head %}
+<title>{{ section.title }}</title>
+{% endblock head %}
+
+{% block main_content %}
+  <section>
+    {{ section.content|safe }}
+  </section>
+
+  <section>
+    <h2>Posts</h2>
+
+    {% for post in paginator.pages %}
+        <a href="{{ post.permalink }}">{{ post.title }}</a>
+    {% endfor %}
+  </section>
+
+  <nav class="pagination">
+      {% if paginator.previous %}
+          <a class="previous" href="{{ paginator.previous }}">‹ Previous</a>
+      {% endif %}
+      {% if paginator.next %}
+          <a class="next" href="{{ paginator.next }}">Next ›</a>
+      {% endif %}
+  </nav>
+
 {% endblock %}

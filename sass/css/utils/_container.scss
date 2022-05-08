@@ -17,4 +17,5 @@ $container-max-width: 76.25rem;
 
 .container main, %container main {
   max-width: $container-max-width;
+  width: 100%;
 }

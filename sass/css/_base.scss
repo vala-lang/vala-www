@@ -39,9 +39,11 @@ main {
   flex-direction: column;
 }
 
-article {
+article,
+section {
   text-align: left;
   max-width: 600px;
+  width: 100%;
 }
 
 footer {
@@ -85,13 +87,10 @@ ul {
 }
 
 a {
-  color: var(--accent-color);
-}
-
-a:hover {
   color: var(--accent-color-dark-1);
 }
 
+a:hover,
 a:active {
   color: var(--accent-color-dark-2);
 }

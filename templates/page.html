@@ -3,6 +3,9 @@
 {% block head %}
 <title>{{ page.title }}</title>
 {% endblock head %}
+
 {% block main_content %}
-{{ page.content|safe }}
+<article>
+  {{ page.content|safe }}
+</article>
 {% endblock %}

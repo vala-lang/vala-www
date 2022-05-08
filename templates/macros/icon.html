@@ -4,7 +4,7 @@
 
 {% macro sprite_icon(name, label="", aria_hidden=true) %}
 
-<svg {% if aria_hidden == true -%}aria-hidden="true"{%- endif -%} {% if label != "" %}aria-label="{{ label }}"{%- endif -%} class="icon">
+<svg {% if aria_hidden == true %}aria-hidden="true"{%- endif -%} {% if label != "" -%}aria-label="{{ label }}"{%- endif %} class="icon">
   {% set spritemap_path = "icons/spritemap.svg#sprite-" ~ name ~ "" %}
   <use href="{{ get_url(path=spritemap_path) }}"></use>
   }
