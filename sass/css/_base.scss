@@ -106,9 +106,8 @@ a:active {
   font-size: 2rem;
   z-index: -2;
   background: var(--vala-gradient);
-  opacity: 0;
   width: 100%;
-  color: white;
+  color: black; // When off-screen, it contrasts the body backround
   padding: 1rem;
 }
 
@@ -127,6 +126,10 @@ a:active {
   :root {
     --foreground-color: white;
     --background-color: #1a1a1a;
+  }
+
+  #bypass-block {
+    color: white; // When off-screen, it contrasts the body backround
   }
 }
 
