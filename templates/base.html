@@ -14,27 +14,7 @@
   <a id="bypass-block" href="#main-content">Skip to main content</a>
 
   {% block top_level_header %}
-  <header>
-    <div>
-      <nav>
-        <div>
-          <a aria-label="Home" href="{{ get_url(path='/') }}">
-            {{ icon_macros::vala_text() }}
-          </a>
-        </div>
-        <ul>
-          {% block header_links %} {{ body_macros::default_header_links() }} {% endblock %}
-        </ul>
-        <button class="menu-toggle">
-          <span class="hamburger"></span>
-        </button>
-        <!-- Link to Installation section of tutorial -->
-        <div>
-          <a href="#">Get Started</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+    {{ body_macros::header() }}
   {% endblock %}
 
   <div class="container">

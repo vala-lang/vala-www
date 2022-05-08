@@ -19,3 +19,13 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 gh_pages_url="https://vala.dev"
+
+docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
+
+tutorial_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides.html"
+
+language_source_code_url="https://gitlab.gnome.org/GNOME/vala"
+
+site_source_code_url="https://github.com/colinkiama/vala-www"
+
+license_url="http://creativecommons.org/licenses/by-sa/4.0/"

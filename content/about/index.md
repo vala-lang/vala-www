@@ -1,6 +1,6 @@
 +++
 title = "About Vala"
-template = "pages/about.html"
+template = "page.html"
 +++
 
 # About Vala

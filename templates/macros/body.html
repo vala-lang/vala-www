@@ -1,12 +1,43 @@
 {% import "macros/icon.html" as icon_macros %}
 
-{% macro default_header_links() %}
-  <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
-  <li><a href="#">Docs</a></li>
-  <li><a href="#">Community</a></li>
-  <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
-  <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
+{% macro header(type="standard", extended_content="") %}
+  {% set classes = [] %}
+
+  {% if type == "extended" %}
+      {% set classes = classes|concat(with=type) %}
+  {% endif %}
+
+  <header{% if classes|length > 0 %} class="{{ classes|join(sep=' ') }}"{% endif %}>
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="{{ get_url(path='/') }}">
+            {{ icon_macros::vala_text() }}
+          </a>
+        </div>
+        <ul>
+          <li><a href="{{ get_url(path='@/about/index.md') }}">About</a></li>
+            <li><a href="{{ config.extra.docs_url }}">Docs</a></li>
+            <li><a href="{{ get_url(path='@/community/index.md') }}">Community</a></li>
+            <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
+            <li><a href="{{ config.extra.language_source_code_url }}">GitLab</a></li>
+        </ul>
+        <button class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="{{ config.extra.tutorial_url }}">Get Started</a>
+        </div>
+      </nav>
+      {%- if type == "extended" %}
+        {{ extended_content|safe }}
+      {% endif %}
+    </div>
+  </header>
+
 {% endmacro %}
+
 
 {% macro features() %}
 <ul class="features">
