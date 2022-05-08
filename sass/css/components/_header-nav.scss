@@ -1,6 +1,6 @@
 body > header {
   width: 100%;
-  background: var(--vala-gradient);
+  background: var(--brim-background-color);
   display: block;
   --foreground-color: white;
   color: var(--foreground-color);
@@ -50,13 +50,13 @@ body > header nav > :first-child a:focus svg {
 
 body > header a {
   display: block;
-  color: var(--accent-color-light-2);
+  color: var(--brim-link-color);
   text-decoration: none;
 }
 
 body > header a:hover,
 body > header a:focus {
-  color: white;
+  color: var(--brim-link-hover-color);
 }
 
 body > header nav > :last-child {
@@ -72,7 +72,7 @@ body > header nav > :last-child {
   align-items: center;
   justify-content: center;
   background: none;
-  border: 1px solid var(--accent-color-light-2);
+  border: 1px solid var(--brim-link-color);
   border-radius: 0.3rem;
   cursor: pointer;
 }
@@ -82,7 +82,7 @@ body > header nav > :last-child {
   position: relative;
   height: 2px;
   width: 1rem;
-  background-color: var(--accent-color-light-2);
+  background-color: var(--brim-link-color);
   transition: all 0.2s ease;
 
   &::before, &::after {
@@ -91,7 +91,7 @@ body > header nav > :last-child {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: var(--accent-color-light-2);
+    background-color: var(--brim-link-color);
     transition: all 0.2s ease;
   }
 
@@ -105,6 +105,20 @@ body > header nav > :last-child {
     &::before { transform: rotate(45deg); }
     &::after { transform: rotate(-45deg); }
   }
+}
+
+.menu-toggle:hover {
+  border-color: var(--brim-link-hover-color);
+}
+
+.menu-toggle:hover .hamburger,
+.menu-toggle:hover .hamburger::before,
+.menu-toggle:hover .hamburger::after {
+  background-color: var(--brim-link-hover-color);
+}
+
+.menu-toggle:hover .hamburger.open {
+  background-color: transparent;
 }
 
 @media (max-width: 700px) {
@@ -127,6 +141,12 @@ body > header nav > :last-child {
 
     li { margin-top: 1rem; }
     li:first-child { margin-top: 2rem; }
+  }
+
+  body.js-enabled > header nav ul:not(.open) a:focus,
+  body.js-enabled > header nav ul:not(.open) a:focus-visible
+  {
+    outline: none;
   }
 
   body.js-enabled .menu-toggle {

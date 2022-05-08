@@ -4,7 +4,9 @@
   --accent-color-light-1: #cd9ef7;
   --accent-color-dark-1: #7239b3;
   --accent-color-dark-2: #452981;
-  --vala-gradient: linear-gradient(180deg, #9141ac, #813d9c);
+  --brim-background-color: #{var(--accent-color-dark-1)};
+  --brim-link-color: white;
+  --brim-link-hover-color: #{var(--accent-color-light-2)};
 	--foreground-color: #1a1a1a;
 	--background-color: white;
 }
@@ -46,19 +48,19 @@ footer {
   --foreground-color: white;
   position: sticky;
   color: var(--foreground-color);
-  background: var(--vala-gradient);
+  background: var(--brim-background-color);
   padding: 2rem;
   padding-bottom: calc(3rem + env(safe-area-inset-bottom));
 }
 
 footer a {
   display: inline-block;
-  color: var(--accent-color-light-2);
+  color: var(--brim-link-color);
 }
 
 footer a:hover,
 footer a:focus {
-  color: white;
+  color: var(--brim-link-hover-color);
 }
 
 h1,
@@ -97,8 +99,9 @@ a:active {
 #bypass-block {
   position: absolute;
   top: 0;
-  left: auto;
-  display: block;
+  left: -999px;
+  width: 1%;
+  height: 1%;
   text-align: center;
   font-size: 2rem;
   z-index: -2;
@@ -109,9 +112,15 @@ a:active {
   padding: 1rem;
 }
 
-#bypass-block:focus {
+#bypass-block:focus,
+#bypass-block:focus-visible {
   opacity: 1;
   z-index: 999;
+  display: block;
+  width: 100%;
+  height: auto;
+  left:auto;
+  background: var(--accent-color-dark-1);
 }
 
 @media (prefers-color-scheme: dark) {
