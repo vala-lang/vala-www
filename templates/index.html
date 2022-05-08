@@ -11,11 +11,11 @@
 {% endblock %}
 
 {% block top_level_header %}
-  {{ body_macros::header(type="extended") }}
+  {% set heading = "<h1>A Modern, Fast, Open Source Language</h1>"|trim %}
+  {{ body_macros::header(type="extended", extended_content=heading) }}
 {% endblock %}
 
 {% block main_content %}
-
   <pre class="line-numbers" tabindex="-1"><code class="language-vala">{{ load_data(path="content/sample.vala") }}</code></pre>
 
   <p>Vala allows you to write modern, high-level code, with fully native performance, without requiring any additional runtime and maintaining full API/ABI compatibility with your C applications and libraries.</p>

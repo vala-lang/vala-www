@@ -1,6 +1,6 @@
 {% import "macros/icon.html" as icon_macros %}
 
-{% macro header(type="standard") %}
+{% macro header(type="standard", extended_content="") %}
   {% set classes = [] %}
 
   {% if type == "extended" %}
@@ -30,8 +30,8 @@
           <a href="#">Get Started</a>
         </div>
       </nav>
-      {% if type == "extended" %}
-      <h1>A Modern, Fast, Open Source Language</h1>
+      {%- if type == "extended" %}
+        {{ extended_content|safe }}
       {% endif %}
     </div>
   </header>
