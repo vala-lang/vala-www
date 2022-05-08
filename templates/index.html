@@ -11,32 +11,7 @@
 {% endblock %}
 
 {% block top_level_header %}
-  <header class="extended">
-    <div>
-      <nav>
-        <div>
-          <a aria-label="Home" href="{{ get_url(path='/') }}">
-            {{ icon_macros::vala_text()|safe }}
-          </a>
-        </div>
-        <ul>
-          <li><a href="{{ get_url(path='@/about/index.md')}}">About</a></li>
-          <li><a href="#">Docs</a></li>
-          <li><a href="#">Community</a></li>
-          <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
-          <li><a href="https://gitlab.gnome.org/GNOME/vala">GitLab</a></li>
-        </ul>
-        <button class="menu-toggle">
-          <span class="hamburger"></span>
-        </button>
-        <!-- Link to Installation section of tutorial -->
-        <div>
-          <a href="#">Get Started</a>
-        </div>
-      </nav>
-      <h1>A Modern, Fast, Open Source Language</h1>
-    </div>
-  </header>
+  {{ body_macros::header(type="extended") }}
 {% endblock %}
 
 {% block main_content %}
