@@ -52,6 +52,7 @@ footer {
   color: var(--foreground-color);
   background: var(--brim-background-color);
   padding: 2rem;
+  padding-left: calc(2rem + env(safe-area-inset-left));
   padding-bottom: calc(3rem + env(safe-area-inset-bottom));
 }
 
