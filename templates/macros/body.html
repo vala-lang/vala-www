@@ -40,30 +40,154 @@
 
 
 {% macro features() %}
+<h1>Why Vala?</h1>
 <ul class="features">
   <li class="feature">
     <div>
       <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
     </div>
+    <h2>Productivity</h2>
     <p class="description">
-      Familiar to anyone who has worked with Java or C#, but maintaining API/ABI compatibility with C
+      Vala is an object oriented language and enables to write high level code without unnecessary boiler plate.
     </p>
   </li>
   <li class="feature">
     <div>
       <span>{{ icon_macros::sprite_icon(name="rocket") }}</span>
     </div>
+    <h2>Performance</h2>
     <p class="description">
-      Low memory requirements, fully native execution, and created targeting the GLib Object System
+      Compile your code to binaries for lots of platforms and run them with full performance.
     </p>
   </li>
   <li class="feature">
     <div>
       <span>{{ icon_macros::sprite_icon(name="gears") }}</span>
     </div>
+    <h2>Community</h2>
     <p class="description">
-      Signals, properties, generics, assisted memory management, error handling, asynchronous programming, and more
+      Vala is open source and has a great community that develops lots of tooling for the language.
     </p>
+  </li>
+</ul>
+
+<h1>What can you build?</h1>
+<ul class="features">
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>GUI Applications</h2>
+    <p class="description">
+      <ul>
+        <li>perfect integration of GTK, libAdwaita, libGranite, DBUS, and much more</li>
+        <li>easy submission to Flathub without bloated packages</li>
+      </ul>
+    </p>
+    <a href="https://developer.gnome.org/documentation/tutorials/beginners/getting_started.html">GNOME Getting Started Tutorial</a>
+    <a href="https://docs.elementary.io/develop/writing-apps/hello-world">Elementary First App Tutorial</a>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="rocket") }}</span>
+    </div>
+    <h2>Command Line Programs</h2>
+    <p class="description">
+      <ul>
+        <li>large standard library</li>
+        <li>bindings to a broad range of libraries</li>
+        <li>integration into operating system without unnecessary dependencies</li>
+      </ul>
+    </p>
+    <a href="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/tutorials.html">Command Line Program Tutorial</a>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="gears") }}</span>
+    </div>
+    <h2>Libraries</h2>
+    <p class="description">
+      <ul>
+        <li>bindings to lots of other languages with 0 work</li>
+        <li>dynamic and static libraries</li>
+        <li>automatically generate modern API documentation</li>
+      </ul>
+    </p>
+    <a href="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/tutorials.html">Library Tutorial</a>
+  </li>
+</ul>
+
+<h1>Who is using Vala?</h1>
+<ul class="features">
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 1</h2>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 2</h2>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 3</h2>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 4</h2>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 5</h2>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>App 6</h2>
+  </li>
+</ul>
+
+<h1>Where can I learn more?</h1>
+<ul class="features">
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="cube") }}</span>
+    </div>
+    <h2>Vala Documentation</h2>
+    <p class="description">
+      Learn how to use Vala and its features, go through tutorials and read about the internals and how to contribute.
+    </p>
+    <a href="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/index.html">Vala Documentation</a>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="rocket") }}</span>
+    </div>
+    <h2>Discourse</h2>
+    <p class="description">
+      This is the rigth place for questions of any type related to Vala.
+    </p>
+    <a href="https://discourse.gnome.org/tag/vala">Discourse</a>
+  </li>
+  <li class="feature">
+    <div>
+      <span>{{ icon_macros::sprite_icon(name="gears") }}</span>
+    </div>
+    <h2>Matrix</h2>
+    <p class="description">
+      If you want to get a bit closer to the Vala community and developers, join the Vala Matrix channel.
+    </p>
+    <a href="https://matrix.to/#/#_gimpnet_#vala:gnome.org">Matrix</a>
   </li>
 </ul>
 {% endmacro %}
