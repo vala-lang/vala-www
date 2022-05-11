@@ -20,7 +20,7 @@ highlight_code = true
 # Put all your custom variables here
 docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
 
-tutorial_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides.html"
+tutorial_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides/installation.html"
 
 language_source_code_url="https://gitlab.gnome.org/GNOME/vala"
 
