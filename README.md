@@ -2,6 +2,8 @@
 
 Website of the Vala programming language.
 
+You can contribute to the new documentation website here: https://gitlab.gnome.org/lwildberg/vala-tutorial
+
 ## System Requirements
 
 - [Zola](https://www.getzola.org)
