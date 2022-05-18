@@ -109,7 +109,7 @@ a:active {
   font-size: 2rem;
   z-index: -2;
   background: var(--vala-gradient);
-  color: black; // When off-screen, it contrasts the body backround
+  color: white; // To create contrast with the background
   padding: 1rem;
 }
 
@@ -128,10 +128,6 @@ a:active {
   :root {
     --foreground-color: white;
     --background-color: #1a1a1a;
-  }
-
-  #bypass-block {
-    color: white; // When off-screen, it contrasts the body backround
   }
 
   a {
