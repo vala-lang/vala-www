@@ -66,7 +66,7 @@
 {% macro latest_blog_posts() %}
 <!-- Shows previews of the latest 3 posts in the blog -->
 <h2>What's new?</h2>
-<div class="posts-preview">
+<div class="post-previews">
   <div class="post-preview">
 
     <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
@@ -78,7 +78,7 @@
     </div>
   </div>
   <div class="post-preview">
-    <picture alt="Purple background with white text on center that says 'Vala'.">
+    <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
 
     </picture>
     <div>
@@ -87,7 +87,8 @@
     </div>
   </div>
   <div class="post-preview">
-    <picture alt="Purple background with white text on center that says 'Vala'.">
+
+    <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
 
     </picture>
     <div>
@@ -96,4 +97,6 @@
     </div>
   </div>
 </div>
+<a class="section-link" href="#">
+View Blog</a>
 {% endmacro %}
