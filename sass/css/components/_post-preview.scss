@@ -1,0 +1,11 @@
+.posts-preview {
+  max-width: 25rem;
+  text-align: left;
+  border: 1px solid var(--card-border-color);
+  border-radius: 0.75rem;
+}
+
+.posts-preview img {
+  width: 100%;
+  border-radius: 0.75rem 0.75rem 0 0;
+}
