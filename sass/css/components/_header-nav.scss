@@ -4,10 +4,14 @@ body > header {
   display: block;
   --foreground-color: white;
   color: var(--foreground-color);
+
 }
 
 body > header > div {
-  padding: 1.5rem 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: calc(1rem + env(safe-area-inset-left));
+  padding-right: calc(1rem + env(safe-area-inset-right));
   margin: 0 auto;
   max-width: 76.25rem;
 }
@@ -173,7 +177,10 @@ body > header nav > :last-child {
   }
 
   body > header > div {
-    padding: 0.75rem 1rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
   }
 
   body > header nav {
@@ -186,13 +193,9 @@ body > header nav > :last-child {
     flex: 0 1 20%;
   }
 
-  body > header nav > :first-child {
-    padding-left: env(safe-area-inset-left);
-  }
-
   body > header nav > :last-child {
     text-align: right;
-    padding-right: env(safe-area-inset-right);
+
   }
 
   body > header nav ul,
