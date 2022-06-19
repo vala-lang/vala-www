@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.features div {
+.features > div {
   border: 1px solid var(--card-border-color);
   border-radius: 0.75rem;
   padding: 1.5rem 1.25rem 4rem 1.25rem;
@@ -24,6 +24,18 @@
 */
 .features dt {
   @extend h3;
+}
+.features dt > div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.features dt svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: var(--accent-color-dark-1);
+  margin-right: 0.75rem;
 }
 
 .features dd {
