@@ -79,8 +79,8 @@ h6 {
 h1 {
   font-size: 3rem;
   letter-spacing: -0.04rem;
-  font-weight: $font-weight-bold;
-  font-variation-settings: 'wght' $font-weight-bold;
+  font-weight: $font-weight-light;
+  font-variation-settings: 'wght' $font-weight-light;
 }
 
 ul {
@@ -100,16 +100,16 @@ a:active {
 
 #bypass-block {
   position: absolute;
+  word-wrap: normal;
   top: 0;
   left: -999px;
-  width: 1%;
-  height: 1%;
+  width: 1px;
+  height: 1px;
   text-align: center;
   font-size: 2rem;
   z-index: -2;
   background: var(--vala-gradient);
-  width: 100%;
-  color: black; // When off-screen, it contrasts the body backround
+  color: black; // When off-screen, it contrasts with the body background
   padding: 1rem;
 }
 
@@ -122,6 +122,7 @@ a:active {
   height: auto;
   left:auto;
   background: var(--accent-color-dark-1);
+  color: white; // To create contrast with the background
 }
 
 @media (prefers-color-scheme: dark) {
@@ -131,7 +132,7 @@ a:active {
   }
 
   #bypass-block {
-    color: white; // When off-screen, it contrasts the body backround
+    color: white; // When off-screen, it contrasts with the body background
   }
 
   a {

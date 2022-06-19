@@ -6,7 +6,7 @@ body > header {
   color: var(--foreground-color);
 }
 
-body > header > div  {
+body > header > div {
   padding: 1.5rem 1rem;
   margin: 0 auto;
   max-width: 76.25rem;
@@ -23,7 +23,6 @@ body > header nav ul,
 body > header nav > :last-child {
   margin-left: 0.25rem;
 }
-
 
 body > header nav ul {
   grid-area: 2 / 1 / auto / -1;
@@ -43,7 +42,7 @@ body > header nav > :first-child svg {
   height: 1.6rem;
 }
 
-body > header nav > :first-child a:hover  svg,
+body > header nav > :first-child a:hover svg,
 body > header nav > :first-child a:focus svg {
   fill: var(--accent-color-light-1);
 }
@@ -78,32 +77,38 @@ body > header nav > :last-child {
 }
 
 .hamburger {
+  --hamburger-color: var(--brim-link-color);
   display: block;
   position: relative;
   height: 0.125rem;
   width: 1.5rem;
-  background-color: var(--brim-link-color);
+  background-color: var(--hamburger-color);
   transition: all 0.2s ease;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     content: '';
     position: absolute;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: var(--brim-link-color);
+    inset: 0;
+    background-color: var(--hamburger-color);
     transition: all 0.2s ease;
   }
 
-  &::before { bottom: 300%; }
-  &::after { top: 300%; }
+  &::before {
+    transform: translateY(-300%);
+  }
+  &::after {
+    transform: translateY(300%);
+  }
 
   &.open {
     background-color: transparent;
-
-    &::before, &::after { inset: 0; }
-    &::before { transform: rotate(45deg); }
-    &::after { transform: rotate(-45deg); }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
   }
 }
 
@@ -111,18 +116,19 @@ body > header nav > :last-child {
   border-color: var(--brim-link-hover-color);
 }
 
-.menu-toggle:hover .hamburger,
-.menu-toggle:hover .hamburger::before,
-.menu-toggle:hover .hamburger::after {
-  background-color: var(--brim-link-hover-color);
+.menu-toggle:hover .hamburger {
+  --hamburger-color: var(--brim-link-hover-color);
 }
 
-.menu-toggle:hover .hamburger.open {
-  background-color: transparent;
+.navbar-button {
+  display: inline-block;
+  background-image: linear-gradient(180deg, #8c57c8 0%, #7c4bb5 100%);
+  border-radius: 100vmax;
+  box-shadow: 0 0.125em 0.3em #0003;
+  padding: 0.3em 1.2em;
 }
 
 @media (max-width: 700px) {
-
   body > header nav > :last-child {
     margin-inline: 1rem;
   }
@@ -139,13 +145,16 @@ body > header nav > :last-child {
     max-height: 0;
     transition: max-height 0.2s ease;
 
-    li { margin-top: 1rem; }
-    li:first-child { margin-top: 2rem; }
+    li {
+      margin-top: 1rem;
+    }
+    li:first-child {
+      margin-top: 2rem;
+    }
   }
 
   body.js-enabled > header nav ul:not(.open):focus,
-  body.js-enabled > header nav ul:not(.open):focus-visible
-  {
+  body.js-enabled > header nav ul:not(.open):focus-visible {
     outline: none;
   }
 
@@ -163,7 +172,7 @@ body > header nav > :last-child {
     display: inline-block;
   }
 
-  body > header > div  {
+  body > header > div {
     padding: 0.75rem 1rem;
   }
 

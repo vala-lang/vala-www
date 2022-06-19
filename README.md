@@ -1,6 +1,8 @@
 # Vala on the Web
 
-Website of the Vala programming language.
+Website of the Vala programming language. View the website here: https://vala.dev
+
+You can contribute to the new documentation website here: https://gitlab.gnome.org/lwildberg/vala-tutorial
 
 ## System Requirements
 
