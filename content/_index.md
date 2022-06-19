@@ -6,4 +6,4 @@ description = "Vala Programming Language"
 
 ## Why Vala?
 
-{{ features() }}
+{{ features () }}
