@@ -128,7 +128,7 @@ body > header nav > :last-child {
   padding: 0.3em 1.2em;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 56.25rem) {
   body > header nav > :last-child {
     margin-inline: 1rem;
   }
@@ -163,7 +163,7 @@ body > header nav > :last-child {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 56.25rem) {
   body > header {
     margin: auto 0;
   }
