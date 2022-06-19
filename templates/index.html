@@ -18,7 +18,9 @@
 {% block main_content %}
   <pre aria-hidden="true" class="line-numbers" tabindex="-1"><code class="language-vala">{{ load_data(path="content/sample.vala") }}</code></pre>
 
-  {{ body_macros::features() }}
+  {{ section.content | safe }}
+
+
 {% endblock %}
 
 

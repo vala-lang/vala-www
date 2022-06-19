@@ -7,6 +7,7 @@
   --brim-background-color: #{var(--accent-color-dark-1)};
   --brim-link-color: white;
   --brim-link-hover-color: #{var(--accent-color-light-2)};
+  --card-border-color: #d4d4d4;
 	--foreground-color: #1a1a1a;
 	--background-color: white;
 }
@@ -81,6 +82,13 @@ h1 {
   letter-spacing: -0.04rem;
   font-weight: $font-weight-light;
   font-variation-settings: 'wght' $font-weight-light;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: -0.05rem;
+  font-variation-settings: 'wght' $font-weight-semi-bold;
 }
 
 ul {
