@@ -16,6 +16,15 @@ feed_filename = "rss.xml"
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
 
+highlight_theme = "css"
+
+highlight_themes_css = [
+  { theme = "base16-ocean-dark", filename = "css/syntax-theme-dark.css" },
+  { theme = "base16-ocean-light", filename = "css/syntax-theme-light.css" },
+]
+
+extra_syntaxes_and_themes = ["syntaxes"]
+
 [extra]
 # Put all your custom variables here
 docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
