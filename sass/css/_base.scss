@@ -106,6 +106,7 @@ ul {
 }
 
 a {
+  transition: color 0.3s ease;
   color: var(--accent-color-dark-1);
   word-wrap: break-word;
 }

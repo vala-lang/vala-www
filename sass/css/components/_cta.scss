@@ -9,7 +9,7 @@
 }
 
 .cta-stack a {
-  @extend h3 !optional;
+  transition: background 0.3s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,6 +27,10 @@
   width: 100%;
 }
 
+.cta-stack a:hover {
+  background: #8B55C9;
+}
+
 .cta-stack a:first-child {
   margin-top: 0;
 }
@@ -35,6 +39,10 @@
   background: var(--secondary-cta-background);
   color: #1a1a1a;
   border: solid 2px var(--card-border-color);
+}
+
+.cta-stack a:last-child:hover {
+  background: #eeeeee;
 }
 
 @media (min-width: 800px) {
