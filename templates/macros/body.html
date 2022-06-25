@@ -65,8 +65,15 @@
 
 {% macro latest_blog_posts() %}
 <!-- Shows previews of the latest 3 posts in the blog -->
+
+{% set blog_section = get_section(path="blog/_index.md") %}
+
 <h2>What's new?</h2>
 <div class="post-previews">
+  {% for pages in blog_section.pages %}
+    <div class="post-preview">
+
+    </div>
   <div class="post-preview">
 
     <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
@@ -97,7 +104,7 @@
     </div>
   </div>
 </div>
-<a href="#">View Blog</a>
+<a href="{{ get_section(">View Blog</a>
 {% endmacro %}
 
 {% macro cta_stack(primary_content, primary_href, secondary_content, secondary_href) %}
