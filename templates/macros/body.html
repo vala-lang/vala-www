@@ -70,41 +70,21 @@
 
 <h2>What's new?</h2>
 <div class="post-previews">
-  {% for pages in blog_section.pages %}
-    <div class="post-preview">
+  {% for post in blog_section.pages %}
+    {% if loop.index0 == 3 %}
+      {% break %}
+    {% endif %}
+    <a href="{{ post.permalink }}" class="post-preview">
+      <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
 
-    </div>
-  <div class="post-preview">
-
-    <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
-
-    </picture>
-    <div>
-      <div>Post title</div>
-      <time datetime="2006-07-15">2006-07-15</time>
-    </div>
-  </div>
-  <div class="post-preview">
-    <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
-
-    </picture>
-    <div>
-      <div>Post title</div>
-      <time datetime="2006-07-15">2006-07-15</time>
-    </div>
-  </div>
-  <div class="post-preview">
-
-    <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
-
-    </picture>
-    <div>
-      <div>Post title</div>
-      <time datetime="2006-07-15">2006-07-15</time>
-    </div>
-  </div>
+      <div>
+        <div>{{ post.title }}</div>
+        <time datetime="{{ post.date }}">{{ post.date | date }}</time>
+      </div>
+    </a>
+  {% endfor %}
 </div>
-<a href="{{ get_section(">View Blog</a>
+<a href="{{ blog_section.permalink }}">View Blog</a>
 {% endmacro %}
 
 {% macro cta_stack(primary_content, primary_href, secondary_content, secondary_href) %}

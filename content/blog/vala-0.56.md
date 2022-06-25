@@ -12,7 +12,7 @@ After 4 months of work we are proud to announce a new release of Vala. This time
 
 With the new release the main function can now be defined as `async`. This has multiple advantages. For example is it now possible to call asynchronous functions with `yield`:
 
-```vala,lineno
+```vala,linenos
 async int main (string[] args) {
     string dir = args.length == 2 ? args[1] : ".";
     var file = File.new_for_commandline_arg (dir);
@@ -50,7 +50,7 @@ A simple but very useful feature is to be able to nest functions inside of other
 
 Use cases are to structure very complicated functions into multiple smaller ones, without exposing them publicly. In this example the same asynchronous callback is used for two invocations, in which you otherwise would use lambdas:
 
-```vala,lineno
+```vala,linenos
 void write_streams (OutputStream stream1, OutputStream stream2, uint8[] data) {
     void nested_function (Object object_source, AsyncResult result) {
         OutputStream stream = object_source as OutputStream;
@@ -76,14 +76,14 @@ If programming errors are outputted at compile time in a pretty way and provide 
 
 Before Vala 0.56:
 
-```vala,lineno
+```vala,linenos
 int foo = bar();
           ^^^
 ```
 
 Vala 0.56:
 
-```vala,lineno
+```vala,linenos
  2 | int foo = bar();
       |           ^~~
 
@@ -97,7 +97,7 @@ Issue [#764](https://gitlab.gnome.org/GNOME/vala/-/issues/764)
 
 Libraries using the GObject type system are providing usually documentation about their API so other languages can use them. However sometimes some parts are missing. With the `dynamic` keyword an object can be treated as not having all properties or signals specified and they can be accessed dynamically without checking:
 
-```vala,lineno
+```vala,linenos
 dynamic Gst.Element appsink = Gst.ElementFactory.make ("appsink", "my_src");
 appsink.max_buffers = 0;
 appsink.eos.connect (on_eos);
@@ -113,7 +113,7 @@ Merge Request [#227](https://gitlab.gnome.org/GNOME/vala/-/merge_requests/227)
 
 In rare cases, if a class is so huge and complex, it can be now split up into multiple pieces even into multiple files. All parts of the class only need the partial keyword in front of it.
 
-```vala,lineno
+```vala,linenos
 public partial class Foo : Object {
     public double bar { get; set; }
 }
@@ -134,7 +134,7 @@ Merge Request [#200](https://gitlab.gnome.org/GNOME/vala/-/merge_requests/200)
 
 The length of an array is usually specified by an 32bit integer. However in some cases, especially in bindings to other libaries, sometimes the length of an array is given by a different type of integer. We now have support for that:
 
-```vala,lineno
+```vala,linenos
 string[] list = new string[10:uint8];
 ```
 
