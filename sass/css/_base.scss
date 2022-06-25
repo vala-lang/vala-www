@@ -46,7 +46,11 @@ main {
 article,
 section {
   width: 100%;
-  text-align: center;
+}
+
+article {
+  max-width: 43.75rem;
+  text-align: left;
 }
 
 section {
@@ -54,7 +58,7 @@ section {
 }
 
 section > section {
-  max-width: 50rem;
+  max-width: 43.75rem;
   margin: 0 auto;
   text-align: left;
   padding: 1rem 0;
