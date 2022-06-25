@@ -21,7 +21,8 @@ main > pre + p {
 }
 
 main > pre {
-  border-radius: 0.5rem;
+  border-radius: 4px;
+  position: relative;
 }
 
 .features {
@@ -43,7 +44,6 @@ main > pre {
 @media (max-width: 800px) {
   main > pre {
     border: 1px solid #d4d4d4;
-    border-radius: 2px;
   }
 }
 

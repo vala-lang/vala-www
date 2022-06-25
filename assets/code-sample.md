@@ -1,3 +1,4 @@
+```vala,linenos
 int main (string[] args) {
   var app = new Gtk.Application (
     "io.github.myteam.MyApp",
@@ -14,3 +15,4 @@ int main (string[] args) {
 
   return app.run (args);
 }
+```
