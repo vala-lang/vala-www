@@ -55,3 +55,9 @@
       max-width: 25rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .post-preview:hover {
+    color: var(--accent-color);
+  }
+}
