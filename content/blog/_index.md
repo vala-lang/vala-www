@@ -8,6 +8,6 @@ paginate_path  ="page"
 insert_anchor_links = "right"
 +++
 
-# Blog
+<h1>Blog</h1>
 
 Welcome to the Vala Blog!
