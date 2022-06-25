@@ -114,6 +114,41 @@ a:active {
   color: var(--accent-color-dark-2);
 }
 
+pre {
+  padding: 1rem;
+  overflow: auto;
+  text-align: left;
+}
+// The line numbers already provide some kind of left/right padding
+pre[data-linenos] {
+  // padding: 1rem ;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  padding-left: 0;
+}
+pre table td {
+  padding: 0;
+}
+// The line number cells
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  text-align: right;
+}
+pre mark {
+  // If you want your highlights to take the full width.
+  display: block;
+  // The default background colour of a mark is bright yellow
+  background-color: rgba(254, 252, 232, 0.9);
+}
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
 #bypass-block {
   position: absolute;
   word-wrap: normal;
