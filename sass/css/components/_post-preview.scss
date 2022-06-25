@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.post-previews > a:last-child {
+  margin-top: 2rem;
+}
+
 .post-preview {
   width: 100%;
   border: 1px solid var(--card-border-color);

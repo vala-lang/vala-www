@@ -46,6 +46,7 @@
 @media (min-width: 700px) {
   .features {
     flex-direction: row;
+    justify-content: center;
   }
 
   .features > :first-child {

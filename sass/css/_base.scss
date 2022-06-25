@@ -45,9 +45,29 @@ main {
 
 article,
 section {
-  text-align: left;
-  max-width: 600px;
   width: 100%;
+  text-align: center;
+}
+
+section {
+  padding: 2.5rem 0;
+}
+
+section > section {
+  max-width: 50rem;
+  margin: 0 auto;
+  text-align: left;
+  padding: 1rem 0;
+}
+
+section > section:first-of-type {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+section > a:last-child {
+  margin-top: 2rem;
+  display: inline-block;
 }
 
 footer {
@@ -114,6 +134,31 @@ a {
 a:hover,
 a:active {
   color: var(--accent-color-dark-2);
+}
+
+ul li a {
+  display: inline-flex;
+  align-items: center;
+}
+
+.social-links li {
+  margin-top: 0.5rem;
+}
+
+.social-links li:first-child {
+  margin-top: 0;
+}
+
+ul li a svg {
+  transition: fill 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  fill: var(--accent-color-dark-1);
+}
+
+ul li a:hover svg {
+  fill: var(--accent-color-dark-2);
 }
 
 pre {
