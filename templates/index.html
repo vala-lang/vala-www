@@ -13,12 +13,13 @@
 {% block main_content %}
   {{ load_data(path="assets/code-sample.md") | markdown(inline=true)|safe }}
 
+  {{ body_macros::cta_stack(primary_content="Get Started", primary_href="#", secondary_content="View Source Code", secondary_href="#") }}
+
   {{ body_macros::features() }}
 
   {{ body_macros::latest_blog_posts() }}
 
-
-
+  {{ body_macros::cta_stack(primary_content="Get Started", primary_href="#", secondary_content="View Source Code", secondary_href="#")}}
 {% endblock %}
 
 

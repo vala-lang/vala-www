@@ -1,0 +1,56 @@
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cta-stack a {
+  @extend h3 !optional;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color-dark-1);
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+  padding: 2rem 3rem;
+  text-decoration: none;
+  margin-top: 1rem;
+  flex: 1 1 0%;
+  max-width: 50rem;
+  width: 100%;
+}
+
+.cta-stack a:first-child {
+  margin-top: 0;
+}
+
+.cta-stack a:last-child {
+  background: var(--secondary-cta-background);
+  color: #1a1a1a;
+  border: solid 2px var(--card-border-color);
+}
+
+@media (min-width: 800px) {
+  .cta-stack {
+    flex-direction: row;
+  }
+
+  .cta-stack a {
+    margin-top: 0;
+    margin-left: 1.5rem;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .cta-stack a:first-child {
+    margin-left: 0;
+  }
+}

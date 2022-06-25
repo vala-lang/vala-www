@@ -100,3 +100,13 @@
 <a class="section-link" href="#">
 View Blog</a>
 {% endmacro %}
+
+{% macro cta_stack(primary_content, primary_href, secondary_content, secondary_href) %}
+<div class="cta-stack">
+  <a href="{{ primary_href }}">{{ primary_content }}</a>
+
+  {% if secondary_content and secondary_href %}
+  <a href="{{ secondary_href }}">{{ secondary_content }}</a>
+  {% endif %}
+</div>
+{% endmacro %}
