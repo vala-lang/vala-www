@@ -59,3 +59,9 @@
     max-width: 25rem;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .features dt svg {
+    fill: var(--accent-color);
+  }
+}

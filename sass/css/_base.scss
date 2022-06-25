@@ -12,6 +12,7 @@
   --label-text-color: #555761;
 	--foreground-color: #1a1a1a;
 	--background-color: white;
+  --inline-code-background-color: #d4d4d4;
 }
 
 body {
@@ -235,6 +236,18 @@ pre table {
   border-collapse: collapse;
 }
 
+code {
+  border-radius: 4px;
+  background-color: var(--inline-code-background-color);
+  padding: 0.125rem 0.25rem;
+}
+
+pre code {
+  border-radius: 0;
+  background: none;
+  padding: 0;
+}
+
 #bypass-block {
   position: absolute;
   word-wrap: normal;
@@ -266,6 +279,9 @@ pre table {
   :root {
     --foreground-color: white;
     --background-color: #1a1a1a;
+    --card-border-color: #4d4d4d;
+    --inline-code-background-color: #4d4d4d;
+
   }
 
   #bypass-block {
@@ -280,6 +296,15 @@ pre table {
   a:active {
     color: var(--accent-color);
   }
+
+  ul li a svg {
+    fill: var(--accent-color-light-1);
+  }
+
+  ul li a:hover svg {
+    fill: var(--accent-color);
+  }
+
 
   pre {
     border: 1px solid #333333;
