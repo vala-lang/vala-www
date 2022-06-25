@@ -165,11 +165,27 @@ ul li a:hover svg {
   fill: var(--accent-color-dark-2);
 }
 
+article ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+article ul li {
+  margin-top: 0.5rem;
+}
+
+article ul li:first-child {
+  margin-top: 0;
+}
+
 pre {
   padding: 1rem;
+  border-radius: 4px;
   overflow: auto;
   text-align: left;
+  border: 1px solid #d4d4d4;
 }
+
 // The line numbers already provide some kind of left/right padding
 pre[data-linenos] {
   // padding: 1rem ;
@@ -244,6 +260,10 @@ pre table {
   a:hover,
   a:active {
     color: var(--accent-color);
+  }
+
+  pre {
+    border: 1px solid #333333;
   }
 }
 

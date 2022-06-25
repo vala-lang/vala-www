@@ -76,15 +76,15 @@ If programming errors are outputted at compile time in a pretty way and provide 
 
 Before Vala 0.56:
 
-```vala,linenos
+```vala
 int foo = bar();
           ^^^
 ```
 
 Vala 0.56:
 
-```vala,linenos
- 2 | int foo = bar();
+```vala
+2 | int foo = bar();
       |           ^~~
 
 ```
