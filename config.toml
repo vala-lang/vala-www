@@ -36,3 +36,27 @@ language_source_code_url="https://gitlab.gnome.org/GNOME/vala"
 site_source_code_url="https://github.com/colinkiama/vala-www"
 
 license_url="http://creativecommons.org/licenses/by-sa/4.0/"
+
+[extra.tooling]
+
+vala_language_server = "https://github.com/vala-lang/vala-language-server"
+
+vala_lint = "https://github.com/vala-lang/vala-lint"
+
+vala_github_org = "https://github.com/vala-lang"
+
+[extra.socials]
+
+discourse = "https://dishttps://discourse.gnome.org/tag/valacourse.gnome.org/tag/vala"
+
+matrix = "https://matrix.to/#/#_gimpnet_#vala:gnome.org"
+
+discord = "https://discord.gg/YFAzjSVHt7"
+
+twitter = "https://www.twitter.com/vala_lang"
+
+reddit = "https://www.reddit.com/r/vala"
+
+
+
+
