@@ -1,0 +1,928 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+# https://www.vala-project.org/doc/vala/
+file_extensions:
+  - vala
+scope: source.vala
+
+variables:
+  # Legal identifiers must begin with one alphabetic character
+  # or underscore, followed by any number (zero or more) of
+  # alphanumerics or underscores.
+  # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
+  identifier: \b[[:alpha:]_](?:[[:alnum:]_])*\b
+
+  # A fully qualified identifier (possibly including namespace).
+  namespace_identifier: (?:{{identifier}})(?:\.(?:{{identifier}}))*
+
+  boolean_type_name: bool
+  integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
+  float_type_name: float|double
+  reference_type_name: string
+  void_type_name: void
+  builtin_type: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}|{{void_type_name}}'
+
+  # Lifted from the characters GLib's string.escape() method will handle.
+  string_escape: \\[bfnrtv"]
+
+  access_modifier: public|private
+  func_param_direction: out|ref
+  jump_statement_keywords: break|continue|return|throw|yield
+  ownership_modifiers: unowned|owned
+  selection_statements: if|else|switch|case|default
+  while_statements: do|while
+
+  # Lookahead for a paren group followed by an arrow operator.
+  lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: using_statement
+    - include: namespace_declarations
+    - include: method_declarations
+    - include: keywords
+    - include: statements
+    - include: expressions
+    - include: blocks
+
+  blocks:
+    # Catch-all for blocks that weren't caught in another context.
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      push:
+        - meta_scope: meta.block.vala
+        - include: block_body
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+
+#####################################################################
+# Comments
+#####################################################################
+
+  comments:
+    - include: line_comments
+    - include: doc_comments
+    - include: block_comments
+
+  line_comments:
+    - match: //
+      scope: punctuation.definition.comment.vala
+      push:
+        - meta_scope: comment.line.vala
+        - match: $\n?
+          pop: true
+
+  block_comments:
+    - match: /[*]
+      scope: punctuation.definition.comment.begin.vala
+      push:
+        - meta_scope: comment.block.vala
+        - match: '[*]/'
+          scope: punctuation.definition.comment.end.vala
+          pop: true
+
+  doc_comments:
+    - match: /\*\*
+      scope: comment.block.documentation.vala punctuation.definition.comment.begin.vala
+      push: documentation
+
+  documentation:
+    - meta_include_prototype: false
+    - meta_content_scope: comment.block.documentation.vala
+    - match: '[*]/'
+      scope: comment.block.documentation.vala punctuation.definition.comment.end.vala
+      pop: true
+    - include: documentation_block_markup
+    - include: documentation_inline_markup
+
+  documentation_inline_markup:
+    # Force a newline.
+    - match: <<BR>>
+      scope: constant.character.escape.vala
+    - include: documentation_bold_text
+    - include: documentation_italic_text
+    - include: documentation_underline_text
+    - include: documentation_blockquote_text
+    - include: documentation_link
+    - include: documentation_image
+    - include: documentation_link_taglet
+    - include: documentation_inheritdoc_taglet
+
+  documentation_block_markup:
+    - include: documentation_code_block
+    - include: documentation_list_block
+    - include: documentation_table_block
+    - include: documentation_headline_block
+    - include: documentation_deprecated_taglet
+    - include: documentation_see_taglet
+    - include: documentation_param_taglet
+    - include: documentation_since_taglet
+    - include: documentation_return_taglet
+    - include: documentation_throws_taglet
+
+  documentation_list_block:
+    - match: ^\s+(?:\*)[ ]{2,}((\d*\.|#|i\.|I\.|a\.|A\.)|(\*))\s+
+      captures:
+        2: markup.list.numbered.vala
+        3: markup.list.unnumbered.vala
+
+  documentation_code_block:
+    - match: ^\s+(?:\*)[ ]+({{{)
+      captures:
+        1: punctuation.section.braces.begin.vala
+      push:
+        - meta_content_scope: markup.raw.block.vala
+        - match: '}}}'
+          scope: punctuation.section.braces.end.vala
+          pop: true
+
+  documentation_table_block:
+    - match: ^\s+(?:\*)[ ]+([|]{2})\s+
+      captures:
+        1: punctuation.separator.vala
+      push:
+        - include: documentation_inline_markup
+        - match: '[||]'
+          scope: punctuation.separator.vala
+        - match: $\n?
+          pop: true
+
+  documentation_headline_block:
+    - match: ^\s+(?:\*)[ ]+(={1,4})\s+
+      captures:
+        1: punctuation.definition.heading.vala
+      push:
+        - meta_content_scope: markup.heading.vala
+        - match: (={1,4})\s+
+          captures:
+            1: punctuation.definition.heading.vala
+          pop: true
+
+  documentation_bold_text:
+    - match: "''"
+      scope: punctuation.definition.bold.begin.vala
+      push:
+        - meta_scope: markup.bold.vala
+        - match: "''"
+          scope: punctuation.definition.bold.end.vala
+          pop: true
+        - include: documentation_inline_markup
+
+  documentation_italic_text:
+    # Force an immediate non-WS character to avoid mismatching
+    # with single-line comments.
+    - match: //(?!\s)
+      scope: punctuation.definition.italic.begin.vala
+      push:
+        - meta_scope: markup.italic.vala
+        - match: //
+          scope: punctuation.definition.italic.end.vala
+          pop: true
+        - include: documentation_inline_markup
+
+  documentation_underline_text:
+    - match: __
+      scope: punctuation.definition.underline.begin.vala
+      push:
+        - meta_scope: markup.underline.vala
+        - match: __
+          scope: punctuation.definition.underline.end.vala
+          pop: true
+        - include: documentation_inline_markup
+
+  documentation_blockquote_text:
+    - match: '``'
+      scope: punctuation.definition.blockquote.begin.vala
+      push:
+        - meta_scope: markup.quote.vala
+        - match: '``'
+          scope: punctuation.definition.blockquote.end.vala
+          pop: true
+        - include: documentation_inline_markup
+
+  documentation_link:
+    - match: \[\[
+      scope: punctuation.section.brackets.begin.vala
+      push:
+        - match: \|
+          scope: punctuation.separator.vala
+        - match: \]\]
+          scope: punctuation.section.brackets.end.vala
+          pop: true
+
+  documentation_image:
+    - match: \{\{
+      scope: punctuation.section.brackets.begin.vala
+      push:
+        - match: \|
+          scope: punctuation.separator.vala
+        - match: \}\}
+          scope: punctuation.section.brackets.end.vala
+          pop: true
+
+  documentation_link_taglet:
+    - match: ({)(@link)\s+({{identifier}})(})
+      captures:
+        1: punctuation.section.braces.begin.vala
+        2: storage.type.vala
+        3: entity.name.section.vala
+        4: punctuation.section.braces.end.vala
+
+  documentation_inheritdoc_taglet:
+    - match: ({)(@inheritDoc)(})
+      captures:
+        1: punctuation.section.braces.begin.vala
+        2: storage.type.vala
+        3: punctuation.section.braces.end.vala
+
+  documentation_deprecated_taglet:
+    - match: (@deprecated)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_see_taglet:
+    - match: (@see)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: entity.name.section.vala
+
+  documentation_param_taglet:
+    - match: (@param)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: variable.parameter.vala
+
+  documentation_since_taglet:
+    - match: (@since)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_return_taglet:
+    - match: (@return)\s+
+      captures:
+        1: storage.type.vala
+
+  documentation_throws_taglet:
+    - match: (@throws)\s+({{identifier}})
+      captures:
+        1: storage.type.vala
+        2: entity.name.type.vala
+
+#####################################################################
+# Keywords
+#####################################################################
+
+  keywords:
+    - include: type_keywords
+    - include: const_keyword
+    - include: ownership_modifiers
+    - include: var_keyword
+    - include: selection_keywords
+    - include: while_keywords
+
+  type_keywords:
+    - match: '\b({{builtin_type}})\b'
+      scope: storage.type.vala
+
+  const_keyword:
+    - match: \bconst\b
+      scope: storage.modifier.vala
+
+  ownership_keywords:
+    - match: \b({{ownership_modifiers}})\b
+      scope: storage.modifier.vala
+
+  var_keyword:
+    - match: \bvar\b
+      scope: storage.type.vala
+
+  selection_keywords:
+    - match: \b({{selection_statements}})\b
+      scope: keyword.control.conditional.vala
+
+  while_keywords:
+    - match: \b({{while_statements}})\b
+      scope: keyword.control.loop.vala
+
+#####################################################################
+# Expressions
+#####################################################################
+
+  expressions:
+    - include: sizeof_typeof_operators
+    - include: method_call
+    - include: pointer_member_expression
+    - include: lambda_expression
+    - include: operators
+    - include: language_constants
+    - include: number_literals
+    - include: strings
+    - include: this_expression
+    - include: struct_member_expression
+    # Catch all unknown identifiers.
+    - match: '{{identifier}}'
+      scope: variable.other.readwrite.vala
+
+  method_call:
+    - match: ({{identifier}})\s*(\()
+      captures:
+        1: variable.function.vala
+        2: punctuation.section.parens.begin.vala
+      push: method_call_params
+
+  method_call_params:
+    - meta_scope: meta.function-call.vala
+    - match: \,
+      scope: punctuation.separator.sequence.vala
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      pop: true
+    - include: expressions
+
+  pointer_member_expression:
+    - match: (->)
+      scope: punctuation.accessor.arrow.vala
+      push:
+        - match: ({{identifier}})\s*(\()
+          captures:
+            1: variable.function.vala
+            2: punctuation.section.parens.begin.vala
+          push: method_call_params
+        - match: ({{identifier}})
+          scope: variable.other.member.vala
+        - include: else-pop
+
+  struct_member_expression:
+    - match: ([.])
+      scope: punctuation.accessor.dot.vala
+      push:
+        - match: ({{identifier}})\s*(\()
+          captures:
+            1: variable.function.vala
+            2: punctuation.section.parens.begin.vala
+          push: method_call_params
+        - match: ({{identifier}})
+          scope: variable.other.member.vala
+        - include: else-pop
+
+  this_expression:
+    - match: \bthis\b
+      scope: variable.language.vala
+
+  operators:
+    - match: ;
+      scope: punctuation.terminator.vala
+    - match: ([(])(owned)([)])
+      scope: keyword.operator.word.vala
+    - include: parens
+    - include: brackets
+    - include: as_is_operators
+    - include: new_operator
+    - match: 'global::'
+      scope: keyword.operator.word.vala
+    - match: \bdelete\b
+      scope: keyword.operator.word.vala
+    - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
+      scope: keyword.operator.assignment.vala
+    - match: (<<|>>)
+      scope: keyword.operator.bitwise.vala
+    - match: (==|!=|<=|<|>=|>)
+      scope: keyword.operator.comparison.vala
+    - match: =
+      scope: keyword.operator.assignment.vala
+    - match: (\+\+|--|\+|-|\*|\/|%)
+      scope: keyword.operator.arithmetic.vala
+    - match: (\|\||&&|!)
+      scope: keyword.operator.logical.vala
+    - match: (\||\^|&|~|)
+      scope: keyword.operator.bitwise.vala
+    - match: \?\?
+      scope: keyword.operator.vala
+    - match: (\?|\:)
+      scope: keyword.operator.vala
+
+  parens:
+    - match: \(
+      scope: punctuation.section.parens.begin.vala
+      push:
+        - meta_scope: meta.group.vala
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.parens.end.vala
+          pop: true
+
+  brackets:
+    - match: \[
+      scope: punctuation.section.brackets.begin.vala
+      push:
+        - meta_scope: meta.brackets.vala
+        - include: expressions
+        - match: \,
+          scope: punctuation.separator.vala
+        - match: \]
+          scope: punctuation.section.brackets.end.vala
+          pop: true
+
+  sizeof_typeof_operators:
+    - match: \b(sizeof|typeof)\b\s*(\()
+      captures:
+        1: keyword.operator.word.vala
+        2: punctuation.section.group.begin.vala
+      push:
+        - match: \)
+          scope: punctuation.section.group.end.vala
+          pop: true
+        - include: type_keywords
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+
+  as_is_operators:
+    - match: \b(as|is)\b\s*
+      captures:
+        1: keyword.operator.word.vala
+      push:
+        - match: '\b({{builtin_type}})\b'
+          scope: storage.type.vala
+          pop: true
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+          pop: true
+        - include: else-pop
+
+  new_operator:
+    - match: \b(new)\b\s+
+      captures:
+        1: keyword.operator.word.vala
+      push:
+        - match: '\b({{builtin_type}})\b'
+          scope: storage.type.vala
+          pop: true
+        - match: \b({{namespace_identifier}})\b
+          scope: support.type.vala
+          pop: true
+        - include: else-pop
+
+#####################################################################
+# Constants & Literals
+#####################################################################
+
+  language_constants:
+    - match: \b(true|false|null)\b
+      scope: constant.language.vala
+
+  number_literals:
+    - include: float_literals
+    - include: integer_literals
+
+  float_literals:
+    - match: \b\d+([.])(\d+)\b
+      scope: constant.numeric.float.vala
+      captures:
+        1: punctuation.separator.decimal.vala
+
+  integer_literals:
+    - match: \b\d+\b
+      scope: constant.numeric.integer.vala
+
+  strings:
+    - include: template_strings
+    - include: verbatim_strings
+    - include: single_line_strings
+
+  single_line_strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.double.vala
+        - match: '"'
+          scope: punctuation.definition.string.end.vala
+          pop: true
+        - match: '{{string_escape}}'
+          scope: constant.character.escape.vala
+        - match: $\n?
+          set:
+            - meta_scope: invalid.illegal.vala
+            - match: '"'
+              scope: punctuation.definition.string.end.vala
+              pop: true
+
+  verbatim_strings:
+    - match: '"""'
+      scope: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.triple.vala
+        - match: '"""'
+          scope: punctuation.definition.string.end.vala
+          pop: true
+
+  template_strings:
+    - match: (@)(")
+      captures:
+        1: storage.modifier.string.vala
+        2: punctuation.definition.string.begin.vala
+      push:
+        - meta_scope: string.quoted.double.vala
+        - match: '"'
+          scope: punctuation.definition.string.end.vala
+          pop: true
+        - match: (?=(\$)({{identifier}}))
+          push: string_interpolation_variable
+        - match: (?=(\$)(\())
+          push: string_interpolation_expression
+
+  string_interpolation_variable:
+    - clear_scopes: 1
+    - match: (\$)({{identifier}})
+      captures:
+        1: meta.interpolation.vala punctuation.section.interpolation.begin.vala
+        2: meta.interpolation.vala variable.other.interpolation.vala
+      pop: true
+
+  string_interpolation_expression:
+    - clear_scopes: 1
+    - match: \$\(
+      scope: punctuation.section.interpolation.begin.vala
+      set:
+        - clear_scopes: 1
+        - meta_scope: meta.interpolation.vala
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.interpolation.end.vala
+          pop: true
+
+#####################################################################
+# Lambdas
+#####################################################################
+
+  lambda_expression:
+    - match: (?={{lambda_lookahead}})
+      set: lambda_declaration
+
+  lambda_declaration:
+    - meta_include_prototype: false
+    - match: ''
+      set: lambda_expression_parameters
+
+  lambda_expression_parameters:
+    - match: \(
+      scope: punctuation.section.group.begin.vala
+      set:
+        - meta_scope: meta.function.parameters.vala
+        - match: \)
+          scope: punctuation.section.group.end.vala
+          set: lambda_expression_arrow
+        - match: \b({{func_param_direction}})\b
+          scope: keyword.control.vala
+        - match: '{{identifier}}'
+          scope: variable.parameter.vala
+        - match: \,
+          scope: punctuation.separator.vala
+
+  lambda_expression_arrow:
+    - match: =>
+      scope: storage.type.function.arrow.vala
+      set: lambda_function_body
+
+  lambda_function_body:
+    - match: \{
+      scope: punctuation.section.braces.begin.vala
+      set:
+        - meta_scope: meta.function.vala
+        - match: \}
+          scope: punctuation.section.braces.end.vala
+          pop: true
+        - include: block_body
+
+#####################################################################
+# Statements
+#####################################################################
+
+  statements:
+    - include: jump_statements
+    - include: foreach_statement
+    - include: for_statement
+
+  block_body:
+    - include: keywords
+    - include: statements
+    - include: expressions
+
+  jump_statements:
+    - match: \b({{jump_statement_keywords}})\b
+      scope: keyword.control.flow.vala
+
+  foreach_statement:
+    - match: \b(foreach)\b\s*(\()
+      captures:
+        1: keyword.control.loop.vala
+        2: punctuation.section.group.begin.vala
+      push: for_statement_inital_type
+
+  for_statement:
+    - match: \b(for)\b\s*(\()
+      captures:
+        1: keyword.control.loop.vala
+        2: punctuation.section.group.begin.vala
+      push: for_statement_inital_type
+
+  for_statement_inital_type:
+    # Consume optional ownership modifier on the loop variable.
+    - match: \bvar\b
+      scope: storage.type.vala
+      set: foreach_group_expression
+    - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+      set: foreach_group_expression
+    - match: '(?:\b({{ownership_modifiers}})\b\s+)?({{namespace_identifier}})'
+      captures:
+        1: storage.modifier.vala
+        2: support.type.vala
+      set: foreach_group_expression
+
+  foreach_group_expression:
+    # We match the first type in a foreach (type ...) statement
+    # so that we can highlight the loop variable type even if
+    # it isn't a built-in type.
+    - match: \)
+      scope: punctuation.section.group.end.vala
+      pop: true
+    - match: \bin\b
+      scope: keyword.operator.word.vala
+    - include: expressions
+    - match: '{{identifier}}'
+      scope: variable.other.readwrite.vala
+
+#####################################################################
+# Methods
+#####################################################################
+
+  method_declarations:
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# consume a built-in type or assume its a user type)
+          \b(?:
+            ({{builtin_type}})|
+            (?# avoid confusion with `new` class/array instantiation)
+            (?!new)
+            ({{namespace_identifier}})
+          )\b
+          (?# allow a "?" on the end of the type for nullable types)
+          (\?)?\s+
+          (?# fully-qualified method name)
+          ({{namespace_identifier}})
+          (?# opening parenthesis)
+          (\()
+        )
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+        3: support.type.vala
+        4: keyword.operator.vala
+        5: meta.function.vala entity.name.function.vala
+        6: punctuation.section.parens.begin.vala
+      push: named_parameter_list
+
+  # Parameter lists are matched in a very specific order in the
+  # stack in order to highlight everything correctly:
+  #
+  # list = [direction] type name [, ...list]
+  #
+  # After the parameter list has been matched, we attempt to
+  # match the "throws" and contracts portions of the method
+  # declaration.
+  named_parameter_list:
+    - match: ''
+      set: method_parameter_direction
+
+  # Parameter direction is optional, if we don't find one, we
+  # can still try for the type. This is the first parameter
+  # check in the stack, thus it also checks for the ending ")".
+  method_parameter_direction:
+    - include: match_parameters_list_close
+    - match: \b({{func_param_direction}})\b\s*
+      captures:
+        0: meta.function.parameters.vala
+        1: keyword.control.vala
+      set: method_parameter_type
+    - match: (?=\S)
+      set: method_parameter_type
+
+  # Parameter type also matches for the variable-length
+  # "..." operator. Otherwise it will look for a built-in
+  # type and fallback to a user type.
+  method_parameter_type:
+    - meta_content_scope: meta.function.parameters.vala
+    - match: \b({{builtin_type}})\b(\?)?\s*
+      captures:
+        1: storage.type.vala
+        2: keyword.operator.vala
+      set: method_parameter_name
+    - match: \b({{namespace_identifier}})\b(\?)?\s*
+      captures:
+        1: support.type.vala
+        2: keyword.operator.vala
+      set: method_parameter_name
+    - match: (\.\.\.)\s*
+      captures:
+        1: keyword.operator.vala
+      set: method_parameter_name
+    - match: (?=\S)
+      set: method_throws_keyword
+
+  # Matches the parameter name, the comma, and sets up
+  # the default-value context, if triggered by the "=".
+  method_parameter_name:
+    - meta_content_scope: meta.function.parameters.vala
+    - match: \b({{namespace_identifier}})\b\s*
+      captures:
+        1: variable.parameter.vala
+    - match: (\,)\s*
+      captures:
+        1: punctuation.separator.vala
+      set: method_parameter_direction
+    - include: match_parameters_list_close
+    - match: (=)\s*
+      captures:
+        1: keyword.operator.assignment.vala
+      set: method_parameter_default_value
+    - match: (?=\S)
+      set: method_throws_keyword
+
+  # Wrapper around the "expressions" context to allow
+  # setting a default value for a parameter.
+  method_parameter_default_value:
+    - meta_content_scope: meta.function.parameters.vala
+    - include: expressions
+    - match: (\,)\s*
+      captures:
+        1: punctuation.separator.vala
+      set: method_parameter_direction
+    - include: match_parameters_list_close
+    - match: (?=\S)
+      set: method_throws_keyword
+
+  # Matches the "throws" keyword. If successful, sets the
+  # error list context on the stack, otherwise kicks it to
+  # the method contracts context.
+  method_throws_keyword:
+    - match: \b(throws)\b\s+
+      captures:
+        1: keyword.control.exception.vala
+      set: method_error_list
+    - match: (?=\S)
+      set: method_contracts
+
+  # Matches the "throws" error list CSV. Kicks it to the
+  # method contracts context after it tries to match.
+  method_error_list:
+    - match: \b({{builtin_type}})\b
+      captures:
+        1: storage.type.vala
+    - match: (?=\b(requires|ensures)\b)
+      set: method_contracts
+    - match: \b({{namespace_identifier}})\b
+      captures:
+        1: support.type.vala
+    - match: \,
+      scope: punctuation.separator.vala
+    - match: (?=(\{|;))
+      pop: true
+    - match: (?=\S)
+      set: method_contracts
+
+  # Matches method contract "requires" and "ensures"
+  # blocks. It will match the special language constant
+  # "result" in "ensures" blocks.
+  method_contracts:
+    - match: \b(requires|ensures)\b\s*(\()
+      captures:
+        1: keyword.control.conditional.vala
+        2: punctuation.section.parens.begin.vala
+      set:
+        - match: \bresult\b
+          scope: variable.language.vala
+        - include: expressions
+        - match: \)
+          scope: punctuation.section.parens.end.vala
+          set: method_contracts
+    - match: (?=(\{|;|\S))
+      pop: true
+
+  # Helper context to match the end of the parameters list
+  # and jump to the "throws" keyword context.
+  match_parameters_list_close:
+    - match: \)
+      scope: punctuation.section.parens.end.vala
+      set: method_throws_keyword
+
+#####################################################################
+# Namespaces
+#####################################################################
+
+  namespace_declarations:
+    - match: '\b(namespace)\b\s+({{identifier}})'
+      captures:
+        1: storage.type.vala
+        2: entity.name.namespace.vala
+      push:
+        - meta_scope: meta.namespace.vala
+        - match: '{{identifier}}'
+          scope: entity.name.namespace.vala
+        - match: \.
+          scope: punctuation.accessor.dot.vala
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.namespace.vala meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: namespace_members
+
+  namespace_members:
+    - include: namespace_declarations
+    - include: constant_declarations
+    - include: field_declarations
+
+  field_declarations:
+    # [ access-modifier ] qualified_type_name field_name [ = expression ] ;
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# consume a built-in type or assume its a user type)
+          \b(?:({{builtin_type}})|({{identifier}}))\b
+        )
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.vala
+        3: support.type.vala
+      push:
+        # Catch the field-name.
+        - match: '{{identifier}}'
+          scope: variable.other.readwrite.vala
+        - match: =
+          scope: keyword.operator.assignment.vala
+          set: rvalue_pop_on_terminator
+        - match: \;
+          scope: punctuation.terminator.vala
+          pop: true
+
+  constant_declarations:
+    # [ access_modifier ] const qualified_type_name constant_name = expression ;
+    - match: |-
+        (?x:
+          (?# optional access_modifier)
+          (?:\b({{access_modifier}})\b\s+)?
+          (?# the const keyword)
+          \b(const)\b\s+
+          (?# consume a built-in type or assume its a user type)
+          \b(?:({{builtin_type}})|({{namespace_identifier}}))\b
+        )
+      captures:
+        1: storage.modifier.vala
+        2: storage.modifier.vala
+        3: storage.type.vala
+        4: support.type.vala
+      push:
+        # Catch the field-name.
+        - match: '{{identifier}}'
+          scope: variable.other.readwrite.vala
+        - match: =
+          scope: keyword.operator.assignment.vala
+          set: rvalue_pop_on_terminator
+
+  using_statement:
+    # using namespace-name [, namespace-name] ;
+    - match: \busing\b\s+
+      scope: keyword.control.import.vala
+      push:
+        - match: \,
+          scope: punctuation.separator.vala
+        - match: '{{namespace_identifier}}'
+          scope: support.type.vala
+        - match: \;
+          scope: punctuation.terminator.vala
+          pop: true
+
+  rvalue_pop_on_terminator:
+    # Match an rvalue, then pop at the next semicolon.
+    - match: \;
+      scope: punctuation.terminator.vala
+      pop: true
+    - include: expressions
+
+  else-pop:
+    # Used as a fallback to pop out of a context
+    # when the users syntax is incorrect.
+    - match: (?=\S)
+      pop: true
