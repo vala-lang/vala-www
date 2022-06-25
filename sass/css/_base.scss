@@ -101,6 +101,24 @@ h6 {
   color: var(--foreground-color);
 }
 
+h1 .zola-anchor,
+h2 .zola-anchor,
+h3 .zola-anchor,
+h4 .zola-anchor,
+h5 .zola-anchor,
+h6 .zola-anchor{
+  visibility: hidden;
+}
+
+h1:hover .zola-anchor,
+h2:hover .zola-anchor,
+h3:hover .zola-anchor,
+h4:hover .zola-anchor,
+h5:hover .zola-anchor,
+h6:hover .zola-anchor{
+  visibility: visible;
+}
+
 h1 {
   font-size: 3rem;
   letter-spacing: -0.04rem;
@@ -135,6 +153,10 @@ a {
 a:hover,
 a:active {
   color: var(--accent-color-dark-2);
+}
+
+.zola-anchor {
+  margin-left: 0.5rem;
 }
 
 ul li a {
