@@ -2,6 +2,9 @@
 title = "Vala 0.56"
 template = "page.html"
 date = "2022-03-18"
+
+[extra]
+authors = ["Lorenz Wildberg"]
 +++
 
 [comment]: # (This actually is the most platform independent comment)

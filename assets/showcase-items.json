@@ -1,27 +1,32 @@
 [
   {
     "name": "elementary OS",
-    "icon_path": "",
+    "icon_path": "icons/showcase/elementary.svg",
     "url": "https://elementary.io/"
   },
   {
+    "name": "GNOME Boxes",
+    "icon_path": "icons/showcase/gnome-boxes.svg",
+    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
+  },
+  {
     "name": "Planner",
-    "icon_path": "",
+    "icon_path": "icons/showcase/planner.svg",
     "url": "https://useplanner.com/"
   },
   {
     "name": "Starfish",
-    "icon_path": "",
+    "icon_path": "icons/showcase/starfish.svg",
     "url": "https://appcenter.elementary.io/hr.from.josipantolis.starfish/"
   },
   {
-    "name": "GNOME Boxes",
-    "icon_path": "",
-    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
+    "name": "BirdFont",
+    "icon_path": "icons/showcase/birdfont.svg",
+    "url": "https://birdfont.org/"
   },
   {
-    "name": "BirdFont",
-    "icon_path": "",
-    "url": "https://birdfont.org/"
+    "name": "Peek",
+    "icon_path": "icons/showcase/peek.svg",
+    "url": "https://github.com/phw/peek"
   }
 ]
