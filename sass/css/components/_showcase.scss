@@ -36,7 +36,7 @@ section .showcase + a {
   font-size: 1.25rem;
   font-weight: 500;
   font-variation-settings: 'wght' 500;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .showcase li a:hover {
@@ -47,6 +47,12 @@ section .showcase + a {
 .showcase li a span {
   margin-top: 1rem;
   display: inline-block;
+  width: 11.25rem;
+}
+
+.showcase li a svg {
+  width: 8rem;
+  height: 8rem;
 }
 
 @media (min-width: 375px) {
