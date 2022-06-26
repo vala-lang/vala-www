@@ -41,6 +41,7 @@ body > header nav ul {
 }
 
 body > header nav > :first-child svg {
+  transition: fill 0.3s ease;
   fill: white;
   width: 4rem;
   height: 1.6rem;

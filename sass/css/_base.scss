@@ -7,8 +7,12 @@
   --brim-background-color: #{var(--accent-color-dark-1)};
   --brim-link-color: white;
   --brim-link-hover-color: #{var(--accent-color-light-2)};
+  --card-border-color: #d4d4d4;
+  --secondary-cta-background: #fafafa;
+  --label-text-color: #555761;
 	--foreground-color: #1a1a1a;
 	--background-color: white;
+  --inline-code-background-color: #d4d4d4;
 }
 
 body {
@@ -42,9 +46,30 @@ main {
 
 article,
 section {
-  text-align: left;
-  max-width: 600px;
   width: 100%;
+  text-align: left;
+  max-width: 43.75rem;
+}
+
+section {
+  padding: 2.5rem 0;
+}
+
+section > section {
+  max-width: 43.75rem;
+  margin: 0 auto;
+  text-align: left;
+  padding: 1rem 0;
+}
+
+section > section:first-of-type {
+  padding-top: 0;
+  padding-bottom: 1rem;
+}
+
+section > a:last-child {
+  margin-top: 2rem;
+  display: inline-block;
 }
 
 footer {
@@ -77,11 +102,42 @@ h6 {
   color: var(--foreground-color);
 }
 
+h1 .zola-anchor,
+h2 .zola-anchor,
+h3 .zola-anchor,
+h4 .zola-anchor,
+h5 .zola-anchor,
+h6 .zola-anchor{
+  visibility: hidden;
+}
+
+h1:hover .zola-anchor,
+h2:hover .zola-anchor,
+h3:hover .zola-anchor,
+h4:hover .zola-anchor,
+h5:hover .zola-anchor,
+h6:hover .zola-anchor{
+  visibility: visible;
+}
+
 h1 {
   font-size: 3rem;
   letter-spacing: -0.04rem;
-  font-weight: $font-weight-light;
-  font-variation-settings: 'wght' $font-weight-light;
+  font-weight: $font-weight-semi-bold;
+  font-variation-settings: 'wght' $font-weight-semi-bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: $font-weight-semi-bold;
+  letter-spacing: -0.05rem;
+  font-variation-settings: 'wght' $font-weight-semi-bold;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: -0.003125rem;
 }
 
 ul {
@@ -90,6 +146,7 @@ ul {
 }
 
 a {
+  transition: color 0.3s ease;
   color: var(--accent-color-dark-1);
   word-wrap: break-word;
 }
@@ -99,11 +156,59 @@ a:active {
   color: var(--accent-color-dark-2);
 }
 
+.zola-anchor {
+  margin-left: 0.5rem;
+}
+
+ul li a {
+  display: inline-flex;
+  align-items: center;
+}
+
+time {
+  display: block;
+}
+.social-links li {
+  margin-top: 0.5rem;
+}
+
+.social-links li:first-child {
+  margin-top: 0;
+}
+
+ul li a svg {
+  transition: fill 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  fill: var(--accent-color-dark-1);
+}
+
+ul li a:hover svg {
+  fill: var(--accent-color-dark-2);
+}
+
+article ul {
+  list-style-type: disc;
+  padding-left: 1rem;
+}
+
+article ul li {
+  margin-top: 0.5rem;
+}
+
+article ul li:first-child {
+  margin-top: 0;
+}
+
 pre {
   padding: 1rem;
+  border-radius: 4px;
   overflow: auto;
   text-align: left;
+  border: 1px solid #d4d4d4;
 }
+
 // The line numbers already provide some kind of left/right padding
 pre[data-linenos] {
   // padding: 1rem ;
@@ -121,7 +226,7 @@ pre table td:nth-of-type(1) {
   user-select: none;
   padding-left: 2rem;
   padding-right: 1rem;
-  text-align: right;
+  text-align: left;
 }
 pre mark {
   // If you want your highlights to take the full width.
@@ -134,7 +239,20 @@ pre table {
   border-collapse: collapse;
 }
 
+code {
+  border-radius: 4px;
+  background-color: var(--inline-code-background-color);
+  padding: 0.125rem 0.25rem;
+}
+
+pre code {
+  border-radius: 0;
+  background: none;
+  padding: 0;
+}
+
 #bypass-block {
+  transition: none;
   position: absolute;
   word-wrap: normal;
   top: 0;
@@ -165,6 +283,9 @@ pre table {
   :root {
     --foreground-color: white;
     --background-color: #1a1a1a;
+    --card-border-color: #333333;
+    --inline-code-background-color: #333333;
+    --secondary-cta-background: #333333;
   }
 
   #bypass-block {
@@ -178,6 +299,19 @@ pre table {
   a:hover,
   a:active {
     color: var(--accent-color);
+  }
+
+  ul li a svg {
+    fill: var(--accent-color-light-1);
+  }
+
+  ul li a:hover svg {
+    fill: var(--accent-color);
+  }
+
+
+  pre {
+    border: 1px solid #333333;
   }
 }
 

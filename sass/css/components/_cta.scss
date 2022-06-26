@@ -1,0 +1,69 @@
+.cta-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.cta-stack a {
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-color-dark-1);
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+  padding: 2rem 3rem;
+  text-decoration: none;
+  margin-top: 1rem;
+  flex: 1 1 0%;
+  max-width: 43.75rem;
+  width: 100%;
+}
+
+.cta-stack a:hover {
+  background: #8B55C9;
+}
+
+.cta-stack a:first-child {
+  margin-top: 0;
+}
+
+.cta-stack a:last-child {
+  background: var(--secondary-cta-background);
+  color: var(--foreground-color);
+  border: solid 2px var(--card-border-color);
+}
+
+.cta-stack a:last-child:hover {
+  background: #eeeeee;
+}
+
+@media (min-width: 800px) {
+  .cta-stack {
+    flex-direction: row;
+  }
+
+  .cta-stack a {
+    margin-top: 0;
+    margin-left: 1.5rem;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  .cta-stack a:first-child {
+    margin-left: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .cta-stack a:last-child:hover {
+    background: #4d4d4d;
+  }
+}
