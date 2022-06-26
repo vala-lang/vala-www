@@ -5,7 +5,7 @@
   {% for item in showcase_data %}
   <li>
     <a href="{{ item.url }}">
-      <img src="{{ get_url(path=item.icon_path) }}" alt="">
+      {{ load_data(path=item.icon_path) | safe }}
       <span>{{ item.name }}</span>
     </a>
   </li>
