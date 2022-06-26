@@ -50,6 +50,11 @@ section .showcase + a {
   width: 11.25rem;
 }
 
+.showcase li a img {
+  width: 8rem;
+  height: 8rem;
+}
+
 .showcase li a svg {
   width: 8rem;
   height: 8rem;
