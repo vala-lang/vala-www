@@ -1,9 +1,10 @@
 +++
 title = "About Vala"
 template = "page.html"
+insert_anchor_links = "right"
 +++
 
-# About Vala
+<h1>About Vala</h1>
 
 **TODO: Update content. Current content below is from the [GNOME Vala Wiki](https://wiki.gnome.org/Projects/Vala/About). Please see: [https://github.com/colinkiama/vala-www/issues/1](https://github.com/colinkiama/vala-www/issues/1)**
 

@@ -6,15 +6,15 @@
 
 {% block main_content %}
   <section>
-    {{ section.content|safe }}
-  </section>
-
-  <section>
-    <h2>Posts</h2>
-
-    {% for post in paginator.pages %}
-        <a href="{{ post.permalink }}">{{ post.title }}</a>
-    {% endfor %}
+    <h1>Blog</h1>
+    <ul>
+      <li>
+        {% for post in paginator.pages %}
+            <a href="{{ post.permalink }}">{{ post.title }}</a>
+            <time datetime="{{ post.date }}">{{ post.date | date }}</time>
+        {% endfor %}
+      </li>
+    </ul>
   </section>
 
   <nav class="pagination">

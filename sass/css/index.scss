@@ -21,16 +21,26 @@ main > pre + p {
 }
 
 main > pre {
-  border-radius: 4px;
   position: relative;
 }
 
+section {
+  text-align: center;
+  max-width: none;
+}
+
+h1 {
+  font-weight: 300;
+  font-variation-settings: 'wght' 300;
+}
+
 .features {
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 @media (min-width: 800px) {
   main > pre {
+    border: 0;
     box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.12);
   }
 }
@@ -41,14 +51,6 @@ main > pre {
   }
 }
 
-@media (max-width: 800px) {
-  main > pre {
-    border: 1px solid #d4d4d4;
-  }
-}
 
-@media (max-width: 800px) and (prefers-color-scheme: dark) {
-  main > pre {
-    border: 1px solid #333333;
-  }
-}
+@import 'components/post-preview';
+@import 'components/showcase';

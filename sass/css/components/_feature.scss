@@ -1,52 +1,67 @@
-.feature {
-  max-width: 16.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.feature > div {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--accent-color-dark-1);
-  border-radius: 100%;
-  width: 8rem;
-  height: 8rem;
-}
-
-.feature .icon {
-  width: 4rem;
-  height: 4rem;
-  fill: white;
-}
-
 .features {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.features .feature {
-  margin-top: 4rem
+.features > div {
+  border: 1px solid var(--card-border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem 2.5rem 1.25rem;
+  text-align: left;
 }
 
-.features .feature:first-child {
+.features > :first-child {
   margin-top: 0;
+}
+
+.features > * {
+  margin-top: 2rem;
+}
+
+/*
+  Same styling as a <h3> since a <h3> element can't be used
+  a inside <dt> element: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dt-element
+*/
+.features dt {
+  @extend h3;
+}
+.features dt > div {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.features dt svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  fill: var(--accent-color-dark-1);
+  margin-right: 0.75rem;
+}
+
+.features dd {
+  margin-left: 0;
+  margin-top: 1rem;
 }
 
 @media (min-width: 700px) {
   .features {
-    align-items: stretch;
     flex-direction: row;
+    justify-content: center;
   }
 
-  .features .feature {
+  .features > :first-child {
+    margin-left: 0;
+  }
+
+  .features > * {
     margin-top: 0;
-    margin-right: 4rem;
+    margin-left: 1.5rem;
+    max-width: 25rem;
   }
+}
 
-  .features .feature:last-child {
-    margin-right: 0;
+@media (prefers-color-scheme: dark) {
+  .features dt svg {
+    fill: var(--accent-color);
   }
 }
