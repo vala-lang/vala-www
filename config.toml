@@ -29,13 +29,17 @@ highlight_themes_css = [
 # Put all your custom variables here
 docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
 
-tutorial_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides/installation.html"
+tutorial_url = "https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides/installation.html"
 
-language_source_code_url="https://gitlab.gnome.org/GNOME/vala"
+language_source_code_url = "https://gitlab.gnome.org/GNOME/vala"
 
-site_source_code_url="https://github.com/colinkiama/vala-www"
+site_source_code_url = "https://github.com/colinkiama/vala-www"
 
-license_url="http://creativecommons.org/licenses/by-sa/4.0/"
+license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
+
+[extra.showcase]
+
+awesome_vala_url = "https://github.com/desiderantes/awesome-vala"
 
 [extra.tooling]
 

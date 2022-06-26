@@ -1,0 +1,14 @@
+{% set showcase_data = load_data(path="/assets/showcase-items.json", type="json") %}
+
+<h2 id="community">Showcase</h2>
+<ul class="showcase">
+  {% for item in showcase_data %}
+  <li>
+    <a href="{{ item.url }}">
+      <img src="{{ get_url(path=item.icon_path) }}" alt="">
+      {{ item.name }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+<a href="{{ config.extra.showcase.awesome_vala_url }}">See More</a>

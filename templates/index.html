@@ -24,7 +24,11 @@
   </section>
 
   <section>
-    {% include "partials/home-community.html" %}
+    {% include "partials/showcase.html" %}
+  </section>
+
+  <section>
+    {% include "partials/community.html" %}
   </section>
 
   {{ body_macros::cta_stack(primary_content="Get Started", primary_href=config.extra.tutorial_url, secondary_content="View Source Code", secondary_href=config.extra.language_source_code_url) }}
