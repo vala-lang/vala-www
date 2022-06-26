@@ -3,5 +3,25 @@
     "name": "elementary OS",
     "icon_path": "",
     "url": "https://elementary.io/"
+  },
+  {
+    "name": "Planner",
+    "icon_path": "",
+    "url": "https://useplanner.com/"
+  },
+  {
+    "name": "Starfish",
+    "icon_path": "",
+    "url": "https://appcenter.elementary.io/hr.from.josipantolis.starfish/"
+  },
+  {
+    "name": "GNOME Boxes",
+    "icon_path": "",
+    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
+  },
+  {
+    "name": "BirdFont",
+    "icon_path": "",
+    "url": "https://birdfont.org/"
   }
 ]
