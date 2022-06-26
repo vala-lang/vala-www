@@ -20,6 +20,7 @@ section .showcase + a {
   justify-content: center;
   margin-bottom: 4rem;
   flex: 1 1 0%;
+
 }
 
 .showcase li:first-child {
@@ -27,6 +28,7 @@ section .showcase + a {
 }
 
 .showcase li a {
+  transition: background 0.3s ease;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -34,6 +36,12 @@ section .showcase + a {
   font-size: 1.25rem;
   font-weight: 500;
   font-variation-settings: 'wght' 500;
+  padding: 2rem;
+}
+
+.showcase li a:hover {
+  background: var(--accent-color-light-2);
+  border-radius: 4px;
 }
 
 .showcase li a span {
@@ -54,5 +62,12 @@ section .showcase + a {
 @media (min-width: 800px) {
   .showcase li {
     flex: 1 1 calc(100% / 3);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .showcase li a:hover {
+    background: var(--accent-color-dark-1);
+    border-radius: 4px;
   }
 }
