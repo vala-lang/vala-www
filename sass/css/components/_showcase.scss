@@ -53,12 +53,14 @@ section .showcase + a {
 .showcase li a img {
   width: 8rem;
   height: 8rem;
+  margin-right: 0;
 }
 
 .showcase li a svg {
   width: 8rem;
   height: 8rem;
   fill: none;
+  margin-right: 0;
 }
 
 .showcase li a:hover svg {
