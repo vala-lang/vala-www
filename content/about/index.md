@@ -10,6 +10,20 @@ insert_anchor_links = "right"
 
 Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system.
 
+Vala supports modern language features such as:
+
+- Interfaces
+- Properties
+- Signals
+- Foreach statements
+- Lambda expressions
+- Type inferencing for local variables
+- Generics
+- Non-null types
+- Assisted memory management
+- Exception handling
+- Type modules (Plugins)
+
 ## What kind of language is Vala?
 
 ### Productive
