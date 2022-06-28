@@ -2,6 +2,7 @@
 
 {% block head %}
 <title>{{ section.title }}</title>
+{{ head_macros::og_data(title=section.title, description=section.description) }}
 {% endblock head %}
 
 {% block main_content %}

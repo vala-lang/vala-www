@@ -2,6 +2,7 @@
 title = "About Vala"
 template = "page.html"
 insert_anchor_links = "right"
+description = "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system."
 +++
 
 <h1>About Vala</h1>

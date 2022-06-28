@@ -1,1 +1,6 @@
 {% extends "page.html" %}
+
+{% block head %}
+<title>{{ page.title }}</title>
+{{ head_macros::og_data(title=page.title, description=page.description) }}
+{% endblock head %}
