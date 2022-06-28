@@ -22,7 +22,7 @@
 - Page content is written using the [CommonMark](https://commonmark.org/) implementation of [markdown](https://daringfireball.net/projects/markdown/)
   - Markdown files are human readable
   - Simple syntax
-  - Well documented
+  - Well-documented
 - [Sass](https://sass-lang.com/) is used for preprocessed styles:
   - Spliting styles across so that it's easier to make changes to specific places.
   - Taking advantage of preprocessing (calculations and variable substitutions during builds etc.)
@@ -30,3 +30,8 @@
 - The rest of the site used the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
+## Using different technolgies
+
+The solution was picked for the website in order to achieve the [codebase goals](#codebase-goals).
+
+If you feel like there are better tools out there that can be used to achieve these goals, feel free to suggest them.
