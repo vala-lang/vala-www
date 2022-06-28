@@ -8,10 +8,10 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
-  <meta property="og:url" content="{{ current_url }}">
+  <meta property="og:url" content="{{ current_url | safe }}">
 
   {%- if image_url|trim == '' %}
     {% set image_url = get_url(path="img/vala-hero-wide.png") %}
   {% endif %}
-  <meta property="og:image" content="{{ image_url }}">
+  <meta property="og:image" content="{{ image_url | safe }}">
 {% endmacro %}
