@@ -1,3 +1,4 @@
+{% import "macros/head.html" as head_macros %}
 {% import "macros/body.html" as body_macros %}
 {% import "macros/icon.html" as icon_macros %}
 
@@ -27,7 +28,8 @@
   <link rel="manifest" href="{{ get_url(path='manifest.json') }}">
   <meta name="msapplication-TileColor" content="#a56de2">
   <meta name="msapplication-TileImage" content="{{ get_url(path='ms-icon-144x144.png') }}">
-  {% block head %} {% endblock head %}
+  {% block head %}
+  {% endblock head %}
 </head>
 <body>
   <a id="bypass-block" href="#main-content">Skip to main content</a>
