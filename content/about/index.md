@@ -44,6 +44,6 @@ Vala is designed to allow access to existing C libraries, especially GObject-bas
 
 ### Familiar
 
-The syntax of Vala is inspired by C# and Java, so if you have used either of those, you'll seemlessly adapt to writing Vala code.
+The syntax of Vala is inspired by C# and Java, so if you have used either of those, you'll seamlessly adapt to writing Vala code.
 
 {{ predefined_cta_stack() }}
