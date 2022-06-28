@@ -42,6 +42,8 @@ Vala helps you write type-safe code without the verbosity, thanks to type infere
 
 Vala is designed to allow access to existing C libraries, especially GObject-based libraries, without the need for runtime bindings. All that is needed to use a library with Vala is an API file, containing the class and method declarations in Vala syntax. Vala currently comes with bindings for GLib and GTK+ and many others from the GNOME Platform.
 
+Vala can also be used to create C libraries too.
+
 ### Familiar
 
 The syntax of Vala is inspired by C# and Java, so if you have used either of those, you'll seamlessly adapt to writing Vala code.
