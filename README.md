@@ -4,6 +4,12 @@ Website of the Vala programming language. View the website here: https://vala.de
 
 You can contribute to the new documentation website here: https://gitlab.gnome.org/lwildberg/vala-tutorial
 
+## Reporting bugs and requesting features
+
+Feel free to [create an new issue](https://github.com/colinkiama/vala-www/issues/new/choose) or [participate in an existing one](https://github.com/colinkiama/vala-www/issues)
+
+**Remember**: If you don't speak up, we can't improve your experience.
+
 ## System Requirements
 
 - [Zola](https://www.getzola.org)
