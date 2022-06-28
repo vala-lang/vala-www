@@ -2,6 +2,7 @@
 title = "About Vala"
 template = "page.html"
 insert_anchor_links = "right"
+description = "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system."
 +++
 
 <h1>About Vala</h1>
@@ -32,7 +33,7 @@ With Vala, you can get up and running quickly, thanks to convenient features lik
 
 ### Performant
 
-High-level features doesn't mean that there'll be memory overhead. Vala compiles to C code, so you get raw native performance without having to allocate memory yourself.
+Vala code compiles down to fully native binaries. 
 
 ### Statically-Typed
 
@@ -41,6 +42,8 @@ Vala helps you write type-safe code without the verbosity, thanks to type infere
 ### Integrative
 
 Vala is designed to allow access to existing C libraries, especially GObject-based libraries, without the need for runtime bindings. All that is needed to use a library with Vala is an API file, containing the class and method declarations in Vala syntax. Vala currently comes with bindings for GLib and GTK+ and many others from the GNOME Platform.
+
+Vala can also be used to create C libraries too.
 
 ### Familiar
 
