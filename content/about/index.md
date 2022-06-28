@@ -32,7 +32,7 @@ With Vala, you can get up and running quickly, thanks to convenient features lik
 
 ### Performant
 
-High-level features doesn't mean that there'll be memory overhead. Vala compiles to C code, so you get raw native performance without having to allocate memory yourself.
+Vala code compiles down to fully native binaries. 
 
 ### Statically-Typed
 
