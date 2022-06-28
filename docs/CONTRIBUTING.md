@@ -18,4 +18,5 @@ If you would like to contribute code, please try to do the following:
 2. [Structure](./2-structure.md)
 3. [Pages](./3-pages.md)
 4. [Styling](./4-styling.md)
-5. [Potential Issues](./5-potential-issues.md)
+5. [Coding Style](./5-coding-style.md)
+6. [Potential Issues](./6-potential-issues.md)
