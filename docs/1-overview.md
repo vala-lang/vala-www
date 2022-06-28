@@ -1,6 +1,6 @@
 # Overview
 
-## Website goals
+## Website Goals
 
 - Be Vala's offical presence on the internet
 - Advertise Vala in an attractive way
@@ -8,7 +8,7 @@
 - Increase the amount of traffic to Vala's source code repository
 - Provide an open space for the community to produce Vala content with creative freedom
 
-## Codebase goals
+## Codebase Goals
 
 - Be as accessible as possible to contributors - Make it easy as possible for new people to contribute to the website.
 - Long-term maintainablitliy - Even after a long period of time, contributing to the website should still be a fast and seamless experience
@@ -30,7 +30,7 @@
 - The rest of the site used the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
-## Using different technolgies
+## Using Different Technolgies
 
 The solution was picked for the website in order to achieve the [codebase goals](#codebase-goals).
 
