@@ -1,7 +1,7 @@
 +++
 title = "Vala 0.56"
-template = "page.html"
 date = "2022-03-18"
+description="After 4 months of work we are proud to announce a Vala release version 0.56."
 
 [extra]
 authors = ["Lorenz Wildberg"]
