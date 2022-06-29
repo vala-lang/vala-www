@@ -138,7 +138,7 @@ Merge Request [#200](https://gitlab.gnome.org/GNOME/vala/-/merge_requests/200)
 
 The length of an array is usually specified by an 32bit integer. However in some cases, especially in bindings to other libaries, sometimes the length of an array is given by a different type of integer. We now have support for that:
 
-```vala,linenos
+```vala
 string[] list = new string[10:uint8];
 ```
 
