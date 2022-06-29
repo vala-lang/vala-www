@@ -9,9 +9,51 @@ If your page is structured like a post (e.g About page, blog posts, etc), you sh
 For pages that making heavy use of HTML, macros and/or partials, you should make create the majority of the content in the template itself like how the home page was made (index.html).
 You will still need create a markdown file for it in order to set up the front matter. You just don't need to write any markdown inside of it.
 
+### Sections
+
+Sections have pages under its directory. See `content/blog/_index.md` for an example of them. A section's index page is named `_index.md`.
+
+### Pages
+
+Pages can either have a unique name under a section's directory e.g `content/blog/vala-0.56.md` or be named `index.md`. If named `index.md`, they will have the same URL as the path they are under. The latter option is useful for creating one-off page like the about page (`content/about/index.md`).
+
+By default, all pages are under the root section which is the website's index page (`content/_index.md`).
+
+### Using Components
+
+There are two types of components you can create:
+
+1. Partials - Don't let you pass data in. 1 file = 1 partial.
+2. Macros - Allow you to pass data in. Muliple macros can exist in one file.
+
+It's up to you how you to decide to use these types of components to build up these pages. Each type has its advantages and disadvantages.
+
 ### Metadata
 
 A macros in `head.html` called `og_data` and  `og_data_with_image` take care of this for you. It handles the creates the Open Graph tags and adds the description meta tag for you. It's recommended that you assign the parameters to the page/sections's variables in templates you make.
 
-## Updating the items in the showcase
+#### Frontmatter
 
+In all pages make sure that you fill in the following fields:
+- `title`
+- `date` (In the format of YYYY-MM-DD)
+- `description`
+
+These are used when displaying the in link embeds.
+
+## Blog
+
+### Blog Frontmatter
+
+As well as the [fields to include when creating pages in general](#frontmatter), if the article is written from the context of a single person or group of people, you also should inlcude the `extra.authors` field with an array of strings (containg names).
+
+Filling the `extra.authors` field **is not** mandatory though. By default, the author will be set to "The Vala Team"
+
+These are used when displaying the posts across the site and also in link embeds.
+
+---
+
+## Related Resouces
+
+- https://www.getzola.org/documentation/content/overview/
+- https://www.getzola.org/documentation/templates/overview/
