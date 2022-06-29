@@ -27,10 +27,10 @@
 
 ## Root files
 
-**`config.toml`** - Configuration file for Zola. Features The site's URL, markdown settings and custom variables. More information about this file is availble here: https://www.getzola.org/documentation/getting-started/configuration/
-`.editorconfig` - Cross-editor settings for keeping consistent formatting.
-`.gitignore` - Defines files and directories that git should ignore.
-`.prettierignore` - Defines files and directories that prettier should ignore.
-`.prettierrc` - Defines overrides for how prettier should format code in this repository.
-`LICENSE` - The website's license information.
-`README.md` - The repository's README file. The first file we expect people to read to understand the repository. The contents of this file may be shown in this repository's page in codeforges such as GitHub, GitLab, etc.
+- **`config.toml`** - Configuration file for Zola. Features The site's URL, markdown settings and custom variables. More information about this file is availble here: https://www.getzola.org/documentation/getting-started/configuration/
+- `.editorconfig` - Cross-editor settings for keeping consistent formatting.
+- `.gitignore` - Defines files and directories that git should ignore.
+- `.prettierignore` - Defines files and directories that prettier should ignore.
+- `.prettierrc` - Defines overrides for how prettier should format code in this repository.
+- `LICENSE` - The website's license information.
+- `README.md` - The repository's README file. The first file we expect people to read to understand the repository. The contents of this file may be shown in this repository's page in codeforges such as GitHub, GitLab, etc.
