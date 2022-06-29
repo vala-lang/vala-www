@@ -28,6 +28,11 @@
   <link rel="manifest" href="{{ get_url(path='manifest.json') }}">
   <meta name="msapplication-TileColor" content="#a56de2">
   <meta name="msapplication-TileImage" content="{{ get_url(path='ms-icon-144x144.png') }}">
+  
+  {% block rss %}
+   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+  {% endblock %}
+  
   {% block head %}
   {% endblock head %}
 </head>
