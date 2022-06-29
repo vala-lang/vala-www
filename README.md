@@ -21,7 +21,7 @@ First, start the development server:
 zola serve
 ```
 
-Then you should be able to access the wesbite on your browser by navigating to: [http://localhost:1111](http://localhost:1111).
+Then you should be able to access the wesbite on your browser by navigating to: [http://127.0.0.1:1111](http://127.0.0.1:1111).
 
 You can edit the index page by modifying `templates/index.html`. The rest of the pages are defined in `content`.
 
