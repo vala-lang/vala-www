@@ -91,6 +91,10 @@ footer {
   padding-right: calc(0.75rem + env(safe-area-inset-right));
 }
 
+footer > div {
+  max-width: 43.75rem;
+}
+
 footer a {
   display: inline-block;
   color: var(--brim-link-color);
