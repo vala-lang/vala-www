@@ -5,8 +5,8 @@ $container-max-width: 76.25rem;
   margin: 0 auto;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  padding-left: calc(1rem + env(safe-area-inset-left));
-  padding-right: calc(1rem + env(safe-area-inset-right));
+  padding-left: calc(0.75rem + env(safe-area-inset-left));
+  padding-right: calc(0.75rem + env(safe-area-inset-right));
   max-width: $container-max-width;
   width: 100%;
 

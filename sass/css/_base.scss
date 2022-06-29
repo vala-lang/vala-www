@@ -75,15 +75,20 @@ section > a:last-child {
   display: inline-block;
 }
 
+section.standalone {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 footer {
   --foreground-color: white;
   position: sticky;
   color: var(--foreground-color);
   background: var(--brim-background-color);
-  padding-top: 2rem;
-  padding-left: calc(2rem + env(safe-area-inset-left));
-  padding-bottom: calc(2rem + env(safe-area-inset-bottom));
-  padding-right: calc(2rem + env(safe-area-inset-right));
+  padding-top: 1.5rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding-left: calc(0.75rem + env(safe-area-inset-left));
+  padding-right: calc(0.75rem + env(safe-area-inset-right));
 }
 
 footer a {
@@ -320,6 +325,15 @@ pre code {
 
   pre {
     border: 1px solid #333333;
+  }
+}
+
+@media (min-width: 700px) {
+  footer {
+    padding-top: 2rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-left: calc(2rem + env(safe-area-inset-left));
+    padding-right: calc(2rem + env(safe-area-inset-right));
   }
 }
 
