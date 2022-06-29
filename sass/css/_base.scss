@@ -52,18 +52,21 @@ section {
 }
 
 section {
-  padding: 2.5rem 0;
+  padding: 2rem 0;
+}
+
+section:last-of-type {
+  padding-bottom: 0;
 }
 
 section > section {
   max-width: 43.75rem;
   margin: 0 auto;
   text-align: left;
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
-section > section:first-of-type {
-  padding-top: 0;
+section > section:last-of-type {
   padding-bottom: 1rem;
 }
 
@@ -168,6 +171,11 @@ ul li a {
 time {
   display: block;
 }
+
+.social-links {
+  margin-bottom: 0;
+}
+
 .social-links li {
   margin-top: 0.5rem;
 }
@@ -318,5 +326,9 @@ pre code {
 @media (min-width: 740px) {
   main {
     align-items: center;
+  }
+
+  section > section:last-of-type {
+    padding-bottom: 2rem;
   }
 }
