@@ -27,7 +27,7 @@
   - Spliting styles across so that it's easier to make changes to specific places.
   - Taking advantage of preprocessing (calculations and variable substitutions during builds etc.)
   - Note: As of 2022-06-28, Zola uses libsass internally which doesn't support the latest Sass features
-- The rest of the site used the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- The rest of the site uses the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
 ## Using Different Technolgies
