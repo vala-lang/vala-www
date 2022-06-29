@@ -11,8 +11,8 @@ $container-max-width: 76.25rem;
   width: 100%;
 
   @media (min-width: 700px) {
-    padding-left: calc(1rem + env(safe-area-inset-left));
-    padding-right: calc(1rem + env(safe-area-inset-right));
+    padding-left: calc(2rem + env(safe-area-inset-left));
+    padding-right: calc(2rem + env(safe-area-inset-right));
   }
 
   @media (min-width: calc($container-max-width - 2.5rem) ) {
