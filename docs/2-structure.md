@@ -8,7 +8,7 @@
   - `blog/` - Vala Blog content. All the blog posts are stored under here.
   - `about/` - About page contnet.
 - `docs/` - The directory where this guide you are reading is under.
-- `sass/` - Where sass code to be processed is stored. The `css/` folder inside there is intentional as it copies the sass output straight to the `static/` folder.
+- `sass/` - Where sass code is stored. The `css/` folder inside there is intentional as it copies the sass output straight to the `static/` folder.
   - `css/components/` - Contains files used to style small, specific parts of markup used across the entire site.
   - `css/utils/` - Utilties to be used in other sass files.
 - `static/` - Here are the assets stored that will be deployed with the website. The files in the root of the static folder will be located in the root of the website when deployed.
