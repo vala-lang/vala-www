@@ -28,24 +28,19 @@
   <link rel="manifest" href="{{ get_url(path='manifest.json') }}">
   <meta name="msapplication-TileColor" content="#a56de2">
   <meta name="msapplication-TileImage" content="{{ get_url(path='ms-icon-144x144.png') }}">
-  
-  {% block rss %}
+
    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
-  {% endblock %}
-  
-  {% block head %}
-  {% endblock head %}
 </head>
 <body>
   <a id="bypass-block" href="#main-content">Skip to main content</a>
 
-  {% block top_level_header %}
-    {{ body_macros::header() }}
-  {% endblock %}
+  {{ body_macros::header() }}
 
-  <div class="container">
+  <div class="container error-404">
     <main id="main-content">
-      {% block main_content %} {% endblock %}
+        <h1>Error 404 - Page Not Found</h1>
+        <p>The URL may be mispelled or the page you requested no longer exists.</p>
+        <a href="{{ get_url(path='/') | safe }}">Go Home</a>
     </main>
   </div>
 
@@ -53,8 +48,5 @@
 
   <script src="{{ get_url(path='js/base.js') }}"></script>
   <script src="{{ get_url(path='js/navbar.js') }}"></script>
-
-  {% block body_end %} {% endblock %}
-
 </body>
 </html>
