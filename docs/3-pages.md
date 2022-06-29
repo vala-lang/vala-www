@@ -32,7 +32,7 @@ It's up to you how you to decide to use these types of components to build up th
 
 A macros in `head.html` called `og_data` and  `og_data_with_image` take care of this for you. It handles the creates the Open Graph tags and adds the description meta tag for you. It's recommended that you assign the parameters to the page/sections's variables in templates you make.
 
-#### Frontmatter
+#### Front Matter
 
 In all pages make sure that you fill in the following fields:
 - `title`
@@ -43,13 +43,64 @@ These are used when displaying the in link embeds.
 
 ## Blog
 
-### Blog Frontmatter
+### Blog Front Matter
 
-As well as the [fields to include when creating pages in general](#frontmatter), if the article is written from the context of a single person or group of people, you also should inlcude the `extra.authors` field with an array of strings (containg names).
+As well as the [fields to include when creating pages in general](#front-matter), if the article is written from the context of a single person or group of people, you also should inlcude the `extra.authors` field with an array of strings (containg names).
 
 Filling the `extra.authors` field **is not** mandatory though. By default, the author will be set to "The Vala Team"
 
 These are used when displaying the posts across the site and also in link embeds.
+
+## Home Page
+
+### Updating The Showcase Items
+
+The showcase is rendered from a partial in `templates/partials/showcase.html`.
+
+The actual data used to add each item to the showcase is in `assets/showcase-items.json`.
+
+It's an array where each item is an JSON object with the following fields:
+
+- `name` - Name of the item
+- `icon_path` - Where the icon is relative to the website's repository.
+- `url` - Where the user goes whe they click on the item
+
+Here's an example:
+
+```json
+[
+  {
+    "name": "elementary OS",
+    "icon_path": "icons/showcase/elementary.svg",
+    "url": "https://elementary.io/"
+  },
+  {
+    "name": "GNOME Boxes",
+    "icon_path": "icons/showcase/gnome-boxes.svg",
+    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
+  },
+  {
+    "name": "Planner",
+    "icon_path": "icons/showcase/planner.svg",
+    "url": "https://useplanner.com/"
+  },
+  {
+    "name": "Starfish",
+    "icon_path": "icons/showcase/starfish.svg",
+    "url": "https://appcenter.elementary.io/hr.from.josipantolis.starfish/"
+  },
+  {
+    "name": "BirdFont",
+    "icon_path": "icons/showcase/birdfont.svg",
+    "url": "https://birdfont.org/"
+  },
+  {
+    "name": "Peek",
+    "icon_path": "icons/showcase/peek.svg",
+    "url": "https://github.com/phw/peek"
+  }
+]
+```
 
 ---
 
