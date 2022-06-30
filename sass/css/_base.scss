@@ -16,6 +16,10 @@
   --focus-outline-color: #{var(--accent-color)};
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /*
   Keyboard focus styles with fallback for older browsers
   Source: https://css-tricks.com/focus-visible-and-backwards-compatibility/
@@ -367,6 +371,12 @@ pre code {
 
   pre {
     border: 1px solid #333333;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
