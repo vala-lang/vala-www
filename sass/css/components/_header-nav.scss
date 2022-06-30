@@ -1,10 +1,10 @@
 body > header {
+  --foreground-color: white;
+  --focus-outline-color: white;
   width: 100%;
   background: var(--brim-background-color);
   display: block;
-  --foreground-color: white;
   color: var(--foreground-color);
-
 }
 
 body > header > div {
@@ -114,11 +114,13 @@ body > header nav > :last-child {
   }
 }
 
-.menu-toggle:hover {
+.menu-toggle:hover,
+.menu-toggle:focus {
   border-color: var(--brim-link-hover-color);
 }
 
-.menu-toggle:hover .hamburger {
+.menu-toggle:hover .hamburger,
+.menu-toggle:focus .hamburger {
   --hamburger-color: var(--brim-link-hover-color);
 }
 

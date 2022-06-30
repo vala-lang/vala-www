@@ -8,6 +8,7 @@
 }
 
 .cta-stack a {
+  --focus-outline-color: black;
   transition: background 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -18,7 +19,7 @@
   text-align: center;
   color: white;
   border-radius: 8px;
-  padding: 2rem 3rem;
+  padding: 1.5rem 1rem;
   text-decoration: none;
   margin-top: 1rem;
   flex: 1 1 0%;
@@ -26,7 +27,8 @@
   width: 100%;
 }
 
-.cta-stack a:hover {
+.cta-stack a:hover,
+.cta-stack a:focus {
   background: #8B55C9;
 }
 
@@ -35,12 +37,14 @@
 }
 
 .cta-stack a:last-child {
+  --focus-outline-color: var(--accent-color);
   background: var(--secondary-cta-background);
   color: var(--foreground-color);
   border: solid 2px var(--card-border-color);
 }
 
-.cta-stack a:last-child:hover {
+.cta-stack a:last-child:hover,
+.cta-stack a:last-child:focus {
   background: #eeeeee;
 }
 
@@ -63,7 +67,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .cta-stack a:last-child:hover {
+  .cta-stack a {
+    --focus-outline-color: white;
+  }
+
+  .cta-stack a:last-child:hover,
+  .cta-stack a:last-child:focus {
     background: #4d4d4d;
   }
 }
