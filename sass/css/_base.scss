@@ -37,6 +37,14 @@ body > div {
   flex: 1 1 0%;
 }
 
+.container.error-404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
 main {
   display: flex;
   overflow-x: auto;
@@ -52,18 +60,21 @@ section {
 }
 
 section {
-  padding: 2.5rem 0;
+  padding: 2rem 0;
+}
+
+section:last-of-type {
+  padding-bottom: 0;
 }
 
 section > section {
   max-width: 43.75rem;
   margin: 0 auto;
   text-align: left;
-  padding: 1rem 0;
+  padding: 0.25rem 0;
 }
 
-section > section:first-of-type {
-  padding-top: 0;
+section > section:last-of-type {
   padding-bottom: 1rem;
 }
 
@@ -72,15 +83,24 @@ section > a:last-child {
   display: inline-block;
 }
 
+section.standalone {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 footer {
   --foreground-color: white;
   position: sticky;
   color: var(--foreground-color);
   background: var(--brim-background-color);
-  padding: 2rem;
-  padding-left: calc(2rem + env(safe-area-inset-left));
-  padding-bottom: calc(3rem + env(safe-area-inset-bottom));
-  padding-right: calc(2rem + env(safe-area-inset-right));
+  padding-top: 1.5rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  padding-left: calc(0.75rem + env(safe-area-inset-left));
+  padding-right: calc(0.75rem + env(safe-area-inset-right));
+}
+
+footer > div {
+  max-width: 43.75rem;
 }
 
 footer a {
@@ -168,6 +188,11 @@ ul li a {
 time {
   display: block;
 }
+
+.social-links {
+  margin-bottom: 0;
+}
+
 .social-links li {
   margin-top: 0.5rem;
 }
@@ -315,8 +340,21 @@ pre code {
   }
 }
 
+@media (min-width: 700px) {
+  footer {
+    padding-top: 2rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+    padding-left: calc(2rem + env(safe-area-inset-left));
+    padding-right: calc(2rem + env(safe-area-inset-right));
+  }
+}
+
 @media (min-width: 740px) {
   main {
     align-items: center;
+  }
+
+  section > section:last-of-type {
+    padding-bottom: 2rem;
   }
 }

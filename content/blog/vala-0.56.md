@@ -1,14 +1,11 @@
 +++
 title = "Vala 0.56"
 date = "2022-03-18"
-description="After 4 months of work we are proud to announce a Vala release version 0.56."
+description="Here's what's new in Vala release version 0.56"
 
 [extra]
 authors = ["Lorenz Wildberg"]
 +++
-
-[comment]: # (This actually is the most platform independent comment)
-<h1>Vala 0.56</h1>
 
 After 4 months of work we are proud to announce a new release of Vala. This time it contains lots of new language features and advancements and of course also the usual bug fixes and binding updates.
 
@@ -138,7 +135,7 @@ Merge Request [#200](https://gitlab.gnome.org/GNOME/vala/-/merge_requests/200)
 
 The length of an array is usually specified by an 32bit integer. However in some cases, especially in bindings to other libaries, sometimes the length of an array is given by a different type of integer. We now have support for that:
 
-```vala,linenos
+```vala
 string[] list = new string[10:uint8];
 ```
 

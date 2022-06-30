@@ -8,12 +8,9 @@ body > header {
 }
 
 body > header > div {
+  @extend %container;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  padding-left: calc(1rem + env(safe-area-inset-left));
-  padding-right: calc(1rem + env(safe-area-inset-right));
-  margin: 0 auto;
-  max-width: 76.25rem;
 }
 
 body > header nav {
@@ -180,8 +177,6 @@ body > header nav > :last-child {
   body > header > div {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    padding-left: calc(1rem + env(safe-area-inset-left));
-    padding-right: calc(1rem + env(safe-area-inset-right));
   }
 
   body > header nav {
