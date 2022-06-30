@@ -1,0 +1,9 @@
+{% macro get_authors(page) %}
+  {% if page.extra.authors %}
+    {% for author in page.extra.authors %}
+      {{ author }}{%- if not loop.last -%}, {% endif -%}
+    {% endfor %}
+  {% else %}
+    The Vala Team
+  {% endif %}
+{% endmacro %}
