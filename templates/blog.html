@@ -1,20 +1,27 @@
 {% extends "base.html" %}
-
+{% import "macros/head.html" as head_macros %}
+{% import "macros/blog.html" as blog_macros %}
 {% block head %}
 <title>{{ section.title }}</title>
 {{ head_macros::og_data(title=section.title, description=section.description) }}
+ <link rel="stylesheet" href="{{ get_url(path='css/blog.css')}}">
 {% endblock head %}
 
 {% block main_content %}
   <section class="standalone">
     <h1>Blog</h1>
-    <ul>
+    <ul class="blog-posts">
       <li>
         {% for post in paginator.pages %}
-            <a href="{{ post.permalink }}">{{ post.title }}</a>
+            <h2><a href="{{ post.permalink }}">{{ post.title }}</a></h2>
+            <p>{{ post.description }}</p>
+            <span class="author">
+              {{ blog_macros::get_authors(page=post) }}
+            </span class="author">
             <time datetime="{{ post.date }}">{{ post.date | date }}</time>
         {% endfor %}
       </li>
+
     </ul>
   </section>
 

@@ -1,5 +1,5 @@
 {% macro og_data(title, description) %}
-  {{ self::og_data_with_image (title=title, description=description, image_url='') }}
+  {{ head_macros::og_data_with_image (title=title, description=description, image_url='') }}
 {% endmacro %}
 
 {% macro og_data_with_image(title, description, image_url) %}
