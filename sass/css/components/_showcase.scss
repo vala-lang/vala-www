@@ -39,7 +39,8 @@ section .showcase + a {
   padding: 1rem;
 }
 
-.showcase li a:hover {
+.showcase li a:hover,
+.showcase li a:focus {
   background: var(--accent-color-light-2);
   border-radius: 4px;
 }
@@ -63,7 +64,8 @@ section .showcase + a {
   margin-right: 0;
 }
 
-.showcase li a:hover svg {
+.showcase li a:hover svg,
+.showcase li a:focus svg {
   fill: none;
 }
 
@@ -84,7 +86,8 @@ section .showcase + a {
 }
 
 @media (prefers-color-scheme: dark) {
-  .showcase li a:hover {
+  .showcase li a:hover,
+  .showcase li a:focus {
     background: var(--accent-color-dark-1);
     border-radius: 4px;
   }

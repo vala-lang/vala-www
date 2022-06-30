@@ -132,11 +132,17 @@ h6 .zola-anchor{
 }
 
 h1:hover .zola-anchor,
+h1:focus .zola-anchor,
 h2:hover .zola-anchor,
+h2:focus .zola-anchor,
 h3:hover .zola-anchor,
+h3:focus .zola-anchor,
 h4:hover .zola-anchor,
+h4:focus .zola-anchor,
 h5:hover .zola-anchor,
-h6:hover .zola-anchor{
+h5:focus .zola-anchor,
+h6:hover .zola-anchor,
+h6:focus .zola-anchor {
   visibility: visible;
 }
 
@@ -172,6 +178,7 @@ a {
 }
 
 a:hover,
+a:focus,
 a:active {
   color: var(--accent-color-dark-2);
 }
@@ -209,7 +216,8 @@ ul li a svg {
   fill: var(--accent-color-dark-1);
 }
 
-ul li a:hover svg {
+ul li a:hover svg,
+ul li a:focus svg {
   fill: var(--accent-color-dark-2);
 }
 
@@ -322,6 +330,7 @@ pre code {
   }
 
   a:hover,
+  a:focus,
   a:active {
     color: var(--accent-color);
   }
@@ -330,7 +339,8 @@ pre code {
     fill: var(--accent-color-light-1);
   }
 
-  ul li a:hover svg {
+  ul li a:hover svg,
+  ul li a:focus svg {
     fill: var(--accent-color);
   }
 

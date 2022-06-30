@@ -13,7 +13,8 @@
   color: var(--foreground-color);
 }
 
-.post-preview:hover {
+.post-preview:hover,
+.post-preview:focus {
   color: var(--accent-color-dark-1);
 }
 
@@ -57,7 +58,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .post-preview:hover {
+  .post-preview:hover,
+  .post-preview:focus {
     color: var(--accent-color);
   }
 }

@@ -114,11 +114,13 @@ body > header nav > :last-child {
   }
 }
 
-.menu-toggle:hover {
+.menu-toggle:hover,
+.menu-toggle:focus {
   border-color: var(--brim-link-hover-color);
 }
 
-.menu-toggle:hover .hamburger {
+.menu-toggle:hover .hamburger,
+.menu-toggle:focus .hamburger {
   --hamburger-color: var(--brim-link-hover-color);
 }
 
