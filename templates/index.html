@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% import "macros/blog.html" as blog_macros %}
+{% import "macros/head.html" as head_macros %}
 
 {% block head %}
 <title>{{ section.title }} </title>
@@ -21,7 +23,7 @@
   </section>
 
   <section>
-    {{ body_macros::latest_blog_posts() }}
+    {{ blog_macros::latest_blog_posts() }}
   </section>
 
   <section>

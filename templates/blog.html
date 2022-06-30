@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros/head.html" as head_macros %}
-{% import "macros/for-blog.html" as blog_macros %}
+{% import "macros/blog.html" as blog_macros %}
 {% block head %}
 <title>{{ section.title }}</title>
 {{ head_macros::og_data(title=section.title, description=section.description) }}
