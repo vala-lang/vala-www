@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% import "macros/blog.html" as blog_macros %}
 {% block head %}
 <title>{{ page.title }}</title>
 {{ head_macros::og_data(title=page.title, description=page.description) }}
@@ -9,8 +9,11 @@
 {% block main_content %}
 <article class="blog-post">
   <header>
-    <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
     <h1>{{ page.title }}</h1>
+    <p>{{ page.description }}</p>
+    <span>{{ blog_macros::get_authors(page=page) }}</span>
+    <time datetime="{{ page.date }}">{{ page.date | date }}</time>
+    <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
   </header>
   {{ page.content|safe }}
 </article>
