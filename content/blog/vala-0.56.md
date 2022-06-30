@@ -7,8 +7,6 @@ description="After 4 months of work we are proud to announce a Vala release vers
 authors = ["Lorenz Wildberg"]
 +++
 
-<h1>Vala 0.56</h1>
-
 After 4 months of work we are proud to announce a new release of Vala. This time it contains lots of new language features and advancements and of course also the usual bug fixes and binding updates.
 
 ## Asynchronous Main Function

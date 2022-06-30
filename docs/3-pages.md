@@ -51,6 +51,10 @@ Filling the `extra.authors` field **is not** mandatory though. By default, the a
 
 These are used when displaying the posts across the site and also in link embeds.
 
+### Blog Post Titles
+
+You don't need no create a `<h1>` in your markdown content. The value you have set in the `title` field of the front matter will be used in a `<h1>` that is part of the blog post template.
+
 ## Home Page
 
 ### Updating The Showcase Items

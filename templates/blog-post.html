@@ -1,6 +1,17 @@
-{% extends "page.html" %}
+{% extends "base.html" %}
 
 {% block head %}
 <title>{{ page.title }}</title>
 {{ head_macros::og_data(title=page.title, description=page.description) }}
+<link rel="stylesheet" href="{{ get_url(path='css/blog-post.css')}}">
 {% endblock head %}
+
+{% block main_content %}
+<article class="blog-post">
+  <header>
+    <a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a>
+    <h1>{{ page.title }}</h1>
+  </header>
+  {{ page.content|safe }}
+</article>
+{% endblock %}
