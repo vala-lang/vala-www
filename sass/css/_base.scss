@@ -13,6 +13,24 @@
 	--foreground-color: #1a1a1a;
 	--background-color: white;
   --inline-code-background-color: #d4d4d4;
+  --focus-outline-color: #{var(--accent-color)};
+}
+
+/*
+  Keyboard focus styles with fallback for older browsers
+  Source: https://css-tricks.com/focus-visible-and-backwards-compatibility/
+*/
+
+:focus {
+  outline: solid 2px var(--focus-outline-color);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: solid 2px var(--focus-outline-color);
 }
 
 body {
@@ -90,6 +108,7 @@ section.standalone {
 
 footer {
   --foreground-color: white;
+  --focus-outline-color: white;
   position: sticky;
   color: var(--foreground-color);
   background: var(--brim-background-color);

@@ -1,10 +1,10 @@
 body > header {
+  --foreground-color: white;
+  --focus-outline-color: white;
   width: 100%;
   background: var(--brim-background-color);
   display: block;
-  --foreground-color: white;
   color: var(--foreground-color);
-
 }
 
 body > header > div {
