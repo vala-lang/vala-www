@@ -8,6 +8,7 @@
 }
 
 .cta-stack a {
+  --focus-outline-color: black;
   transition: background 0.3s ease;
   display: inline-flex;
   align-items: center;
@@ -36,6 +37,7 @@
 }
 
 .cta-stack a:last-child {
+  --focus-outline-color: var(--accent-color);
   background: var(--secondary-cta-background);
   color: var(--foreground-color);
   border: solid 2px var(--card-border-color);

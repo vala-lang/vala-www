@@ -304,6 +304,7 @@ pre code {
 }
 
 #bypass-block {
+  --focus-outline-color: white;
   transition: none;
   position: absolute;
   word-wrap: normal;
