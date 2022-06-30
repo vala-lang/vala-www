@@ -67,6 +67,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .cta-stack a {
+    --focus-outline-color: white;
+  }
+
   .cta-stack a:last-child:hover,
   .cta-stack a:last-child:focus {
     background: #4d4d4d;
