@@ -4,11 +4,14 @@
 
 {% macro og_data_with_image(title, description, image_url) %}
   <meta name="description" content="{{ description }}">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@vala_lang">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ current_url | safe }}">
+  <meta property="og:site_name" content="Vala">
+  <meta
 
   {%- if image_url|trim == '' %}
     {% set image_url = get_url(path="img/vala-hero-wide.png") %}
