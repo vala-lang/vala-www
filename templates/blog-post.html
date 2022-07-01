@@ -2,7 +2,7 @@
 {% import "macros/blog.html" as blog_macros %}
 {% block head %}
 <title>{{ page.title }}</title>
-{{ head_macros::og_data(title=page.title, description=page.description) }}
+{{ head_macros::article_og_data(article=page) }}
 <link rel="stylesheet" href="{{ get_url(path='css/blog-post.css')}}">
 {% endblock head %}
 

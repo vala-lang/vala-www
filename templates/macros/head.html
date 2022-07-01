@@ -1,3 +1,5 @@
+{% import "macros/blog.html" as blog_macros %}
+
 {% macro og_data(title, description) %}
   {{ head_macros::og_data_with_image (title=title, description=description, image_url='') }}
 {% endmacro %}
@@ -16,4 +18,34 @@
     {% set image_url = get_url(path="img/vala-hero-wide.png") %}
   {% endif %}
   <meta property="og:image" content="{{ image_url | safe }}">
+{% endmacro %}
+
+{% macro article_og_data(article) %}
+  {{ head_macros::og_data(title=article.title, description=article.description)}}
+  {% if article.date %}
+    <meta property="article:published_time" content="{{ article.date | date }}">
+  {% endif %}
+
+  {% if article.updated %}
+    <meta property="article:modified_time" content="{{ article.updated | date }}">
+  {% endif %}
+
+  {% set article_section_object = get_section(path=article.ancestors|last) %}
+  {% set article_section = article_section_object.title %}
+  <meta property="article:section" content="{{ article_section }}">
+{% endmacro %}
+
+{% macro article_og_data_width_image(article, image_url='') %}
+  {{ head_macros::og_data_with_image(title=article.title, description=article.description, image_url=image_url)}}
+  {% if article.date %}
+    <meta property="article:published_time" content="{{ article.date | date }}">
+  {% endif %}
+
+  {% if article.updated %}
+    <meta property="article:modified_time" content="{{ article.updated | date }}">
+  {% endif %}
+
+  {% set article_section_object = get_section(path=article.ancestors|last) %}
+  {% set article_section = article_section_object.title %}
+  <meta property="article:section" content="{{ article_section }}">
 {% endmacro %}
