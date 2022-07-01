@@ -1,6 +1,6 @@
 +++
 title = "Vala 0.56"
-date = "2022-03-18"
+date = 2022-03-18
 description="Here's what's new in Vala release version 0.56"
 
 [extra]
