@@ -19,15 +19,19 @@
   {{ body_macros::cta_stack(primary_content="Get Started", primary_href=config.extra.tutorial_url, secondary_content="View Source Code", secondary_href=config.extra.language_source_code_url) }}
 
   <section>
-    {{ body_macros::features() }}
+    {% include "partials/features.html" %}
   </section>
 
   <section>
-    {{ blog_macros::latest_blog_posts() }}
+    {% include "partials/blog/latest_blog_posts.html" %}
   </section>
 
   <section>
     {% include "partials/showcase.html" %}
+  </section>
+
+  <section>
+    {% include "partials/tooling.html" %}
   </section>
 
   <section>

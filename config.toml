@@ -50,11 +50,7 @@ awesome_vala_url = "https://github.com/desiderantes/awesome-vala"
 
 [extra.tooling]
 
-vala_language_server = "https://github.com/vala-lang/vala-language-server"
-
-vala_lint = "https://github.com/vala-lang/vala-lint"
-
-vala_github_org = "https://github.com/vala-lang"
+documentation = "https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/tooling.html"
 
 [extra.socials]
 

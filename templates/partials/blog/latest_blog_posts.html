@@ -1,0 +1,20 @@
+{# Shows previews of the latest 3 posts in the blog #}
+{% set blog_section = get_section(path="blog/_index.md") %}
+
+<h2>What's new?</h2>
+<div class="post-previews">
+  {% for post in blog_section.pages %}
+    {% if loop.index0 == 3 %}
+      {% break %}
+    {% endif %}
+    <a href="{{ post.permalink }}" class="post-preview">
+      <img src="{{ get_url(path='img/vala-hero.png') }}" alt="Purple background with white text on center that says 'Vala'.">
+      <div>
+        <div>{{ post.title }}</div>
+        <span>{{ blog_macros::get_authors(page=post) }}</span>
+        <time datetime="{{ post.date }}">{{ post.date | date }}</time>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+<a href="{{ blog_section.permalink }}">View Blog</a>

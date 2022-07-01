@@ -38,32 +38,6 @@
 
 {% endmacro %}
 
-
-{% macro features() %}
-<h2>Why Vala?</h2>
-<dl class="features">
-  <div>
-    <dt>
-      <div>
-        {{ icon_macros::sprite_icon(name="gears") }}
-        Productivity
-      </div>
-    </dt>
-    <dd>Comfortably write your code in an Object-Oriented way while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!</dd>
-  </div>
-  <div>
-    <dt>
-      <div>
-        {{ icon_macros::sprite_icon(name="rocket") }}
-        Performance
-      </div>
-    </dt>
-    <dd>Vala compiles code down to blazing-fast, fully native binaries. You are also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala.</dd>
-  </div>
-</dl>
-<a href="{{ get_url(path='@/about/index.md') }}">Learn more about Vala</a>
-{% endmacro %}
-
 {% macro cta_stack(primary_content, primary_href, secondary_content, secondary_href) %}
 <div class="cta-stack">
   <a href="{{ primary_href }}">{{ primary_content }}</a>
