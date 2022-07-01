@@ -31,6 +31,10 @@ highlight_themes_css = [
   { theme = "OneHalfDark", filename = "css/syntax-theme-dark.css" },
 ]
 
+# When set to "true", emoji aliases translated to their corresponding
+# Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
+render_emoji = true
+
 [extra]
 # Put all your custom variables here
 docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
