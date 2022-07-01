@@ -1,35 +1,20 @@
 .showcase {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1f;
   max-width: 43.75rem;
   margin: 0 auto;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 3rem;
-}
-
-/*
-  Reduce the gap between the showcase grid and the link at the end of
-  the section
-*/
-section .showcase + a {
-  margin-top: 0;
+  row-gap: 2.5rem;
 }
 
 .showcase li {
   display: inline-flex;
   justify-content: center;
-  margin-bottom: 4rem;
   flex: 1 1 0%;
-
-}
-
-.showcase li:first-child {
-  margin-left: 0;
 }
 
 .showcase li a {
   transition: background 0.3s ease;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   text-decoration: none;
   color: var(--foreground-color);
@@ -69,19 +54,15 @@ section .showcase + a {
   fill: none;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 480px) {
   .showcase {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .showcase li {
-    flex: 1 1 calc(100% / 2);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 800px) {
-  .showcase li {
-    flex: 1 1 calc(100% / 3);
+@media (min-width: 640px) {
+  .showcase {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
