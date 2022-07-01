@@ -8,8 +8,6 @@ You can contribute to the new documentation website here: https://gitlab.gnome.o
 
 Feel free to [create an new issue](https://github.com/colinkiama/vala-www/issues/new/choose) or [participate in an existing one](https://github.com/colinkiama/vala-www/issues)
 
-**Remember**: If you don't speak up, we can't improve your experience.
-
 ## System Requirements
 
 - [Zola](https://www.getzola.org) (Version 0.15.3 or higher)
