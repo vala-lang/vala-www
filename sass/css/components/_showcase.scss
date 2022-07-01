@@ -37,12 +37,12 @@ section .showcase + a {
   font-weight: 500;
   font-variation-settings: 'wght' 500;
   padding: 1rem;
+  border-radius: 4px;
 }
 
 .showcase li a:hover,
 .showcase li a:focus {
   background: var(--accent-color-light-2);
-  border-radius: 4px;
 }
 
 .showcase li a span {
