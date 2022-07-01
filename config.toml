@@ -50,6 +50,20 @@ awesome_vala_url = "https://github.com/desiderantes/awesome-vala"
 
 [extra.tooling]
 
+vala_language_server = "https://github.com/vala-lang/vala-language-server"
+
+vala_lint = "https://github.com/vala-lang/vala-lint"
+
+valadoc = "https://wiki.gnome.org/Projects/Valadoc"
+
+gnome_builder = "https://apps.gnome.org/en-GB/app/org.gnome.Builder/"
+
+vs_code = "https://marketplace.visualstudio.com/items?itemName=prince781.vala"
+
+vim = "https://github.com/arrufat/vala.vim"
+
+meson = "https://mesonbuild.com/Vala.html"
+
 documentation = "https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/tooling.html"
 
 [extra.socials]
