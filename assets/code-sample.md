@@ -6,8 +6,10 @@ int main (string[] args) {
   );
   app.activate.connect(() => {
     var win = new Gtk.ApplicationWindow(app);
+
     var btn = new Gtk.Button.with_label("Hello World");
     btn.click.connect(win.close);
+
     win.child = btn;
     win.present();
   })
