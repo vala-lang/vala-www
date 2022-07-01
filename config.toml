@@ -12,7 +12,10 @@ build_search_index = true
 
 generate_feed = true
 
-feed_filename = "rss.xml"
+# The filename to use for the feed. Used as the template filename, too.
+# Defaults to "atom.xml", which has a built-in template that renders an Atom 1.0 feed.
+# There is also a built-in template "rss.xml" that renders an RSS 2.0 feed.
+feed_filename = "atom.xml"
 
 [markdown]
 # Whether to do syntax highlighting

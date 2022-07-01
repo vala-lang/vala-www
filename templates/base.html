@@ -30,7 +30,7 @@
   <meta name="msapplication-TileImage" content="{{ get_url(path='ms-icon-144x144.png') }}">
   
   {% block rss %}
-   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
+   <link rel="alternate" type="application/atom+xml" title="RSS" href="{rss{ get_url(path='atom.xml', trailing_slash=false) }}">
   {% endblock %}
   
   {% block head %}
