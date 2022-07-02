@@ -116,31 +116,7 @@ section.standalone {
   padding-bottom: 0;
 }
 
-footer {
-  --foreground-color: white;
-  --focus-outline-color: white;
-  position: sticky;
-  color: var(--foreground-color);
-  background: var(--brim-background-color);
-  padding-top: 1.5rem;
-  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-  padding-left: calc(0.75rem + env(safe-area-inset-left));
-  padding-right: calc(0.75rem + env(safe-area-inset-right));
-}
 
-footer > div {
-  max-width: 43.75rem;
-}
-
-footer a {
-  display: inline-block;
-  color: var(--brim-link-color);
-}
-
-footer a:hover,
-footer a:focus {
-  color: var(--brim-link-hover-color);
-}
 
 h1,
 h2,
@@ -385,15 +361,6 @@ pre code {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-}
-
-@media (min-width: 700px) {
-  footer {
-    padding-top: 2rem;
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-    padding-left: calc(2rem + env(safe-area-inset-left));
-    padding-right: calc(2rem + env(safe-area-inset-right));
   }
 }
 

@@ -1,14 +1,18 @@
-$container-max-width: 76.25rem;
-
-.container, %container {
-  display: block;
-  margin: 0 auto;
+footer {
+  --foreground-color: white;
+  --focus-outline-color: white;
+  position: sticky;
+  color: var(--foreground-color);
+  background: var(--brim-background-color);
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
 
   @supports (padding: env(safe-area-inset-left)) {
     padding-left: calc(1rem + env(safe-area-inset-left));
     padding-right: calc(1rem + env(safe-area-inset-right));
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
   // `unquote()` is used to force `max()` function to be parsed by
@@ -17,18 +21,35 @@ $container-max-width: 76.25rem;
   @supports (padding: max(0px)) {
     padding-left: unquote("max(1rem, env(safe-area-inset-left))");
     padding-right: unquote("max(1rem, env(safe-area-inset-right))");
+    padding-bottom: unquote("max(1rem, env(safe-area-inset-bottom))");
   }
+}
 
-  max-width: $container-max-width;
-  width: 100%;
+footer > div {
+  max-width: 43.75rem;
+}
 
-  @media (min-width: 700px) {
+footer a {
+  display: inline-block;
+  color: var(--brim-link-color);
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--brim-link-hover-color);
+}
+
+@media (min-width: 700px) {
+  footer {
+    padding-top: 2rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    padding-bottom: calc(1.5rem);
 
     @supports (padding: env(safe-area-inset-left)) {
       padding-left: calc(2rem + env(safe-area-inset-left));
       padding-right: calc(2rem + env(safe-area-inset-right));
+      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
 
     // `unquote()` is used to force `max()` function to be parsed by
@@ -37,6 +58,7 @@ $container-max-width: 76.25rem;
     @supports (padding: max(0)) {
       padding-left: unquote("max(2rem, env(safe-area-inset-left))");
       padding-right: unquote("max(2rem, env(safe-area-inset-right))");
+      padding-bottom: unquote("max(1.5rem, env(safe-area-inset-bottom))");
     }
   }
 }
