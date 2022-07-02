@@ -2,6 +2,7 @@
   display: flex;
   text-align: left;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .post-preview {
@@ -44,16 +45,25 @@
   font-size: 1rem;
 }
 
+@media (min-width: 400px) {
+  .post-previews {
+    align-items: center;
+  }
+  .post-preview {
+    max-width: 25rem;
+  }
+}
+
 @media (min-width: 900px) {
   .post-previews {
     flex-direction: row;
     justify-content: center;
+    align-items: stretch;
   }
 
   .post-preview {
       margin-top: 0;
       margin-left: 1.5rem;
-      max-width: 25rem;
   }
 }
 
