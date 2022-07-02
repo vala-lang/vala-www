@@ -7,7 +7,7 @@
     <a href="{{ item.url }}">
       {# Temporary workaround for elementary icon not displaying correctly #}
       {% if loop.index0 == 0 %}
-      <img src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
+      <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
       {% else %}
       {{ load_data(path=item.icon_path) | safe }}
       {% endif %}
