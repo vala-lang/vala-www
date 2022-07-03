@@ -239,9 +239,13 @@ article ul li:first-child {
   margin-top: 0;
 }
 
-article img {
+article img, iframe {
   width: 100%;
   height: auto;
+}
+
+iframe {
+  min-height: 200px;
 }
 
 pre {
@@ -399,6 +403,12 @@ pre code {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+}
+
+@media (min-width: 500px) {
+  iframe {
+    min-height: 300px;
   }
 }
 
