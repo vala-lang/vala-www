@@ -18,3 +18,26 @@ toggle.addEventListener('click', () => {
 });
 
 // Add copy button to codeblock
+// 1. Fetch all code blocks
+let codeBlocks = document.querySelectorAll('pre[class^="language"]');
+console.log(codeBlocks);
+for (let i = 0; i < codeBlocks.length; i++) {
+  let codeBlock = codeBlocks[i];
+  let copyButton = createCopyButton();
+  codeBlock.insertAdjacentElement('afterbegin', copyButton);
+  console.log("Copy button returned", copyButton);
+}
+
+function createCopyButton() {
+  let useElement = document.createElement('USE');
+  useElement.setAttribute("href", "/icons/spritemap.svg#sprite-copy");
+
+  let svgElement = document.createElement('SVG');
+  svgElement.appendChild(useElement);
+
+  let copyButton = document.createElement('button');
+  copyButton.setAttribute('aria-label', 'Copy');
+  copyButton.innerHTML = svgElement.outerHTML;
+
+  return copyButton;
+}
