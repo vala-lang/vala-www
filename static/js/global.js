@@ -17,9 +17,6 @@ toggle.addEventListener('click', () => {
   }
 });
 
-// Add copy button to codeblock
-// 1. Fetch all code blocks
-// 2. Also handle code blocks without line numbers
 let codeBlocks = document.body.querySelectorAll('pre[class^="language"]');
 console.log(codeBlocks);
 for (let i = 0; i < codeBlocks.length; i++) {
@@ -28,14 +25,23 @@ for (let i = 0; i < codeBlocks.length; i++) {
   codeBlock.insertAdjacentElement('afterbegin', copyButton);
 
   copyButton.addEventListener('click', (e) => {
-    console.log("Copy Button clicked:", e);
-
     let stringToCopy = "";
 
     let codeLines = codeBlock.querySelectorAll('table tr td:nth-child(2)');
-    for (let j = 0; j < codeLines.length; j++) {
-      let codeLine = codeLines[j].textContent;
-      stringToCopy += codeLine;
+    if (codeLines.length > 0) {
+      for (let j = 0; j < codeLines.length; j++) {
+        let codeLine = codeLines[j].textContent;
+        stringToCopy += codeLine;
+      }
+    } else {
+      // There are no line numbers. Just copy the text content from the
+      // `<code>` element.
+      let codeElement = codeBlock.querySelector('code');
+      if (!codeElement) {
+        return;
+      }
+
+      stringToCopy += codeElement.textContent;
     }
 
     copyTextToClipboard(stringToCopy);
