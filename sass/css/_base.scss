@@ -316,6 +316,11 @@ pre code {
   background: transparent;
 }
 
+// On home page, button is slightly lower than usual
+main > .code-block-wrapper .code-copier {
+  bottom: 1rem;
+}
+
 .code-copier svg {
   transition: opacity 0.3s ease;
   width: 1.5rem;
