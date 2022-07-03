@@ -44,6 +44,8 @@ site_source_code_url = "https://github.com/vala-lang/vala-www"
 
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
 
+wiki_url = "https://wiki.gnome.org/Projects/Vala/"
+
 [extra.showcase]
 
 awesome_vala_url = "https://github.com/desiderantes/awesome-vala"
