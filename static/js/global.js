@@ -1,3 +1,7 @@
+// add class to tell CSS that JS is enabled
+document.body.classList.add('js-enabled');
+
+// Nav bar logic
 const toggle = document.querySelector('.menu-toggle');
 const hamburger = toggle.querySelector('.hamburger');
 const menu = document.querySelector('body > header nav ul');
@@ -12,3 +16,5 @@ toggle.addEventListener('click', () => {
     hamburger.classList.remove('open');
   }
 });
+
+// Add copy button to codeblock
