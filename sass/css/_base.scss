@@ -245,7 +245,6 @@ article img {
 }
 
 pre {
-  position: relative;
   padding: 1rem;
   border-radius: 4px;
   overflow: auto;
@@ -295,6 +294,10 @@ pre code {
   padding: 0;
 }
 
+.code-block-wrapper {
+  position: relative;
+}
+
 .code-copier {
   display: flex;
   border: 0;
@@ -302,8 +305,8 @@ pre code {
   align-items: center;
   position: absolute;
   padding: 1rem;
-  right: 0;
   bottom: 0;
+  right: 0;
   width: auto;
   height: auto;
   background: transparent;

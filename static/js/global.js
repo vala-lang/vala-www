@@ -20,9 +20,17 @@ toggle.addEventListener('click', () => {
 let codeBlocks = document.body.querySelectorAll('pre[class^="language"]');
 console.log(codeBlocks);
 for (let i = 0; i < codeBlocks.length; i++) {
+  let wrapperDiv = document.createElement('div')
+  wrapperDiv.classList.add('code-block-wrapper');
+
   let codeBlock = codeBlocks[i];
+  let codeBlockParent = codeBlock.parentElement;
+  codeBlockParent.replaceChild(wrapperDiv, codeBlock);
+
+  wrapperDiv.appendChild(codeBlock);
+
   let copyButton = createCopyButton();
-  codeBlock.insertAdjacentElement('afterbegin', copyButton);
+  wrapperDiv.insertAdjacentElement('beforeend', copyButton);
 
   copyButton.addEventListener('click', (e) => {
     let stringToCopy = "";
