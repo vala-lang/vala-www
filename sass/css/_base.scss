@@ -14,6 +14,7 @@
 	--background-color: white;
   --inline-code-background-color: #d4d4d4;
   --focus-outline-color: #{var(--accent-color)};
+  --code-block-copy-button-color: #1a1a1a;
 }
 
 html {
@@ -244,6 +245,7 @@ article img {
 }
 
 pre {
+  position: relative;
   padding: 1rem;
   border-radius: 4px;
   overflow: auto;
@@ -293,6 +295,36 @@ pre code {
   padding: 0;
 }
 
+.code-copier {
+  display: flex;
+  border: 0;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 1rem;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  background: transparent;
+}
+
+.code-copier svg {
+  transition: opacity 0.3s ease;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--code-block-copy-button-color);
+  opacity: 0.3;
+}
+
+.code-copier:hover svg {
+  opacity: 1;
+}
+
+.code-copier:active svg {
+  opacity: 0.3;
+}
+
 #bypass-block {
   --focus-outline-color: white;
   transition: none;
@@ -329,6 +361,7 @@ pre code {
     --card-border-color: #333333;
     --inline-code-background-color: #333333;
     --secondary-cta-background: #333333;
+    --code-block-copy-button-color: #fafafa;
   }
 
   #bypass-block {

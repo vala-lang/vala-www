@@ -36,6 +36,7 @@ function createCopyButton() {
   svgElement.appendChild(useElement);
 
   let copyButton = document.createElement('button');
+  copyButton.classList.add('code-copier');
   copyButton.setAttribute('aria-label', 'Copy');
   copyButton.innerHTML = svgElement.outerHTML;
 
