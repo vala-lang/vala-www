@@ -19,13 +19,27 @@ toggle.addEventListener('click', () => {
 
 // Add copy button to codeblock
 // 1. Fetch all code blocks
-let codeBlocks = document.querySelectorAll('pre[class^="language"]');
+// 2. Also handle code blocks without line numbers
+let codeBlocks = document.body.querySelectorAll('pre[class^="language"]');
 console.log(codeBlocks);
 for (let i = 0; i < codeBlocks.length; i++) {
   let codeBlock = codeBlocks[i];
   let copyButton = createCopyButton();
   codeBlock.insertAdjacentElement('afterbegin', copyButton);
-  console.log("Copy button returned", copyButton);
+
+  copyButton.addEventListener('click', (e) => {
+    console.log("Copy Button clicked:", e);
+
+    let stringToCopy = "";
+
+    let codeLines = codeBlock.querySelectorAll('table tr td:nth-child(2)');
+    for (let j = 0; j < codeLines.length; j++) {
+      let codeLine = codeLines[j].textContent;
+      stringToCopy += codeLine;
+    }
+
+    copyTextToClipboard(stringToCopy);
+  });
 }
 
 function createCopyButton() {
@@ -41,4 +55,37 @@ function createCopyButton() {
   copyButton.innerHTML = svgElement.outerHTML;
 
   return copyButton;
+}
+
+// Async + Fallback method of copying to the clipboard
+// Source: https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript/30810322#30810322
+function fallbackCopyTextToClipboard(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    document.execCommand("copy");
+  } catch (err) {
+    console.error("Fallback: Oops, unable to copy", err);
+  }
+
+  document.body.removeChild(textArea);
+}
+
+function copyTextToClipboard(text) {
+  if (!navigator.clipboard) {
+    fallbackCopyTextToClipboard(text);
+    return;
+  }
+
+  navigator.clipboard.writeText(text).then(
+    function() {
+    },
+    function(err) {
+      console.error("Async: Could not copy text: ", err);
+    }
+  );
 }
