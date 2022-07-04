@@ -1,18 +1,19 @@
 ```vala,linenos
 int main (string[] args) {
-  var app = new Gtk.Application (
-    "io.github.myteam.MyApp",
+  var app = new Gtk.Application(
+    "com.example.App",
     ApplicationFlags.FLAGS_NONE
   );
+  
+  app.activate.connect(() => {
+    var win = new Gtk.ApplicationWindow(app);
 
-  app.startup.connect (() => new Gtk.ApplicationWindow (app) {
-    default_width = 800,
-    default_height = 600,
-    title = "Hello, World!"
-  });
+    var btn = new Gtk.Button.with_label("Hello World");
+    btn.click.connect(win.close);
 
-  app.activate.connect (() => app.active_window.present ());
-
-  return app.run (args);
-}
+    win.child = btn;
+    win.present();
+  })
+  return app.run(args);
+} 
 ```
