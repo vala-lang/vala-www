@@ -4,6 +4,7 @@ int main (string[] args) {
     "com.example.App",
     ApplicationFlags.FLAGS_NONE
   );
+  
   app.activate.connect(() => {
     var win = new Gtk.ApplicationWindow(app);
 
