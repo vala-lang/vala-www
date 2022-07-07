@@ -98,7 +98,7 @@ Issue [#764](https://gitlab.gnome.org/GNOME/vala/-/issues/764)
 
 Libraries using the GObject type system are providing usually documentation about their API so other languages can use them. However sometimes some parts are missing. With the `dynamic` keyword an object can be treated as not having all properties or signals specified and they can be accessed dynamically without checking:
 
-```vala,
+```vala
 dynamic Gst.Element appsink = Gst.ElementFactory.make ("appsink", "my_src");
 appsink.max_buffers = 0;
 appsink.eos.connect (on_eos);
