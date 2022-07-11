@@ -1,4 +1,4 @@
-```vala,linenos
+```vala
 int main (string[] args) {
   var app = new Gtk.Application(
     "com.example.App",
