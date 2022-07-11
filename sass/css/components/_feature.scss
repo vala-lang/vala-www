@@ -8,6 +8,7 @@
   border-radius: 0.75rem;
   padding: 1.5rem 1.25rem 2.5rem 1.25rem;
   text-align: left;
+  width: auto;
 }
 
 .features > :first-child {
@@ -51,6 +52,10 @@
 
   .features > :first-child {
     margin-left: 0;
+  }
+
+  .features > div {
+    width: 375px;
   }
 
   .features > * {
