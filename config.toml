@@ -34,9 +34,10 @@ render_emoji = true
 
 [extra]
 # Put all your custom variables here
-docs_url="https://lwildberg.pages.gitlab.gnome.org/vala-tutorial"
 
-tutorial_url = "https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/guides/installation.html"
+docs_url="https://wiki.gnome.org/Projects/Vala/Documentation"
+
+tutorial_url = "https://wiki.gnome.org/Projects/Vala/Documentation#Getting_Started"
 
 language_source_code_url = "https://gitlab.gnome.org/GNOME/vala"
 
@@ -66,7 +67,7 @@ vim = "https://github.com/arrufat/vala.vim"
 
 meson = "https://mesonbuild.com/Vala.html"
 
-documentation = "https://lwildberg.pages.gitlab.gnome.org/vala-tutorial/tooling.html"
+documentation = "https://wiki.gnome.org/Projects/Vala/Tools"
 
 [extra.socials]
 
