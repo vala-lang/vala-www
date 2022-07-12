@@ -18,7 +18,7 @@ toggle.addEventListener('click', () => {
 });
 
 let codeBlocks = document.body.querySelectorAll('pre[class^="language"]');
-console.log(codeBlocks);
+
 for (let i = 0; i < codeBlocks.length; i++) {
   let wrapperDiv = document.createElement('div')
   wrapperDiv.classList.add('code-block-wrapper');
