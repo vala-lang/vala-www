@@ -47,6 +47,13 @@ license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
 
 wiki_url = "https://wiki.gnome.org/Projects/Vala/"
 
+[extra.features]
+
+gnome_developer_tutorial = "https://developer.gnome.org/documentation/tutorials/beginners/getting_started.html"
+
+elementary_app_tutorial = "https://docs.elementary.io/develop/"
+
+
 [extra.showcase]
 
 awesome_vala_url = "https://github.com/desiderantes/awesome-vala"
