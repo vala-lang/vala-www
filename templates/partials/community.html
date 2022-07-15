@@ -1,16 +1,46 @@
 {% import "macros/icon.html" as icon_macros %}
 
 <h2 id="community">Community</h2>
+<dl class="features">
+  <div>
+    <dt>
+      <div>
+        {{ icon_macros::sprite_icon(name="discourse") }}
+        Users Forum
+      </div>
+    </dt>
+    <dd>For asking user questions related to Vala use the Discourse server with the Vala tag.</dd>
+    <dd><a href="{{ config.extra.socials.discourse }}">Discourse Forums</a></dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        {{ icon_macros::sprite_icon(name="matrix") }}
+        Internals Chat
+      </div>
+    </dt>
+    <dd>To talk to the developers or ask questions how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge.</dd>
+    <dd><a href="{{ config.extra.socials.matrix }}">Matrix Room</a></dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        {{ icon_macros::sprite_icon(name="discord") }}
+        Community Server
+      </div>
+    </dt>
+    <dd>To hang out with the community use the Discord server.</dd>
+    <dd><a href="{{ config.extra.socials.discord }}">Discord Server</a></dd>
+  </div>
+</dl>
+
+<h2>Social Media</h2>
 <div class="prose">
-  <h3>Social Media</h3>
-  <p>Here are the places we know where there are Vala communities available. (There may be more that we don’t know about):</p>
+  <p>Follow the Vala project across these platforms:</p>
   <ul class="social-links">
-    <li><a href="{{ config.extra.socials.discourse }}">{{ icon_macros::sprite_icon(name="discourse") }}Discourse Forums</a></li>
-    <li><a href="{{ config.extra.socials.matrix }}">{{ icon_macros::sprite_icon(name="matrix") }}Matrix (Maintainers and key people are here)</a></li>
     <li><a rel="me" href="{{ config.extra.socials.mastodon }}">{{ icon_macros::sprite_icon(name="mastodon") }}Mastodon</a></li>
-    <li><a href="{{ config.extra.socials.discord }}">{{ icon_macros::sprite_icon(name="discord") }}Discord</a></li>
-    <li><a href="{{ config.extra.socials.telegram }}">{{ icon_macros::sprite_icon(name="telegram") }}Telegram</a></li>
     <li><a href="{{ config.extra.socials.twitter }}">{{ icon_macros::sprite_icon(name="twitter") }}Twitter</a></li>
+    <li><a href="{{ config.extra.socials.telegram }}">{{ icon_macros::sprite_icon(name="telegram") }}Telegram</a></li>
     <li><a href="{{ config.extra.socials.reddit }}">{{ icon_macros::sprite_icon(name="reddit") }}Reddit</a></li>
   </ul>
 </div>
