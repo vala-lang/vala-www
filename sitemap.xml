@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://vala.dev/</loc>
+    </url>
+    <url>
+        <loc>https://vala.dev/about/</loc>
+    </url>
+    <url>
+        <loc>https://vala.dev/blog/</loc>
+    </url>
+    <url>
+        <loc>https://vala.dev/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://vala.dev/blog/vala-0-56/</loc>
+        <lastmod>2022-03-18</lastmod>
+    </url>
+</urlset>

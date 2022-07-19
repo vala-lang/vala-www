@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7239b3">
+  <link rel="stylesheet" href="https://vala.dev/css/global.css">
+  
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://vala.dev/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://vala.dev/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://vala.dev/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://vala.dev/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://vala.dev/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://vala.dev/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://vala.dev/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://vala.dev/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vala.dev/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://vala.dev/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vala.dev/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://vala.dev/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vala.dev/favicon-16x16.png">
+  <link rel="manifest" href="https://vala.dev/manifest.json">
+  <meta name="msapplication-TileColor" content="#a56de2">
+  <meta name="msapplication-TileImage" content="https://vala.dev/ms-icon-144x144.png">
+  
+  
+   <link rel="alternate" type="application/atom+xml" title="Vala - Feed" href="https://vala.dev/atom.xml">
+  
+  
+  
+<title>Vala 0.56</title>
+
+  
+  
+  <meta name="description" content="Here&#x27;s what&#x27;s new in Vala release version 0.56">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vala_lang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vala 0.56">
+  <meta property="og:description" content="Here&#x27;s what&#x27;s new in Vala release version 0.56">
+  <meta property="og:url" content="https://vala.dev/blog/vala-0-56/">
+  <meta property="og:site_name" content="Vala">
+    
+  
+  <meta property="og:image" content="https://vala.dev/img/vala-hero-wide.png">
+
+
+  
+    <meta property="article:published_time" content="2022-03-18">
+  
+
+  
+
+  
+  
+  <meta property="article:section" content="Blog">
+
+<link rel="stylesheet" href="https://vala.dev/css/blog-post.css">
+
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+
+  
+    
+  
+
+  
+
+  <header>
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="https://vala.dev">
+            
+<svg version="1.1" viewBox="0 0 7.9685 3.1998" xmlns="http://www.w3.org/2000/svg">
+ <title>Home</title>
+ <g transform="translate(-17.82 -13.53)">
+  <g stroke-width=".26458">
+   <path d="m18.913 16.705-0.06821-2.8918q-0.29766 0.11162-0.46509 0.34933-0.16536 0.23771-0.16536 0.59118 0 0.17156 0.04754 0.25838 0.01034 0.01654 0.01034 0.02894-0.339 0-0.42375-0.21704-0.02894-0.07855-0.02894-0.1943 0-0.21291 0.13229-0.40928 0.13436-0.19844 0.3452-0.3514 0.48162-0.339 1.0087-0.339 0.08682 0 0.1695 0.0083l0.03721 2.6045 0.8909-2.5921h0.29559l-1.1762 3.1543z"/>
+   <path d="m22.804 15.946q-0.26872 0.78341-0.84956 0.78341-0.37414 0-0.41548-0.38861-0.27698 0.38861-0.64699 0.38861-0.36794 0-0.50023-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.13643 0 0.1819 0.17363 0.1819 0.22531 0 0.34313-0.39894zm-1.0666-0.95498q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+   <path d="m23.934 15.946q-0.27285 0.78341-0.91157 0.78341-0.16743 0-0.29972-0.11989-0.13022-0.11989-0.13022-0.38654 0-0.11989 0.03307-0.27698l0.45269-2.1208 0.62632-0.08475-0.48576 2.2862q-0.01654 0.07648-0.01654 0.1509 0 0.14263 0.17157 0.14263 0.12402 0 0.22944-0.10749 0.10749-0.10749 0.15296-0.26665z"/>
+   <path d="m24.896 16.337q-0.26252 0.39274-0.63872 0.39274-0.3762 0-0.5085-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.14883 0 0.14469 0.17363 0.14469 0.05581 0 0.09302-0.0186-0.08888 0.23771-0.1509 0.30799-0.10955 0.11989-0.27905 0.11989-0.16743 0-0.27492-0.10129-0.10749-0.10335-0.13229-0.29146zm0.19844-1.3457q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+  </g>
+ </g>
+</svg>
+
+
+          </a>
+        </div>
+        <ul>
+          <li><a href="https://vala.dev/about/">About</a></li>
+            <li><a href="https:&#x2F;&#x2F;wiki.gnome.org&#x2F;Projects&#x2F;Vala&#x2F;Documentation">Docs</a></li>
+            <li><a href="https://vala.dev#community">Community</a></li>
+            <li><a href="https://vala.dev/blog/">Blog</a></li>
+            <li><a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Source Code</a></li>
+            <li><a href="https:&#x2F;&#x2F;wiki.gnome.org&#x2F;Projects&#x2F;Vala&#x2F;">Wiki</a></li>
+        </ul>
+        <button aria-label="Menu" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="https:&#x2F;&#x2F;wiki.gnome.org&#x2F;Projects&#x2F;Vala&#x2F;Documentation#Getting_Started" class="navbar-button">Get Started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  
+
+  <div class="container">
+    <main id="main-content">
+      
+<article class="blog-post">
+  <header>
+    <h1>Vala 0.56</h1>
+    <p>Here&#x27;s what&#x27;s new in Vala release version 0.56</p>
+    <span>
+  
+    
+      Lorenz Wildberg
+  
+</span>
+    <time datetime="2022-03-18">2022-03-18</time>
+    <a href="https://vala.dev/blog/">Blog</a>
+  </header>
+  <p>After 4 months of work we are proud to announce a new release of Vala. This time it contains lots of new language features and advancements and of course also the usual bug fixes and binding updates.</p>
+<h2 id="asynchronous-main-function">Asynchronous Main Function<a class="zola-anchor" href="#asynchronous-main-function" aria-label="Anchor link for: asynchronous-main-function">#</a>
+</h2>
+<p>With the new release the main function can now be defined as <code>async</code>. This has multiple advantages. For example is it now possible to call asynchronous functions with <code>yield</code>:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-variable z-other z-readwrite z-vala">async</span> <span class="z-storage z-type z-vala">int</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">main</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">string</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span> <span class="z-variable z-other z-readwrite z-vala">args</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+    <span class="z-storage z-type z-vala">string</span> <span class="z-variable z-other z-readwrite z-vala">dir</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">args</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">length</span> <span class="z-keyword z-operator z-comparison z-vala">==</span> <span class="z-constant z-numeric z-integer z-vala">2</span> <span class="z-keyword z-operator z-vala">?</span> <span class="z-variable z-other z-readwrite z-vala">args</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-constant z-numeric z-integer z-vala">1</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span> <span class="z-keyword z-operator z-vala">:</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>.<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+    <span class="z-storage z-type z-vala">var</span> <span class="z-variable z-other z-readwrite z-vala">file</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">File</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">new_for_commandline_arg</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">dir</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+    <span class="z-variable z-other z-readwrite z-vala">try</span> {
+        <span class="z-variable z-other z-readwrite z-vala">FileEnumerator</span> <span class="z-variable z-other z-readwrite z-vala">enumerator</span> <span class="z-keyword z-operator z-assignment z-vala">=</span>
+            <span class="z-keyword z-control z-flow z-vala">yield</span> <span class="z-variable z-other z-readwrite z-vala">file</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">enumerate_children_async</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span>
+                <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>standard::*,time::*<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span>
+                <span class="z-variable z-other z-readwrite z-vala">FileQueryInfoFlags</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">NOFOLLOW_SYMLINKS</span>
+            <span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-variable z-other z-readwrite z-vala">List</span><span class="z-keyword z-operator z-comparison z-vala">&lt;</span><span class="z-variable z-other z-readwrite z-vala">FileInfo</span><span class="z-keyword z-operator z-comparison z-vala">&gt;</span> <span class="z-variable z-other z-readwrite z-vala">children</span> <span class="z-keyword z-operator z-assignment z-vala">=</span>
+            <span class="z-keyword z-control z-flow z-vala">yield</span> <span class="z-variable z-other z-readwrite z-vala">enumerator</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">next_files_async</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">int</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">MAX</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">print</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>total %lu<span class="z-constant z-character z-escape z-vala">\n</span><span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">children</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">length</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-keyword z-control z-loop z-vala">foreach</span> <span class="z-punctuation z-section z-group z-begin z-vala">(</span><span class="z-storage z-type z-vala">var</span> <span class="z-variable z-other z-readwrite z-vala">info</span> <span class="z-keyword z-operator z-word z-vala">in</span> <span class="z-variable z-other z-readwrite z-vala">children</span><span class="z-punctuation z-section z-group z-end z-vala">)</span> {
+            <span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> &lt;file-type&gt; &lt;access-date&gt; &lt;size&gt; &lt;name&gt;
+</span>            <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">print</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>%26s %24s %10<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-keyword z-operator z-arithmetic z-vala">+</span><span class="z-variable z-other z-readwrite z-vala">int64</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">FORMAT</span><span class="z-keyword z-operator z-arithmetic z-vala">+</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span> B %s<span class="z-constant z-character z-escape z-vala">\n</span><span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span>
+            <span class="z-variable z-other z-readwrite z-vala">info</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">get_content_type</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span>
+            <span class="z-variable z-other z-readwrite z-vala">info</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">get_access_date_time</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">to_string</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span>
+            <span class="z-variable z-other z-readwrite z-vala">info</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">get_size</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span>
+            <span class="z-variable z-other z-readwrite z-vala">info</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">get_name</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-punctuation z-section z-block z-end z-vala">}</span></span>
+    } <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">catch</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">Error</span> <span class="z-variable z-other z-readwrite z-vala">e</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+        <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">printerr</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>failed to enumerate files - %s<span class="z-constant z-character z-escape z-vala">\n</span><span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">e</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">message</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-keyword z-control z-flow z-vala">return</span> <span class="z-constant z-numeric z-integer z-vala">1</span><span class="z-punctuation z-terminator z-vala">;</span>
+    <span class="z-punctuation z-section z-block z-end z-vala">}</span></span>
+    <span class="z-keyword z-control z-flow z-vala">return</span> <span class="z-constant z-numeric z-integer z-vala">0</span><span class="z-punctuation z-terminator z-vala">;</span>
+}
+</span></code></pre>
+<p>In main blocks (experimental feature that allows it to write code in a file without putting in a main function) invoking functions with <code>yield</code> is also supported by making the main block automatically asynchronous.</p>
+<p>Merge Request <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/226">#226</a></p>
+<h2 id="nested-functions">Nested functions<a class="zola-anchor" href="#nested-functions" aria-label="Anchor link for: nested-functions">#</a>
+</h2>
+<p>A simple but very useful feature is to be able to nest functions inside of other functions or methods. These functions are then only visible to the code in the function that contains the nested one. But on the other way the code in the nested function has access to variables in the upper method. Actually they are only lambdas assigned to a local variable.</p>
+<p>Use cases are to structure very complicated functions into multiple smaller ones, without exposing them publicly. In this example the same asynchronous callback is used for two invocations, in which you otherwise would use lambdas:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-storage z-type z-vala">void</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">write_streams</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">OutputStream</span> <span class="z-variable z-other z-readwrite z-vala">stream1</span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">OutputStream</span> <span class="z-variable z-other z-readwrite z-vala">stream2</span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">uint8</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span> <span class="z-variable z-other z-readwrite z-vala">data</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+    <span class="z-storage z-type z-vala">void</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">nested_function</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">Object</span> <span class="z-variable z-other z-readwrite z-vala">object_source</span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">AsyncResult</span> <span class="z-variable z-other z-readwrite z-vala">result</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> {
+        <span class="z-variable z-other z-readwrite z-vala">OutputStream</span> <span class="z-variable z-other z-readwrite z-vala">stream</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">object_source</span> <span class="z-keyword z-operator z-word z-vala">as</span> <span class="z-support z-type z-vala">OutputStream</span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-variable z-other z-readwrite z-vala">try</span> {
+            <span class="z-storage z-type z-vala">ssize_t</span> <span class="z-variable z-other z-readwrite z-vala">size</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">stream</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">write_async</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">finish</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">result</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+            <span class="z-variable z-other z-readwrite z-vala">stdout</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">printf</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-storage z-modifier z-string z-vala">@</span><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>Written </span><span class="z-meta z-interpolation z-vala"><span class="z-punctuation z-section z-interpolation z-begin z-vala">$</span></span><span class="z-meta z-interpolation z-vala"><span class="z-variable z-other z-interpolation z-vala">size</span></span><span class="z-string z-quoted z-double z-vala"> bytes\n<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-punctuation z-section z-block z-end z-vala">}</span></span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">catch</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">Error</span> <span class="z-variable z-other z-readwrite z-vala">e</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+            <span class="z-variable z-other z-readwrite z-vala">stderr</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">printf</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>Error writing to stream: %s<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">e</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">message</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-punctuation z-section z-block z-end z-vala">}</span></span>
+    }
+
+    <span class="z-variable z-other z-readwrite z-vala">stream1</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">write_async</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">data</span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">nested_function</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+    <span class="z-variable z-other z-readwrite z-vala">stream2</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">write_async</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">data</span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-variable z-other z-readwrite z-vala">nested_function</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+}
+
+</span></code></pre>
+<p>Merge Request <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/203">#203</a></p>
+<h2 id="redesign-of-error-and-warning-output">Redesign of error and warning output<a class="zola-anchor" href="#redesign-of-error-and-warning-output" aria-label="Anchor link for: redesign-of-error-and-warning-output">#</a>
+</h2>
+<p>If programming errors are outputted at compile time in a pretty way and provide as much information as possible, they massively help and speed up finding the mistakes and correcting them. In the new release this part got an update. Look at the differences yourself:</p>
+<p>Before Vala 0.56:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-storage z-type z-vala">int</span> <span class="z-variable z-other z-readwrite z-vala">foo</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">bar</span><span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+          ^^^
+</span></code></pre>
+<p>Vala 0.56:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-constant z-numeric z-integer z-vala">2</span> | <span class="z-storage z-type z-vala">int</span> <span class="z-variable z-other z-readwrite z-vala">foo</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">bar</span><span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+  |           ^~~
+
+</span></code></pre>
+<p>What looks better? :)</p>
+<p>Issue <a href="https://gitlab.gnome.org/GNOME/vala/-/issues/764">#764</a></p>
+<h2 id="dynamic-invocation-of-signals">Dynamic invocation of Signals<a class="zola-anchor" href="#dynamic-invocation-of-signals" aria-label="Anchor link for: dynamic-invocation-of-signals">#</a>
+</h2>
+<p>Libraries using the GObject type system are providing usually documentation about their API so other languages can use them. However sometimes some parts are missing. With the <code>dynamic</code> keyword an object can be treated as not having all properties or signals specified and they can be accessed dynamically without checking:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-variable z-other z-readwrite z-vala">dynamic</span> <span class="z-variable z-other z-readwrite z-vala">Gst</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">Element</span> <span class="z-variable z-other z-member z-vala">appsink</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">Gst</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">ElementFactory</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">make</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>appsink<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-sequence z-vala">,</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>my_src<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+<span class="z-variable z-other z-readwrite z-vala">appsink</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">max_buffers</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-constant z-numeric z-integer z-vala">0</span><span class="z-punctuation z-terminator z-vala">;</span>
+<span class="z-variable z-other z-readwrite z-vala">appsink</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">eos</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">connect</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">on_eos</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+<span class="z-variable z-other z-readwrite z-vala">Gst</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">Sample</span><span class="z-keyword z-operator z-vala">?</span> <span class="z-variable z-other z-readwrite z-vala">res</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-readwrite z-vala">appsink</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">pull_sample</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">emit</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+
+</span></code></pre>
+<p>As you can see, signals are now also callable with <code>.emit ()</code>. This is necessary to differentiate between a method or a dynamic signal. But this syntax can be also used with non-dynamic variables if wanted.</p>
+<p>Merge Request <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/227">#227</a></p>
+<h2 id="partial-classes">Partial classes<a class="zola-anchor" href="#partial-classes" aria-label="Anchor link for: partial-classes">#</a>
+</h2>
+<p>In rare cases, if a class is so huge and complex, it can be now split up into multiple pieces even into multiple files. All parts of the class only need the partial keyword in front of it.</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-variable z-other z-readwrite z-vala">public</span> <span class="z-variable z-other z-readwrite z-vala">partial</span> <span class="z-variable z-other z-readwrite z-vala">class</span> <span class="z-variable z-other z-readwrite z-vala">Foo</span> <span class="z-keyword z-operator z-vala">:</span> <span class="z-variable z-other z-readwrite z-vala">Object</span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+    <span class="z-variable z-other z-readwrite z-vala">public</span> <span class="z-storage z-type z-vala">double</span> <span class="z-variable z-other z-readwrite z-vala">bar</span> { <span class="z-variable z-other z-readwrite z-vala">get</span><span class="z-punctuation z-terminator z-vala">;</span> <span class="z-variable z-other z-readwrite z-vala">set</span><span class="z-punctuation z-terminator z-vala">;</span> <span class="z-punctuation z-section z-block z-end z-vala">}</span></span>
+}
+
+<span class="z-variable z-other z-readwrite z-vala">public</span> <span class="z-variable z-other z-readwrite z-vala">partial</span> <span class="z-variable z-other z-readwrite z-vala">class</span> <span class="z-variable z-other z-readwrite z-vala">Foo</span> <span class="z-keyword z-operator z-vala">:</span> <span class="z-variable z-other z-readwrite z-vala">Initable</span> <span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+    <span class="z-variable z-other z-readwrite z-vala">public</span> <span class="z-variable z-other z-readwrite z-vala">virtual</span> <span class="z-storage z-type z-vala">bool</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">init</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-variable z-other z-readwrite z-vala">Cancellable</span><span class="z-keyword z-operator z-vala">?</span> <span class="z-variable z-other z-readwrite z-vala">cancellable</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-constant z-language z-vala">null</span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span> {
+        <span class="z-variable z-other z-readwrite z-vala">stdout</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">printf</span> <span class="z-punctuation z-section z-parens z-begin z-vala">(</span><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>hello!<span class="z-constant z-character z-escape z-vala">\n</span><span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-parens z-end z-vala">)</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-variable z-language z-vala">this</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-member z-vala">bar</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-constant z-numeric z-float z-vala">0<span class="z-punctuation z-separator z-decimal z-vala">.</span>56</span><span class="z-punctuation z-terminator z-vala">;</span>
+        <span class="z-keyword z-control z-flow z-vala">return</span> <span class="z-constant z-language z-vala">true</span><span class="z-punctuation z-terminator z-vala">;</span>
+    <span class="z-punctuation z-section z-block z-end z-vala">}</span></span>
+}
+
+</span></code></pre>
+<p>Merge Request <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/200">#200</a></p>
+<h2 id="length-type-for-arrays">Length-type for Arrays<a class="zola-anchor" href="#length-type-for-arrays" aria-label="Anchor link for: length-type-for-arrays">#</a>
+</h2>
+<p>The length of an array is usually specified by an 32bit integer. However in some cases, especially in bindings to other libaries, sometimes the length of an array is given by a different type of integer. We now have support for that:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-storage z-type z-vala">string</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span> <span class="z-variable z-other z-readwrite z-vala">list</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-keyword z-operator z-word z-vala">new</span> <span class="z-storage z-type z-vala">string</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-constant z-numeric z-integer z-vala">10</span><span class="z-keyword z-operator z-vala">:</span><span class="z-variable z-other z-readwrite z-vala">uint8</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span><span class="z-punctuation z-terminator z-vala">;</span>
+</span></code></pre>
+<p>Issue <a href="https://gitlab.gnome.org/GNOME/vala/-/issues/607">#607</a></p>
+<h2 id="foreach-support-on-glib-sequence-and-glib-array">Foreach support on Glib.Sequence and Glib.Array<a class="zola-anchor" href="#foreach-support-on-glib-sequence-and-glib-array" aria-label="Anchor link for: foreach-support-on-glib-sequence-and-glib-array">#</a>
+</h2>
+<p>This small change will be a big improvement for users of these data structures. Instead of manually looping with for, they are now ready to be used with a foreach loop over the items in the sequence or array.</p>
+<p>Merge Request <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/234">#234</a></p>
+<h2 id="new-bindings">New Bindings<a class="zola-anchor" href="#new-bindings" aria-label="Anchor link for: new-bindings">#</a>
+</h2>
+<p>A bunch of new bindings to libraries got added this release. Here is a list:</p>
+<ul>
+<li>libsoup is now also available in version 3.0 and webkit2gtk in version 4.1 and 5.0 so you can start porting you Vala apps to the new releases of these libraries</li>
+<li>linux-media can now be used from Vala. There were also lots of more additions and fixes in other linux kernel interface bindings.</li>
+<li>During the port of the gnome-desktop library it was splitted up into gnome-desktop-4, gnome-rr-4 and gnome-bg-4. They are all now available to use in your new app.</li>
+<li>The GLib vapi was updated to version 2.72, including the new Signal- and BindingGroups and DebugController</li>
+</ul>
+<h2 id="gnome-getting-started-tutorial">GNOME Getting started tutorial<a class="zola-anchor" href="#gnome-getting-started-tutorial" aria-label="Anchor link for: gnome-getting-started-tutorial">#</a>
+</h2>
+<p>The GNOME developer documentation has besides other stuff a excellent section on getting started with GTK and app development. Most of the <a href="https://developer.gnome.org/documentation/tutorials.html">tutorials</a> there have now code examples in Vala. So read it and write your first Vala application! :)</p>
+<h2 id="vala-flatpak-sdk-extension">Vala Flatpak Sdk Extension<a class="zola-anchor" href="#vala-flatpak-sdk-extension" aria-label="Anchor link for: vala-flatpak-sdk-extension">#</a>
+</h2>
+<p>You can find on flathub now the <code>org.freedesktop.Sdk.Extension.vala</code> Extension. It contains the Vala compiler, language server and more tooling. You can use it either for compiling your Vala app, or if you need for example the language server at runtime, like an IDE. Instructions can be found at the <a href="https://github.com/flathub/org.freedesktop.Sdk.Extension.vala">flathub repository</a>.</p>
+<h2 id="google-summer-of-code">Google Summer of Code<a class="zola-anchor" href="#google-summer-of-code" aria-label="Anchor link for: google-summer-of-code">#</a>
+</h2>
+<p>We have proposed a project idea for the Google Summer of Code for working on Vala. If you are interested, check out the <a href="https://discourse.gnome.org/t/gsoc-2022-project-ideas/8931#add-support-for-the-latest-gir-attributes-and-gi-docgen-formatting-to-valadoc-15">project ideas page</a> on GNOME discourse.</p>
+<hr />
+<p>You are always invited to join our matrix chat <a href="https://matrix.to/#/#_gimpnet_#vala:gnome.org">#vala:gnome.org</a> and ask questions about Vala or how to contribute. Until then, have a nice time and build great apps with Vala!</p>
+
+</article>
+
+    </main>
+  </div>
+
+  <footer>
+  <div>
+    <div>Made by the Vala Community</div>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;vala-lang&#x2F;vala-www">View The Website's Source Code</a>
+    <p>This work is licensed under a <a rel="license" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+  </div>
+</footer>
+
+
+  <script src="https://vala.dev/js/global.js"></script>
+   
+
+</body>
+</html>
