@@ -1,6 +1,10 @@
 # The URL the site will be built for
 base_url = "https://vala.dev"
 
+# The site title and description; used in feeds by default.
+title = "Vala Programming Language"
+description = "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system."
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
