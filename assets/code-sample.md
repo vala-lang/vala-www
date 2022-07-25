@@ -13,7 +13,7 @@ int main (string[] args) {
 
     win.child = btn;
     win.present();
-  })
+  });
   return app.run(args);
 } 
 ```
