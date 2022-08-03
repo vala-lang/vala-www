@@ -40,7 +40,6 @@ highlight_themes_css = [
 render_emoji = true
 
 
-
 # Optional translation object for the default language
 # Example:
 #     default_language = "fr"
@@ -49,7 +48,7 @@ render_emoji = true
 #     title = "Un titre"
 #
 [translations]
-summary = "My blog"
+home = "Home"
 
 # Additional languages definition
 # You can define language specific config values and translations: 
