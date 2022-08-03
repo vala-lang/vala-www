@@ -33,15 +33,15 @@
    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml', trailing_slash=false) }}">
 </head>
 <body>
-  <a id="bypass-block" href="#main-content">Skip to main content</a>
+  <a id="bypass-block" href="#main-content">{{ trans(key="bypass_block", lang=lang) }}</a>
 
   {{ body_macros::header() }}
 
   <div class="container error-404">
     <main id="main-content">
-        <h1>Error 404 - Page Not Found</h1>
-        <p>The URL may be misspelled or the page you requested no longer exists.</p>
-        <a href="{{ get_url(path='/') | safe }}">Go Home</a>
+        <h1>{{ trans(key="page_not_found", lang=lang) }}</h1>
+        <p>{{ trans(key="page_not_found_description", lang=lang) }}</p>
+        <a href="{{ get_url(path='/', lang=lang) | safe }}">{{ trans(key="go_home", lang=lang) }}</a>
     </main>
   </div>
 

@@ -6,37 +6,37 @@
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="discourse") }}
-        Forums
+        {{ trans(key='forums', lang=lang) }}
       </div>
     </dt>
-    <dd>Ask questions related to Vala in the GNOME Discourse forums under the "vala" tag.</dd>
-    <dd><a href="{{ config.extra.socials.discourse }}">Discourse Forums</a></dd>
+    <dd>{{ trans(key='forums_description', lang=lang) }}</dd>
+    <dd><a href="{{ config.extra.socials.discourse }}">{{ trans(key='discourse_forums', lang=lang) }}</a></dd>
   </div>
   <div>
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="matrix") }}
-        Internals Chat
+        {{ trans(key='internals_chat', lang=lang) }}
       </div>
     </dt>
-    <dd>Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge.</dd>
-    <dd><a href="{{ config.extra.socials.matrix }}">Matrix Room</a></dd>
+    <dd>{{ trans(key='internals_chat_description', lang=lang) }}</dd>
+    <dd><a href="{{ config.extra.socials.matrix }}">{{ trans(key='matrix_room', lang=lang) }}</a></dd>
   </div>
   <div>
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="discord") }}
-        Community Server
+        {{ trans(key='community_server', lang=lang) }}
       </div>
     </dt>
-    <dd>Connect with the community on the Discord server.</dd>
-    <dd><a href="{{ config.extra.socials.discord }}">Discord Server</a></dd>
+    <dd>{{ trans(key='community_server_description', lang=lang) }}</dd>
+    <dd><a href="{{ config.extra.socials.discord }}">{{ trans(key='discord_server', lang=lang) }}</a></dd>
   </div>
 </dl>
 
-<h2>Social Media</h2>
+<h2>{{ trans(key='social_media', lang=lang) }}</h2>
 <div class="prose">
-  <p>Follow the Vala project across these platforms:</p>
+  <p>{{ trans(key='follow_vala_project', lang=lang) }}</p>
   <ul class="social-links">
     <li><a rel="me" href="{{ config.extra.socials.mastodon }}">{{ icon_macros::sprite_icon(name="mastodon") }}Mastodon</a></li>
     <li><a href="{{ config.extra.socials.twitter }}">{{ icon_macros::sprite_icon(name="twitter") }}Twitter</a></li>

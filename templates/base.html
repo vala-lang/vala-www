@@ -3,7 +3,7 @@
 {% import "macros/icon.html" as icon_macros %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -37,7 +37,7 @@
   {% endblock head %}
 </head>
 <body>
-  <a id="bypass-block" href="#main-content">Skip to main content</a>
+  <a id="bypass-block" href="#main-content">{{ trans(key="bypass_block", lang=lang) }}</a>
 
   {% block top_level_header %}
     {{ body_macros::header() }}
