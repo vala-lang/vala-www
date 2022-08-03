@@ -10,7 +10,7 @@ Feel free to [create an new issue](https://github.com/colinkiama/vala-www/issues
 
 ## System Requirements
 
-- [Zola](https://www.getzola.org) (Version 0.15.3 or higher)
+- [Zola](https://www.getzola.org) (Version 0.16.0 or higher)
 
 ## Getting started
 
