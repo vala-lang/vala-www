@@ -5,6 +5,9 @@ base_url = "https://vala.dev"
 title = "Vala Programming Language"
 description = "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system."
 
+# The default language; used in feeds.
+default_language = "en"
+
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
@@ -35,6 +38,32 @@ highlight_themes_css = [
 # When set to "true", emoji aliases translated to their corresponding
 # Unicode emoji equivalent in the rendered Markdown files. (e.g.: :smile: => 😄)
 render_emoji = true
+
+
+
+# Optional translation object for the default language
+# Example:
+#     default_language = "fr"
+#
+#     [translations]
+#     title = "Un titre"
+#
+[translations]
+summary = "My blog"
+
+# Additional languages definition
+# You can define language specific config values and translations: 
+# title, description, generate_feed, feed_filename, taxonomies, build_search_index
+# as well as its own search configuration and translations (see above for details on those)
+[languages]
+
+# [languages.fr]
+# generate_feed = true # there will be a feed for French content
+# build_search_index = true
+
+# [languages.fr.translations]
+# summary = "Mon blog"
+
 
 [extra]
 # Put all your custom variables here
