@@ -2,7 +2,7 @@
 {% set blog_section = get_section(path="blog/_index.md") %}
 {% set small_image = resize_image(path="vala-hero.png", width=426, height=240 ) %}
 
-<h2>What's new?</h2>
+<h2>{{ trans(key='whats_new', lang=lang) }}</h2>
 <div class="post-previews">
   {% for post in blog_section.pages %}
     {% if loop.index0 == 3 %}
@@ -19,4 +19,4 @@
     </a>
   {% endfor %}
 </div>
-<a href="{{ blog_section.permalink }}">View Blog</a>
+<a href="{{ blog_section.permalink }}">{{ trans(key='view_blog', lang=lang) }}</a>

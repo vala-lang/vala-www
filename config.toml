@@ -66,7 +66,7 @@ performance_description = "Vala compiles code down to blazingly fast, fully nati
 
 open_source = "Open-Source"
 open_source_description = "Vala is free and open-source software. It has a great community that contributes to the compiler and develops lots of tooling."
-tooling_documentation = "tooling_documentation"
+tooling_documentation = "Tooling Documentation"
 
 learn_more_about_vala = "Learn more about Vala"
 what_can_you_build = "What can you build?"
@@ -86,12 +86,14 @@ whats_new = "What's new?"
 view_blog = "View Blog"
 
 showcase = "Showcase"
+view_more_vala_projects = "View More Vala Projects"
 
 forums = "Forums"
 forums_description = "Ask questions related to Vala in the GNOME Discourse forums under the &quot;vala&quot; tag."
+discourse_forums = "Discourse Forums"
 
 internals_chat = "Internals Chat"
-internals_chat_description = "    Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge."
+internals_chat_description = "Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge."
 matrix_room = "Matrix Room"
 
 community_server = "Community Server"
