@@ -4,29 +4,29 @@
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="gears") }}
-        Productivity
+        {{ trans(key="productivity", lang=lang) }}
       </div>
     </dt>
-    <dd>Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!</dd>
+    <dd>{{ trans(key="productivity_description", lang=lang) }}</dd>
   </div>
   <div>
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="rocket") }}
-        Performance
+        {{ trans(key="performance", lang=lang) }}
       </div>
     </dt>
-    <dd>Vala compiles code down to blazingly fast, fully native binaries. You're also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala.</dd>
+    <dd>{{ trans(key="performance_description", lang=lang) }}</dd>
   </div>
   <div>
     <dt>
       <div>
         {{ icon_macros::sprite_icon(name="open-source") }}
-        Open-Source
+        {{ trans(key="open_source", lang=lang) }}
       </div>
     </dt>
-    <dd>Vala is free and open-source software. It has a great community that contributes to the compiler and develops lots of tooling.</dd>
-    <dd><a href="{{ config.extra.tooling.documentation }}">Tooling Documentation</a></dd>
+    <dd>{{ trans(key="open_source_description", lang=lang) }}</dd>
+    <dd><a href="{{ config.extra.tooling.documentation }}">{{ trans(key="tooling_documentation", lang=lang) }}</a></dd>
   </div>
 </dl>
-<a href="{{ get_url(path='@/about/index.md') }}">Learn more about Vala</a>
+<a href="{{ get_url(path='@/about/index.md') }}">{{ trans(key="learn_more_about_vala", lang=lang) }}</a>
