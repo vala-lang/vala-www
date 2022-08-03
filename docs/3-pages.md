@@ -34,7 +34,7 @@ A macros in `head.html` called `og_data` and  `og_data_with_image` take care of 
 
 #### Front Matter
 
-In all pages make sure that you fill in the following fields:
+In all pages make sure that you fill in contain the following fields:
 - `title`
 - `date` (In the format of YYYY-MM-DD)
 - `description`

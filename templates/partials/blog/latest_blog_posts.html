@@ -10,7 +10,7 @@
     {% endif %}
 
     <a href="{{ post.permalink }}" class="post-preview">
-      <img src="{{ small_image.url }}" alt="Purple background with white text on center that says 'Vala'.">
+      <img src="{{ small_image.url }}" alt="{{ trans(key='default_image_description', lang=lang) }}">
       <div>
         <div>{{ post.title }}</div>
         <span>{{ blog_macros::get_authors(page=post) }}</span>

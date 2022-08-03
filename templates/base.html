@@ -37,7 +37,7 @@
   {% endblock head %}
 </head>
 <body>
-  <a id="bypass-block" href="#main-content">Skip to main content</a>
+  <a id="bypass-block" href="#main-content">{{ trans(key="bypass_block", lang=lang) }}</a>
 
   {% block top_level_header %}
     {{ body_macros::header() }}
