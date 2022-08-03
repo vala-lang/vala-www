@@ -59,7 +59,7 @@ view_source_code = "View Source Code"
 why_vala = "Why Vala?"
 
 productivity = "Productivity"
-productvity_description = "Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!"
+productivity_description = "Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!"
 
 performance = "Performance"
 performance_description = "Vala compiles code down to blazingly fast, fully native binaries. You're also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala."
