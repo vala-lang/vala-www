@@ -49,6 +49,59 @@ render_emoji = true
 #
 [translations]
 home = "Home"
+about = "About"
+documentation = "Docs"
+community = "Community"
+wiki = "wiki"
+get_started = "Get Started"
+view_source_code = "View Source Code"
+why_vala = "Why Vala?"
+
+productivity = "Productivity"
+productvity_description = "Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!"
+
+performance = "Performance"
+performance_description = "Vala compiles code down to blazingly fast, fully native binaries. You're also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala."
+
+open_source = "Open-Source"
+open_source_description = "Vala is free and open-source software. It has a great community that contributes to the compiler and develops lots of tooling."
+tooling_documentation = "tooling_documentation"
+
+learn_more_about_vala = "Learn more about Vala"
+what_can_you_build = "What can you build?"
+
+gui_applications = "GUI Applications"
+gui_applications_description = "Perfect integration of GTK, Libadwaita and Granite makes development super simple. Publish easily your apps on Flathub without bloated packages."
+gnome_tutorial = "GNOME Getting Started Tutorial"
+elementary_tutorial = "elementary OS App Tutorial"
+
+command_line_programs = "Command Line Programs"
+command_line_programs_description = "Use a large standard library and use loads of other libraries available for use in Vala."
+
+libraries = "Libraries"
+libraries_description = "Provide bindings from many other languages and API documentation without manual work. Also, dynamic and static linking are both supported."
+
+whats_new = "What's new?"
+view_blog = "View Blog"
+
+showcase = "Showcase"
+
+forums = "Forums"
+forums_description = "Ask questions related to Vala in the GNOME Discourse forums under the &quot;vala&quot; tag."
+
+internals_chat = "Internals Chat"
+internals_chat_description = "    Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge."
+matrix_room = "Matrix Room"
+
+community_server = "Community Server"
+community_server_description = "Connect with the community on the Discord server."
+discord_server = "Discord Server"
+
+social_media = "Social Media"
+follow_vala_project = "Follow the Vala project across these platforms"
+made_by_vala_community = "Made by the Vala Community"
+view_website_source_code = "View The Website's Source Code"
+license_description = "This work is licensed under a"
 
 # Additional languages definition
 # You can define language specific config values and translations: 
