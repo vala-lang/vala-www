@@ -3,6 +3,7 @@
   <div>
     <dt>
       <div>
+        {{ icon_macros::sprite_icon(name="gui-app") }}
         {{ trans(key="gui_applications", lang=lang) }}
       </div>
     </dt>
@@ -20,13 +21,20 @@
   </div>
   <div>
     <dt>
-      <div>{{ trans(key="command_line_programs", lang=lang) }}</div>
+      <div>
+        {{ icon_macros::sprite_icon(name="terminal") }}
+        <span>{{ trans(key="command_line_programs", lang=lang) }}</span>
+        
+      </div>
     </dt>
     <dd>{{ trans(key="command_line_programs_description", lang=lang) }}</dd>
   </div>
   <div>
     <dt>
-      <div>{{ trans(key="libraries", lang=lang) }}</div>
+      <div>
+        {{ icon_macros::sprite_icon(name="library") }}
+        {{ trans(key="libraries", lang=lang) }}
+      </div>
     </dt>
     <dd>{{ trans(key="libraries_description", lang=lang) }}</dd>
   </div>
