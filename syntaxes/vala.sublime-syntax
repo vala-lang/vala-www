@@ -1,69 +1,63 @@
 %YAML 1.2
 ---
-# See http://www.sublimetext.com/docs/3/syntax.html
-# https://www.vala-project.org/doc/vala/
-file_extensions:
-  - vala
+# Copyright (c) 2022 Colin Kiama,
+
+# http://www.sublimetext.com/docs/3/syntax.html
+# Copyright (c) 2016 Sublime Text HQ Pty, @gwenzek,
+#     Matthew Winter @wintermi, Adam Lickel @lickel
+# MIT license: https://opensource.org/licenses/mit-license.php
+
+name: Vala
 scope: source.vala
 
+file_extensions:
+  - vala
+
+first_line_match: |-
+  (?x:
+    ^ \#! .* \b(vala)\b                  # shebang
+  | ^ \s* // .*? -\*- .*? \bvala\b .*? -\*-  # editorconfig
+  )
+
 variables:
-  # Legal identifiers must begin with one alphabetic character
-  # or underscore, followed by any number (zero or more) of
-  # alphanumerics or underscores.
-  # TODO: Add `@` identifiers: https://wiki.gnome.org/Projects/Vala/Tutorial#Syntax_Overview
+
+  bin_op: '(?:\+|->|-|\*|/|%|\|\||&&|\||&|\^|<<|>>|=>|<=|<|>=|>|==|!=|\?\?)'
+  unary_op: '(?:\+\+|--|-|~|!|&|\*)'
+
+  # numbers
+  dec_digits: (?:[\d_]*\d)
+  dec_exponent: (?:[eE][-+]??{{dec_digits}})
+  float_suffix: '[fFdDmM]'
+  integer_suffix: '[uU][lL]?|[lL][uU]?'
+
+  # characters
+  unicode_char: '(?:\\u\h{4}|\\U\h{8})'
+  escaped_char: \\[bfnrtv"\\]
+
+  visibility: \b(?:public|private|protected|internal|protected\s+internal)\b
+  base_type: (?:(?:bool|char|uchar|short|ushort|unichar|double|float|int|int8|int16|int32|int64|uint|uint8|uint16|uint32|uint64|long|ulong|size_t|ssize_t|object|string|void)\b)
+  type_suffix: (?:\s*(?:\[,*\]|\*|\?)*)
+  generic_declaration: \s*(<[^(={};]*>)?\s*
+
+  brackets_capture: '((\[)(,*)(\]))'
+  type_suffix_capture: '(\?)?{{brackets_capture}}?(?:\s*(\*))?'
+
+  reserved: '(?:abstract|as|base|break|case|catch|checked|class|const|continue|construct|default|delegate|do|else|ensures|enum|event|explicit|extern|finally|fixed|for|foreach|goto|if|implicit|in|interface|internal|is|lock|nameof|namespace|new|not|null|operator|out|override|params|private|protected|public|readonly|ref|requires|return|sealed|sizeof|stackalloc|static|string|struct|switch|this|throw|throws|try|typeof|unchecked|unsafe|using|virtual|volatile|while|yield)'
+  name: '(?:@{{reserved}}|@{{base_type}}|@var|@?{{name_normal}})'
+  namespaced_name: (?:(?:{{name}}{{generic_declaration}}\s*\.\s*)*{{name}}{{generic_declaration}})
   identifier: \b[[:alpha:]_](?:[[:alnum:]_])*\b
 
-  # A fully qualified identifier (possibly including namespace).
-  namespace_identifier: (?:{{identifier}})(?:\.(?:{{identifier}}))*
 
-  boolean_type_name: bool
-  integer_type_name: char|uchar|short|ushort|int|uint|long|ulong|size_t|ssize_t|int8|uint8|int16|uint16|int32|uint32|int64|uint64|unichar
-  float_type_name: float|double
-  reference_type_name: string
-  void_type_name: void
-  builtin_type: '{{boolean_type_name}}|{{integer_type_name}}|{{float_type_name}}|{{reference_type_name}}|{{void_type_name}}'
-
-  # Lifted from the characters GLib's string.escape() method will handle.
-  string_escape: \\[bfnrtv"]
-
-  access_modifier: public|private
-  func_param_direction: out|ref
-  jump_statement_keywords: break|continue|return|throw|yield
-  ownership_modifiers: unowned|owned
-  selection_statements: if|else|switch|case|default
-  while_statements: do|while
-
-  # Lookahead for a paren group followed by an arrow operator.
-  lambda_lookahead: (?:\s*(?:\((?:[^()])*\))\s*=>)
+  start_char: '(?:{{unicode_char}}|[_\p{L}])'
+  other_char: '(?:{{unicode_char}}|[_0-9\p{L}])'
+  name_normal: '{{start_char}}{{other_char}}*\b'
+  cap_name: '(\p{Lu}{{other_char}})'
 
 contexts:
   prototype:
     - include: comments
 
-  main:
-    - include: using_statement
-    - include: namespace_declarations
-    - include: method_declarations
-    - include: keywords
-    - include: statements
-    - include: expressions
-    - include: blocks
-
-  blocks:
-    # Catch-all for blocks that weren't caught in another context.
-    - match: \{
-      scope: punctuation.section.block.begin.vala
-      push:
-        - meta_scope: meta.block.vala
-        - include: block_body
-        - match: \}
-          scope: punctuation.section.block.end.vala
-          pop: true
-
-#####################################################################
-# Comments
-#####################################################################
-
+    # comments
   comments:
     - include: line_comments
     - include: doc_comments
@@ -273,572 +267,100 @@ contexts:
         1: storage.type.vala
         2: entity.name.type.vala
 
-#####################################################################
-# Keywords
-#####################################################################
+  # Pops out at the end of the line and handles comments.
+  # Marks the rest of the line as invalid.
+  option_done:
+    - include: comments
+    - match: $
+      pop: true
+    - match: \S
+      scope: invalid.illegal.vala
 
-  keywords:
-    - include: type_keywords
-    - include: const_keyword
-    - include: ownership_modifiers
-    - include: var_keyword
-    - include: selection_keywords
-    - include: while_keywords
+  main:
+    - include: stray_close_bracket
+    - match: '\{'
+      scope: punctuation.section.block.begin.vala
+      push:
+        - meta_scope: meta.block.vala
+        - match: '\}'
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: main
+    - include: attribute
+    - include: using
+    - include: class_declaration
+    - include: interface_declaration
+    - include: namespace_declaration
+    - include: delegate_declaration
+    # allows coloration of code outside a class
+    - match: (?=\S)
+      push:
+        - match: (?={{visibility}}|\b(?:class|delegate|interface|namespace|readonly|record|static)\b)
+          pop: true
+        - include: line_of_code
 
-  type_keywords:
-    - match: '\b({{builtin_type}})\b'
-      scope: storage.type.vala
+  stray_close_bracket:
+    - match: '[})\]]'
+      scope: invalid.illegal.stray.brace.vala
 
-  const_keyword:
-    - match: \bconst\b
+  using:
+    - match: \bglobal\b
       scope: storage.modifier.vala
-
-  ownership_keywords:
-    - match: \b({{ownership_modifiers}})\b
-      scope: storage.modifier.vala
-
-  var_keyword:
-    - match: \bvar\b
-      scope: storage.type.vala
-
-  selection_keywords:
-    - match: \b({{selection_statements}})\b
-      scope: keyword.control.conditional.vala
-
-  while_keywords:
-    - match: \b({{while_statements}})\b
-      scope: keyword.control.loop.vala
-
-#####################################################################
-# Expressions
-#####################################################################
-
-  expressions:
-    - include: sizeof_typeof_operators
-    - include: method_call
-    - include: pointer_member_expression
-    - include: lambda_expression
-    - include: operators
-    - include: language_constants
-    - include: number_literals
-    - include: strings
-    - include: this_expression
-    - include: struct_member_expression
-    # Catch all unknown identifiers.
-    - match: '{{identifier}}'
-      scope: variable.other.readwrite.vala
-
-  method_call:
-    - match: ({{identifier}})\s*(\()
+    - match: '\b(using)\s+(?={{name}}\s*=\s*)'
       captures:
-        1: variable.function.vala
-        2: punctuation.section.parens.begin.vala
-      push: method_call_params
+        1: keyword.control.import.vala
+        2: meta.path.vala
+        3: keyword.operator.assignment.vala
+      push: using_namespace
+    - match: '\b(using)(?!\s*\()(?:\s+(static))?\b'
+      captures:
+        1: keyword.control.import.vala
+        2: keyword.control.import.vala
+        3: meta.path.vala
+      push: using_namespace
 
-  method_call_params:
-    - meta_scope: meta.function-call.vala
-    - match: \,
-      scope: punctuation.separator.sequence.vala
-    - match: \)
-      scope: punctuation.section.parens.end.vala
-      pop: true
-    - include: expressions
+  namespace_alias:
+    - match: '(?:(global)|({{name}}))\s*(::)'
+      captures:
+        1: support.namespace.vala
+        2: variable.other.namespace.vala
+        3: punctuation.accessor.double-colon.namespace.vala
 
-  pointer_member_expression:
-    - match: (->)
-      scope: punctuation.accessor.arrow.vala
-      push:
-        - match: ({{identifier}})\s*(\()
-          captures:
-            1: variable.function.vala
-            2: punctuation.section.parens.begin.vala
-          push: method_call_params
-        - match: ({{identifier}})
-          scope: variable.other.member.vala
-        - include: else-pop
-
-  struct_member_expression:
-    - match: ([.])
-      scope: punctuation.accessor.dot.vala
-      push:
-        - match: ({{identifier}})\s*(\()
-          captures:
-            1: variable.function.vala
-            2: punctuation.section.parens.begin.vala
-          push: method_call_params
-        - match: ({{identifier}})
-          scope: variable.other.member.vala
-        - include: else-pop
-
-  this_expression:
-    - match: \bthis\b
-      scope: variable.language.vala
-
-  operators:
-    - match: ;
-      scope: punctuation.terminator.vala
-    - match: ([(])(owned)([)])
-      scope: keyword.operator.word.vala
-    - include: parens
-    - include: brackets
-    - include: as_is_operators
-    - include: new_operator
-    - match: 'global::'
-      scope: keyword.operator.word.vala
-    - match: \bdelete\b
-      scope: keyword.operator.word.vala
-    - match: (\+=|-=|\*=|/=|%=|\|=|&=|\^=|<<=|>>=)
+  using_namespace:
+    - include: namespace_alias
+    - match: '{{name}}'
+      scope: meta.path.vala
+    - match: '='
       scope: keyword.operator.assignment.vala
-    - match: (<<|>>)
-      scope: keyword.operator.bitwise.vala
-    - match: (==|!=|<=|<|>=|>)
-      scope: keyword.operator.comparison.vala
-    - match: =
-      scope: keyword.operator.assignment.vala
-    - match: (\+\+|--|\+|-|\*|\/|%)
-      scope: keyword.operator.arithmetic.vala
-    - match: (\|\||&&|!)
-      scope: keyword.operator.logical.vala
-    - match: (\||\^|&|~|)
-      scope: keyword.operator.bitwise.vala
-    - match: \?\?
-      scope: keyword.operator.vala
-    - match: (\?|\:)
-      scope: keyword.operator.vala
-
-  parens:
-    - match: \(
-      scope: punctuation.section.parens.begin.vala
-      push:
-        - meta_scope: meta.group.vala
-        - include: expressions
-        - match: \)
-          scope: punctuation.section.parens.end.vala
-          pop: true
-
-  brackets:
-    - match: \[
-      scope: punctuation.section.brackets.begin.vala
-      push:
-        - meta_scope: meta.brackets.vala
-        - include: expressions
-        - match: \,
-          scope: punctuation.separator.vala
-        - match: \]
-          scope: punctuation.section.brackets.end.vala
-          pop: true
-
-  sizeof_typeof_operators:
-    - match: \b(sizeof|typeof)\b\s*(\()
-      captures:
-        1: keyword.operator.word.vala
-        2: punctuation.section.group.begin.vala
-      push:
-        - match: \)
-          scope: punctuation.section.group.end.vala
-          pop: true
-        - include: type_keywords
-        - match: \b({{namespace_identifier}})\b
-          scope: support.type.vala
-
-  as_is_operators:
-    - match: \b(as|is)\b\s*
-      captures:
-        1: keyword.operator.word.vala
-      push:
-        - match: '\b({{builtin_type}})\b'
-          scope: storage.type.vala
-          pop: true
-        - match: \b({{namespace_identifier}})\b
-          scope: support.type.vala
-          pop: true
-        - include: else-pop
-
-  new_operator:
-    - match: \b(new)\b\s+
-      captures:
-        1: keyword.operator.word.vala
-      push:
-        - match: '\b({{builtin_type}})\b'
-          scope: storage.type.vala
-          pop: true
-        - match: \b({{namespace_identifier}})\b
-          scope: support.type.vala
-          pop: true
-        - include: else-pop
-
-#####################################################################
-# Constants & Literals
-#####################################################################
-
-  language_constants:
-    - match: \b(true|false|null)\b
-      scope: constant.language.vala
-
-  number_literals:
-    - include: float_literals
-    - include: integer_literals
-
-  float_literals:
-    - match: \b\d+([.])(\d+)\b
-      scope: constant.numeric.float.vala
-      captures:
-        1: punctuation.separator.decimal.vala
-
-  integer_literals:
-    - match: \b\d+\b
-      scope: constant.numeric.integer.vala
-
-  strings:
-    - include: template_strings
-    - include: verbatim_strings
-    - include: single_line_strings
-
-  single_line_strings:
-    - match: '"'
-      scope: punctuation.definition.string.begin.vala
-      push:
-        - meta_scope: string.quoted.double.vala
-        - match: '"'
-          scope: punctuation.definition.string.end.vala
-          pop: true
-        - match: '{{string_escape}}'
-          scope: constant.character.escape.vala
-        - match: $\n?
-          set:
-            - meta_scope: invalid.illegal.vala
-            - match: '"'
-              scope: punctuation.definition.string.end.vala
-              pop: true
-
-  verbatim_strings:
-    - match: '"""'
-      scope: punctuation.definition.string.begin.vala
-      push:
-        - meta_scope: string.quoted.triple.vala
-        - match: '"""'
-          scope: punctuation.definition.string.end.vala
-          pop: true
-
-  template_strings:
-    - match: (@)(")
-      captures:
-        1: storage.modifier.string.vala
-        2: punctuation.definition.string.begin.vala
-      push:
-        - meta_scope: string.quoted.double.vala
-        - match: '"'
-          scope: punctuation.definition.string.end.vala
-          pop: true
-        - match: (?=(\$)({{identifier}}))
-          push: string_interpolation_variable
-        - match: (?=(\$)(\())
-          push: string_interpolation_expression
-
-  string_interpolation_variable:
-    - clear_scopes: 1
-    - match: (\$)({{identifier}})
-      captures:
-        1: meta.interpolation.vala punctuation.section.interpolation.begin.vala
-        2: meta.interpolation.vala variable.other.interpolation.vala
-      pop: true
-
-  string_interpolation_expression:
-    - clear_scopes: 1
-    - match: \$\(
-      scope: punctuation.section.interpolation.begin.vala
-      set:
-        - clear_scopes: 1
-        - meta_scope: meta.interpolation.vala
-        - include: expressions
-        - match: \)
-          scope: punctuation.section.interpolation.end.vala
-          pop: true
-
-#####################################################################
-# Lambdas
-#####################################################################
-
-  lambda_expression:
-    - match: (?={{lambda_lookahead}})
-      set: lambda_declaration
-
-  lambda_declaration:
-    - meta_include_prototype: false
-    - match: ''
-      set: lambda_expression_parameters
-
-  lambda_expression_parameters:
-    - match: \(
-      scope: punctuation.section.group.begin.vala
-      set:
-        - meta_scope: meta.function.parameters.vala
-        - match: \)
-          scope: punctuation.section.group.end.vala
-          set: lambda_expression_arrow
-        - match: \b({{func_param_direction}})\b
-          scope: keyword.control.vala
-        - match: '{{identifier}}'
-          scope: variable.parameter.vala
-        - match: \,
-          scope: punctuation.separator.vala
-
-  lambda_expression_arrow:
-    - match: =>
-      scope: storage.type.function.arrow.vala
-      set: lambda_function_body
-
-  lambda_function_body:
-    - match: \{
-      scope: punctuation.section.braces.begin.vala
-      set:
-        - meta_scope: meta.function.vala
-        - match: \}
-          scope: punctuation.section.braces.end.vala
-          pop: true
-        - include: block_body
-
-#####################################################################
-# Statements
-#####################################################################
-
-  statements:
-    - include: jump_statements
-    - include: foreach_statement
-    - include: for_statement
-
-  block_body:
-    - include: keywords
-    - include: statements
-    - include: expressions
-
-  jump_statements:
-    - match: \b({{jump_statement_keywords}})\b
-      scope: keyword.control.flow.vala
-
-  foreach_statement:
-    - match: \b(foreach)\b\s*(\()
-      captures:
-        1: keyword.control.loop.vala
-        2: punctuation.section.group.begin.vala
-      push: for_statement_inital_type
-
-  for_statement:
-    - match: \b(for)\b\s*(\()
-      captures:
-        1: keyword.control.loop.vala
-        2: punctuation.section.group.begin.vala
-      push: for_statement_inital_type
-
-  for_statement_inital_type:
-    # Consume optional ownership modifier on the loop variable.
-    - match: \bvar\b
-      scope: storage.type.vala
-      set: foreach_group_expression
-    - match: '(?:\b({{ownership_modifiers}})\b\s+)?\b({{builtin_type}})\b'
-      captures:
-        1: storage.modifier.vala
-        2: storage.type.vala
-      set: foreach_group_expression
-    - match: '(?:\b({{ownership_modifiers}})\b\s+)?({{namespace_identifier}})'
-      captures:
-        1: storage.modifier.vala
-        2: support.type.vala
-      set: foreach_group_expression
-
-  foreach_group_expression:
-    # We match the first type in a foreach (type ...) statement
-    # so that we can highlight the loop variable type even if
-    # it isn't a built-in type.
-    - match: \)
-      scope: punctuation.section.group.end.vala
-      pop: true
-    - match: \bin\b
-      scope: keyword.operator.word.vala
-    - include: expressions
-    - match: '{{identifier}}'
-      scope: variable.other.readwrite.vala
-
-#####################################################################
-# Methods
-#####################################################################
-
-  method_declarations:
-    - match: |-
-        (?x:
-          (?# optional access_modifier)
-          (?:\b({{access_modifier}})\b\s+)?
-          (?# consume a built-in type or assume its a user type)
-          \b(?:
-            ({{builtin_type}})|
-            (?# avoid confusion with `new` class/array instantiation)
-            (?!new)
-            ({{namespace_identifier}})
-          )\b
-          (?# allow a "?" on the end of the type for nullable types)
-          (\?)?\s+
-          (?# fully-qualified method name)
-          ({{namespace_identifier}})
-          (?# opening parenthesis)
-          (\()
-        )
-      captures:
-        1: storage.modifier.vala
-        2: storage.type.vala
-        3: support.type.vala
-        4: keyword.operator.vala
-        5: meta.function.vala entity.name.function.vala
-        6: punctuation.section.parens.begin.vala
-      push: named_parameter_list
-
-  # Parameter lists are matched in a very specific order in the
-  # stack in order to highlight everything correctly:
-  #
-  # list = [direction] type name [, ...list]
-  #
-  # After the parameter list has been matched, we attempt to
-  # match the "throws" and contracts portions of the method
-  # declaration.
-  named_parameter_list:
-    - match: ''
-      set: method_parameter_direction
-
-  # Parameter direction is optional, if we don't find one, we
-  # can still try for the type. This is the first parameter
-  # check in the stack, thus it also checks for the ending ")".
-  method_parameter_direction:
-    - include: match_parameters_list_close
-    - match: \b({{func_param_direction}})\b\s*
-      captures:
-        0: meta.function.parameters.vala
-        1: keyword.control.vala
-      set: method_parameter_type
-    - match: (?=\S)
-      set: method_parameter_type
-
-  # Parameter type also matches for the variable-length
-  # "..." operator. Otherwise it will look for a built-in
-  # type and fallback to a user type.
-  method_parameter_type:
-    - meta_content_scope: meta.function.parameters.vala
-    - match: \b({{builtin_type}})\b(\?)?\s*
-      captures:
-        1: storage.type.vala
-        2: keyword.operator.vala
-      set: method_parameter_name
-    - match: \b({{namespace_identifier}})\b(\?)?\s*
-      captures:
-        1: support.type.vala
-        2: keyword.operator.vala
-      set: method_parameter_name
-    - match: (\.\.\.)\s*
-      captures:
-        1: keyword.operator.vala
-      set: method_parameter_name
-    - match: (?=\S)
-      set: method_throws_keyword
-
-  # Matches the parameter name, the comma, and sets up
-  # the default-value context, if triggered by the "=".
-  method_parameter_name:
-    - meta_content_scope: meta.function.parameters.vala
-    - match: \b({{namespace_identifier}})\b\s*
-      captures:
-        1: variable.parameter.vala
-    - match: (\,)\s*
-      captures:
-        1: punctuation.separator.vala
-      set: method_parameter_direction
-    - include: match_parameters_list_close
-    - match: (=)\s*
-      captures:
-        1: keyword.operator.assignment.vala
-      set: method_parameter_default_value
-    - match: (?=\S)
-      set: method_throws_keyword
-
-  # Wrapper around the "expressions" context to allow
-  # setting a default value for a parameter.
-  method_parameter_default_value:
-    - meta_content_scope: meta.function.parameters.vala
-    - include: expressions
-    - match: (\,)\s*
-      captures:
-        1: punctuation.separator.vala
-      set: method_parameter_direction
-    - include: match_parameters_list_close
-    - match: (?=\S)
-      set: method_throws_keyword
-
-  # Matches the "throws" keyword. If successful, sets the
-  # error list context on the stack, otherwise kicks it to
-  # the method contracts context.
-  method_throws_keyword:
-    - match: \b(throws)\b\s+
-      captures:
-        1: keyword.control.exception.vala
-      set: method_error_list
-    - match: (?=\S)
-      set: method_contracts
-
-  # Matches the "throws" error list CSV. Kicks it to the
-  # method contracts context after it tries to match.
-  method_error_list:
-    - match: \b({{builtin_type}})\b
-      captures:
-        1: storage.type.vala
-    - match: (?=\b(requires|ensures)\b)
-      set: method_contracts
-    - match: \b({{namespace_identifier}})\b
-      captures:
-        1: support.type.vala
+    - match: \.
+      scope: meta.path.vala punctuation.separator.namespace.vala
+    - match: '<'
+      scope: meta.generic.vala punctuation.definition.generic.begin.vala
+      push: type_argument
     - match: \,
       scope: punctuation.separator.vala
-    - match: (?=(\{|;))
+    - match: ';'
+      scope: punctuation.terminator.vala
       pop: true
-    - match: (?=\S)
-      set: method_contracts
-
-  # Matches method contract "requires" and "ensures"
-  # blocks. It will match the special language constant
-  # "result" in "ensures" blocks.
-  method_contracts:
-    - match: \b(requires|ensures)\b\s*(\()
-      captures:
-        1: keyword.control.conditional.vala
-        2: punctuation.section.parens.begin.vala
-      set:
-        - match: \bresult\b
-          scope: variable.language.vala
-        - include: expressions
-        - match: \)
-          scope: punctuation.section.parens.end.vala
-          set: method_contracts
-    - match: (?=(\{|;|\S))
+    - match: '[^\s;]+'
+      scope: invalid.illegal.expected-namespace.vala
+    - match: '$'
       pop: true
 
-  # Helper context to match the end of the parameters list
-  # and jump to the "throws" keyword context.
-  match_parameters_list_close:
-    - match: \)
-      scope: punctuation.section.parens.end.vala
-      set: method_throws_keyword
-
-#####################################################################
-# Namespaces
-#####################################################################
-
-  namespace_declarations:
-    - match: '\b(namespace)\b\s+({{identifier}})'
-      captures:
-        1: storage.type.vala
-        2: entity.name.namespace.vala
+  namespace_declaration:
+    # package declaration
+    - match: '\b(namespace)\b'
+      scope: storage.type.namespace.vala
       push:
         - meta_scope: meta.namespace.vala
-        - match: '{{identifier}}'
-          scope: entity.name.namespace.vala
-        - match: \.
-          scope: punctuation.accessor.dot.vala
+        - match: '(?={{name}})'
+          push:
+            - meta_content_scope: entity.name.namespace.vala
+            - match: '{{name}}'
+            - match: \.
+              scope: punctuation.separator.namespace.vala
+            - match: ''
+              pop: true
         - match: \{
           scope: punctuation.section.block.begin.vala
           set:
@@ -846,83 +368,2035 @@ contexts:
             - match: \}
               scope: punctuation.section.block.end.vala
               pop: true
-            - include: namespace_members
+            - include: main
+        - match: (?=\S)
+          pop: true
 
-  namespace_members:
-    - include: namespace_declarations
-    - include: constant_declarations
-    - include: field_declarations
+  class_declaration:
+    - match: '\b(static|unsafe|abstract|partial|sealed)\b'
+      scope: storage.modifier.vala
+    - match: '{{visibility}}'
+      scope: storage.modifier.access.vala
+    - match: \b(class)\s+({{namespaced_name}})
+      captures:
+        1: storage.type.class.vala
+        2: entity.name.class.vala
+      push: [class_signature, data_type_signature]
+    - include: construct_block_declaration
+    - match: (?:\b(readonly)\s+)?\b(record)\s+(?:(struct)\s+)?({{name}})
+      captures:
+        1: storage.modifier.vala
+        2: storage.type.class.record.vala
+        3: storage.type.struct.record.vala
+        4: entity.name.class.vala
+      push: [record_signature, data_type_signature]
+    - match: '(?:\b(readonly)\s+)?(?:\b(ref)\s+)?\b(struct)\s+({{name}})'
+      captures:
+        1: storage.modifier.vala
+        2: storage.modifier.vala
+        3: storage.type.struct.vala
+        4: entity.name.struct.vala
+      push: [struct_signature, data_type_signature]
+    - match: '\b(enum)\s+({{name}})\s*(?:(:)\s*(byte|sbyte|short|ushort|int|uint|long|ulong))?'
+      scope: meta.enum.vala
+      captures:
+        1: storage.type.enum.vala
+        2: entity.name.enum.vala
+        3: punctuation.separator.key-value.type.vala
+        4: storage.type.vala
+      push:
+        - meta_content_scope: meta.enum.vala
+        - match: (?=\{)
+          set:
+          - match: \{
+            scope: punctuation.section.block.begin.vala
+            set:
+              - meta_scope: meta.enum.body.vala meta.block.vala
+              - match: \}
+                scope: punctuation.section.block.end.vala
+                set:
+                  - match: ';'
+                    scope: punctuation.terminator.statement.vala
+                    pop: true
+                  - match: '(?=\S)'
+                    pop: true
+              - include: attribute
+              - match: '{{name}}'
+                scope: constant.other.enum.vala
+              - match: '='
+                scope: keyword.operator.assignment.vala
+                push: line_of_code_in
+              - match: ','
+                scope: punctuation.separator.enum.vala
 
-  field_declarations:
-    # [ access-modifier ] qualified_type_name field_name [ = expression ] ;
-    - match: |-
-        (?x:
-          (?# optional access_modifier)
-          (?:\b({{access_modifier}})\b\s+)?
-          (?# consume a built-in type or assume its a user type)
-          \b(?:({{builtin_type}})|({{identifier}}))\b
-        )
+  interface_declaration:
+    - match: '(interface)\s+({{name}})'
+      captures:
+        1: storage.type.interface.vala
+        2: entity.name.interface.vala
+      push: [interface_signature, data_type_signature]
+
+  delegate_declaration:
+    - match: \b(delegate)\b\s+
+      captures:
+        1: storage.type.delegate.vala
+      push: delegate_type
+
+  delegate_type:
+    - meta_scope: meta.delegate.vala
+    - match: \s
+      set: delegate_name
+    - include: type
+
+  delegate_name:
+    - match: '\s+'
+      scope: meta.delegate.vala
+    - match: '({{name}})(\s*)(<)'
+      captures:
+        1: meta.delegate.vala variable.other.member.delegate.vala
+        2: meta.delegate.vala
+        3: meta.delegate.vala meta.generic.vala punctuation.definition.generic.begin.vala
+      set:
+        - meta_content_scope: meta.delegate.vala meta.generic.vala
+        - match: '>'
+          scope: meta.delegate.vala meta.generic.vala punctuation.definition.generic.end.vala
+          set:
+            - match: '\s+'
+              scope: meta.delegate.vala
+            - match: \(
+              scope: meta.delegate.parameters.vala punctuation.section.parameters.begin.vala
+              set: delegate_params
+        - include: type_parameter
+    - match: '({{name}})(\s*)(\()'
+      captures:
+        1: meta.delegate.vala variable.other.member.delegate.vala
+        2: meta.delegate.vala
+        3: meta.delegate.parameters.vala punctuation.section.parameters.begin.vala
+      set: delegate_params
+    - match: '(?=\S)'
+      pop: true
+
+  delegate_params:
+    - meta_content_scope: meta.delegate.parameters.vala
+    - match: \)
+      scope: punctuation.section.parameters.end.vala
+      set: delegate_end
+    - match: (?=\S)
+      push: [method_param, method_param_type]
+
+  delegate_end:
+    - match: ';'
+      scope: punctuation.terminator.vala
+      pop: true
+    - match: (\s+(?=\S)|\S)
+      scope: invalid.illegal.expected.colon
+      pop: true
+
+  struct_signature:
+    - meta_scope: meta.struct.vala
+    - match: ''
+      set: [struct_body, data_type_body]
+
+  class_signature:
+    - meta_scope: meta.class.vala
+    - match: ''
+      set: [class_body, data_type_body]
+
+  record_signature:
+    - meta_scope: meta.class.record.vala
+    - match: ''
+      set: [class_body, record_type_body]
+
+  interface_signature:
+    - meta_scope: meta.interface.vala
+    - match: ''
+      set: [interface_body, data_type_body]
+
+  struct_body:
+    - meta_content_scope: meta.struct.body.vala
+    - match: ''
+      pop: true
+
+  class_body:
+    - meta_content_scope: meta.class.body.vala
+    - match: ''
+      pop: true
+
+  interface_body:
+    - meta_content_scope: meta.interface.body.vala
+    - match: ''
+      pop: true
+
+  data_type_body:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      push:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: attribute
+        - include: class_declaration
+        - include: interface_declaration
+        - include: delegate_declaration
+        - include: method_declaration
+        - include: stray_close_bracket
+    - match: \S*
+      scope: invalid.illegal
+      pop: true
+
+  record_type_body:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: attribute
+        - include: class_declaration
+        - include: interface_declaration
+        - include: delegate_declaration
+        - include: method_declaration
+        - include: stray_close_bracket
+    - match: \(
+      scope: punctuation.section.group.begin.vala
+      set: [data_type_signature, method_params]
+    - match: ';'
+      scope: punctuation.terminator.vala
+      pop: true
+
+  data_type_signature:
+    - match: '<'
+      scope: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_content_scope: meta.generic.vala
+        - include: type_parameter
+    - match: ':'
+      scope: punctuation.separator.type.vala
+      set: type_constraint
+    - match: (?=where\b)
+      set: type_constraint
+    - match: (?=[{;(])
+      pop: true
+
+  type_constraint:
+    - include: type_constraint_common
+    - match: '{{name}}'
+      scope: entity.other.inherited-class.vala
+    - include: type
+
+  type_constraint_common:
+    - match: (?=\{)
+      pop: true
+    - match: '\b(where)\s+(?:({{base_type}})|({{name}}))\s*(:)'
       captures:
         1: storage.modifier.vala
         2: storage.type.vala
         3: support.type.vala
-      push:
-        # Catch the field-name.
-        - match: '{{identifier}}'
-          scope: variable.other.readwrite.vala
-        - match: =
-          scope: keyword.operator.assignment.vala
-          set: rvalue_pop_on_terminator
-        - match: \;
-          scope: punctuation.terminator.vala
-          pop: true
-
-  constant_declarations:
-    # [ access_modifier ] const qualified_type_name constant_name = expression ;
-    - match: |-
-        (?x:
-          (?# optional access_modifier)
-          (?:\b({{access_modifier}})\b\s+)?
-          (?# the const keyword)
-          \b(const)\b\s+
-          (?# consume a built-in type or assume its a user type)
-          \b(?:({{builtin_type}})|({{namespace_identifier}}))\b
-        )
+        4: punctuation.separator.type.vala
+    - match: '(?:(global)|({{name}}))\s*(::)'
       captures:
-        1: storage.modifier.vala
-        2: storage.modifier.vala
-        3: storage.type.vala
-        4: support.type.vala
-      push:
-        # Catch the field-name.
-        - match: '{{identifier}}'
-          scope: variable.other.readwrite.vala
-        - match: =
-          scope: keyword.operator.assignment.vala
-          set: rvalue_pop_on_terminator
+        1: support.namespace.vala
+        2: meta.path.vala
+        3: punctuation.accessor.double-colon.namespace.vala
+    - match: '(class|struct|interface)'
+      scope: storage.type.vala
+    - match: 'new\s*\(\s*\)'
+      scope: keyword.operator.new.vala
+    - match: '{{base_type}}'
+      scope: storage.type.vala
+    - match: '({{name}})?(\.)'
+      captures:
+        1: meta.path.vala
+        2: meta.path.vala punctuation.accessor.dot.namespace.vala
+    - match: ','
+      scope: punctuation.separator.inherited-class.vala
 
-  using_statement:
-    # using namespace-name [, namespace-name] ;
-    - match: \busing\b\s+
-      scope: keyword.control.import.vala
-      push:
-        - match: \,
-          scope: punctuation.separator.vala
-        - match: '{{namespace_identifier}}'
-          scope: support.type.vala
-        - match: \;
-          scope: punctuation.terminator.vala
+  event_handler_declaration:
+    - match: '({{name}})(\.)'
+      captures:
+        1: entity.other.inherited-class.vala
+        2: punctuation.accessor.dot.vala
+    - match: '{{name}}'
+      scope: variable.other.member.vala
+      set:
+        - match: ';'
+          scope: punctuation.terminator.statement.vala
           pop: true
-
-  rvalue_pop_on_terminator:
-    # Match an rvalue, then pop at the next semicolon.
-    - match: \;
-      scope: punctuation.terminator.vala
-      pop: true
-    - include: expressions
-
-  else-pop:
-    # Used as a fallback to pop out of a context
-    # when the users syntax is incorrect.
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - match: \b(add)\b
+              scope: keyword.declaration.function.accessor.add.vala
+              push: method_body
+            - match: \b(remove)\b
+              scope: keyword.declaration.function.accessor.remove.vala
+              push: method_body
+        - match: (?==)
+          set: member_variables_declaration
+        - match: (?=\S)
+          pop: true
     - match: (?=\S)
       pop: true
+
+  method_declaration:
+    - match: '\b(?:abstract|async|const|extern|new|override|readonly|ref|sealed|static|unsafe|virtual|volatile)\b'
+      scope: storage.modifier.vala
+    - match: \b(event)\b\s*
+      captures:
+        1: storage.modifier.vala
+      push: [event_handler_declaration, type_no_space]
+    - match: \bdelegate\b
+      scope: storage.type.delegate.vala
+    - match: '\b(?:implicit|explicit)\b'
+      scope: storage.modifier.vala
+    - match: '{{visibility}}'
+      scope: storage.modifier.access.vala
+    - match: '\boperator\b'
+      scope: storage.modifier.vala
+      push: method_name_or_member_variable
+    - match: '({{name}})\s*(<)'
+      captures:
+        1: support.type.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push: [method_name_or_member_variable, type_argument]
+    - match: '(~{{name}})(\s*)(\()'
+      captures:
+        1: meta.method.vala entity.name.function.destructor.vala
+        2: meta.method.vala
+        3: meta.method.parameters.vala punctuation.section.parameters.begin.vala
+      push: [constructor_prebody, method_params]
+    - match: '({{name}})\s*(\()'
+      captures:
+        1: entity.name.function.constructor.vala
+        2: meta.method.parameters.vala punctuation.section.parameters.begin.vala
+      push: [constructor_prebody, method_params]
+    - match: '({{name}})\s*(\.)'
+      captures:
+        1: entity.other.inherited-class.vala
+        2: punctuation.accessor.dot.vala
+    - match: \b(?:({{base_type}})|({{name}}))
+      captures:
+        1: storage.type.vala
+        2: support.type.vala
+      push:
+        - match: '{{type_suffix_capture}}'
+          captures:
+            1: storage.type.nullable.vala
+            2: meta.brackets.vala
+            3: punctuation.section.brackets.begin.vala
+            4: punctuation.separator.vala
+            5: punctuation.section.brackets.end.vala
+            6: keyword.operator.pointer.vala
+        - match: ''
+          set: method_name_or_member_variable
+    - match: (?=\()
+      push: [method_name_or_member_variable, type_tuple]
+
+  method_name_or_member_variable:
+    - match: '\.'
+      scope: punctuation.accessor.dot.vala
+    - match: '(operator)\s*({{unary_op}}|{{bin_op}})\s*(\()'
+      captures:
+        1: storage.modifier.other.vala
+        2: meta.method.vala entity.name.function.vala
+        3: meta.method.parameters.vala punctuation.section.parameters.begin.vala
+      set: [method_body_transition, method_params]
+    - match: (?={{name}})
+      branch_point: method_or_member_variable_name
+      branch:
+        - member_lambda_or_plain
+        - method_name
+      pop: true
+
+  member_lambda_or_plain:
+    - match: ({{name}})\s*(=>)
+      scope: meta.method.vala
+      captures:
+        1: variable.other.member.vala
+        2: keyword.declaration.function.accessor.get.vala
+      set:
+        - meta_scope: meta.property.vala
+        - meta_content_scope: meta.method.vala
+        - include: line_of_code_in
+    - match: (?={{namespaced_name}}\s+{{name}}\s+=>)
+      pop: true
+    - match: '{{name}}'
+      scope: variable.other.member.vala
+    - match: (?==[^>])
+      set: member_variables_declaration
+    - match: ';'
+      scope: punctuation.terminator.statement.vala
+      pop: true
+    - match: (?=\})
+      pop: true
+    - match: (?=\S)
+      fail: method_or_member_variable_name
+
+  method_name:
+    - match: '({{name}})?\s*(\()'
+      # here the name is optional since it may already have been matched by
+      # '{{name}}\s*(<)' (see rule below)
+      captures:
+        1: meta.method.vala entity.name.function.vala
+        2: meta.method.parameters.vala punctuation.section.parameters.begin.vala
+      set: [method_body_transition, method_params]
+    - match: '({{name}})\s*(<)(?=[^(]*>\.)'
+      scope: meta.method.vala
+      captures:
+        1: entity.other.inherited-class.vala
+        2: meta.generic.vala punctuation.section.generic.begin.vala
+      push:
+        - meta_content_scope: meta.method.vala meta.generic.vala
+        - match: '(>)\s*(\.)'
+          scope: meta.method.vala meta.generic.vala
+          captures:
+            1: punctuation.definition.generic.end.vala
+            2: punctuation.accessor.dot.vala
+          pop: true
+        - match: ','
+          scope: punctuation.separator.parameter.type.vala
+        - include: type
+    - match: '({{name}})\s*(<)'
+      captures:
+        1: entity.name.function.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_scope: meta.method.vala
+        - meta_content_scope: meta.generic.vala
+        - include: type_parameter
+    - match: '(this)\s*(\[)'
+      captures:
+        1: variable.language.vala
+        2: meta.brackets.vala punctuation.section.brackets.begin.vala
+      set: [method_accessor, method_params_bracket]
+    - match: '({{name}})\s*(\.)'
+      scope: meta.method.vala
+      captures:
+        1: entity.other.inherited-class.vala
+        2: punctuation.accessor.dot.vala
+    - match: '{{name}}'
+      scope: meta.property.vala variable.other.member.vala
+      push:
+        - match: \s*(,)
+          captures:
+            1: punctuation.separator.variables.vala
+          pop: true
+        - match: ''
+          pop: true
+    - match: '(?=\s*\{)'
+      set: method_accessor
+    - match: ';'
+      scope: punctuation.terminator.statement.vala
+      pop: true
+
+  method_body_transition:
+    - match: ''
+      set: method_body
+
+  method_params:
+    - meta_content_scope: meta.method.parameters.vala
+    - match: \)
+      scope: meta.method.parameters.vala punctuation.section.parameters.end.vala
+      pop: true
+    - match: (?=\S)
+      push: [method_param, method_param_type]
+
+  method_params_bracket:
+    - meta_content_scope: meta.brackets.vala
+    - match: \]
+      scope: meta.brackets.vala punctuation.section.brackets.end.vala
+      pop: true
+    - match: (?=\S)
+      push: [method_param, method_param_type]
+
+  method_param:
+    - match: '{{name}}'
+      scope: variable.parameter.vala
+    - match: '='
+      scope: keyword.operator.assignment.default-value.vala
+      push: line_of_code_in
+    - match: ','
+      scope: punctuation.separator.parameter.function.vala
+      pop: true
+    - match: (?=\}|\)|>|\]|;)
+      pop: true
+
+  method_param_type:
+    - include: attribute
+    - match: (?=[^\s\[])
+      set:
+      - match: '\s*\b(out|ref|this|params|in)\s+'
+        captures:
+          1: storage.modifier.parameter.vala
+      - match: \s
+        pop: true
+      - include: type
+    - match: (?=\}|\)|>|\]|;)
+      pop: true
+
+  constructor_prebody:
+    - meta_scope: meta.method.constructor.vala
+    - match: ':'
+      scope: meta.method.constructor.prebody.vala punctuation.separator.function.vala
+      set:
+        - match: \s+
+          scope: meta.method.constructor.prebody.vala
+        - match: (this|base)\s*(\()
+          captures:
+            1: variable.language.vala
+            2: meta.group.vala punctuation.section.group.begin.vala
+          set: [constructor_initializer, arguments]
+        - match: '(?=\{)'
+          set: method_body
+    - match: '(?=\{|=>)'
+      set: method_body
+
+  constructor_initializer:
+    - meta_scope: meta.method.constructor.prebody.vala
+    - meta_content_scope: meta.group.vala
+    - match: '\)'
+      scope: punctuation.section.group.end.vala
+    - match: ''
+      set: constructor_initializer_after
+
+  constructor_initializer_after:
+    - meta_content_scope: meta.method.constructor.prebody.vala
+    - match: '(?=\{)'
+      set: method_body
+    - match: '(?=\S)'
+      pop: true
+
+  method_body:
+    - meta_scope: meta.method.vala
+    - match: (?=where\b)
+      scope: storage.modifier.other.vala
+      push: type_constraint
+    - match: (?=ensures\b)
+      scope: keyword.control.conditional.vala
+      set: line_of_code
+    - match: (?=throws\b)
+      scope: keyword.control.exception.vala
+      set: line_of_code
+    - match: (?=requires\b)
+      set: line_of_code
+      scope: keyword.control.conditional.vala
+    - match: (=>)
+      scope: keyword.declaration.function.arrow.vala
+      set:
+        - meta_content_scope: meta.method.vala
+        - include: line_of_code_in
+    - match: '(?=\{)'
+      set:
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.method.body.vala meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: stray_close_bracket
+            - include: code_block_in
+    - match: ;
+      scope: punctuation.terminator.vala
+      pop: true
+    - match: \S+
+      scope: invalid.illegal.vala
+      pop: true
+
+  method_accessor:
+    - meta_scope: meta.property.vala
+    - match: \{
+      scope: meta.block.vala punctuation.section.block.begin.vala
+      set:
+        - meta_content_scope: meta.property.vala meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          set:
+            - meta_content_scope: meta.property.vala
+            - match: =
+              scope: keyword.operator.assignment.vala
+              set:
+                - meta_content_scope: meta.property.vala
+                - include: line_of_code_in
+            - match: (?=\S)
+              pop: true
+        - match: (?:\b(readonly)\b\s+)?\b(get)\b
+          captures:
+            1: storage.modifier.vala
+            2: keyword.declaration.function.accessor.get.vala
+          push: method_body
+        - match: \b(set|init)\b
+          scope: keyword.declaration.function.accessor.set.vala
+          push: method_body
+        - match: '{{visibility}}'
+          scope: storage.modifier.access.vala
+        - include: attribute
+    - match: '=>'
+      scope: keyword.declaration.function.arrow.vala
+      set:
+        - meta_content_scope: meta.method.vala
+        - include: line_of_code_in
+    - match: \S
+      scope: invalid.illegal.vala
+      pop: true
+
+  attribute:
+    - match: (\[)\s*(assembly|module|field|event|method|param|property|return|type)\s*(:)
+      captures:
+        1: punctuation.definition.annotation.begin.vala
+        2: storage.modifier.target.vala
+        3: punctuation.separator.key-value.vala
+      push: attribute_in
+    - match: \[
+      scope: punctuation.definition.annotation.begin.vala
+      push: attribute_in
+
+  attribute_in:
+    - meta_scope: meta.annotation.vala
+    - match: '({{name}})\s*(\()'
+      captures:
+        1: variable.annotation.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [attribute_arguments, arguments]
+    - match: '({{name}})\s*(\.)'
+      captures:
+        1: variable.other.namespace.vala
+        2: punctuation.accessor.dot.namespace.vala
+    - match: '(?:(global)|({{name}}))\s*(::)'
+      captures:
+        1: support.namespace.vala
+        2: support.namespace.vala
+        3: punctuation.accessor.double-colon.namespace.vala
+    - match: '{{name}}'
+      scope: variable.annotation.vala
+    - match: ','
+      scope: punctuation.separator.annotation.vala
+    - match: \]
+      scope: punctuation.definition.annotation.end.vala
+      pop: true
+
+  code_block_in:
+    - match: (?=\S)
+      push: line_of_code
+
+  line_of_code:
+    # language keywords
+    - match: \b(if)\b
+      captures:
+        1: keyword.control.conditional.if.vala
+      set: [else_block, if_block, if_condition]
+    - match: \b(switch)\b
+      captures:
+        1: keyword.control.flow.switch.vala
+      set: [switch_block, if_condition]
+    - match: \b(for)\s*(\()(?=(?:{{name}}|var)\s(?!=))
+      captures:
+        1: keyword.control.loop.for.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [for_block, line_of_code_in, line_of_code_in, for_var_assignment, var_declaration]
+    - match: \b(for)\s*(\()
+      captures:
+        1: keyword.control.loop.for.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [for_block, line_of_code_in, line_of_code_in, line_of_code_in]
+    - match: \b(foreach)\s*(\()
+      captures:
+        1: keyword.control.loop.foreach.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [for_block, foreach_var_assignment, var_declaration_including_tuple]
+    - match: \b(try)\b
+      scope: keyword.control.trycatch.try.vala
+      set: [finally_block, catch_expr, try_block]
+    - match: \b(construct)\b
+      scope: keyword.context.block.vala
+      push:
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: code_block_in
+        - match: (?=\S)
+          pop: true
+    - match: \b(using)\s*(\()
+      captures:
+        1: keyword.control.using.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [using_block, line_of_code]
+    - match: \b(using)\s*
+      captures:
+        1: keyword.control.using.vala
+      push: var_declaration
+    - match: \b(fixed)\s*(\()
+      captures:
+        1: keyword.control.other.fixed.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [expression_block, line_of_code]
+    - match: \b(lock)\s*(\()
+      captures:
+        1: keyword.control.other.lock.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      set: [expression_block, line_of_code]
+    - match: \bdo\b
+      scope: keyword.control.loop.do.vala
+      set: [do_condition, while_block]
+    - match: \bwhile\b
+      scope: keyword.control.loop.while.vala
+      set: [while_block, while_condition]
+    - match: \b(else|case|catch|finally)\b
+      scope: keyword.control.vala invalid.illegal.unexpected.keyword.vala
+    - match: \b(return|yield\s+return)\b
+      scope: keyword.control.flow.return.vala
+      set: line_of_code_in
+    - match: \b(continue|break|yield\s+break)\b\s*(;)?
+      captures:
+        1: keyword.control.flow.break.vala
+        2: punctuation.terminator.statement.vala
+      pop: true
+    - match: \b(throw)\b
+      scope: keyword.control.trycatch.throw.vala
+      set: line_of_code_in
+    - match: \b(goto)\s+(case)\b
+      captures:
+        1: keyword.control.flow.goto.vala
+        2: keyword.control.switch.case.vala
+      set: line_of_code_in
+    - match: '\b(goto)\s+({{name}})\s*(;)'
+      captures:
+        1: keyword.control.flow.goto.vala
+        2: constant.other.label.vala
+        3: punctuation.terminator.statement.vala
+      pop: true
+    - include: keywords
+    # C#7/9, nested method
+    - match: (?=(?:\b(?:async|ref)\s+)?(?:\bstatic\s+)?{{namespaced_name}}{{type_suffix}}\s+{{namespaced_name}}\s*\()
+      push:
+        - include: method_declaration
+        - match: ''
+          pop: true
+    - match: ({{name}})\s*(?={{generic_declaration}}\()(<)
+      scope: meta.function-call.vala
+      captures:
+        1: variable.function.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_content_scope: meta.generic.vala
+        - match: ','
+          scope: punctuation.separator.type.vala
+        - match: '>'
+          scope: meta.generic.vala punctuation.definition.generic.end.vala
+          pop: true
+        - include: type
+    - match: '({{name}})(<)'
+      captures:
+        1: support.type.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      set:
+        - meta_content_scope: meta.generic.vala
+        - match: '>'
+          scope: meta.generic.vala punctuation.definition.generic.end.vala
+          set:
+            - match: \.
+              set: line_of_code
+              scope: punctuation.accessor.dot.namespace.vala
+            - match: \s+
+              set: variables_declaration
+            - match: (?=\S)
+              set: line_of_code
+        - include: type_argument
+    - match: \bconst\b
+      scope: storage.modifier.vala
+    - match: '(var|dynamic)\s+({{reserved}}|{{base_type}})\s*(=)'
+      captures:
+        1: storage.type.variable.vala
+        2: invalid.illegal.vala
+        3: keyword.operator.assignment.variable.vala
+    - match: '(var|dynamic)\s+({{name}})\s*(=)'
+      captures:
+        1: storage.type.variable.vala
+        2: variable.other.vala
+        3: keyword.operator.assignment.variable.vala
+      set: line_of_code_in
+    - match: (?=var\s*\()
+      push: var_declaration
+    - include: lambdas
+    - match: (\bref\s+(?:readonly\s+)?)?\b(?={{namespaced_name}}{{type_suffix}}\s+{{name}}(?!\s*(?:[(:])))
+      captures:
+        1: storage.modifier.vala
+      set: [variables_declaration, type_no_space]
+    - match: '({{name}})\s*(:)(?!:)'
+      captures:
+        1: entity.name.label.vala
+        2: punctuation.separator.vala
+      pop: true
+    - include: namespace_alias
+    - match: '({{name}})\s+({{name}})'
+      captures:
+        1: support.type.vala
+        2: variable.other.vala
+      set: variables_declaration
+    - match: '(?=\S)'
+      set: line_of_code_in
+
+  lambdas:
+    - match: ({{name}})\s+(=>)\s*
+      captures:
+        1: variable.parameter.vala
+        2: keyword.declaration.function.arrow.vala
+      push:
+        - meta_scope: meta.function.anonymous.vala
+        - match: '(?=;)'
+          pop: true
+        - include: line_of_code_in
+    - include: parenthesized_lambdas
+
+  parenthesized_lambdas:
+    - match: \((?=[^()]*\)\s+=>)
+      scope: meta.function.anonymous.vala meta.group.vala punctuation.section.group.begin.vala
+      push:
+        - meta_content_scope: meta.function.anonymous.vala meta.group.vala
+        - match: '{{name}}(?=\s*[\),/])'
+          scope: variable.parameter.vala
+        - match: ','
+          scope: punctuation.separator.parameter.function.vala
+        - match: (\))\s*(=>)
+          captures:
+            1: meta.group.vala punctuation.section.group.end.vala
+            2: keyword.declaration.function.arrow.vala
+          set:
+            - meta_content_scope: meta.function.anonymous.vala
+            - match: '(?=;)'
+              pop: true
+            - include: line_of_code_in
+
+  member_variables_declaration:
+    - match: '='
+      scope: keyword.operator.assignment.variable.vala
+      push:
+        - match: (?=;|,)
+          pop: true
+        - include: line_of_code_in
+    - match: '(?=\{)'
+      push: method_accessor
+    - match: '{{name}}'
+      scope: variable.other.member.vala
+    - match: ','
+      scope: punctuation.separator.variables.vala
+    - match: ';'
+      scope: punctuation.terminator.statement.vala
+      pop: true
+    - match: (?=[]})>;])
+      pop: true
+
+  variables_declaration:
+    - match: '='
+      scope: keyword.operator.assignment.variable.vala
+      push:
+        - match: (?=;|,)
+          pop: true
+        - match: (?=\{)
+          push:
+            - match: (?=[^,\s{}])
+              pop: true
+            - include: initializer_constructor
+        - include: line_of_code_in
+    - match: '{{name}}'
+      scope: variable.other.vala
+    - match: ','
+      scope: punctuation.separator.variables.vala
+    - match: ';'
+      scope: punctuation.terminator.statement.vala
+      pop: true
+    - match: (?=\{|\}|\)|>|\])
+      pop: true
+
+  keywords:
+    - match: '\b(this|base)\s*(\[)'
+      captures:
+        1: variable.language.vala
+        2: meta.brackets.vala punctuation.section.brackets.begin.vala
+      push: accessor_arguments
+    - match: \b(this|base)\b
+      scope: variable.language.vala
+    - match: \b(await)\b
+      scope: keyword.control.other.vala
+    - match: \b(nameof)(\()
+      captures:
+        1: keyword.other.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      push:
+        - meta_content_scope: meta.group.vala
+        - match: \)
+          scope: meta.group.vala punctuation.section.group.end.vala
+          pop: true
+        - match: '({{base_type}})\b'
+          scope: storage.type.vala
+        # We don't if these are types of variables, so we guess that
+        # uppercase names are types, and others are variables
+        - match: '(?=\p{Ll}){{name}}(?=\s*\))'
+          scope: variable.other.vala
+        - include: type
+    - match: \b(typeof|default)(\()
+      captures:
+        1: keyword.operator.reflection.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      push:
+        - meta_content_scope: meta.group.vala
+        - match: \)
+          scope: meta.group.vala punctuation.section.group.end.vala
+          pop: true
+        - include: type
+    - match: \b(as|is(?:\s+not)?)\s+
+      captures:
+        1: keyword.operator.reflection.vala
+      push: [maybe_pattern_matching_object, type_no_space]
+    - match: \b(checked|unchecked)\b
+      scope: keyword.other.vala
+      push:
+        - match: \(
+          scope: punctuation.section.group.begin.vala
+          set:
+            - meta_scope: meta.group.vala
+            - match: \)
+              scope: punctuation.section.group.end.vala
+              pop: true
+            - include: line_of_code_in
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: code_block_in
+        - match: \S
+          scope: invalid.illegal.expected.block.vala
+    - match: \b(unsafe)\b
+      scope: keyword.other.vala
+      push:
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: code_block_in
+        - match: \S
+          scope: invalid.illegal.expected.block.vala
+    - match: \b(new)\b
+      scope: meta.instance.vala keyword.operator.new.vala
+      push: maybe_an_anonymous_class
+    - match: \b(with)\s+(\{)
+      captures:
+        1: keyword.operator.with.vala
+        2: meta.instance.vala meta.braces.vala punctuation.section.braces.begin.vala
+      push: initializer_constructor #maybe_an_anonymous_class
+    - match: \b(and|not)\s+
+      captures:
+        1: keyword.operator.logical.vala
+    - match: '{{visibility}}'
+      scope: storage.modifier.access.vala
+
+  maybe_an_anonymous_class:
+    - meta_content_scope: meta.instance.vala
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      # Found an anonymous class
+      set:
+        - meta_scope: meta.instance.vala meta.class.body.anonymous.vala meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - match: ','
+          scope: punctuation.separator.class.vala
+        - match: '({{name}})\s*(=)'
+          captures:
+            1: variable.other.member.vala
+            2: keyword.operator.assignment.vala
+          push: line_of_code_in
+        - match: (?=\S)
+          push: line_of_code_in
+    - match: (?=[^{\s])
+      # This is not an anonymous class
+      set:
+        - meta_content_scope: meta.instance.vala
+        - match: '{{brackets_capture}}'
+          captures:
+            1: meta.brackets.vala
+            2: punctuation.section.brackets.begin.vala
+            3: punctuation.separator.vala
+            4: punctuation.section.brackets.end.vala
+        - match: \[
+          scope: punctuation.section.brackets.begin.vala
+          push:
+            - meta_scope: meta.brackets.vala
+            - match: ','
+              scope: punctuation.separator.argument.vala
+              push: line_of_code_in
+            - match: \]
+              scope: punctuation.section.brackets.end.vala
+              pop: true
+            - match: '(?=\S)'
+              push: line_of_code_in
+        - match: (?:\s*((\()\s*(\)))\s*)?(\{)
+          scope: meta.instance.vala
+          captures:
+            1: meta.group.vala
+            2: punctuation.section.group.begin.vala
+            3: punctuation.section.group.end.vala
+            4: meta.braces.vala punctuation.section.braces.begin.vala
+          set: initializer_constructor
+        - match: \(
+          scope: meta.group.vala punctuation.section.group.begin.vala
+          set: [constructor_arguments, arguments]
+        - include: type
+
+  line_of_code_in:
+    - include: lambdas
+    - include: line_of_code_in_no_semicolon
+    - match: ';'
+      scope: punctuation.terminator.statement.vala
+      pop: true
+    - match: (?=\))
+      pop: true
+
+  line_of_code_in_no_semicolon:
+    - match: \b(value)\b
+      scope: variable.language.vala
+    - include: keywords
+    # Cannot neg-ahead "(" because clauses can follow several of the sql words
+    - match: \b(let|select|equals|from|in|where|join|orderby|group|by|on|into|into|ascending|descending)\b(?!\s*[.,;+=&\|\[\]\)])
+      scope: keyword.other.sql.vala
+    - match: \?\.
+      scope: punctuation.accessor.null-coalescing.vala
+    - match: \.\.
+      scope: keyword.operator.range.vala
+    - match: \.
+      scope: punctuation.accessor.dot.vala
+    - include: parenthesized_lambdas
+    # Match this before {{bin_op}} to scope specially in the generic context
+    - match: '->'
+      scope: punctuation.accessor.arrow.vala
+    - match: '{{bin_op}}='
+      scope: keyword.operator.vala
+    - match: '{{bin_op}}|{{unary_op}}'
+      scope: keyword.operator.vala
+    - match: '='
+      scope: keyword.operator.assignment.vala
+    - include: literals
+    # interpolated strings
+    - match: '\$"'
+      scope: punctuation.definition.string.begin.vala
+      push: format_string
+    # multi-line strings
+    - match: '@"'
+      scope: punctuation.definition.string.begin.vala
+      push: long_string
+    # interpolated multi-line strings
+    - match: '(@\$|\$@)"'
+      scope: punctuation.definition.string.begin.vala
+      push: long_format_string
+    - match: '({{name}})(<)(?=[^(]*>\s*\()'
+      captures:
+        1: variable.function.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_scope: meta.function-call.vala
+        - meta_content_scope: meta.generic.vala
+        - match: ','
+          scope: punctuation.separator.type.vala
+        - match: '(>)\s*(\()'
+          scope: meta.function-call.vala
+          captures:
+            1: meta.generic.vala punctuation.definition.generic.end.vala
+            2: meta.group.vala punctuation.section.group.begin.vala
+          set: [function_call_arguments, arguments]
+        - include: type
+    - match: ({{name}})(<)(?={{namespaced_name}}>\s*\.)
+      captures:
+        1: support.type.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_content_scope: meta.generic.vala
+        - match: ','
+          scope: punctuation.separator.type.vala
+        - match: '>'
+          scope: meta.generic.vala punctuation.definition.generic.end.vala
+          pop: true
+        - include: type
+    - match: '((?!{{reserved}}\b){{name}})\s*(\()'
+      scope: meta.function-call.vala
+      captures:
+        1: variable.function.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      push: [function_call_arguments, arguments]
+    - match: '({{name}})\s*(\??\[)'
+      captures:
+        1: variable.other.vala
+        2: meta.brackets.vala punctuation.section.brackets.begin.vala
+      push: accessor_arguments
+    - match: '\s*(\??\[)'
+      captures:
+        1: meta.brackets.vala punctuation.section.brackets.begin.vala
+      push: accessor_arguments
+    - match: '({{base_type}})\b'
+      scope: storage.type.vala
+    - match: stackalloc\b
+      scope: storage.modifier.vala
+      push:
+        - match: (?=\[)
+          pop: true
+        - include: type
+    - match: \bswitch\b
+      scope: keyword.control.flow.vala
+      push: switch_expression
+    - match: '({{reserved}})\b'
+      scope: keyword.other.vala
+    - match: '(?:(global)|({{name}}))\s*(::)'
+      captures:
+        1: support.namespace.vala
+        2: support.namespace.vala
+        3: punctuation.accessor.double-colon.namespace.vala
+    - match: '{{name}}'
+      scope: variable.other.vala
+    - match: '@'
+      scope: invalid.illegal.reserved-char.vala
+    - match: \?
+      scope: keyword.operator.ternary.vala
+      push:
+        - match: ':'
+          scope: keyword.operator.ternary.vala
+          pop: true
+        - include: line_of_code_in
+    - match: '(\()\s*(\*)\s*({{name}})\s*(\))'
+      captures:
+        1: punctuation.section.group.begin.vala
+        2: keyword.operator.pointer.vala
+        3: variable.other.vala
+        4: punctuation.section.group.end.vala
+    - match: '(\()(?={{namespaced_name}}\s*\)(?!\s*switch\b))'
+      captures:
+        1: punctuation.section.group.begin.vala
+      push:
+        - meta_scope: meta.cast.vala
+        - match: \)
+          scope: punctuation.section.group.end.vala
+          pop: true
+        - match: '{{base_type}}'
+          scope: storage.type.vala
+        - match: '{{name}}'
+          scope: support.type.vala
+        - match: '\.'
+          scope: punctuation.separator.namespace.vala
+        - match: '{{type_suffix_capture}}'
+          captures:
+            1: punctuation.section.brackets.begin.vala
+            2: punctuation.separator.vala
+            3: punctuation.section.brackets.end.vala
+            4: keyword.operator.pointer.vala
+    - match: (?=\()
+      branch_point: tuple_or_group
+      branch:
+        - group_begin
+        - tuple_begin
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: code_block_in
+    - match: (?=[]}>,]|{{reserved}})
+      pop: true
+
+  group_begin:
+    - meta_include_prototype: false
+    - match: \(
+      scope: punctuation.section.group.begin.vala
+      set: group
+
+  tuple_begin:
+    - meta_include_prototype: false
+    - match: \(
+      scope: punctuation.section.sequence.begin.vala
+      set: tuple
+
+  tuple:
+    - meta_scope: meta.sequence.tuple.vala
+    - match: \)
+      scope: punctuation.section.sequence.end.vala
+      pop: true
+    - match: ','
+      scope: punctuation.separator.sequence.vala
+    - match: ':'
+      scope: keyword.operator.assignment.vala
+    - match: _\b
+      scope: variable.language.deconstruction.discard.vala
+    - match: (?!{{reserved}})(?={{namespaced_name}}{{type_suffix}}\s+{{name}}\s*[:,])
+      push: var_declaration_explicit
+    - match: '({{name}})(<)'
+      captures:
+        1: support.type.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      push:
+        - meta_content_scope: meta.generic.vala
+        - match: ','
+          scope: punctuation.separator.type.vala
+        - match: (>)\s*(\()
+          captures:
+            1: meta.generic.vala punctuation.definition.generic.end.vala
+            2: meta.function-call.vala meta.group.vala punctuation.section.group.begin.vala
+          set: [function_call_arguments, arguments]
+        - match: '>'
+          scope: meta.generic.vala punctuation.definition.generic.end.vala
+          pop: true
+        - include: type
+        - include: line_of_code_in_no_semicolon
+    - include: line_of_code_in_no_semicolon
+
+  group:
+    - meta_scope: meta.group.vala
+    - match: \)
+      scope: punctuation.section.group.end.vala
+      pop: true
+    - match: ','
+      fail: tuple_or_group
+    - include: lambdas
+    - include: line_of_code_in_no_semicolon
+
+  attribute_arguments:
+    - meta_content_scope: meta.annotation.vala meta.group.vala
+    - match: \)
+      scope: punctuation.section.group.end.vala
+    - match: ''
+      set: attribute_in
+
+  constructor_arguments:
+    - meta_content_scope: meta.instance.vala meta.group.vala
+    - match: \)
+      scope: punctuation.section.group.end.vala
+      set: maybe_constructor_initializer
+    - include: maybe_constructor_initializer
+
+  maybe_constructor_initializer:
+    - meta_content_scope: meta.instance.vala meta.group.vala
+    - match: (?=[^\s{])
+      pop: true
+    - match: \{
+      scope: punctuation.section.braces.begin.vala
+      set: initializer_constructor
+
+  function_call_arguments:
+    - meta_content_scope: meta.function-call.vala meta.group.vala
+    - match: \)
+      scope: meta.function-call.vala meta.group.vala punctuation.section.group.end.vala
+      pop: true
+    - match: ''
+      pop: true
+
+  arguments:
+    - match: (out)\s
+      captures:
+        1: storage.modifier.argument.vala
+      push:
+        - match: (ref)\s
+          captures:
+            1: storage.modifier.argument.vala
+        - match: (?!{{namespaced_name}}{{type_suffix}}\s+{{name}})
+          pop: true
+        - include: var_declaration
+    - match: (ref)\s
+      captures:
+        1: storage.modifier.argument.vala
+    - match: '({{name}})\s*(=)(?=[^>=])'
+      captures:
+        1: variable.parameter.vala
+        2: keyword.operator.assignment.vala
+      push: line_of_code_in
+    - match: '({{name}})\s*(:)'
+      captures:
+        1: variable.parameter.vala
+        2: punctuation.separator.argument.value.vala
+      push: line_of_code_in
+    - match: ','
+      scope: punctuation.separator.argument.vala
+    - match: (?=\))
+      pop: true
+    - match: ;
+      scope: invalid.illegal.expected-close-paren.vala
+      pop: true
+    - include: stray_close_bracket
+    - match: (?=\S)
+      push:
+        - include: lambdas
+        - include: line_of_code_in_no_semicolon
+        - match: (?=[;)])
+          pop: true
+
+  accessor_arguments:
+    - meta_content_scope: meta.brackets.vala
+    - match: '({{name}})\s*(:)'
+      captures:
+        1: variable.other.parameter.vala
+        2: punctuation.separator.key-value.parameter.vala
+    - match: ','
+      scope: punctuation.separator.accessor.vala
+    - match: \]
+      scope: meta.brackets.vala punctuation.section.brackets.end.vala
+      pop: true
+    - include: line_of_code_in
+
+  type:
+    - include: type_common
+    - match: (?=\()
+      push: type_tuple
+
+  type_tuple:
+    - match: \(
+      scope: punctuation.section.sequence.begin.vala
+      set:
+        - meta_scope: meta.sequence.tuple.vala
+        - match: \)
+          scope: punctuation.section.sequence.end.vala
+          pop: true
+        - match: ','
+          scope: punctuation.separator.sequence.vala
+        - match: (?=\S)
+          push: var_declaration_explicit
+
+  type_common:
+    - include: namespace_alias
+    - match: '(class|struct|enum)'
+      scope: storage.type.other.vala
+    - match: 'new\s*\(\s*\)'
+      scope: keyword.operator.new.vala
+    - match: '{{base_type}}'
+      scope: storage.type.vala
+    - match: '{{brackets_capture}}'
+      captures:
+        1: meta.brackets.vala
+        2: punctuation.section.brackets.begin.vala
+        3: punctuation.separator.vala
+        4: punctuation.section.brackets.end.vala
+    - match: \s*(\.)\s*
+      captures:
+        1: punctuation.accessor.dot.namespace.vala
+    - match: '\*'
+      scope: keyword.operator.pointer.vala
+    - match: \s*(\?)
+      captures:
+        1: storage.type.nullable.vala
+    - match: \s*(<)
+      captures:
+        1: meta.generic.vala punctuation.definition.generic.begin.vala
+      push: type_argument
+    - match: '{{name}}'
+      scope: support.type.vala
+    - match: (?=[]})>,;>:]|=>)
+      pop: true
+
+  type_arg_param_common:
+    - match: ','
+      scope: punctuation.separator.type.vala
+    - match: '(>){{type_suffix_capture}}'
+      captures:
+        1: meta.generic.vala punctuation.definition.generic.end.vala
+        2: storage.type.nullable.vala
+        3: meta.brackets.vala
+        4: punctuation.section.brackets.begin.vala
+        5: punctuation.separator.vala
+        6: punctuation.section.brackets.end.vala
+        7: keyword.operator.pointer.vala
+      pop: true
+    - include: type
+
+  type_argument:
+    - meta_content_scope: meta.generic.vala
+    - include: type_arg_param_common
+
+  type_parameter:
+    - match: '(in|out)\b'
+      scope: storage.modifier.vala
+    - include: type_arg_param_common
+    - match: '{{name}}'
+      scope: support.type.vala
+
+  type_no_space:
+    - include: type
+    - match: \s
+      pop: true
+
+  # bools, numbers, chars, simple strings
+  literals:
+    # language constants
+    - match: \b(true|false|null)\b
+      scope: constant.language.vala
+    # characters
+    - match: '''\'''
+      scope: invalid.illegal.lone-escape.vala
+    - match: (')({{escaped_char}})(')
+      scope: meta.string.vala
+             string.quoted.single.vala
+      captures:
+        1: punctuation.definition.string.begin.vala
+        2: constant.character.escape.vala
+        3: punctuation.definition.string.end.vala
+    - match: (')(.)(')
+      scope: meta.string.vala
+             string.quoted.single.vala
+      captures:
+        1: punctuation.definition.string.begin.vala
+        2: constant.character.literal.vala
+        3: punctuation.definition.string.end.vala
+    - match: (')[^']+(')
+      scope: invalid.illegal.not_a_char.vala
+    # numbers
+    - match: (0[xX])([\h_]*\h)
+      scope: meta.number.integer.hexadecimal.vala
+      captures:
+        1: constant.numeric.base.vala
+        2: constant.numeric.value.vala
+    - match: (0[bB])([01_]*[01])
+      scope: meta.number.integer.binary.vala
+      captures:
+        1: constant.numeric.base.vala
+        2: constant.numeric.value.vala
+    - match: '({{dec_digits}})(?:(?:((\.){{dec_digits}})({{dec_exponent}})?|({{dec_exponent}}))({{float_suffix}})?|({{float_suffix}}))'
+      scope: meta.number.float.decimal.vala
+      captures:
+        1: constant.numeric.value.vala
+        2: constant.numeric.value.vala
+        3: punctuation.separator.decimal.vala
+        4: constant.numeric.value.exponent.vala
+        5: constant.numeric.value.exponent.vala
+        6: constant.numeric.suffix.vala
+        7: constant.numeric.suffix.vala
+    - match: (0|[1-9]{{dec_digits}}?)({{integer_suffix}})?
+      scope: meta.number.integer.decimal.vala
+      captures:
+        1: constant.numeric.value.vala
+        2: constant.numeric.suffix.vala
+    # strings
+    - match: '"'
+      scope: punctuation.definition.string.begin.vala
+      push: string
+
+  string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.vala
+    - include: string_escaped
+    - match: '"'
+      scope: punctuation.definition.string.end.vala
+      pop: true
+    - include: string_placeholders
+    - match: '(\{)(\d+)'
+      captures:
+        1: punctuation.definition.placeholder.begin.vala
+        2: meta.number.integer.decimal.vala constant.numeric.value.vala
+      push: string_placeholder
+    - match: $\n?
+      scope: invalid.illegal.unclosed-string.vala
+      pop: true
+
+  format_string:
+    - meta_include_prototype: false
+    - meta_scope: meta.string.interpolated.vala string.quoted.double.vala
+    - match: '"'
+      scope: punctuation.definition.string.end.vala
+      pop: true
+    - include: string_escaped
+    - include: string_placeholder_escape
+    - match: \{
+      scope: punctuation.section.interpolation.begin.vala
+      push:
+        - meta_scope: meta.string.interpolated.vala
+        - meta_content_scope: source.vala
+        - clear_scopes: 2
+        - match: $
+          pop: true
+        - include: string_placeholder_format
+        - include: string_interpolation
+    - match: $\n?
+      scope: invalid.illegal.unclosed-string.vala
+      pop: true
+
+  long_format_string:
+    - meta_include_prototype: false
+    - meta_scope: meta.string.interpolated.vala string.quoted.double.raw.vala
+    - include: long_string_escaped
+    - match: '"'
+      scope: punctuation.definition.string.end.vala
+      pop: true
+    - include: string_placeholder_escape
+    - match: \{
+      scope: punctuation.section.interpolation.begin.vala
+      push:
+        - meta_scope: meta.string.interpolated.vala
+        - meta_content_scope: source.vala
+        - clear_scopes: 2
+        - include: long_string_placeholder_format
+        - include: string_interpolation
+
+  string_placeholder_escape:
+    - match: '\{\{|\}\}'
+      scope: constant.character.escape.vala
+
+  string_placeholders:
+    - include: string_placeholder_escape
+    - match: \{\h{8}-(?:\h{4}-){3}\h{12}\}
+      scope: constant.other.guid.vala
+    - match: '(\{)(\d+)(?=")'
+      scope: constant.other.placeholder.vala
+      captures:
+        1: punctuation.definition.placeholder.begin.vala
+        2: meta.number.integer.decimal.vala constant.numeric.value.vala invalid.illegal.unclosed-string-placeholder.vala
+
+  inside_string_placeholder:
+    - match: '(\})(\}(?!\}))?'
+      captures:
+        1: punctuation.definition.placeholder.end.vala
+        2: invalid.illegal.unescaped-placeholder.vala
+      pop: true
+    - match: (?=[}"])
+      pop: true
+
+  string_placeholder:
+    - meta_scope: constant.other.placeholder.vala
+    - include: inside_string_placeholder
+    - include: string_placeholder_format
+    - match: '[^"}]+'
+      scope: invalid.illegal.unexpected-character-in-placeholder.vala
+
+  long_string_placeholder:
+    - meta_scope: constant.other.placeholder.vala
+    - include: inside_string_placeholder
+    - include: long_string_placeholder_format
+    - match: '[^"}]+'
+      scope: invalid.illegal.unexpected-character-in-placeholder.vala
+
+  string_placeholder_format:
+    - match: '\s*(?:(,)\s*((-?)\d+)\s*)?'
+      captures:
+        1: punctuation.separator.arguments.vala
+        2: meta.number.integer.decimal.vala constant.numeric.value.vala
+        3: keyword.operator.arithmetic.vala
+    - match: ':(?=")'
+      scope: invalid.illegal.unclosed-string-placeholder.vala
+      pop: true
+    - match: ':'
+      scope: punctuation.separator.vala
+      push:
+        - meta_scope: constant.other.format-spec.vala
+        - include: string_placeholder_escape
+        - include: string_escaped
+        - match: '(?=\})'
+          pop: true
+        - match: '([^}"\\]+(\\.)*)+(?=")'
+          scope: invalid.illegal.unclosed-string-placeholder.vala
+          pop: true
+        - match: '\{'
+          scope: invalid.illegal.unescaped-placeholder.vala
+
+  long_string_placeholder_format:
+    - match: '\s*(?:(,)\s*((-?)\d+)\s*)?'
+      captures:
+        1: punctuation.separator.arguments.vala
+        2: meta.number.integer.decimal.vala constant.numeric.value.vala
+        3: keyword.operator.arithmetic.vala
+    - match: ':(?="(?!"))'
+      scope: invalid.illegal.unclosed-string-placeholder.vala
+      pop: true
+    - match: ':'
+      scope: punctuation.separator.vala
+      push:
+        - meta_scope: constant.other.format-spec.vala
+        - include: string_placeholder_escape
+        - include: long_string_escaped
+        - match: (?=\})
+          pop: true
+        - match: \\(?:""|[^"])
+          scope: constant.character.escape.vala
+        - match: (?:[^}"]+|"")+(?="(?!"))
+          scope: invalid.illegal.unclosed-string-placeholder.vala
+          pop: true
+        - match: \{
+          scope: invalid.illegal.unescaped-placeholder.vala
+
+  string_interpolation:
+    - match: '\}'
+      scope: punctuation.section.interpolation.end.vala
+      pop: true
+    - include: line_of_code_in
+
+  long_string:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.raw.vala
+    - include: long_string_escaped
+    - include: string_placeholders
+    - match: '(\{)(\d+)'
+      captures:
+        1: punctuation.definition.placeholder.begin.vala
+        2: meta.number.integer.decimal.vala constant.numeric.value.vala
+      push: long_string_placeholder
+    - match: '"'
+      scope: punctuation.definition.string.end.vala
+      pop: true
+
+  escaped:
+    - match: '{{escaped_char}}'
+      scope: constant.character.escape.vala
+
+  string_escaped:
+    - include: escaped
+    - match: \\
+      scope: invalid.illegal.lone-escape.vala
+
+  long_string_escaped:
+    - match: '""'
+      scope: constant.character.escape.vala
+
+  initializer_constructor:
+    - meta_content_scope: meta.instance.vala meta.braces.vala
+    - match: \}
+      scope: meta.instance.vala meta.braces.vala punctuation.section.braces.end.vala
+      pop: true
+    - match: \{
+      scope: punctuation.section.braces.begin.vala
+      push: initializer_constructor
+    - match: ','
+      scope: punctuation.separator.array-element.vala
+    - match: (?=[^,\s{}])
+      push: line_of_code_in
+
+  try_block:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: main
+    - match: (?=\S)
+      set:
+        - match: \s*$
+          pop: true
+        - include: main
+
+  catch_expr:
+    - match: '(catch)\s*(\()'
+      captures:
+        1: keyword.control.trycatch.catch.vala
+        2: meta.group.vala punctuation.section.group.begin.vala
+      push: [catch_block, var_declaration_explicit]
+    - match: 'catch'
+      scope: keyword.control.trycatch.catch.vala
+      push: trycatch_block
+    - match: (?=\S)
+      pop: true
+
+  catch_block:
+    - meta_content_scope: meta.group.vala
+    - match: \)
+      scope: meta.group.vala punctuation.section.group.end.vala
+      set: catch_when
+
+  catch_when:
+    - match: \bwhen\b
+      scope: keyword.control.trycatch.when.vala
+      set:
+        - match: \(
+          scope: punctuation.section.group.begin.vala
+          set:
+            - meta_scope: meta.group.vala
+            - match: \)
+              scope: punctuation.section.group.end.vala
+              set: trycatch_block
+            - include: line_of_code_in
+        - match: (?=\S)
+          set: trycatch_block
+    - match: '(?=\S)'
+      set: trycatch_block
+
+  finally_block:
+    - meta_scope: meta.block.trycatch.vala
+    - match: finally\b
+      scope: keyword.control.trycatch.finally.vala
+      set: trycatch_block
+    - match: (?=\S)
+      pop: true
+
+  trycatch_block:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: code_block_in
+    - match: (?=\S)
+      pop: true
+
+  using_block:
+    - meta_content_scope: meta.group.vala
+    - match: \)
+      scope: meta.group.vala punctuation.section.group.end.vala
+      set:
+      - match: \{
+        scope: punctuation.section.block.begin.vala
+        set:
+          - meta_scope: meta.block.vala
+          - match: \}
+            scope: punctuation.section.block.end.vala
+            pop: true
+          - include: code_block_in
+      - match: (?=\S)
+        pop: true
+    - match: (?=\S)
+      pop: true
+
+  expression_block:
+    - meta_content_scope: meta.group.vala
+    - match: \)
+      scope: meta.group.vala punctuation.section.group.end.vala
+      set:
+        - match: \{
+          scope: meta.block.vala punctuation.section.block.begin.vala
+          set:
+            - meta_content_scope: meta.block.vala
+            - match: \}
+              scope: meta.block.vala punctuation.section.block.end.vala
+              pop: true
+            - include: code_block_in
+        - match: (?=\S)
+          set: line_of_code
+
+  if_condition:
+    - match: '\s*(\()'
+      captures:
+        1: meta.group.vala punctuation.section.group.begin.vala
+      set:
+        - meta_content_scope: meta.group.vala
+        - match: '\s*(\))'
+          captures:
+            1: meta.group.vala punctuation.section.group.end.vala
+          pop: true
+        - include: line_of_code_in
+    - match: (?=[^(])
+      pop: true
+
+  if_block:
+    - match: \{
+      scope: meta.block.vala punctuation.section.block.begin.vala
+      set:
+        - meta_content_scope: meta.block.vala
+        - match: \}
+          scope: meta.block.vala punctuation.section.block.end.vala
+          pop: true
+        - include: main
+    - match: (?=\S)
+      set:
+        - match: (?=else\b)
+          pop: true
+        - include: line_of_code
+
+  else_block:
+    - match: (else\s+if)\b\s*
+      captures:
+        1: keyword.control.conditional.elseif.vala
+      push: [if_block, if_condition]
+    - match: (else)\s*
+      scope: keyword.control.conditional.else.vala
+      set:
+        - match: \s*(\{)
+          captures:
+            1: meta.block.vala punctuation.section.block.begin.vala
+          set:
+            - meta_content_scope: meta.block.vala
+            - match: \}
+              scope: meta.block.vala punctuation.section.block.end.vala
+              pop: true
+            - include: main
+        - match: (?=\S)
+          set:
+            - include: line_of_code
+    - match: (?=\S)
+      pop: true
+
+  switch_condition:
+    - match: '\('
+      scope: punctuation.section.group.begin.vala
+      set:
+        - meta_scope: meta.group.vala
+        - match: '\)'
+          scope: punctuation.section.group.end.vala
+          pop: true
+        - include: line_of_code_in
+    - match: (?=\S)
+      pop: true
+
+  switch_block:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - match: '\b(default)\s*(:)'
+          captures:
+            1: keyword.control.switch.case.vala
+            2: punctuation.separator.case-statement.vala
+        - match: '\b(case)\b'
+          scope: keyword.control.switch.case.vala
+          push:
+            - match: '{{name}}(?=\s*:)'
+              scope: constant.other.vala
+            - match: '\bwhen\b'
+              scope: keyword.control.switch.case.when.vala
+            - match: '(?={{namespaced_name}}{{type_suffix}}\s+{{name}}\s+when\b)'
+              push: var_declaration_explicit
+            - match: ':'
+              scope: punctuation.separator.case-statement.vala
+              pop: true
+            - include: line_of_code_in
+            - match: $
+              pop: true
+        - include: code_block_in
+    - match: '(?=\S)'
+      pop: true
+
+  switch_expression:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: \}
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - match: '=>'
+          scope: punctuation.separator.case-expression.vala
+          push:
+            - match: ','
+              scope: punctuation.terminator.case-expression.vala
+              pop: true
+            - include: line_of_code_in
+        - match: \b_\b
+          scope: variable.language.deconstruction.discard.vala
+        - match: '\bwhen\b'
+          scope: keyword.control.switch.case.when.vala
+        - match: \(
+          scope: punctuation.section.sequence.begin.vala
+          push:
+            - meta_scope: meta.sequence.tuple.vala
+            - match: \)
+              scope: punctuation.section.sequence.end.vala
+              pop: true
+            - match: ','
+              scope: punctuation.separator.sequence.vala
+            - match: _\b
+              scope: variable.language.deconstruction.discard.vala
+            - include: line_of_code_in_no_semicolon # needed for "when" syntax?
+        - match: (?={{namespaced_name}}\s+(?:\{|(?!{{reserved}}|when\b){{name}}))
+          push: [maybe_pattern_matching_object, var_declaration]
+        - match: (?=\bvar\b)
+          push: var_declaration_including_tuple
+        - match: (?=\{)
+          push: maybe_pattern_matching_object
+        - include: line_of_code_in_no_semicolon
+
+  maybe_pattern_matching_object:
+    - match: \{
+      scope: meta.instance.property-subpattern.vala meta.class.body.anonymous.vala meta.block.vala punctuation.section.block.begin.vala
+      set: pattern_matching_object
+    - match: (?=\S)
+      pop: true
+
+  pattern_matching_object:
+    - meta_content_scope: meta.instance.property-subpattern.vala meta.class.body.anonymous.vala meta.block.vala
+    - match: \}
+      scope: meta.instance.property-subpattern.vala meta.class.body.anonymous.vala meta.block.vala punctuation.section.block.end.vala
+      pop: true
+    - match: ','
+      scope: punctuation.separator.property.vala
+    - match: '({{name}})\s*(:)?'
+      captures:
+        1: variable.other.member.vala
+        2: keyword.operator.assignment.vala
+      push: line_of_code_in_no_semicolon
+
+  for_var_assignment:
+    - match: '='
+      scope: keyword.operator.assignment.variable.loop.vala
+      set: line_of_code_in
+    - match: (?=;|\)|\})
+      pop: true
+
+  foreach_var_assignment:
+    - match: '\b(in)\b'
+      scope: keyword.control.flow.vala
+      set: line_of_code_in
+    - match: (?=\)|\})
+      pop: true
+
+  var_declaration:
+    - match: (var)\s*(\()
+      captures:
+        1: storage.type.variable.vala
+        2: meta.sequence.tuple.vala punctuation.section.sequence.begin.vala
+      set:
+        - meta_content_scope: meta.sequence.tuple.vala
+        - match: \)
+          scope: meta.sequence.tuple.vala punctuation.section.sequence.end.vala
+          pop: true
+        - match: _\b
+          scope: variable.language.deconstruction.discard.vala
+        - match: '{{name}}'
+          scope: variable.other.vala
+        - match: ','
+          scope: punctuation.separator.sequence.vala
+    - match: '(var)\s+({{name}})\s*'
+      captures:
+        1: storage.type.variable.vala
+        2: variable.other.vala
+      pop: true
+    - include: var_declaration_explicit
+
+  var_declaration_including_tuple:
+    - include: var_declaration
+    - include: type_tuple
+
+  var_declaration_explicit:
+    - match: '({{name}})\s*(\.)'
+      captures:
+        1: support.type.vala
+        2: punctuation.accessor.dot.namespace.vala
+    - match: '({{name}})\s*(<)'
+      captures:
+        1: support.type.vala
+        2: meta.generic.vala punctuation.definition.generic.begin.vala
+      set:
+        - meta_content_scope: meta.generic.vala
+        - match: '>'
+          scope: meta.generic.vala punctuation.definition.generic.end.vala
+          set:
+            - match: '({{name}})\s*'
+              captures:
+                1: variable.other.vala
+              pop: true
+            - match: (?=[,);}])
+              pop: true
+        - include: type_argument
+    - match: '({{base_type}}){{type_suffix_capture}}'
+      captures:
+        1: storage.type.vala
+        2: storage.type.nullable.vala
+        3: meta.brackets.vala
+        4: punctuation.section.brackets.begin.vala
+        5: punctuation.separator.vala
+        6: punctuation.section.brackets.end.vala
+        7: keyword.operator.pointer.vala
+      set:
+        - match: '({{name}})\s*'
+          captures:
+            1: variable.other.vala
+          pop: true
+        - match: (?=[,);}])
+          pop: true
+    - match: '(?:({{name}}){{type_suffix_capture}})(?:\s+({{name}}))?\s*'
+      captures:
+        1: support.type.vala
+        2: storage.type.nullable.vala
+        3: meta.brackets.vala
+        4: punctuation.section.brackets.begin.vala
+        5: punctuation.separator.vala
+        6: punctuation.section.brackets.end.vala
+        7: keyword.operator.pointer.vala
+        8: variable.other.vala
+      pop: true
+    - match: (?=\))
+      pop: true
+
+  using_var_assignment:
+    - match: '='
+      scope: keyword.operator.assignment.variable.using.vala
+      push: line_of_code_in
+    - match: (?=;|\)|\})
+      pop: true
+    - match: ','
+      scope: punctuation.separator.expression.vala
+      push: line_of_code_in
+
+  for_block:
+    - meta_content_scope: meta.group.vala
+    - match: \)
+      scope: punctuation.section.group.end.vala
+      set:
+      - match: \{
+        scope: punctuation.section.block.begin.vala
+        set:
+          - meta_scope: meta.block.vala
+          - match: \}
+            scope: punctuation.section.block.end.vala
+            pop: true
+          - include: code_block_in
+      - match: (?=\S)
+        set:
+          - include: line_of_code
+
+  while_block:
+    - match: \{
+      scope: punctuation.section.block.begin.vala
+      set:
+        - meta_scope: meta.block.vala
+        - match: '\}'
+          scope: punctuation.section.block.end.vala
+          pop: true
+        - include: code_block_in
+    - match: (?=\S)
+      set:
+        - include: line_of_code
+
+  do_condition:
+    - match: \b(while)\b
+      scope: keyword.control.loop.while.vala
+      set: while_condition
+    - match: (?=\S)
+      pop: true
+
+  while_condition:
+    - match: \(
+      scope: punctuation.section.group.begin.vala
+      set:
+        - meta_scope: meta.group.vala
+        - match: '\)'
+          scope: punctuation.section.group.end.vala
+          pop: true
+        - include: line_of_code_in
+    - match: (?=\S)
+      pop: true
+
+  construct_block_declaration:
+    - match: \b(construct)\b
+      scope: keyword.context.block.vala
+      push:
+        - match: \{
+          scope: punctuation.section.block.begin.vala
+          set:
+            - meta_scope: meta.block.vala
+            - match: \}
+              scope: punctuation.section.block.end.vala
+              pop: true
+            - include: code_block_in
+        - match: (?=\S)
+          pop: true

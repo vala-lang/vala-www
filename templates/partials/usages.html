@@ -3,17 +3,18 @@
   <div>
     <dt>
       <div>
-        GUI Applications
+        {{ icon_macros::sprite_icon(name="gui-app") }}
+        {{ trans(key="gui_applications", lang=lang) }}
       </div>
     </dt>
-    <dd>Perfect integration of GTK, Libadwaita and Granite makes development super simple. Publish easily your apps on Flathub without bloated packages.</dd>
+    <dd>{{ trans(key="gui_applications_description", lang=lang) }}</dd>
     <dd>
      <ul>
         <li>
-          <a href="{{ config.extra.features.gnome_developer_tutorial }}">GNOME Getting Started Tutorial</a>
+          <a href="{{ config.extra.features.gnome_developer_tutorial }}">{{ trans(key="gnome_tutorial", lang=lang) }}</a>
         </li>
         <li>
-          <a href="{{ config.extra.features.elementary_app_tutorial }}">elementary OS App Tutorial</a>
+          <a href="{{ config.extra.features.elementary_app_tutorial }}">{{ trans(key="elementary_tutorial", lang=lang) }}</a>
         </li>
       </ul>
     </dd>
@@ -21,17 +22,20 @@
   <div>
     <dt>
       <div>
-        Command Line Programs
+        {{ icon_macros::sprite_icon(name="terminal") }}
+        <span>{{ trans(key="command_line_programs", lang=lang) }}</span>
+        
       </div>
     </dt>
-    <dd>Use a large standard library and use loads of other libraries available for use in Vala.</dd>
+    <dd>{{ trans(key="command_line_programs_description", lang=lang) }}</dd>
   </div>
   <div>
     <dt>
       <div>
-        Libraries
+        {{ icon_macros::sprite_icon(name="library") }}
+        {{ trans(key="libraries", lang=lang) }}
       </div>
     </dt>
-    <dd>Provide bindings from many other languages and API documentation without manual work. Also, dynamic and static linking are both supported.</dd>
+    <dd>{{ trans(key="libraries_description", lang=lang) }}</dd>
   </div>
 </dl>
