@@ -2,8 +2,6 @@
 title = "Vala Programming Language"
 template = "index.html"
 lang = "fr"
-description = "Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system."
+description = "Vala est un langage de programmation orienté objet avec un compilateur qui génère du code C et utilise le système de type GObject."
 insert_anchor_links= "right"
 +++
-
-
