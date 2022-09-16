@@ -2,7 +2,7 @@
 
 Please make sure that you are following the [GitHub Community Guidelines](https://docs.github.com/en/site-policy/github-terms/github-community-guidelines).
 
-The easiest ways to contribute are to: [create a new issue](https://github.com/colinkiama/vala-www/issues/new/choose) or participate in [discussions](https://github.com/colinkiama/vala-www/discussions).
+The easiest ways to contribute are to: [create a new issue](https://github.com/vala-lang/vala-www/issues/new/choose) or participate in [discussions](https://github.com/vala-lang/vala-www/discussions).
 
 If you would like to contribute code, please try to do the following:
 
