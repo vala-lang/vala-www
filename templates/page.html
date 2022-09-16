@@ -2,6 +2,14 @@
 
 {% block head %}
 <title>{{ page.title }}</title>
+
+<link rel="alternate" hreflang="{{ config.default_language }}" href="{{ get_url(path=current_path, lang=config.default_language) }}">
+
+{% for lang_code, _ in config.languages %}
+    <link rel="alternate" hreflang="{{ lang_code }}" href="{{ get_url(path=current_path, lang=lang_code) }}">
+{% endfor %}
+
+<link rel="alternate" hreflang="x-default" href="{{ get_url(path=current_path, lang=config.default_language) }}">
 {{ head_macros::article_og_data(article=page) }}
 {% endblock head %}
 
