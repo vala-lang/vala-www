@@ -1,5 +1,13 @@
+{% import "macros/body.html" as body_macros %}
+
 <footer>
   <div>
+    <ul>
+      Languages:
+      {% for lang_code, _ in config.languages %}
+        <li><a href="{{ get_url(path='/', lang=lang_code) }}">{{ body_macros::lang_map(lang_code=lang_code) }}</a></li>
+      {% endfor %}
+    </ul>
     <div>{{ trans(key='made_by_vala_community', lang=lang) }}</div>
     <a href="{{ config.extra.site_source_code_url }}">{{ trans(key='view_website_source_code', lang=lang) }}</a>
     <p>{{ trans(key='view_website_source_code', lang=lang) }} <a rel="license" href="{{ config.extra.license_url }}">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>

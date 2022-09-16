@@ -90,7 +90,7 @@ showcase = "Showcase"
 view_more_vala_projects = "View More Vala Projects"
 
 forums = "Forums"
-forums_description = "Ask questions related to Vala in the GNOME Discourse forums under the &quot;vala&quot; tag."
+forums_description = "Ask questions related to Vala in the GNOME Discourse forums under the 'vala' tag."
 discourse_forums = "Discourse Forums"
 
 internals_chat = "Internals Chat"
