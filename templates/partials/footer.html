@@ -3,7 +3,7 @@
 <footer>
   <div>
     <ul>
-      Languages:
+      {{ trans(key='languages', lang=lang) }}
       {% for lang_code, _ in config.languages %}
         <li><a href="{{ get_url(path='/', lang=lang_code) }}">{{ body_macros::lang_map(lang_code=lang_code) }}</a></li>
       {% endfor %}
