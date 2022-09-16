@@ -11,12 +11,12 @@
     <div>
       <nav>
         <div>
-          <a aria-label="Home" href="{{ get_url(path='/') }}">
+          <a aria-label="Home" href="{{ get_url(path='/', lang=lang) }}">
             {{ icon_macros::vala_text() }}
           </a>
         </div>
         <ul>
-          <li><a href="{{ get_url(path='@/about/index.md') }}">About</a></li>
+          <li><a href="{{ get_url(path='@/about/index.md', lang=lang) }}">About</a></li>
             <li><a href="{{ config.extra.docs_url }}">Docs</a></li>
             <li><a href="{{ get_url(path='/') }}#community">Community</a></li>
             <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
@@ -47,4 +47,12 @@
   <a href="{{ secondary_href }}">{{ secondary_content }}</a>
   {% endif %}
 </div>
+{% endmacro %}
+
+{% macro lang_map(lang_code) %}
+  {% if lang_code == 'en' %}
+    English
+  {% elif lang_code == 'fr' %}
+    Français
+  {% endif %}
 {% endmacro %}
