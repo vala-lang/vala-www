@@ -127,7 +127,7 @@ generate_feed = true # there will be a feed for French content
 build_search_index = true
 
 [languages.fr.translations]
-bypass_block = "menu principal"
+bypass_block = "Menu principal"
 home = "Home"
 about = "A propos"
 documentation = "Docs"
