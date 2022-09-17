@@ -60,7 +60,7 @@ view_source_code = "View Source Code"
 why_vala = "Why Vala?"
 
 productivity = "Productivity"
-productivity_description = "Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!"
+productivity_description = 'Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with <a href="https://www.gnome.org">GNOME</a> technolgies such as: <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> and more!'
 
 performance = "Performance"
 performance_description = "Vala compiles code down to blazingly fast, fully native binaries. You're also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala."
@@ -138,8 +138,8 @@ get_started = "Commencer"
 view_source_code = "Afficher le code source"
 why_vala = "Pourquoi Vala?"
 
-productivity = "productivité"
-productivity_description = "Écrivez confortablement votre code de manière orientée objet avec des abstractions de haut niveau, tout en ayant accès à des intégrations profondes avec les technologies GNOME telles que : GObject, GTK et plus encore !"
+productivity = "Productivité"
+productivity_description = 'Écrivez confortablement votre code de manière orientée objet avec des abstractions de haut niveau, tout en ayant accès à des intégrations profondes avec les technologies <a href="https://www.gnome.org">GNOME</a> telles que : <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> et plus encore !'
 
 performance = "Performance"
 performance_description = "Vala compile le code jusqu'à des binaires entièrement natifs extrêmement rapides. Vous pouvez également réutiliser le code C existant dans vos programmes Vala ainsi que générer du code C à partir de Vala."
