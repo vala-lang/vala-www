@@ -2,6 +2,7 @@
 title = "O jazyce Vala"
 template = "page.html"
 insert_anchor_links = "right"
+lang = "cs"
 description = "Vala je objektově orientovaný programovací jazyk s vlastním kompilátorem, který generuje kód v jazyce C a používá typový systém GObject."
 +++
 
