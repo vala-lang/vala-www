@@ -16,12 +16,12 @@
           </a>
         </div>
         <ul>
-          <li><a href="{{ get_url(path='@/about/index.md', lang=lang) }}">About</a></li>
-            <li><a href="{{ config.extra.docs_url }}">Docs</a></li>
-            <li><a href="{{ get_url(path='/') }}#community">Community</a></li>
-            <li><a href="{{ get_url(path='@/blog/_index.md') }}">Blog</a></li>
-            <li><a href="{{ config.extra.language_source_code_url }}">Source Code</a></li>
-            <li><a href="{{ config.extra.wiki_url }}">Wiki</a></li>
+          <li><a href="{{ get_url(path='@/about/index.md', lang=lang) }}">{{ trans(key='about', lang=lang) }}</a></li>
+            <li><a href="{{ config.extra.docs_url }}">{{ trans(key='documentation', lang=lang) }}</a></li>
+            <li><a href="{{ get_url(path='/') }}#community">{{ trans(key='community', lang=lang) }}</a></li>
+            <li><a href="{{ get_url(path='@/blog/_index.md') }}">{{ trans(key='blog', lang=lang) }}</a></li>
+            <li><a href="{{ config.extra.language_source_code_url }}">{{ trans(key='source_code', lang=lang) }}</a></li>
+            <li><a href="{{ config.extra.wiki_url }}">{{ trans(key='wiki', lang=lang) }}</a></li>
         </ul>
         <button aria-label="Menu" class="menu-toggle">
           <span class="hamburger"></span>
@@ -52,6 +52,8 @@
 {% macro lang_map(lang_code) %}
   {% if lang_code == 'en' %}
     English
+  {% elif lang_code == 'cs' %}
+    Čeština
   {% elif lang_code == 'fr' %}
     Français
   {% endif %}
