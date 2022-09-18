@@ -51,16 +51,18 @@ render_emoji = true
 bypass_block = "Skip to main content"
 home = "Home"
 about = "About"
+blog = "Blog"
 documentation = "Docs"
 community = "Community"
-wiki = "wiki"
+source_code = "Source Code"
+wiki = "Wiki"
 tagline = "A Familiar Way To Develop Applications"
 get_started = "Get Started"
 view_source_code = "View Source Code"
 why_vala = "Why Vala?"
 
 productivity = "Productivity"
-productivity_description = "Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with GNOME technolgies such as: GObject, GTK and more!"
+productivity_description = 'Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with <a href="https://www.gnome.org">GNOME</a> technolgies such as: <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> and more!'
 
 performance = "Performance"
 performance_description = "Vala compiles code down to blazingly fast, fully native binaries. You're also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala."
@@ -117,29 +119,105 @@ go_home = "Go Home"
 
 
 # Additional languages definition
-# You can define language specific config values and translations: 
+# You can define language specific config values and translations:
 # title, description, generate_feed, feed_filename, taxonomies, build_search_index
 # as well as its own search configuration and translations (see above for details on those)
 [languages]
+
+[languages.cs]
+generate_feed = true # there will be a feed for Czech content
+build_search_index = false # FIXME: cs not supported by Zola
+
+[languages.cs.translations]
+bypass_block = "Přejít k hlavnímu obsahu"
+home = "Domů"
+about = "O jazyce"
+blog = "Blog"
+documentation = "Dokumentace"
+community = "Komunita"
+source_code = "Zdrojový kód"
+wiki = "Wiki"
+tagline = "Známý způsob vývoje aplikací"
+get_started = "Začít"
+view_source_code = "Zobrazit zdrojový kód"
+why_vala = "Proč Vala?"
+
+productivity = "Produktivita"
+productivity_description = 'Můžete pohodlně psát kód objektově orientovaným způsobem s abstrakcemi na vysoké úrovni a zároveň mít přístup k hluboké integraci s technologiemi <a href="https://www.gnome.org">GNOME</a>, jako <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> a další!'
+
+performance = "Výkon"
+performance_description = "Vala zkompiluje kód na bleskurychlé, plně nativní binární soubory. V programech Vala můžete také znovu použít existující kód C a generovat kód C z programu Vala."
+
+open_source = "Open-Source"
+open_source_description = "Vala je svobodný software s otevřeným zdrojovým kódem. Má skvělou komunitu, která do kompilátoru přispívá a vyvíjí spoustu nástrojů."
+tooling_documentation = "Dokumentace k nástrojům"
+
+learn_more_about_vala = "Zjistěte více o jazyce Vala"
+what_can_you_build = "Co všechno můžete vytvořit?"
+
+gui_applications = "Grafické aplikace"
+gui_applications_description = "Díky dokonalé integraci GTK, Libadwaita a Granite je vývoj velmi jednoduchý. Snadno publikujte své aplikace na Flathubu bez zbytečně velkých balíčků."
+gnome_tutorial = "Úvodní kurz GNOME"
+elementary_tutorial = "Kurz aplikací elementary OS"
+
+command_line_programs = "Konzolové programy"
+command_line_programs_description = "Používejte rozsáhlou standardní knihovnu a spoustu dalších knihoven, které jsou k dispozici pro použití ve Vale."
+
+libraries = "Knihovny"
+libraries_description = "Vala poskytuje vazby pro mnoho dalších jazyků a dokumentace API bez ruční práce. Podporováno je také dynamické i statické linkování."
+
+whats_new = "Co je nového?"
+view_blog = "Zobrazit Blog"
+
+showcase = "Ukázka projektů"
+view_more_vala_projects = "Zobrazit další projekty ve Vale"
+
+forums = "Fóra"
+forums_description = "Ptejte se na otázky týkající se Valy ve fóru GNOME Discourse pod tagem „vala“."
+discourse_forums = "Fóra Discourse"
+
+internals_chat = "Interní chat"
+internals_chat_description = "Popovídejte si s vývojáři nebo se zeptejte na to, jak přispět do Valy, v Matrix kanálu Valy. K dispozici je také most na IRC."
+matrix_room = "Místnost na Matrixu"
+
+community_server = "Komunitní server"
+community_server_description = "Spojte se s komunitou na Discord serveru."
+discord_server = "Discord server"
+
+social_media = "Sociální sítě"
+follow_vala_project = "Sledujte projekt Vala na těchto platformách"
+made_by_vala_community = "Vytvořeno komunitou jazyka Vala"
+view_website_source_code = "Zobrazit zdrojový kód webu"
+
+languages = "Jazyky:"
+license_description = "Tato práce je licencována pod"
+
+default_image_description = 'Fialové pozadí s bílým textem uprostřed s nápisem "Vala".'
+
+page_not_found = "Chyba 404 - Stránka nenalezena"
+page_not_found_description = "Adresa URL může být chybně zadána nebo požadovaná stránka již neexistuje."
+go_home = "Přejít domů"
 
 [languages.fr]
 generate_feed = true # there will be a feed for French content
 build_search_index = true
 
 [languages.fr.translations]
-bypass_block = "menu principal"
+bypass_block = "Menu principal"
 home = "Home"
 about = "A propos"
+blog = "Blog"
 documentation = "Docs"
 community = "Community"
-wiki = "wiki"
+source_code = "Le code source"
+wiki = "Wiki"
 tagline = "A Familiar Way To Develop Applications"
 get_started = "Commencer"
 view_source_code = "Afficher le code source"
 why_vala = "Pourquoi Vala?"
 
-productivity = "productivité"
-productivity_description = "Écrivez confortablement votre code de manière orientée objet avec des abstractions de haut niveau, tout en ayant accès à des intégrations profondes avec les technologies GNOME telles que : GObject, GTK et plus encore !"
+productivity = "Productivité"
+productivity_description = 'Écrivez confortablement votre code de manière orientée objet avec des abstractions de haut niveau, tout en ayant accès à des intégrations profondes avec les technologies <a href="https://www.gnome.org">GNOME</a> telles que : <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> et plus encore !'
 
 performance = "Performance"
 performance_description = "Vala compile le code jusqu'à des binaires entièrement natifs extrêmement rapides. Vous pouvez également réutiliser le code C existant dans vos programmes Vala ainsi que générer du code C à partir de Vala."

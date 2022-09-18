@@ -1,0 +1,15 @@
+/* TEAM */
+	Project Lead: Colin Kiama
+	Contact: colinkiama [at] gmail.com
+	Twitter: @colinkiama
+	GitHub: @colinkiama
+
+/* THANKS */
+	(First) FR Translator: Hydral, Jordan Nathan 
+	GitLab: https://gitlab.com/hydrasho 
+
+/* SITE */
+	Last update: 2022/09/17
+	Language: English / French
+	Doctype: HTML5
+	IDE: Sublime Text, Visual Studio Code, Vim, Figma 

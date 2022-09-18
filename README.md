@@ -51,6 +51,16 @@ For more information, check out the ["pages" section of the contributor guide](d
 
 Check out the [contributor guide](docs/CONTRIBUTING.md) to learn more about how this website works.
 
+## Credits
+
+Various people have contributed to this website in some way and, more people will also help with the project over time.
+
+The Contributors section in the GitHub repository doesn't tell the whole story. There's a file called `humans.txt` (available in [/static/humans.txt](/static/humans.txt)) where contributor details can be added.
+
+Feel free to request for your details to be added or add them yourself if you have contributed to this project in any way. This is available for anyone to see if they visit: https://vala.dev/humans.txt.
+
+You can find out more about humans.txt at: https://humanstxt.org/.
+
 ## Additional Resources
 
 - [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)

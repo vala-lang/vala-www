@@ -2,31 +2,43 @@
   {
     "name": "elementary OS",
     "icon_path": "icons/showcase/elementary.svg",
-    "url": "https://elementary.io/"
+    "url": "https://elementary.io/",
+    "screenshot_path": "/img/showcase/elementary-os.png",
+    "description": "The thoughtful, capable, and ethical replacement for Windows and macOS"
   },
   {
-    "name": "GNOME Boxes",
-    "icon_path": "icons/showcase/gnome-boxes.svg",
-    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
+    "name": "Akira",
+    "icon_path": "icons/showcase/akira.svg",
+    "url": "https://github.com/akiraux/Akira",
+    "screenshot_path": "/img/showcase/akira.png",
+    "description": "Native Linux App for UI and UX Design built in Vala and GTK"
   },
   {
-    "name": "Planner",
-    "icon_path": "icons/showcase/planner.svg",
-    "url": "https://useplanner.com/"
+    "name": "Frida",
+    "icon_path": "icons/showcase/frida.svg",
+    "url": "https://frida.re/",
+    "screenshot_path": "/img/showcase/frida.png",
+    "description": "Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers"
   },
   {
-    "name": "Starfish",
-    "icon_path": "icons/showcase/starfish.svg",
-    "url": "https://appcenter.elementary.io/hr.from.josipantolis.starfish/"
+    "name": "Highscore",
+    "icon_path": "icons/showcase/highscore.svg",
+    "url": "https://gitlab.gnome.org/World/highscore",
+    "screenshot_path": "/img/showcase/highscore.png",
+    "description": "A painless way to browse and play your retro games library"
   },
   {
-    "name": "BirdFont",
-    "icon_path": "icons/showcase/birdfont.svg",
-    "url": "https://birdfont.org/"
+    "name": "Haguichi",
+    "icon_path": "icons/showcase/haguichi.svg",
+    "url": "https://haguichi.net/",
+    "screenshot_path": "/img/showcase/haguichi.png",
+    "description": "A graphical frontend for Hamachi on Linux"
   },
   {
-    "name": "Peek",
-    "icon_path": "icons/showcase/peek.svg",
-    "url": "https://github.com/phw/peek"
+    "name": "Genesis Shell",
+    "icon_path": "icons/showcase/genesis-shell.png",
+    "url": "https://github.com/ExpidusOS/genesis",
+    "screenshot_path": "/img/showcase/genesis-shell.png",
+    "description": "The modern desktop environment for everyone on anything"
   }
 ]
