@@ -16,31 +16,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: auto;
   background-color: var(--card-border-color);
+  border-radius: 4px;
 }
 
 .showcase .image-frame img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 25rem;
+  border-radius: 4px;
+}
+.showcase li a,
+.showcase .title {
+  transition: color 0.3s ease;
+}
+
+.showcase .title {
+  font-weight: 500;
+  font-variation-settings: 'wght' 500;
+  font-size: 1.5rem;
+  color: var(--foreground-color);
 }
 
 .showcase li a {
   display: block;
   flex: 1 1 0%;
-  transition: background 0.3s ease;
   flex-direction: column;
   text-decoration: none;
-  color: var(--foreground-color);
+  color: var(--label-text-color);
   font-size: 1.25rem;
-  font-weight: 500;
-  font-variation-settings: 'wght' 500;
-  padding: 1rem;
   width: 100%;
 }
 
 .showcase li a:hover,
-.showcase li a:focus {
-  background: var(--accent-color-light-2);
+.showcase li a:focus,
+.showcase li a:hover .title,
+.showcase li a:focus .title {
+  // background: var(--accent-color-light-2);
+  color: var(--accent-color-dark-1);
 }
 
 .showcase li a span {
@@ -62,10 +77,10 @@
   margin-right: 0;
 }
 
-.showcase li a:hover svg,
-.showcase li a:focus svg {
-  fill: none;
-}
+// .showcase li a:hover svg,
+// .showcase li a:focus svg {
+//   fill: none;
+// }
 
 // @media (min-width: 480px) {
 //   .showcase {
@@ -81,8 +96,11 @@
 
 @media (prefers-color-scheme: dark) {
   .showcase li a:hover,
-  .showcase li a:focus {
-    background: var(--accent-color-dark-1);
-    border-radius: 4px;
+  .showcase li a:focus,
+  .showcase li a:hover .title,
+  .showcase li a:focus .title {
+    // background: var(--accent-color-dark-1);
+    // border-radius: 4px;
+    color: var(--accent-color);
   }
 }

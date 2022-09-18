@@ -1,5 +1,5 @@
 :root {
-	--accent-color: #a56de2;
+  --accent-color: #a56de2;
   --accent-color-light-2: #e4c6fa;
   --accent-color-light-1: #cd9ef7;
   --accent-color-dark-1: #7239b3;
@@ -10,8 +10,8 @@
   --card-border-color: #d4d4d4;
   --secondary-cta-background: #fafafa;
   --label-text-color: #555761;
-	--foreground-color: #1a1a1a;
-	--background-color: white;
+  --foreground-color: #1a1a1a;
+  --background-color: white;
   --inline-code-background-color: #d4d4d4;
   --focus-outline-color: #{var(--accent-color)};
   --code-block-copy-button-color: #1a1a1a;
@@ -43,7 +43,7 @@ body {
   flex-direction: column;
   background-color: var(--background-color);
   color: var(--foreground-color);
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   height: 100%;
   min-height: calc(100vh + env(safe-area-inset-bottom));
   line-height: 1.5;
@@ -52,7 +52,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: "Inter Variable", Arial, Helvetica, sans-serif;
+    font-family: 'Inter Variable', Arial, Helvetica, sans-serif;
   }
 }
 
@@ -132,7 +132,7 @@ h2 .zola-anchor,
 h3 .zola-anchor,
 h4 .zola-anchor,
 h5 .zola-anchor,
-h6 .zola-anchor{
+h6 .zola-anchor {
   visibility: hidden;
 }
 
@@ -239,7 +239,8 @@ article ul li:first-child {
   margin-top: 0;
 }
 
-article img, iframe {
+article img,
+iframe {
   width: 100%;
   height: auto;
 }
@@ -361,7 +362,7 @@ main > .code-block-wrapper .code-copier {
   display: block;
   width: 100%;
   height: auto;
-  left:auto;
+  left: auto;
   background: var(--accent-color-dark-1);
   color: white; // To create contrast with the background
 }
@@ -374,6 +375,7 @@ main > .code-block-wrapper .code-copier {
     --inline-code-background-color: #333333;
     --secondary-cta-background: #333333;
     --code-block-copy-button-color: #fafafa;
+    --label-text-color: #d4d4d4;
   }
 
   #bypass-block {
@@ -398,7 +400,6 @@ main > .code-block-wrapper .code-copier {
   ul li a:focus svg {
     fill: var(--accent-color);
   }
-
 
   pre {
     border: 1px solid #333333;
