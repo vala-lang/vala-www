@@ -22,7 +22,7 @@
   },
   {
     "name": "Highscore",
-    "icon_path": "icons/showcase/highhscore.svg",
+    "icon_path": "icons/showcase/highscore.svg",
     "url": "https://gitlab.gnome.org/World/highscore",
     "screenshot_path": "/img/showcase/highscore.png",
     "description": "A painless way to browse and play your retro games library"
