@@ -5,13 +5,25 @@
   {% for item in showcase_data %}
   <li>
     <a href="{{ item.url }}">
-      {# Temporary workaround for elementary icon not displaying correctly #}
-      {% if loop.index0 == 0 %}
-      <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
-      {% else %}
-      {{ load_data(path=item.icon_path) | safe }}
-      {% endif %}
-      <span>{{ item.name }}</span>
+      <div class="image-frame">
+        {% set screenshot = resize_image(path=item.screenshot_path, op="fit_width", width=640) %}
+        {% set screenshot_2x = resize_image(path=item.screenshot_path, op="fit_width", width=1280) %}
+
+        <img
+          width="{{ screenshot.width }}"
+          height="{{ screenshot.height }}"
+          srcset="{{ screenshot.url }}, {{ screenshot_2x.url }} 2x"
+          src="{{ screenshot.url }}"
+          alt="{{ item.name }}">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
+        <div class="text-info">
+          <div class="title">{{ item.name }}</div>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
     </a>
   </li>
   {% endfor %}
