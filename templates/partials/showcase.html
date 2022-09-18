@@ -5,8 +5,17 @@
   {% for item in showcase_data %}
   <li>
     <a href="{{ item.url }}">
-      <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
-      <span>{{ item.name }}</span>
+      <div class="image-frame">
+        <img aria-hidden="true" src="{{ get_url(path=item.screenshot_path) }}" alt="{{ item.name }}">
+      </div>
+      <div>
+        <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
+        <div>
+          <span>{{ item.name }}</span>
+          <p>{{ item.description }}</p>
+        </div>
+
+      </div>
     </a>
   </li>
   {% endfor %}
