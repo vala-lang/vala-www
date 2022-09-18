@@ -6,8 +6,17 @@
   <li>
     <a href="{{ item.url }}">
       <div class="image-frame">
-        <img aria-hidden="true" src="{{ get_url(path=item.screenshot_path) }}" alt="{{ item.name }}">
+        {% set screenshot = resize_image(path=item.screenshot_path, op="fit_width", width=640) %}
+        {% set screenshot_2x = resize_image(path=item.screenshot_path, op="fit_width", width=1280) %}
+
+        <img
+          width="{{ screenshot.width }}"
+          height="{{ screenshot.height }}"
+          srcset="{{ screenshot.url }}, {{ screenshot_2x.url }} 2x"
+          src="{{ screenshot.url }}"
+          alt="{{ item.name }}">
       </div>
+
       <div class="info">
         <img aria-hidden="true" src="{{ get_url(path=item.icon_path) }}" alt="{{ item.name }}">
         <div class="text-info">
