@@ -33,7 +33,7 @@ With Vala, you can get up and running quickly, thanks to convenient features lik
 
 ### Performant
 
-Vala code compiles down to fully native binaries. 
+Vala code compiles down to fully native binaries.
 
 ### Statically-Typed
 
