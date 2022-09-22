@@ -75,7 +75,7 @@ learn_more_about_vala = "Learn more about Vala"
 what_can_you_build = "What can you build?"
 
 gui_applications = "GUI Applications"
-gui_applications_description = "Perfect integration of GTK, Libadwaita and Granite makes development super simple. Publish easily your apps on Flathub without bloated packages."
+gui_applications_description = "Perfect integration of GTK, Libadwaita and Granite makes development super simple. Easily publish your apps on Flathub without bloated packages."
 gnome_tutorial = "GNOME Getting Started Tutorial"
 elementary_tutorial = "elementary OS App Tutorial"
 
@@ -271,6 +271,80 @@ default_image_description = "un fond violet avec du texte blanc centré c'est si
 page_not_found = "Erreur 404 - Page non trouvé"
 page_not_found_description = "la page que vous avez demandée n'existe plus."
 go_home = "Go Home"
+
+[languages.ru]
+generate_feed = true # there will be a feed for French content
+build_search_index = true
+
+[languages.ru.translations]
+bypass_block = "Основное меню"
+home = "Главная"
+about = "О Нас"
+blog = "Блог"
+documentation = "Документация"
+community = "Сообщество"
+source_code = "Исходный код"
+wiki = "Вики"
+tagline = "Знакомый Способ Разработки Приложений"
+get_started = "Начать"
+view_source_code = "Показать иходный код"
+why_vala = "Почему Vala?"
+
+productivity = "Производительный"
+productivity_description = 'Удобно пишите свой объектно-ориентированный код с высокоуровневыми абстракциями, имея при этом глубокую интеграцией с технологиями <a href="https://www.gnome.org">GNOME</a>, это такие технологии как: <a href="https://docs.gtk.org/gobject/">GObject</a> и <a href="https://www.gtk.org">GTK</a>!'
+
+performance = "Эффективный"
+performance_description = "Vala компилируется в невероятно быстрые полностью нативные двоичные файлы. Вы также можете использовать существующий C-код в своих программах Vala, а также генерировать Cи-код из Vala."
+
+open_source = "С открытым кодом"
+open_source_description = "Vala - это бесплатное и открытое программное обеспечение с отличным сообществом, которое вносит свой вклад в компилятор и разрабатывает множество удобных инструментов."
+tooling_documentation = "Документация инструментария"
+
+learn_more_about_vala = "Узнайте больше о Вале"
+what_can_you_build = "Что вы можете сделать?"
+
+gui_applications = "Графические приложения"
+gui_applications_description = "Идеальная интеграция с GTK, Libadwaita и Granite делает разработку очень простой. С легко публикуйте свои приложения во Flathub без лишних хлопот."
+gnome_tutorial = "Руководство GNOME"
+elementary_tutorial = "Руководство'elementary OS"
+
+command_line_programs = "Консольные приложения"
+command_line_programs_description = "Используйте огромную стандартную библиотеку и множество других библиотек, доступных для использования в Vala."
+
+libraries = "Библиотеки"
+libraries_description = "Предоставляйте привязки для большинства языков и документацию по API без ручной работы. Кроме того, поддерживаются как динамические, так и статические привязки."
+
+whats_new = "Что нового?"
+view_blog = "Блог"
+
+showcase = "Демонстраация"
+view_more_vala_projects = "Показать больше Vala проектов"
+
+forums = "Форум"
+forums_description = "Задавайте вопросы, связанные с Vala, на форумах GNOME Discourse под тегом „vala“."
+discourse_forums = "Discourse Форум"
+
+internals_chat = "Внутренний чат"
+internals_chat_description = "Поговорите с разработчиками или задайте вопросы о том, как внести свой вклад в Vala, используйте канал по Vala. У него также есть IRC-сервер."
+matrix_room = "Чат Matrix"
+
+community_server = "Сервер сообщества"
+community_server_description = "Присоединяйтесь к сообществу Vala на Discord сервере"
+discord_server = "Сервер Discord"
+
+social_media = "Социальные сети"
+follow_vala_project = "Следите за проектом Vala на этих платформах"
+made_by_vala_community = "Сделано сообществом Vala."
+view_website_source_code = "Посмотреть исходный код сайта"
+
+languages = "Языки:"
+license_description = "Этот сайт под лицензией :"
+
+default_image_description = "Фиолетовый фон с белым текстом 'Vala' в центре."
+
+page_not_found = "Ошибка 404 - Страница Не Найдена"
+page_not_found_description = "Возможно, в URL-адресе допущена ошибка или запрошенная вами страница больше не существует."
+go_home = "На главную"
 
 [extra]
 # Put all your custom variables here

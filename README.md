@@ -26,12 +26,13 @@ You can edit the index page by modifying `templates/index.html`. The rest of the
 
 ## Translations
 
-1. Create a new issue
+1. Fork this repository
 2. Work on the translations. The translation strings are in `config.toml`. You can use these resources for help:
    - https://www.getzola.org/documentation/content/multilingual/
    - https://www.getzola.org/documentation/templates/pages-sections/
 3. For markdown pages (pages in `/content` where the content is written in markdown), you need to create a new markdown file for the translated version e.g `page-name.{language_code}.md`.
-4. Create a pull request with the changes you've made, referencing the issue.
+4. Add your language to the `lang_map` macro in `templates/macros/body.html`
+5. Create a pull request with the changes you've made
 
 **Important Notes:**
 
@@ -41,9 +42,10 @@ You can edit the index page by modifying `templates/index.html`. The rest of the
 
 ## Adding new blog posts
 
-1. Create a new issue (Optional)
-2. Inside the `content/blog` directory: create a new markdown file that ends in `.md`, add [front matter](https://www.getzola.org/documentation/content/page/#front-matter) to the file then write the rest of your post below it the front matter.
-3. Create a pull request with the changes you've made, referencing the issue.
+1. Inside the `content/blog` directory: create a new markdown file that ends in `.md`, add [front matter](https://www.getzola.org/documentation/content/page/#front-matter) to the file then write the rest of your post below the front matter.
+2. Create a pull request with the changes you've made.
+
+Note: 
 
 For more information, check out the ["pages" section of the contributor guide](docs/3-pages.md).
 
