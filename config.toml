@@ -325,7 +325,7 @@ forums_description = "Задавайте вопросы, связанные с V
 discourse_forums = "Discourse Форум"
 
 internals_chat = "Внутренний чат"
-internals_chat_description = "Обратитесь к разработчиками или задайте вопросы о том, как внести свой вклад в Vala. У него также есть IRC-сервер."
+internals_chat_description = "Обращайтесь к разработчикам или задайте вопросы о том, как внести свой вклад в Vala. У него также есть IRC-сервер."
 matrix_room = "Чат Matrix"
 
 community_server = "Сервер сообщества"
