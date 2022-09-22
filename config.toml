@@ -75,7 +75,7 @@ learn_more_about_vala = "Learn more about Vala"
 what_can_you_build = "What can you build?"
 
 gui_applications = "GUI Applications"
-gui_applications_description = "Perfect integration of GTK, Libadwaita and Granite makes development super simple. Publish easily your apps on Flathub without bloated packages."
+gui_applications_description = "Perfect integration of GTK, Libadwaita and Granite makes development super simple. Easily publish your apps on Flathub without bloated packages."
 gnome_tutorial = "GNOME Getting Started Tutorial"
 elementary_tutorial = "elementary OS App Tutorial"
 
