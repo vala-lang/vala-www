@@ -279,7 +279,7 @@ build_search_index = true
 [languages.ru.translations]
 bypass_block = "Основное меню"
 home = "Главная"
-about = "О Нас"
+about = "О нас"
 blog = "Блог"
 documentation = "Документация"
 community = "Сообщество"
