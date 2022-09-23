@@ -291,7 +291,7 @@ view_source_code = "Показать исходный код"
 why_vala = "Почему Vala?"
 
 productivity = "Производительный"
-productivity_description = 'Удобно пишите свой объектно-ориентированный код с высокоуровневыми абстракциями, имея при этом глубокую интеграцию с технологиями <a href="https://www.gnome.org">GNOME</a>, это такие технологии как: <a href="https://docs.gtk.org/gobject/">GObject</a> и <a href="https://www.gtk.org">GTK</a>!'
+productivity_description = 'Удобно пишите свой объектно-ориентированный код с высокоуровневыми абстракциями, имея при этом глубокую интеграцию с технологиями <a href="https://www.gnome.org">GNOME</a>, это такие как: <a href="https://docs.gtk.org/gobject/">GObject</a> и <a href="https://www.gtk.org">GTK</a>!'
 
 performance = "Эффективный"
 performance_description = "Vala компилируется в невероятно быстрые полностью нативные двоичные файлы. Вы также можете использовать существующий Cи-код в своих программах Vala, а также генерировать Cи-код из Vala."
@@ -304,7 +304,7 @@ learn_more_about_vala = "Узнайте больше о Vala"
 what_can_you_build = "Что вы можете сделать?"
 
 gui_applications = "Графические приложения"
-gui_applications_description = "Идеальная интеграция с GTK, Libadwaita и Granite делает разработку очень простой. С легкостью публикуйте свои приложения во Flathub без лишних хлопот."
+gui_applications_description = "Идеальная интеграция с GTK, Libadwaita и Granite делает разработку очень простой. Так же с легкостью публикуйте свои приложения во Flathub без лишних хлопот."
 gnome_tutorial = "Руководство GNOME"
 elementary_tutorial = "Руководство elementary OS"
 
@@ -325,7 +325,7 @@ forums_description = "Задавайте вопросы, связанные с V
 discourse_forums = "Discourse Форум"
 
 internals_chat = "Внутренний чат"
-internals_chat_description = "Обращайтесь к разработчикам или задайте вопросы о том, как внести свой вклад в Vala. У него также есть IRC-сервер."
+internals_chat_description = "Обращайтесь к разработчикам или задайте вопросы о том, как внести свой вклад в Vala. У нас также есть IRC-сервер."
 matrix_room = "Чат Matrix"
 
 community_server = "Сервер сообщества"
