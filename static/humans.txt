@@ -5,7 +5,7 @@
 	GitHub: @colinkiama
 
 /* THANKS */
-	(First) FR Translator: Hydral, Jordan Nathan 
+	FR Translator: Hydral, Jordan Nathan 
 	GitLab: https://gitlab.com/hydrasho
   
 	RU Translator: Neagiry, Ivan Repiakh
