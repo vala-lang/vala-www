@@ -7,6 +7,12 @@
 /* THANKS */
 	(First) FR Translator: Hydral, Jordan Nathan 
 	GitLab: https://gitlab.com/hydrasho 
+  
+  Code Contributor: Marko Sivrić (Marki)
+  Github: @Marki2019
+  Twitter: @marki2019
+  From: Čapljina, Bosnia & Herzegovina
+ 
 
 /* SITE */
 	Last update: 2022/09/17
