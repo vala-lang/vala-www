@@ -9,6 +9,7 @@
 	GitLab: https://gitlab.com/hydrasho 
   
   Code Contributor: Marko Sivrić (Marki)
+  Contact: markosivric3 [at] gmail.com
   Github: @Marki2019
   Twitter: @marki2019
   From: Čapljina, Bosnia & Herzegovina
