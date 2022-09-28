@@ -8,7 +8,7 @@
 	FR Translator: Hydral, Jordan Nathan 
 	GitLab: https://gitlab.com/hydrasho
   
-	RU Translator: Neagiry, Ivan Repiakh
+	RU Translator: Neagiry, Ivan Repyakh
 	Discord: KanaSenpai#2026
 	Telegram: @neagiry
 
