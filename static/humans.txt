@@ -13,10 +13,15 @@
   Github: @Marki2019
   Twitter: @marki2019
   From: Čapljina, Bosnia & Herzegovina
- 
+
+	CS Translator: Vojtěch Perník
+	GitLab: https://gitlab.com/pervoj
 
 /* SITE */
 	Last update: 2022/09/17
 	Language: English / French
 	Doctype: HTML5
+
 	IDE: Sublime Text, Visual Studio Code, Vim, Figma 
+
+	IDE: Sublime Text, Visual Studio Code, Vim, Figma
