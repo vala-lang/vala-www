@@ -5,8 +5,15 @@
 	GitHub: @colinkiama
 
 /* THANKS */
-	(First) FR Translator: Hydral, Jordan Nathan 
-	GitLab: https://gitlab.com/hydrasho 
+	FR Translator: Hydral, Jordan Nathan 
+	GitLab: https://gitlab.com/hydrasho
+  
+	CS Translator: Vojtěch Perník
+	GitLab: https://gitlab.com/pervoj
+  
+  RU Translator: Neagiry, Ivan Repyakh
+	Discord: KanaSenpai#2026
+	Telegram: @neagiry
   
   Code Contributor: Marko Sivrić (Marki)
   Contact: markosivric3 [at] gmail.com
@@ -14,14 +21,8 @@
   Twitter: @marki2019
   From: Čapljina, Bosnia & Herzegovina
 
-	CS Translator: Vojtěch Perník
-	GitLab: https://gitlab.com/pervoj
-
 /* SITE */
 	Last update: 2022/09/17
-	Language: English / French
+	Language: English / French / Russian
 	Doctype: HTML5
-
 	IDE: Sublime Text, Visual Studio Code, Vim, Figma 
-
-	IDE: Sublime Text, Visual Studio Code, Vim, Figma
