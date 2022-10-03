@@ -5,11 +5,14 @@
 	GitHub: @colinkiama
 
 /* THANKS */
-	(First) FR Translator: Hydral, Jordan Nathan 
-	GitLab: https://gitlab.com/hydrasho 
+	(First) FR Translator: Hydral, Jordan Nathan
+	GitLab: https://gitlab.com/hydrasho
+
+	CS Translator: Vojtěch Perník
+	GitLab: https://gitlab.com/pervoj
 
 /* SITE */
 	Last update: 2022/09/17
 	Language: English / French
 	Doctype: HTML5
-	IDE: Sublime Text, Visual Studio Code, Vim, Figma 
+	IDE: Sublime Text, Visual Studio Code, Vim, Figma
