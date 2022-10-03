@@ -8,9 +8,18 @@
 	FR Translator: Hydral, Jordan Nathan 
 	GitLab: https://gitlab.com/hydrasho
   
-	RU Translator: Neagiry, Ivan Repyakh
+	CS Translator: Vojtěch Perník
+	GitLab: https://gitlab.com/pervoj
+  
+  RU Translator: Neagiry, Ivan Repyakh
 	Discord: KanaSenpai#2026
 	Telegram: @neagiry
+  
+  Code Contributor: Marko Sivrić (Marki)
+  Contact: markosivric3 [at] gmail.com
+  Github: @Marki2019
+  Twitter: @marki2019
+  From: Čapljina, Bosnia & Herzegovina
 
 /* SITE */
 	Last update: 2022/09/17
