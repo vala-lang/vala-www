@@ -9,7 +9,7 @@ int main (string[] args) {
     var win = new Gtk.ApplicationWindow(app);
 
     var btn = new Gtk.Button.with_label("Hello World");
-    btn.click.connect(win.close);
+    btn.clicked.connect(win.close);
 
     win.child = btn;
     win.present();
