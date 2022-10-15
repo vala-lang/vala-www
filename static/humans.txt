@@ -23,6 +23,6 @@
 
 /* SITE */
 	Last update: 2022/09/17
-	Language: English / French / Russian
+	Language: English / French / Russian / Czech
 	Doctype: HTML5
 	IDE: Sublime Text, Visual Studio Code, Vim, Figma 
