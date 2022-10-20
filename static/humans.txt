@@ -4,6 +4,10 @@
 	Twitter: @colinkiama
 	GitHub: @colinkiama
 
+	Designer: Radjeep Signha
+	Contact: rajdeepsingha [at] icloud.com
+	Mastodon: @Suzie97@mastodon.social
+
 /* THANKS */
 	FR Translator: Hydral, Jordan Nathan 
 	GitLab: https://gitlab.com/hydrasho
