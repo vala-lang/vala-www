@@ -198,6 +198,80 @@ page_not_found = "Chyba 404 - Stránka nenalezena"
 page_not_found_description = "Adresa URL může být chybně zadána nebo požadovaná stránka již neexistuje."
 go_home = "Přejít domů"
 
+[languages.fi]
+generate_feed = true
+build_search_index = false
+
+[languages.fi.translations]
+bypass_block = "Hyppää sisältöön"
+home = "Etusivu"
+about = "Tietoa meistä ja Valasta"
+blog = "Blogi"
+documentation = "Dokumentaatio"
+community = "Yhteisö"
+source_code = "Lähdekoodi"
+wiki = "Wiki"
+tagline = "Tuttu ja turvallinen tapa rakentaa sovelluksia"
+get_started = "Pääse alkuun"
+view_source_code = "Näytä lähdekoodi"
+why_vala = "Miksi juuri Vala?"
+
+productivity = "Tuottavuus"
+productivity_description = 'Kirjoita koodisi olioparadigmalla ja korkean tason abstraktioilla, silti hyödyntäen matalan tason integraatiota teknologioiden kuten <a href="https://www.gnome.org">GNOMEn</a>, <a href="https://docs.gtk.org/gobject/">GObject:in</a>, ja <a href="https://www.gtk.org">GTKn</a> sekä monien muiden kanssa!'
+
+performance = "Nopeus"
+performance_description = "Vala kääntyy erittäin nopeiksi, täysin natiiveiksi binääritiedostoiksi. Voit myös halutessasi käyttää olemassaolevaa C-koodia Vala-ohjelmissasi, ja kääntää Valaa C-koodiksi. Vala on siis täysin yhteensopiva C:n kanssa, molempiin suuntiin!"
+
+open_source = "Lähdekoodiltaan avoin"
+open_source_description = "Vala on täysin avointa ja ilmaista ohjelmistoa. Sillä on vahva yhteisö joka kehittää kääntäjää ja paljon, paljon työkaluja ohjelmointiympäristöön."
+tooling_documentation = "Työkalujen dokumentaatio"
+
+learn_more_about_vala = "Opi lisää Valasta"
+what_can_you_build = "Mitä voisit rakentaa?"
+
+gui_applications = "GUI-Sovelluksia"
+gui_applications_description = "Täydellinen yhteensopivuus GTKn, Libadwaitan ja Graniten kanssa tekee ohjelmistojen kehityksestä sietämättömän helppoa. Voit julkaista sovelluksesi Flathubissa ilman taakkaa lisääviä sotkuisia paketteja."
+gnome_tutorial = "GNOMEn aloitustutoriaali"
+elementary_tutorial = "ElementaryOS-sovellustutoriaali"
+
+command_line_programs = "Komentojono-ohjelmat"
+command_line_programs_description = "Suuri standardikirjasto mahdollistaa muiden laajojen kirjastojen avulla komentojono-ohjelmistojen kirjoittamisen helposti Valalla."
+
+libraries = "Kirjastot"
+libraries_description = "Luo rajapintoja ja API-dokumentaatiota muille kielille ilman mekaanista työtä. Sekä dynaamista että staattista linkitystä tuetaan."
+
+whats_new = "Mitä uutta?"
+view_blog = "Mene blogiin"
+
+showcase = "Galleria"
+view_more_vala_projects = "Näytä lisää Vala-projekteja"
+
+forums = "Keskustelupalstat"
+forums_description = "Kysy kysymyksiä Valaan liityen GNOMEn Discourse-foorumeilta 'vala'-tagin alta."
+discourse_forums = "Discourse-foorumit"
+
+internals_chat = "Sisäinen Chat"
+internals_chat_description = "Puhu kehittäjille tai kysy kysymyksiä siitä kuinka Valan kehitykseen voi osallistua Valan Matrix-kanavalla. IRC-siltausta tuetaan."
+matrix_room = "Matrix-huone"
+
+community_server = "Yhteisöpalvelin"
+community_server_description = "Liity yhteisöön tai Discord-palvelimelle."
+discord_server = "Discord-palvelin"
+
+social_media = "Sosiaalinen media"
+follow_vala_project = "Seuraa Vala-projektin etenemistä näillä alustoilla"
+made_by_vala_community = "Vala-yhteisön tekemää"
+view_website_source_code = "Näytä tämän sivun lähdekoodi"
+
+languages = "Kielet:"
+license_description = "Tämän työn lisenssi:"
+
+default_image_description = "Violetti tausta valkoisella tekstillä jossa lukee 'Vala'."
+
+page_not_found = "Oho, sivua ei löydetty (404). Mikä voisi olla vikana?"
+page_not_found_description = "Tarkista kirjoittamasi URL-osoite. Voi myös olla, että sivua ei ole enää olemassa."
+go_home = "Etusivulle"
+
 [languages.fr]
 generate_feed = true # there will be a feed for French content
 build_search_index = true
