@@ -212,7 +212,7 @@ community = "Yhteisö"
 source_code = "Lähdekoodi"
 wiki = "Wiki"
 tagline = "Tuttu ja turvallinen tapa rakentaa sovelluksia"
-get_started = "Pääse alkuun"
+get_started = "Aloitetaan"
 view_source_code = "Näytä lähdekoodi"
 why_vala = "Miksi juuri Vala?"
 
