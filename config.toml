@@ -204,14 +204,14 @@ build_search_index = true
 
 [languages.fr.translations]
 bypass_block = "Menu principal"
-home = "Home"
+home = "Accueil"
 about = "A propos"
 blog = "Blog"
 documentation = "Docs"
-community = "Community"
+community = "communauté"
 source_code = "Le code source"
 wiki = "Wiki"
-tagline = "A Familiar Way To Develop Applications"
+tagline = "Développer des applications de manière naturelle et efficace"
 get_started = "Commencer"
 view_source_code = "Afficher le code source"
 why_vala = "Pourquoi Vala?"
@@ -220,7 +220,7 @@ productivity = "Productivité"
 productivity_description = 'Écrivez confortablement votre code de manière orientée objet avec des abstractions de haut niveau, tout en ayant accès à des intégrations profondes avec les technologies <a href="https://www.gnome.org">GNOME</a> telles que : <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> et plus encore !'
 
 performance = "Performance"
-performance_description = "Vala compile le code jusqu'à des binaires entièrement natifs extrêmement rapides. Vous pouvez également réutiliser le code C existant dans vos programmes Vala ainsi que générer du code C à partir de Vala."
+performance_description = "Vala est un langage de programmation polyvalent qui permet de créer des programmes performants facilement. Il offre également la possibilité de réutiliser du code C existant et de générer du code C à partir de Vala."
 
 open_source = "Open-Source"
 open_source_description = "Vala est un logiciel gratuit et open-source. Il a une grande communauté qui contribue au compilateur et développe de nombreux outils."
@@ -251,7 +251,7 @@ forums_description = "Posez des questions relatives à Vala dans les forums GNOM
 discourse_forums = "Discourse Forums"
 
 internals_chat = "Internals Chat"
-internals_chat_description = "Parlez aux développeurs ou posez des questions sur la façon de contribuer à Vala, utilisez le canal Vala Matrix. Il dispose également d'un canal IRC."
+internals_chat_description = "Parlez aux développeurs ou posez des questions sur la façon de contribuer à Vala, Il dispose également d'un canal IRC."
 matrix_room = "Canal Matrix"
 
 community_server = "Serveur communautaire"
@@ -261,7 +261,7 @@ discord_server = "Discord Serveur"
 social_media = "Réseau sociaux"
 follow_vala_project = "Suivez le projet Vala sur ces plateformes"
 made_by_vala_community = "Site web communautaire"
-view_website_source_code = "Code souce du site"
+view_website_source_code = "Code source du site"
 
 languages = "Langues:"
 license_description = "Ce site est sous licence:"
