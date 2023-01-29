@@ -7,37 +7,37 @@
     "description": "The thoughtful, capable, and ethical replacement for Windows and macOS"
   },
   {
-    "name": "Akira",
+    "name": "Dino",
     "icon_path": "icons/showcase/akira.svg",
-    "url": "https://github.com/akiraux/Akira",
+    "url": "https://dino.im/",
     "screenshot_path": "/img/showcase/akira.png",
     "description": "Native Linux App for UI and UX Design built in Vala and GTK"
   },
   {
-    "name": "Frida",
+    "name": "Timeshift",
     "icon_path": "icons/showcase/frida.svg",
-    "url": "https://frida.re/",
+    "url": "https://github.com/linuxmint/timeshift",
     "screenshot_path": "/img/showcase/frida.png",
     "description": "Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers"
   },
   {
-    "name": "Highscore",
+    "name": "TextSnatcher",
     "icon_path": "icons/showcase/highscore.svg",
-    "url": "https://gitlab.gnome.org/World/highscore",
+    "url": "https://github.com/RajSolai/TextSnatcher",
     "screenshot_path": "/img/showcase/highscore.png",
     "description": "A painless way to browse and play your retro games library"
   },
   {
-    "name": "Haguichi",
+    "name": "GNOME Connections",
     "icon_path": "icons/showcase/haguichi.svg",
-    "url": "https://haguichi.net/",
+    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Connections/",
     "screenshot_path": "/img/showcase/haguichi.png",
     "description": "A graphical frontend for Hamachi on Linux"
   },
   {
-    "name": "Genesis Shell",
+    "name": "Monitor",
     "icon_path": "icons/showcase/genesis-shell.png",
-    "url": "https://github.com/ExpidusOS/genesis",
+    "url": "https://github.com/stsdc/monitor",
     "screenshot_path": "/img/showcase/genesis-shell.png",
     "description": "The modern desktop environment for everyone on anything"
   }
