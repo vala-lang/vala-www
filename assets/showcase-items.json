@@ -3,42 +3,42 @@
     "name": "elementary OS",
     "icon_path": "icons/showcase/elementary.svg",
     "url": "https://elementary.io/",
-    "screenshot_path": "/img/showcase/elementary-os.png",
+    "screenshot_path": "/img/showcase/elementary.png",
     "description": "The thoughtful, capable, and ethical replacement for Windows and macOS"
   },
   {
     "name": "Dino",
-    "icon_path": "icons/showcase/akira.svg",
+    "icon_path": "icons/showcase/dino.svg",
     "url": "https://dino.im/",
-    "screenshot_path": "/img/showcase/akira.png",
+    "screenshot_path": "/img/showcase/dino.png",
     "description": "Native Linux App for UI and UX Design built in Vala and GTK"
   },
   {
     "name": "Timeshift",
-    "icon_path": "icons/showcase/frida.svg",
+    "icon_path": "icons/showcase/timeshift.png",
     "url": "https://github.com/linuxmint/timeshift",
-    "screenshot_path": "/img/showcase/frida.png",
+    "screenshot_path": "/img/showcase/timeshift.png",
     "description": "Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers"
   },
   {
     "name": "TextSnatcher",
-    "icon_path": "icons/showcase/highscore.svg",
+    "icon_path": "icons/showcase/textsnatcher.svg",
     "url": "https://github.com/RajSolai/TextSnatcher",
-    "screenshot_path": "/img/showcase/highscore.png",
+    "screenshot_path": "/img/showcase/textsnatcher.png",
     "description": "A painless way to browse and play your retro games library"
   },
   {
     "name": "GNOME Connections",
-    "icon_path": "icons/showcase/haguichi.svg",
+    "icon_path": "icons/showcase/connections.svg",
     "url": "https://apps.gnome.org/en-GB/app/org.gnome.Connections/",
-    "screenshot_path": "/img/showcase/haguichi.png",
+    "screenshot_path": "/img/showcase/connections.png",
     "description": "A graphical frontend for Hamachi on Linux"
   },
   {
     "name": "Monitor",
-    "icon_path": "icons/showcase/genesis-shell.png",
+    "icon_path": "icons/showcase/monitor.svg",
     "url": "https://github.com/stsdc/monitor",
-    "screenshot_path": "/img/showcase/genesis-shell.png",
+    "screenshot_path": "/img/showcase/monitor.png",
     "description": "The modern desktop environment for everyone on anything"
   }
 ]
