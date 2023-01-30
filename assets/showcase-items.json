@@ -3,42 +3,42 @@
     "name": "elementary OS",
     "icon_path": "icons/showcase/elementary.svg",
     "url": "https://elementary.io/",
-    "screenshot_path": "/img/showcase/elementary-os.png",
+    "screenshot_path": "/img/showcase/elementary.png",
     "description": "The thoughtful, capable, and ethical replacement for Windows and macOS"
   },
   {
-    "name": "Akira",
-    "icon_path": "icons/showcase/akira.svg",
-    "url": "https://github.com/akiraux/Akira",
-    "screenshot_path": "/img/showcase/akira.png",
-    "description": "Native Linux App for UI and UX Design built in Vala and GTK"
+    "name": "Dino",
+    "icon_path": "icons/showcase/dino.svg",
+    "url": "https://dino.im/",
+    "screenshot_path": "/img/showcase/dino.png",
+    "description": "A modern open-source chat client for the desktop. Focuses on providing a clean and reliable Jabber/XMPP experience while having your privacy in mind."
   },
   {
-    "name": "Frida",
-    "icon_path": "icons/showcase/frida.svg",
-    "url": "https://frida.re/",
-    "screenshot_path": "/img/showcase/frida.png",
-    "description": "Dynamic instrumentation toolkit for developers, reverse-engineers, and security researchers"
+    "name": "Monitor",
+    "icon_path": "icons/showcase/monitor.svg",
+    "url": "https://github.com/stsdc/monitor",
+    "screenshot_path": "/img/showcase/monitor.png",
+    "description": "Manage processes and monitor system resources"
   },
   {
-    "name": "Highscore",
-    "icon_path": "icons/showcase/highscore.svg",
-    "url": "https://gitlab.gnome.org/World/highscore",
-    "screenshot_path": "/img/showcase/highscore.png",
-    "description": "A painless way to browse and play your retro games library"
+    "name": "GNOME Connections",
+    "icon_path": "icons/showcase/connections.svg",
+    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Connections/",
+    "screenshot_path": "/img/showcase/connections.png",
+    "description": "A remote desktop client for the GNOME desktop environment"
   },
   {
-    "name": "Haguichi",
-    "icon_path": "icons/showcase/haguichi.svg",
-    "url": "https://haguichi.net/",
-    "screenshot_path": "/img/showcase/haguichi.png",
-    "description": "A graphical frontend for Hamachi on Linux"
+    "name": "Timeshift",
+    "icon_path": "icons/showcase/timeshift.png",
+    "url": "https://github.com/linuxmint/timeshift",
+    "screenshot_path": "/img/showcase/timeshift.png",
+    "description": "System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots."
   },
   {
-    "name": "Genesis Shell",
-    "icon_path": "icons/showcase/genesis-shell.png",
-    "url": "https://github.com/ExpidusOS/genesis",
-    "screenshot_path": "/img/showcase/genesis-shell.png",
-    "description": "The modern desktop environment for everyone on anything"
+    "name": "TextSnatcher",
+    "icon_path": "icons/showcase/textsnatcher.svg",
+    "url": "https://github.com/RajSolai/TextSnatcher",
+    "screenshot_path": "/img/showcase/textsnatcher.png",
+    "description": "Copy Text from Images with ease, Perform OCR operations in seconds."
   }
 ]
