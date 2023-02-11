@@ -30,7 +30,7 @@
 - The rest of the site uses the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
-## Using Different Technolgies
+## Using Different Technologies
 
 The solution was picked for the website in order to achieve the [codebase goals](#codebase-goals).
 
