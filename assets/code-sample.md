@@ -1,10 +1,11 @@
 ```vala
+// main.vala
 int main (string[] args) {
   var app = new Gtk.Application(
     "com.example.App",
     ApplicationFlags.FLAGS_NONE
   );
-  
+
   app.activate.connect(() => {
     var win = new Gtk.ApplicationWindow(app);
 
@@ -15,5 +16,8 @@ int main (string[] args) {
     win.present();
   });
   return app.run(args);
-} 
+}
+
+// Compile command (requires gtk4 package to be installed):
+// valac --pkg gtk4 main.vala
 ```
