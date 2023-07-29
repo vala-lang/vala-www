@@ -6,11 +6,11 @@ You can contribute to the new documentation website here: https://gitlab.gnome.o
 
 ## Reporting bugs and requesting features
 
-Feel free to [create an new issue](https://github.com/vala-lang/vala-www/issues/new/choose) or [participate in an existing one](https://github.com/vala-lang/vala-www/issues)
+Feel free to [create a new issue](https://github.com/vala-lang/vala-www/issues/new/choose) or [participate in an existing one](https://github.com/vala-lang/vala-www/issues)
 
 ## System Requirements
 
-- [Zola](https://www.getzola.org) (Version 0.16.0 or higher)
+- [Zola](https://www.getzola.org) (Version 0.17.2 or higher)
 
 ## Getting started
 
@@ -20,7 +20,7 @@ First, start the development server:
 zola serve
 ```
 
-Then you should be able to access the wesbite on your browser by navigating to: [http://127.0.0.1:1111](http://127.0.0.1:1111).
+Then you should be able to access the website on your browser by navigating to: [http://127.0.0.1:1111](http://127.0.0.1:1111).
 
 You can edit the index page by modifying `templates/index.html`. The rest of the pages are defined in `content`.
 
@@ -30,15 +30,15 @@ You can edit the index page by modifying `templates/index.html`. The rest of the
 2. Work on the translations. The translation strings are in `config.toml`. You can use these resources for help:
    - https://www.getzola.org/documentation/content/multilingual/
    - https://www.getzola.org/documentation/templates/pages-sections/
-3. For markdown pages (pages in `/content` where the content is written in markdown), you need to create a new markdown file for the translated version e.g `page-name.{language_code}.md`.
+3. For markdown pages (pages in `/content` where the content is written in markdown), you need to create a new markdown file for the translated version e.g. `page-name.{language_code}.md`.
 4. Add your language to the `lang_map` macro in `templates/macros/body.html`
 5. Create a pull request with the changes you've made
 
 **Important Notes:**
 
-- You must translate the about page and the home page
-- To translate strings in `config.toml` phrase by phrase, copy and paste the original english translations then replace each phrase over time.
-- Feel free to ask for help. You can ask in the issue you created or in the [discussions page](https://www.github.com/vala-www/discussions).
+- You must translate the About page and the Home page
+- To translate strings in `config.toml` phrase by phrase, copy and paste the original English translations then replace each phrase over time.
+- Feel free to ask for help. You can ask in the issue you created or on the [discussions page](https://www.github.com/vala-www/discussions).
 
 ## Adding new blog posts
 
