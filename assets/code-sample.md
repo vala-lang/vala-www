@@ -3,25 +3,25 @@
 
 public class ExampleApp : Gtk.Application {
   public ExampleApp () {
-    Object(
+    Object (
       application_id: "com.example.App",
       flags: ApplicationFlags.DEFAULT_FLAGS
     );
   }
 
   public override void activate () {
-    var win = new Gtk.ApplicationWindow(this);
+    var win = new Gtk.ApplicationWindow (this);
 
-    var btn = new Gtk.Button.with_label("Hello World");
-    btn.clicked.connect(win.close);
+    var btn = new Gtk.Button.with_label ("Hello World");
+    btn.clicked.connect (win.close);
 
     win.child = btn;
-    win.present();
+    win.present ();
   }
 
   public static int main (string[] args) {
-    var app = new ExampleApp();
-    return app.run(args);
+    var app = new ExampleApp ();
+    return app.run (args);
   }
 }
 
