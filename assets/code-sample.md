@@ -3,8 +3,10 @@
 
 public class ExampleApp : Gtk.Application {
   public ExampleApp () {
-    application_id = "com.example.App";
-    flags = ApplicationFlags.DEFAULT_FLAGS;
+    Object(
+      application_id: "com.example.App",
+      flags: ApplicationFlags.DEFAULT_FLAGS
+    );
   }
 
   public override void activate () {
