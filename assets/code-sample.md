@@ -26,5 +26,5 @@ public class ExampleApp : Gtk.Application {
 }
 
 // Compile command (requires "glib-2.0" package on version 2.74 or higher and "gtk4" package to be installed):
-// valac --pkg gtk4 ExampleApp.vala
+// valac --target-glib=2.74 --pkg gtk4 ExampleApp.vala
 ```
