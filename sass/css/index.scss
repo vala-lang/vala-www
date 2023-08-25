@@ -15,10 +15,10 @@ main {
   padding-top: 10vh;
 }
 
-// main > pre,
-// main > pre + p {
-//   max-width: 45rem;
-// }
+main > pre,
+main > pre + p {
+  max-width: 45rem;
+}
 
 main > pre {
   position: relative;
