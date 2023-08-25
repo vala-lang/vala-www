@@ -29,7 +29,9 @@
 */
 .features dt {
   @extend h3;
+  margin-top: 0;
 }
+
 .features dt > div {
   display: flex;
   align-items: center;
