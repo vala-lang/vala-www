@@ -1,0 +1,22 @@
+<h2>{{ trans(key='current_versions', lang=lang) }}</h2>
+{{ trans(key='current_versions_text', lang=lang) }}
+<div>
+  <ul>
+    <li>
+      <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/{{ config.extra.versions.stable1 }}/NEWS">Vala {{ config.extra.versions.stable1 }}</a>
+      <a href="http://download.gnome.org/sources/vala/{{ config.extra.versions.stable1_major }}/vala-{{ config.extra.versions.stable1 }}.tar.xz">[src]</a>
+      (Stable Long-term Support)
+    </li>
+    <li>
+      <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/{{ config.extra.versions.stable2 }}/NEWS">Vala {{ config.extra.versions.stable2 }}</a>
+      <a href="http://download.gnome.org/sources/vala/{{ config.extra.versions.stable2_major }}/vala-{{ config.extra.versions.stable2 }}.tar.xz">[src]</a>
+      (Stable Long-term Support)
+    </li>
+    <li>
+      <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/{{ config.extra.versions.stable3 }}/NEWS">Vala {{ config.extra.versions.stable3 }}</a>
+      <a href="http://download.gnome.org/sources/vala/{{ config.extra.versions.stable3_major }}/vala-{{ config.extra.versions.stable3 }}.tar.xz">[src]</a>
+      (Stable Long-term Support)
+    </li>
+  </ul>
+</div>
+<a href="https://wiki.gnome.org/Projects/Vala/ValaPlatforms">{{ trans(key='install_how', lang=lang) }}</a>
