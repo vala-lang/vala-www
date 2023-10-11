@@ -120,6 +120,9 @@ go_home = "Go Home"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 # Additional languages definition
 # You can define language specific config values and translations:
@@ -204,6 +207,9 @@ go_home = "Přejít domů"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.fr]
 generate_feed = true # there will be a feed for French content
@@ -282,6 +288,9 @@ go_home = "Go Home"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.pt_BR]
 generate_feed = true # haverá um feed para o conteúdo em Português Brasileiro
@@ -360,6 +369,9 @@ go_home = "Ir para o Início"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.ru]
 generate_feed = true # there will be a feed for French content
@@ -438,6 +450,9 @@ go_home = "На главную"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.zh_CN]
 generate_feed = true # there will be a feed for Chinese content
@@ -519,6 +534,9 @@ go_home = "返回首页"
 current_versions = "Current Versions"
 install_how = "How to install"
 current_versions_text = "These are the versions currently available:"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [extra]
 # Put all your custom variables here
@@ -582,9 +600,6 @@ reddit = "https://www.reddit.com/r/vala"
 
 [extra.versions]
 
-stable1 = "0.56.13"
-stable1_major = "0.56"
-stable2 = "0.48.25"
-stable2_major = "0.48"
-stable3 = "0.40.25"
-stable3_major = "0.40"
+stable = "0.56.13"
+lts = "0.56.13"
+devel = "main"
