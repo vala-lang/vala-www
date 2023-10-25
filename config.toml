@@ -117,6 +117,11 @@ page_not_found = "Error 404 - Page Not Found"
 page_not_found_description = "The URL may be misspelled or the page you requested no longer exists."
 go_home = "Go Home"
 
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 # Additional languages definition
 # You can define language specific config values and translations:
@@ -198,6 +203,12 @@ page_not_found = "Chyba 404 - Stránka nenalezena"
 page_not_found_description = "Adresa URL může být chybně zadána nebo požadovaná stránka již neexistuje."
 go_home = "Přejít domů"
 
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
+
 [languages.fr]
 generate_feed = true # there will be a feed for French content
 build_search_index = true
@@ -271,6 +282,12 @@ default_image_description = "un fond violet avec du texte blanc centré c'est si
 page_not_found = "Erreur 404 - Page non trouvé"
 page_not_found_description = "la page que vous avez demandée n'existe plus."
 go_home = "Go Home"
+
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.pt_BR]
 generate_feed = true # haverá um feed para o conteúdo em Português Brasileiro
@@ -346,6 +363,11 @@ page_not_found = "Erro 404 - Página Não Encontrada"
 page_not_found_description = "A URL pode estar escrita errado ou a página solicitada pode não existir mais."
 go_home = "Ir para o Início"
 
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.ru]
 generate_feed = true # there will be a feed for French content
@@ -420,6 +442,12 @@ default_image_description = "Фиолетовый фон с белым текс�
 page_not_found = "Ошибка 404 - Страница Не Найдена"
 page_not_found_description = "Возможно, в URL-адресе допущена ошибка или запрошенная вами страница больше не существует."
 go_home = "На главную"
+
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
 
 [languages.zh_CN]
 generate_feed = true # there will be a feed for Chinese content
@@ -498,6 +526,12 @@ page_not_found = "404 错误 - 页面未找到"
 page_not_found_description = "网址可能拼写错误，或者访问了不存在的页面。"
 go_home = "返回首页"
 
+current_versions = "Current Versions"
+install_how = "How to install"
+stable = "Stable"
+stable_lts = "Stable Long-term Support"
+devel = "Development"
+
 [extra]
 # Put all your custom variables here
 
@@ -557,3 +591,9 @@ telegram = "https://t.me/vala_lang"
 twitter = "https://www.twitter.com/vala_lang"
 
 reddit = "https://www.reddit.com/r/vala"
+
+[extra.versions]
+
+stable = "0.56.13"
+lts = "0.56.13"
+devel = "main"

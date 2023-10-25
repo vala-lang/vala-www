@@ -1,0 +1,15 @@
+<h2>{{ trans(key='current_versions', lang=lang) }}</h2>
+<ul>
+  {% if config.extra.versions.stable != config.extra.versions.lts %}
+  <li>
+    <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/{{ config.extra.versions.stable }}/NEWS">Vala {{ config.extra.versions.stable }}</a> ({{ trans(key='stable', lang=lang) }})
+  </li>
+  {% endif %}
+  <li>
+    <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/{{ config.extra.versions.lts }}/NEWS">Vala {{ config.extra.versions.lts }}</a> ({{ trans(key='stable_lts', lang=lang) }})
+  </li>
+  <li>
+    <a href="https://gitlab.gnome.org/GNOME/vala/-/commits/main">Vala {{ config.extra.versions.devel }}</a> ({{ trans(key='devel', lang=lang) }})
+  </li>
+</ul>
+<a href="https://wiki.gnome.org/Projects/Vala/ValaPlatforms">{{ trans(key='install_how', lang=lang) }}</a>
