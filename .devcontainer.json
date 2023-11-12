@@ -1,6 +1,6 @@
 {
   "name": "Zola Dev Container",
-  "dockerFile": "Dockerfile",
+  "build": { "dockerFile": "Dockerfile" },
   "forwardPorts": [1111],
   "workspaceFolder": "/app",
   "mounts": ["source=.", "target=/app", "type=bind", "consistency=cached"],
