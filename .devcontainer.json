@@ -1,0 +1,9 @@
+{
+  "name": "Zola Dev Container",
+  "build": { "dockerFile": "Dockerfile" },
+  "forwardPorts": [1111],
+  "workspaceFolder": "/app",
+  "mounts": ["source=.", "target=/app", "type=bind", "consistency=cached"],
+  "appPort": [1111],
+  "remoteUser": "vscode"
+}
