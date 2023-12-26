@@ -80,7 +80,7 @@ gnome_tutorial = "GNOME Getting Started Tutorial"
 elementary_tutorial = "elementary OS App Tutorial"
 
 command_line_programs = "Command Line Programs"
-command_line_programs_description = "Use a large standard library and many third party libraries available for use in Vala."
+command_line_programs_description = "Use a large standard library and many third-party libraries available for use in Vala."
 
 libraries = "Libraries"
 libraries_description = "Provide bindings for many other languages and API documentation without manual work. Also, dynamic and static linking are both supported."
