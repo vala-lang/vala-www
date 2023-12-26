@@ -1,12 +1,11 @@
-# On every push this script is executed
-on: 
+on:
   push:
     branches: deploy
 name: Build and deploy GH Pages
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/deploy'
     steps:
       - name: checkout
         uses: actions/checkout@v2
