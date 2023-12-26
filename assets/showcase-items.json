@@ -1,10 +1,17 @@
 [
   {
-    "name": "elementary OS",
-    "icon_path": "icons/showcase/elementary.svg",
-    "url": "https://elementary.io/",
-    "screenshot_path": "/img/showcase/elementary.png",
-    "description": "The thoughtful, capable, and ethical replacement for Windows and macOS"
+    "name": "Tuba",
+    "icon_path": "icons/showcase/tuba.svg",
+    "url": "https://tuba.geopjr.dev/",
+    "screenshot_path": "/img/showcase/tuba.png",
+    "description": "Browse the Fediverse"
+  },
+  {
+    "name": "Workbench",
+    "icon_path": "icons/showcase/workbench.svg",
+    "url": "https://apps.gnome.org/en-GB/Workbench/",
+    "screenshot_path": "/img/showcase/workbench.png",
+    "description": "Learn and prototype with Vala and other GNOME technologies"
   },
   {
     "name": "Dino",
@@ -21,11 +28,11 @@
     "description": "Manage processes and monitor system resources"
   },
   {
-    "name": "GNOME Connections",
-    "icon_path": "icons/showcase/connections.svg",
-    "url": "https://apps.gnome.org/en-GB/app/org.gnome.Connections/",
-    "screenshot_path": "/img/showcase/connections.png",
-    "description": "A remote desktop client for the GNOME desktop environment"
+    "name": "TextSnatcher",
+    "icon_path": "icons/showcase/textsnatcher.svg",
+    "url": "https://github.com/RajSolai/TextSnatcher",
+    "screenshot_path": "/img/showcase/textsnatcher.png",
+    "description": "Copy Text from Images with ease, Perform OCR operations in seconds."
   },
   {
     "name": "Timeshift",
@@ -33,12 +40,5 @@
     "url": "https://github.com/linuxmint/timeshift",
     "screenshot_path": "/img/showcase/timeshift.png",
     "description": "System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots."
-  },
-  {
-    "name": "TextSnatcher",
-    "icon_path": "icons/showcase/textsnatcher.svg",
-    "url": "https://github.com/RajSolai/TextSnatcher",
-    "screenshot_path": "/img/showcase/textsnatcher.png",
-    "description": "Copy Text from Images with ease, Perform OCR operations in seconds."
   }
 ]
