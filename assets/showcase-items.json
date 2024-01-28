@@ -9,7 +9,7 @@
   {
     "name": "Workbench",
     "icon_path": "icons/showcase/workbench.svg",
-    "url": "https://apps.gnome.org/en-GB/Workbench/",
+    "url": "https://apps.gnome.org/Workbench/",
     "screenshot_path": "/img/showcase/workbench.png",
     "description": "Learn and prototype with Vala and other GNOME technologies"
   },
