@@ -5,7 +5,11 @@ public class ExampleApp : Gtk.Application {
   public ExampleApp () {
     Object (
       application_id: "com.example.App",
+#if GLIB_2_74
       flags: ApplicationFlags.DEFAULT_FLAGS
+#else
+      flags: ApplicationFlags.FLAGS_NONE
+#endif
     );
   }
 
@@ -25,6 +29,6 @@ public class ExampleApp : Gtk.Application {
   }
 }
 
-// Compile command (requires "glib-2.0" package on version 2.74 or higher and "gtk4" package to be installed):
-// valac --target-glib=2.74 --pkg gtk4 ExampleApp.vala
+// Compile command (requires gtk4 package to be installed):
+// valac --target-glib=auto --pkg gtk4 ExampleApp.vala
 ```
