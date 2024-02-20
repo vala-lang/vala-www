@@ -3,14 +3,7 @@
 
 public class ExampleApp : Gtk.Application {
   public ExampleApp () {
-    Object (
-      application_id: "com.example.App",
-#if GLIB_2_74
-      flags: ApplicationFlags.DEFAULT_FLAGS
-#else
-      flags: ApplicationFlags.FLAGS_NONE
-#endif
-    );
+    Object (application_id: "com.example.App");
   }
 
   public override void activate () {
