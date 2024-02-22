@@ -23,5 +23,5 @@ public class ExampleApp : Gtk.Application {
 }
 
 // Compile command (requires gtk4 package to be installed):
-// valac --target-glib=auto --pkg gtk4 ExampleApp.vala
+// valac --pkg gtk4 ExampleApp.vala
 ```
