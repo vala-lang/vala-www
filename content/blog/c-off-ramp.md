@@ -187,16 +187,7 @@ I had a number of particular challenges. Some of them may be relevant to other d
 
 ##### `config.h`
 
-Like any Autoconf-based build system, mine produce a `config.h` header of various `#define`d symbols, some of which my C code uses. These I simply replicate in a `Config` module, following a pattern by Jürg Billeter, one of the original authors of Vala:
-
-```vala
-[CCode (cprefix = "", lower_case_cprefix = "", cheader_filename = "config.h")]
-namespace Config {
-    public const string PACKAGE;
-    public const string PACKAGE_NAME;
-    // more constants …
-}
-```
+Like any Autoconf-based build system, mine produce a `config.h` header of various `#define`d symbols, some of which my C code uses. These I simply replicate in a [`Config` module](https://gitlab.gnome.org/GNOME/vala/-/blob/main/vapi/config.vapi)
 
 One could imagine generating this automatically from `config.h`, but since I didn’t need more than a handful of values in my projects, I didn’t bother.
 
