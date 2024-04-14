@@ -62,6 +62,41 @@ Any time you touch code you can introduce bugs, of course: the slightest adjustm
 
 The good news here is that because Vala is so close to C, it is relatively easy to translate code without introducing new bugs. The syntax is sufficiently similar that code can be easily translated with some search and replace (e.g. `NULL` in C becomes `null` in Vala) plus light editing (e.g. adding missing comparisons in conditions to make them boolean, so that `if (ptr)` in C becomes `if (ptr != null)` in Vala). C APIs can be used directly via Vala bindings, and C data structures can be replicated precisely. Vala’s static typing also helps.
 
+Here’s an example of a struct in C from Zile:
+
+```c
+struct Region
+{
+#define FIELD(ty, name) ty name;
+#include "region.h"
+#undef FIELD
+};
+
+#define FIELD(ty, field)                  \
+  GETTER (Region, region, ty, field)      \
+  SETTER (Region, region, ty, field)
+
+#include "region.h"
+#undef FIELD
+```
+
+The file `region.h` contained:
+
+```c
+FIELD(size_t, start)
+FIELD(size_t, end)
+```
+
+Here’s the translation into Vala:
+
+```vala
+public class Region {
+    public size_t start { get; set; }
+    public size_t end { get; set; }
+    // …methods go here
+}
+```
+
 Compare and contrast: around 2009, I translated Zile into [Lua](https://www.lua.org). I completed the translation, but I did not release it, as I found that Lua’s lack of static type-checking made it too easy to introduce new bugs. While I was translating it I was forever finding off-by-one errors caused by Lua counting arrays and string positions from 1, while C is 0-based (as is Vala, of course). Don’t get me wrong: Lua is a great language; indeed, I have successfully written other, smaller programs from C into Lua, though I wouldn’t now recommend that; its strengths lie elsewhere.
 
 With Vala, I recommend making the initial translation as “light” as possible: don’t use lots of Vala’s features to rewrite code. Translate `char *` pointers to string offsets (that is, an integer string index). Make sure the translated code works first, then start simplifying. Even the “light” translation will contain simplifications, anyway: no more `malloc` or `free`, for example.
