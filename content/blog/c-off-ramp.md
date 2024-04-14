@@ -23,7 +23,7 @@ Further, Vala can *implement* C APIs just as well as it can *consume* them.
 
 Why would you want to do that? I have three answers for you. Firstly, maintaining a typical C code-base is a horrible experience. I just wanted to not have more memory management errors, especially to do with strings (which both Zile and Enchant are big on). It’s so easy to corrupt memory, to get lifetimes wrong, or simply get the wrong answer with C’s primitive string manipulation routines.
 
-Secondly, implementing an existing C API in Vala gives an easier-to-maintain codebase that can be used by existing consumers, which need not be C programs: they can be Python, C++ or, of course, Vala!
+Secondly, implementing an existing C API in Vala gives an easier-to-maintain codebase that can be used by existing consumers, which don’t need to be C programs: they can be written in Python, Rust, JavaScript or, of course, Vala!
 
 Thirdly, and perhaps less obviously, you can use this ability to rewrite a C program in Vala incrementally, one module (say) at a time. The result is a pure Vala application (no C APIs are being implemented), but at each step one has a complete working application, partly written in C and partly in Vala; and where C needs to call Vala, the Vala must implement C APIs.
 
