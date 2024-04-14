@@ -14,7 +14,7 @@ Vala works well with C—that’s one of its primary features and design choices
 
 Vala is designed to work well with C, and a nice consequence of this is that often one doesn’t have to think about C at all, because so many useful libraries are already conveniently bound to Vala “out of the box”. It’s impressive the degree to which some of Vala’s basic abilities, such as its “built-in” container types are “just” clever binding of GLib functions plus some syntactic sugar.
 
-But Vala’s binding abilities are very powerful: it’s not just GLib and GObject APIs that it can bind successfully; it can bind almost any C API. I will show some examples that test its limits below.
+But Vala’s binding abilities are very powerful: it’s not just GLib and GObject APIs that it can bind successfully; it can bind almost any C API. Later I will also show some examples that test its limits.
 
 And, what Vala can bind to be called from Vala it can provide for other code to call: that is, it can *implement* C APIs as well as *consume* them.
 
