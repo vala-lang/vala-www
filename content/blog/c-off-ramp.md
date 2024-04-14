@@ -155,6 +155,32 @@ For me, this is particularly relevant to Enchant, as a C library whose API and A
 
 Another area of awkwardness is strings: as I hinted above, C often uses pointers to refer to string positions, whereas in Vala it’s usual to use integer offsets. This code is fairly easy to convert once you get the hang of it. Since C *can* use offsets instead of pointers, you can always rewrite the code in two stages, first changing the C to use offsets, and then translating it into Vala.
 
+Here’s an example of the translation from pointers in C to offsets in Vala. The C version refers to positions in strings with pointers:
+
+```c
+char * enchant_iso_639_from_tag (const char * const dict_tag) {
+    char * new_tag = strdup (dict_tag);
+    if (new_tag == NULL)
+        return NULL;
+    char * needle = strchr (new_tag, '_');
+
+    if (needle != NULL)
+        *needle = '\0';
+
+    return new_tag;
+}
+```
+
+In Vala, we use string offsets:
+
+```vala
+static string iso_639_from_tag(string dict_tag) {
+    return dict_tag.substring(0, dict_tag.index_of_char('_'));
+}
+```
+
+The comparison here is perhaps obscured by the simplification obtained in Vala from automatic memory management, which is nothing to do with string handling *per se*.
+
 #### Binding challenges
 
 I had a number of particular challenges. Some of them may be relevant to other developers, but I detail them here mostly to illustrate that Vala can bind just about anything if you try!
@@ -254,4 +280,5 @@ You are always invited to join our matrix chat [#vala:gnome.org](https://matrix.
 <!--  LocalWords:  ArrayList int getopt freopen FileStream putc valac Jürg
 <!--  LocalWords:  config Billeter malloc vala CCode cheader cname newpath
 <!--  LocalWords:  malloced Vala's strdup val un strfreev Mingw64 i686 vapi
-<!--  LocalWords:  ssize gsize posix gimpnet -->
+<!--  LocalWords:  ssize gsize posix gimpnet se
+-->
