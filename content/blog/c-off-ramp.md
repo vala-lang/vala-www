@@ -92,7 +92,7 @@ With Autotools, this is a matter of adding a couple of `configure.ac` lines to d
 
 ### Translating the code
 
-I typically translate one file at a time. The code will of course usually call functions from other parts of the program: I add a private VAPI file with suitable bindings. You can usefully pre-populate the VAPI file with the commented-out contents of relevant C header files, then just uncomment the APIs you need in Vala, and edit them suitably. The excellent [Manual bindings](https://wiki.gnome.org/Projects/Vala/ManualBindings) guide from the GNOME Wiki is my constant companion.
+I typically translate one file at a time. The code will of course usually call functions from other parts of the program: I add a private VAPI file with suitable bindings. You can usefully pre-populate the VAPI file with the commented-out contents of relevant C header files, then just uncomment the APIs you need in Vala, and edit them suitably. The excellent [Manual bindings](https://wiki.gnome.org/Projects/Vala/ManualBindings) guide from the Wiki is my constant companion.
 
 To translate a file, I copy `foo.c` to `foo_vala.vala`. (The `_vala` bit ensures that the Vala-generated C won’t overwrite the original file, which I will keep for reference.) I translate the code, possibly in multiple steps, commenting out the bits I have translated in `foo.c`.
 
