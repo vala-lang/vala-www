@@ -25,7 +25,7 @@ Why would you want to do that? I have three answers for you. Firstly, maintainin
 
 Secondly, implementing an existing C API in Vala gives an easier-to-maintain codebase that can be used by existing consumers, which don’t need to be C programs: they can be written in Python, Rust, JavaScript or, of course, Vala!
 
-Thirdly, and perhaps less obviously, you can use this ability to rewrite a C program in Vala incrementally, one module (say) at a time. The result is a pure Vala application (no C APIs are being implemented), but at each step one has a complete working application, partly written in C and partly in Vala; and where C needs to call Vala, the Vala must implement C APIs.
+Thirdly, and perhaps less obviously, you can use this ability to rewrite a C program in Vala incrementally, one module (say) at a time. The result is a pure Vala application (no C APIs are being implemented), but at each step one has a complete working application, partly written in C and partly in Vala; and where C needs to call Vala, the Vala code must implement the right C APIs.
 
 Over the last couple of years, I have rewritten two small–to–medium-sized C
 code bases in Vala: the minimal Emacs clone [GNU Zile](https://www.gnu.org/software/zile) and the spell-checking meta-library [Enchant](https://abiword.github.io/enchant/), which has been used by GNOME for years, most recently by [libspelling](https://gitlab.gnome.org/GNOME/libspelling).
