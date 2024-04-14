@@ -7,7 +7,14 @@ description="Using Vala to rewrite old C code"
 authors = ["Reuben Thomas"]
 +++
 
-Vala works well with C—that’s one of its primary features and design choices. But these abilities can be used for another purpose: in this post I will show how Vala can be used as a “smooth off-ramp” for C, converting old code step-by-step to more-maintainable Vala, without an “all or nothing” rewrite, and with the ability to reimplement C libraries in Vala, so that existing C code can still call them.
+Hi! I’m Reuben, a long-time free software maintainer and author. One of my specialities is taking on mature projects from their original authors and maintaining them long-term.
+
+In this post, I want to talk about how I’ve rewritten entire projects in Vala, to make them easier, more productive and more fun to maintain.
+
+Vala works well with C—that’s one of its primary features and design choices. But these abilities can be used for another purpose: to provide a “smooth off-ramp” for C, converting old code step-by-step to more-maintainable Vala, without an “all or nothing” rewrite, and with the ability to reimplement C libraries in Vala, so that existing C code can still call them.
+
+Over the few years, I have rewritten two small–to–medium-sized C
+code bases in Vala: the minimal Emacs clone [GNU Zile](https://www.gnu.org/software/zile) and the spell-checking meta-library [Enchant](https://abiword.github.io/enchant/), which has been used by GNOME for years, most recently by [libspelling](https://gitlab.gnome.org/GNOME/libspelling), which provides spell-checking in the [GNOME Text Editor](https://apps.gnome.org/TextEditor/). In the rest of this post, I’ll focus on the challenges I faced doing these rewrites, how Vala helped me, and discuss whether such a drastic move (of rewriting entire code bases) was in fact a good idea.
 
 
 ## Vala is good at talking to C
@@ -21,17 +28,14 @@ Further, Vala can *implement* C APIs just as well as it can *consume* them.
 
 ## Allowing C to talk back
 
-Why would you want to do that? I have three answers for you. Firstly, maintaining a typical C code-base is a horrible experience. I just wanted to not have more memory management errors, especially to do with strings (which both Zile and Enchant are big on). It’s so easy to corrupt memory, to get lifetimes wrong, or simply get the wrong answer with C’s primitive string manipulation routines.
+Why would you want to implement C APIs in Vala? I have three answers for you. Firstly, maintaining a typical C code-base is a horrible experience. I just wanted to not have more memory management errors, especially to do with strings (which both Zile and Enchant are big on). It’s so easy to corrupt memory, to get lifetimes wrong, or simply get the wrong answer with C’s primitive string manipulation routines.
 
 Secondly, implementing an existing C API in Vala gives an easier-to-maintain codebase that can be used by existing consumers, which don’t need to be C programs: they can be written in Python, Rust, JavaScript or, of course, Vala!
 
 Thirdly, and perhaps less obviously, you can use this ability to rewrite a C program in Vala incrementally, one module (say) at a time. The result is a pure Vala application (no C APIs are being implemented), but at each step one has a complete working application, partly written in C and partly in Vala; and where C needs to call Vala, the Vala code must implement the right C APIs.
 
-Over the last couple of years, I have rewritten two small–to–medium-sized C
-code bases in Vala: the minimal Emacs clone [GNU Zile](https://www.gnu.org/software/zile) and the spell-checking meta-library [Enchant](https://abiword.github.io/enchant/), which has been used by GNOME for years, most recently by [libspelling](https://gitlab.gnome.org/GNOME/libspelling).
 
-
-## Why do this?
+## Before we start, a sanity check
 
 I’m talking about rewriting mature code-bases. Zile dates from the late 1990s, and I rewrote it into Vala in 2020. Enchant was written starting around 2003, and I rewrote it in Vala this week (in 2024). So:
 
@@ -52,7 +56,7 @@ GNU Zile was about 8,000 lines of C, and that took me about a month.
 
 ## Avoiding a plague of new bugs
 
-### Vala is well-matched to C
+### Vala is well matched to C
 
 Any time you touch code you can introduce bugs, of course: the slightest adjustment can be risky. How much more so rewriting in another language?
 
