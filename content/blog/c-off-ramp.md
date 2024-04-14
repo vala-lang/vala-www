@@ -202,7 +202,7 @@ For Enchant, it’s too early to say. It’s a much more widely-used package, an
 
 ## Is this a good idea?
 
-My projects are old-school: highly portable, low-level C. This is not an area that Vala is particularly aimed at, although it does pretty well here. For projects that are firmly in the GLib world, and especially when they use related libraries such as Gtk, rewriting C in Vala seems a no-brainer to me. 
+My projects are old-school: highly portable, low-level C. This is not an area that Vala is particularly aimed at, although it does pretty well here. For projects that are firmly in the GLib world, and especially when they use related libraries such as Gtk, rewriting C in Vala seems an excellent option to me. 
 
 While I completely rewrote my projects before releasing them, I think I’ve shown there’s no need to do that. When I rewrote Zile in Lua, the intermediate steps had horrible performance, because the Lua/C interface I used was very inefficient (Lua has an efficient-but-complex C API; I chose to use some simple-but-slow home-grown macros instead). When I rewrote Zile in C, the performance was much the same at every stage of the process, and I could easily have translated just half of the code and released the project. Many projects, particularly larger ones, might benefit from such an approach.
 
