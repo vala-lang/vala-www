@@ -1,6 +1,6 @@
 +++
 title = "Vala: the smoothest C off-ramp"
-date = "2024-04-13"
+date = "2024-04-22"
 description="Using Vala to rewrite old C code"
 
 [extra]
