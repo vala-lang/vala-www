@@ -594,6 +594,6 @@ reddit = "https://www.reddit.com/r/vala"
 
 [extra.versions]
 
-stable = "0.56.13"
-lts = "0.56.13"
+stable = "0.56.17"
+lts = "0.56.17"
 devel = "main"
