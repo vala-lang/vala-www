@@ -35,14 +35,14 @@ I then used Llama3 to create logical and predictable "holes" in each segment, wh
 This data preparation process took 96 hours of GPU time, utilizing 2 RX6800 cards over a weekend. 
 The resulting dataset was cleaned to remove non-code elements, such as license headers, and personal identifiable information like names and email addresses.
 
-The Training:
+# The Training
 
 The fine-tuning process took 10 hours on an RTX 3090, resulting in a model specifically tailored to Vala and popular libraries like Gee and Gtk.
 
-The Result:
+# The Result
 
 The outcome was a model that is more helpful and productive for Vala-related projects, building upon the foundations laid by GitHub Copilot. By fine-tuning Deepseek Coder, I was able to create a more accurate and effective AI coding assistant that understands the nuances of the Vala programming language.
 
-Conclusion:
+# Conclusion
 
 In this post, I shared my experience fine-tuning Deepseek Coder for Vala, demonstrating how targeted fine-tuning can enhance the Copilot concept. This project highlights the potential of AI fine-tuning for creating more effective coding assistants, and I hope it will inspire others to explore the possibilities of AI-assisted coding.
