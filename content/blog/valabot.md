@@ -1,6 +1,6 @@
 +++
 title = "ValaBot: an AI coding assistant fine-tuned for Vala"
-date = "2024-05-01"
+date = "2024-05-09"
 description="An AI coding assistant fine-tuned for Vala and Gtk"
 
 [extra]
