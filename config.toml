@@ -96,7 +96,7 @@ forums_description = "Ask questions related to Vala in the GNOME Discourse forum
 discourse_forums = "Discourse Forums"
 
 internals_chat = "Internals Chat"
-internals_chat_description = "Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel. It also has a IRC bridge."
+internals_chat_description = "Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel."
 matrix_room = "Matrix Room"
 
 community_server = "Community Server"
