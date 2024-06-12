@@ -1,0 +1,35 @@
+/* TEAM */
+	Project Lead: Colin Kiama
+	Contact: colinkiama [at] gmail.com
+	Twitter: @colinkiama
+	GitHub: @colinkiama
+
+	Designer: Radjeep Signha
+	Contact: rajdeepsingha [at] icloud.com
+	Mastodon: @Suzie97@mastodon.social
+
+/* THANKS */
+	FR Translator: Hydral, Jordan Nathan 
+	GitLab: https://gitlab.com/hydrasho
+  
+	CS Translator: Vojtěch Perník
+	GitLab: https://gitlab.com/pervoj
+  
+  RU Translator: Neagiry, Ivan Repyakh
+	Discord: KanaSenpai#2026
+	Telegram: @neagiry
+  
+  PT_BR Translator: Cárlisson Galdino
+  Github: @carlisson
+  
+  Code Contributor: Marko Sivrić (Marki)
+  Contact: markosivric3 [at] gmail.com
+  Github: @Marki2019
+  Twitter: @marki2019
+  From: Čapljina, Bosnia & Herzegovina
+
+/* SITE */
+	Last update: 2022/09/17
+	Language: English / French / Russian / Czech
+	Doctype: HTML5
+	IDE: Sublime Text, Visual Studio Code, Vim, Figma 
