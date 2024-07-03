@@ -564,7 +564,7 @@ vala_language_server = "https://github.com/vala-lang/vala-language-server"
 
 vala_lint = "https://github.com/vala-lang/vala-lint"
 
-valadoc = "https://wiki.gnome.org/Projects/Valadoc"
+valadoc = "https://docs.vala.dev/"
 
 gnome_builder = "https://apps.gnome.org/en-GB/app/org.gnome.Builder/"
 
