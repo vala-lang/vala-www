@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7239b3">
+  <link rel="stylesheet" href="https://vala.dev/css/global.css">
+  
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://vala.dev/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://vala.dev/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://vala.dev/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://vala.dev/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://vala.dev/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://vala.dev/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://vala.dev/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://vala.dev/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vala.dev/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://vala.dev/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vala.dev/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://vala.dev/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vala.dev/favicon-16x16.png">
+  <link type="text/plain" rel="author" href="https://vala.dev/humans.txt">
+  <link rel="manifest" href="https://vala.dev/manifest.json">
+  <meta name="msapplication-TileColor" content="#a56de2">
+  <meta name="msapplication-TileImage" content="https://vala.dev/ms-icon-144x144.png">
+  
+  
+   <link rel="alternate" type="application/atom+xml" title="Vala - Feed" href="https://vala.dev/atom.xml">
+  
+  
+  
+<title>Vala: the smoothest C off-ramp</title>
+
+  
+  
+  <meta name="description" content="Using Vala to rewrite old C code">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vala_lang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vala: the smoothest C off-ramp">
+  <meta property="og:description" content="Using Vala to rewrite old C code">
+  <meta property="og:url" content="https://vala.dev/blog/c-off-ramp/">
+  <meta property="og:site_name" content="Vala">
+    
+  
+  <meta property="og:image" content="https://vala.dev/img/vala-hero-wide.png">
+
+
+  
+    <meta property="article:published_time" content="2024-04-22">
+  
+
+  
+
+  
+  
+  <meta property="article:section" content="Blog">
+
+<link rel="stylesheet" href="https://vala.dev/css/blog-post.css">
+
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+
+  
+    
+  
+
+  
+
+  <header>
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="https://vala.dev">
+            
+<svg version="1.1" viewBox="0 0 7.9685 3.1998" xmlns="http://www.w3.org/2000/svg">
+ <title>Home</title>
+ <g transform="translate(-17.82 -13.53)">
+  <g stroke-width=".26458">
+   <path d="m18.913 16.705-0.06821-2.8918q-0.29766 0.11162-0.46509 0.34933-0.16536 0.23771-0.16536 0.59118 0 0.17156 0.04754 0.25838 0.01034 0.01654 0.01034 0.02894-0.339 0-0.42375-0.21704-0.02894-0.07855-0.02894-0.1943 0-0.21291 0.13229-0.40928 0.13436-0.19844 0.3452-0.3514 0.48162-0.339 1.0087-0.339 0.08682 0 0.1695 0.0083l0.03721 2.6045 0.8909-2.5921h0.29559l-1.1762 3.1543z"/>
+   <path d="m22.804 15.946q-0.26872 0.78341-0.84956 0.78341-0.37414 0-0.41548-0.38861-0.27698 0.38861-0.64699 0.38861-0.36794 0-0.50023-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.13643 0 0.1819 0.17363 0.1819 0.22531 0 0.34313-0.39894zm-1.0666-0.95498q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+   <path d="m23.934 15.946q-0.27285 0.78341-0.91157 0.78341-0.16743 0-0.29972-0.11989-0.13022-0.11989-0.13022-0.38654 0-0.11989 0.03307-0.27698l0.45269-2.1208 0.62632-0.08475-0.48576 2.2862q-0.01654 0.07648-0.01654 0.1509 0 0.14263 0.17157 0.14263 0.12402 0 0.22944-0.10749 0.10749-0.10749 0.15296-0.26665z"/>
+   <path d="m24.896 16.337q-0.26252 0.39274-0.63872 0.39274-0.3762 0-0.5085-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.14883 0 0.14469 0.17363 0.14469 0.05581 0 0.09302-0.0186-0.08888 0.23771-0.1509 0.30799-0.10955 0.11989-0.27905 0.11989-0.16743 0-0.27492-0.10129-0.10749-0.10335-0.13229-0.29146zm0.19844-1.3457q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+  </g>
+ </g>
+</svg>
+
+          </a>
+        </div>
+        <ul>
+          <li><a href="https://vala.dev/about/">About</a></li>
+            <li><a href="https:&#x2F;&#x2F;docs.vala.dev">Docs</a></li>
+            <li><a href="https://vala.dev#community">Community</a></li>
+            <li><a href="https://vala.dev/blog/">Blog</a></li>
+            <li><a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Source Code</a></li>
+        </ul>
+        <button aria-label="Menu" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html" class="navbar-button">Get Started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  
+
+  <div class="container">
+    <main id="main-content">
+      
+<article class="blog-post">
+  <header>
+    <h1>Vala: the smoothest C off-ramp</h1>
+    <p>Using Vala to rewrite old C code</p>
+    <span>
+  
+    
+      Reuben Thomas
+  
+</span>
+    <time datetime="2024-04-22">2024-04-22</time>
+    <a href="https://vala.dev/blog/">Blog</a>
+  </header>
+  <p>Hi! I’m Reuben, a long-time free software maintainer and author. One of my specialities is taking on mature projects from their original authors and maintaining them long-term.</p>
+<p>In this post, I want to talk about how I’ve rewritten entire projects in Vala, to make them easier, more productive and more fun to maintain.</p>
+<p>Vala works well with C—that’s one of its primary features and design choices. But these abilities can be used for another purpose: to provide a “smooth off-ramp” for C, converting old code step-by-step to more-maintainable Vala, without an “all or nothing” rewrite, and with the ability to reimplement C libraries in Vala, so that existing C code can still call them.</p>
+<p>Over the few years, I have rewritten two small–to–medium-sized C
+code bases in Vala: the minimal Emacs clone <a href="https://www.gnu.org/software/zile">GNU Zile</a> and the spell-checking meta-library <a href="https://abiword.github.io/enchant/">Enchant</a>, which has been used by GNOME for years, most recently by <a href="https://gitlab.gnome.org/GNOME/libspelling">libspelling</a>, which provides spell-checking in the <a href="https://apps.gnome.org/TextEditor/">GNOME Text Editor</a>. In the rest of this post, I’ll focus on the challenges I faced doing these rewrites, how Vala helped me, and discuss whether such a drastic move (of rewriting entire code bases) was in fact a good idea.</p>
+<h2 id="vala-is-good-at-talking-to-c">Vala is good at talking to C<a class="zola-anchor" href="#vala-is-good-at-talking-to-c" aria-label="Anchor link for: vala-is-good-at-talking-to-c">#</a>
+</h2>
+<p>Vala is designed to work well with C, and a nice consequence of this is that often one doesn’t have to think about C at all, because so many useful libraries are already conveniently bound to Vala “out of the box”. It’s impressive the degree to which some of Vala’s basic abilities, such as its “built-in” container types are “just” clever binding of GLib functions plus some syntactic sugar.</p>
+<p>But Vala’s binding abilities are very powerful: it’s not just GLib and GObject APIs that it can bind successfully; it can bind almost any C API. Later I will also show some examples that test its limits.</p>
+<p>Further, Vala can <em>implement</em> C APIs just as well as it can <em>consume</em> them.</p>
+<h2 id="allowing-c-to-talk-back">Allowing C to talk back<a class="zola-anchor" href="#allowing-c-to-talk-back" aria-label="Anchor link for: allowing-c-to-talk-back">#</a>
+</h2>
+<p>Why would you want to implement C APIs in Vala? I have three answers for you. Firstly, maintaining a typical C code-base is a horrible experience. I just wanted to not have more memory management errors, especially to do with strings (which both Zile and Enchant are big on). It’s so easy to corrupt memory, to get lifetimes wrong, or simply get the wrong answer with C’s primitive string manipulation routines.</p>
+<p>Secondly, implementing an existing C API in Vala gives an easier-to-maintain codebase that can be used by existing consumers, which don’t need to be C programs: they can be written in Python, Rust, JavaScript or, of course, Vala!</p>
+<p>Thirdly, and perhaps less obviously, you can use this ability to rewrite a C program in Vala incrementally, one module (say) at a time. The result is a pure Vala application (no C APIs are being implemented), but at each step one has a complete working application, partly written in C and partly in Vala; and where C needs to call Vala, the Vala code must implement the right C APIs.</p>
+<h2 id="before-we-start-a-sanity-check">Before we start, a sanity check<a class="zola-anchor" href="#before-we-start-a-sanity-check" aria-label="Anchor link for: before-we-start-a-sanity-check">#</a>
+</h2>
+<p>I’m talking about rewriting mature code-bases. Zile dates from the late 1990s, and I rewrote it into Vala in 2020. Enchant was written starting around 2003, and I rewrote it in Vala this week (in 2024). So:</p>
+<ul>
+<li>Isn’t that an awful lot of work?</li>
+<li>Won’t it introduce lots of new bugs?</li>
+</ul>
+<p>In other words, is it worth it? Or am I just being quixotic?</p>
+<h2 id="it-s-not-that-hard">It’s not that hard<a class="zola-anchor" href="#it-s-not-that-hard" aria-label="Anchor link for: it-s-not-that-hard">#</a>
+</h2>
+<p>As I said above, I rewrote Enchant in Vala this week. Actually, that’s not quite true: I rewrote the core, about 2,000 lines of C. Enchant is, as I said above, a meta-library: that is, it doesn’t do spell-checking itself, but delegates to a number of libraries that do. Each one needs an adaptor plugin, which Enchant calls a “provider”, and these providers are written in C, C++ and even Objective C. I haven’t touched those (yet!).</p>
+<p>But still, 2,000 lines of code in a week is not bad.</p>
+<p>GNU Zile was about 8,000 lines of C, and that took me about a month.</p>
+<h2 id="avoiding-a-plague-of-new-bugs">Avoiding a plague of new bugs<a class="zola-anchor" href="#avoiding-a-plague-of-new-bugs" aria-label="Anchor link for: avoiding-a-plague-of-new-bugs">#</a>
+</h2>
+<h3 id="vala-is-well-matched-to-c">Vala is well matched to C<a class="zola-anchor" href="#vala-is-well-matched-to-c" aria-label="Anchor link for: vala-is-well-matched-to-c">#</a>
+</h3>
+<p>Any time you touch code you can introduce bugs, of course: the slightest adjustment can be risky. How much more so rewriting in another language?</p>
+<p>The good news here is that because Vala is so close to C, it is relatively easy to translate code without introducing new bugs. The syntax is sufficiently similar that code can be easily translated with some search and replace (e.g. <code>NULL</code> in C becomes <code>null</code> in Vala) plus light editing (e.g. adding missing comparisons in conditions to make them boolean, so that <code>if (ptr)</code> in C becomes <code>if (ptr != null)</code> in Vala). C APIs can be used directly via Vala bindings, and C data structures can be replicated precisely. Vala’s static typing also helps.</p>
+<p>Here’s an example of a struct in C from Zile:</p>
+<pre data-lang="c" class="language-c z-code"><code class="language-c" data-lang="c"><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-storage z-type z-c">struct</span> <span class="z-meta z-struct z-c"><span class="z-entity z-name z-struct z-c">Region</span></span></span><span class="z-meta z-struct z-c">
+</span></span><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"><span class="z-punctuation z-section z-block z-begin z-c">{</span></span></span><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c">
+</span></span></span><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"><span class="z-meta z-preprocessor z-macro z-c"><span class="z-keyword z-control z-import z-define z-c">#define</span></span><span class="z-meta z-preprocessor z-macro z-c"> <span class="z-entity z-name z-function z-preprocessor z-c">FIELD</span></span><span class="z-meta z-preprocessor z-macro z-parameters z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span><span class="z-variable z-parameter z-c">ty</span><span class="z-punctuation z-separator z-c">,</span> <span class="z-variable z-parameter z-c">name</span><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span><span class="z-meta z-preprocessor z-macro z-c"> ty name<span class="z-punctuation z-terminator z-c">;</span></span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"><span class="z-meta z-preprocessor z-include z-c"><span class="z-keyword z-control z-import z-include z-c">#include</span> <span class="z-string z-quoted z-double z-include z-c"><span class="z-punctuation z-definition z-string z-begin z-c">&quot;</span>region.h<span class="z-punctuation z-definition z-string z-end z-c">&quot;</span></span>
+</span></span></span></span><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"><span class="z-meta z-preprocessor z-c"><span class="z-keyword z-control z-import z-c">#undef</span> FIELD
+</span></span></span></span><span class="z-source z-c"><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"></span></span><span class="z-meta z-struct z-c"><span class="z-meta z-block z-c"><span class="z-punctuation z-section z-block z-end z-c">}</span></span></span><span class="z-punctuation z-terminator z-c">;</span>
+</span><span class="z-source z-c">
+</span><span class="z-source z-c"><span class="z-meta z-preprocessor z-macro z-c"><span class="z-keyword z-control z-import z-define z-c">#define</span></span><span class="z-meta z-preprocessor z-macro z-c"> <span class="z-entity z-name z-function z-preprocessor z-c">FIELD</span></span><span class="z-meta z-preprocessor z-macro z-parameters z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span><span class="z-variable z-parameter z-c">ty</span><span class="z-punctuation z-separator z-c">,</span> <span class="z-variable z-parameter z-c">field</span><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span><span class="z-meta z-preprocessor z-macro z-c">                  <span class="z-punctuation z-separator z-continuation z-c">\</span>
+</span></span><span class="z-source z-c"><span class="z-meta z-preprocessor z-macro z-c">  <span class="z-meta z-function-call z-c"><span class="z-variable z-function z-c">GETTER</span> <span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span></span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c">Region<span class="z-punctuation z-separator z-c">,</span> region<span class="z-punctuation z-separator z-c">,</span> ty<span class="z-punctuation z-separator z-c">,</span> field</span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span>      <span class="z-punctuation z-separator z-continuation z-c">\</span>
+</span></span><span class="z-source z-c"><span class="z-meta z-preprocessor z-macro z-c"><span class="z-meta z-assumed-macro z-c">  <span class="z-variable z-function z-assumed-macro z-c">SETTER</span> <span class="z-punctuation z-section z-group z-begin z-c">(</span>Region<span class="z-punctuation z-separator z-c">,</span> region<span class="z-punctuation z-separator z-c">,</span> ty<span class="z-punctuation z-separator z-c">,</span> field<span class="z-punctuation z-section z-group z-end z-c">)</span></span></span>
+</span><span class="z-source z-c">
+</span><span class="z-source z-c"><span class="z-meta z-preprocessor z-include z-c"><span class="z-keyword z-control z-import z-include z-c">#include</span> <span class="z-string z-quoted z-double z-include z-c"><span class="z-punctuation z-definition z-string z-begin z-c">&quot;</span>region.h<span class="z-punctuation z-definition z-string z-end z-c">&quot;</span></span>
+</span></span><span class="z-source z-c"><span class="z-meta z-preprocessor z-c"><span class="z-keyword z-control z-import z-c">#undef</span> FIELD
+</span></span></code></pre>
+<p>The file <code>region.h</code> contained:</p>
+<pre data-lang="c" class="language-c z-code"><code class="language-c" data-lang="c"><span class="z-source z-c"><span class="z-meta z-assumed-macro z-c"><span class="z-variable z-function z-assumed-macro z-c">FIELD</span><span class="z-punctuation z-section z-group z-begin z-c">(</span><span class="z-support z-type z-sys-types z-c">size_t</span><span class="z-punctuation z-separator z-c">,</span> start<span class="z-punctuation z-section z-group z-end z-c">)</span></span>
+</span><span class="z-source z-c"><span class="z-meta z-assumed-macro z-c"><span class="z-variable z-function z-assumed-macro z-c">FIELD</span><span class="z-punctuation z-section z-group z-begin z-c">(</span><span class="z-support z-type z-sys-types z-c">size_t</span><span class="z-punctuation z-separator z-c">,</span> end<span class="z-punctuation z-section z-group z-end z-c">)</span></span>
+</span></code></pre>
+<p>Here’s the translation into Vala:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-meta z-class z-vala"><span class="z-storage z-type z-class z-vala">class</span> <span class="z-entity z-name z-class z-vala">Region </span></span><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-storage z-type z-vala">size_t</span> <span class="z-support z-type z-vala">start</span> { <span class="z-support z-type z-vala">get</span>; <span class="z-support z-type z-vala">set</span>; }
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-storage z-type z-vala">size_t</span> <span class="z-support z-type z-vala">end</span> { <span class="z-support z-type z-vala">get</span>; <span class="z-support z-type z-vala">set</span>; }
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> …methods go here
+</span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">}
+</span></span></span></code></pre>
+<p>Compare and contrast: around 2009, I translated Zile into <a href="https://www.lua.org">Lua</a>. I completed the translation, but I did not release it, as I found that Lua’s lack of static type-checking made it too easy to introduce new bugs. While I was translating it I was forever finding off-by-one errors caused by Lua counting arrays and string positions from 1, while C is 0-based (as is Vala, of course). Don’t get me wrong: Lua is a great language; indeed, I have successfully written other, smaller programs from C into Lua, though I wouldn’t now recommend that; its strengths lie elsewhere.</p>
+<p>With Vala, I recommend making the initial translation as “light” as possible: don’t use lots of Vala’s features to rewrite code. Translate <code>char *</code> pointers to string offsets (that is, an integer string index). Make sure the translated code works first, then start simplifying. Even the “light” translation will contain simplifications, anyway: no more <code>malloc</code> or <code>free</code>, for example.</p>
+<h3 id="you-already-have-a-test-suite-of-course">You already have a test suite, of course<a class="zola-anchor" href="#you-already-have-a-test-suite-of-course" aria-label="Anchor link for: you-already-have-a-test-suite-of-course">#</a>
+</h3>
+<p>The other way you avoid a plague of new bugs is with a good test suite. Sorry! There’s no way around that. If you want to alter, let alone completely rewrite code, you need to have tests.</p>
+<p>Fortunately, I had already added a fairly extensive test suite to Zile years ago, when I was trying to make sure that it really behaved exactly like Emacs. The situation with Enchant was even better: it has an exhaustive (and sometimes exhausting) test suite that checks every aspect of its API, added a few years after Enchant was written, by a commission from <a href="https://www.sil.org">SIL International</a>. (A big shout-out to those who commission work on libre software, especially this sort of important under-the-hood work. These tests have saved me from introducing bugs time and time again.)</p>
+<p>Again, you have to be disciplined: no turning off the tests, or changing them as you go. Complete the translation without changing them, as far as possible.</p>
+<h3 id="your-existing-build-tool-is-probably-supported">Your existing build tool is probably supported<a class="zola-anchor" href="#your-existing-build-tool-is-probably-supported" aria-label="Anchor link for: your-existing-build-tool-is-probably-supported">#</a>
+</h3>
+<p>Many Vala projects these days are using the <a href="https://mesonbuild.com">Meson</a> build system, which is very popular in the GNOME space. But Vala is also supported well by older tools, such as <a href="https://cmake.org">CMake</a> and <a href="https://en.wikipedia.org/wiki/GNU_Autotools">GNU Autotools</a>. Both of the projects I translated were using GNU Autotools, and I stuck with it, for two main reasons:</p>
+<ol>
+<li>I use the excellent <a href="https://www.gnu.org/software/gnulib/">gnulib</a> portability library to ensure that my POSIX-compliant code runs on most systems without problems. Unfortunately, gnulib is tied to GNU Autotools. But then, few build systems work on as many platforms as the Autotools in any case.</li>
+<li><a href="https://www.gnu.org/software/automake/">Automake</a> not only has Vala support, but allows you to ship the generated C sources, so that users can build your code without a Vala compiler. This means that your translated project has exactly the same build dependencies as it had before, which can help with users and packagers who haven’t heard of Vala and don’t want to learn. With Zile, previously a pure-POSIX project, I added GLib as a build-time dependency, but of course that’s so widely used that it’s unlikely to be a problem. Enchant already used GLib.</li>
+</ol>
+<h2 id="the-vala-experience">The Vala experience<a class="zola-anchor" href="#the-vala-experience" aria-label="Anchor link for: the-vala-experience">#</a>
+</h2>
+<p>I will now describe the process of translating the two code-bases. Although they were a bit different (Zile an application, Enchant a library), and I made the translations a few years apart, I was pleasantly surprised to find the second time that the process was much the same as the first.</p>
+<h3 id="add-vala-to-the-build-system">Add Vala to the build system<a class="zola-anchor" href="#add-vala-to-the-build-system" aria-label="Anchor link for: add-vala-to-the-build-system">#</a>
+</h3>
+<p>With Autotools, this is a matter of adding a couple of <code>configure.ac</code> lines to detect the Vala compiler and check for GNU Make (which is required to build from Vala sources), and then adding a test Vala source file to a <code>Makefile.am</code>.</p>
+<h3 id="translating-the-code">Translating the code<a class="zola-anchor" href="#translating-the-code" aria-label="Anchor link for: translating-the-code">#</a>
+</h3>
+<p>I typically translate one file at a time. The code will of course usually call functions from other parts of the program: I add a private VAPI file with suitable bindings. You can usefully pre-populate the VAPI file with the commented-out contents of relevant C header files, then just uncomment the APIs you need in Vala, and edit them suitably. The excellent <a href="https://wiki.gnome.org/Projects/Vala/ManualBindings">Manual bindings</a> guide from the Wiki is my constant companion.</p>
+<p>To translate a file, I copy <code>foo.c</code> to <code>foo_vala.vala</code>. (The <code>_vala</code> bit ensures that the Vala-generated C won’t overwrite the original file, which I will keep for reference.) I translate the code, possibly in multiple steps, commenting out the bits I have translated in <code>foo.c</code>.</p>
+<p>Compile, test, fix, rinse, repeat.</p>
+<p>I find that I get a nice rhythm with my translation, of doing the obvious basic syntactic stuff, as mentioned above, then finding the equivalent Vala APIs where necessary, then tackling any hard bits, such as binding third-party APIs that Vala does not yet know about.</p>
+<p>For Zile I leaned heavily on the POSIX VAPI, and added a new GNU VAPI for some GNU-specific APIs, which I have also used and extended while translating Enchant. Enchant was easier on the whole, because it was already GLib-based, so I just had to search <a href="https://valadoc.org">valadoc.org</a> for the Vala versions of the GLib APIs.</p>
+<p>For Zile, I found <a href="https://wiki.gnome.org/Projects/Libgee">libgee</a> invaluable, with its superior collections that are both richer than GLib’s and allows extra use cases, such as collections of unboxed simple types (e.g. <code>ArrayList&lt;int&gt;</code>). For Enchant, it so happened I didn’t need this extra functionality; Enchant’s use of collections is mostly limited to singly-linked lists of objects and hash tables with string keys.</p>
+<h3 id="stumbling-blocks">Stumbling blocks…<a class="zola-anchor" href="#stumbling-blocks" aria-label="Anchor link for: stumbling-blocks">#</a>
+</h3>
+<h4 id="documentation-and-api-coverage">Documentation and API coverage<a class="zola-anchor" href="#documentation-and-api-coverage" aria-label="Anchor link for: documentation-and-api-coverage">#</a>
+</h4>
+<p>Vala is a small ecosystem, even after all these years. Hence, I found bugs, mostly in the documentation. I took the time to submit <a href="https://github.com/vala-lang/valadoc-org/pull/414">fixes</a>, and this past week reaped the rewards! Some of these fixes went as far as GLib itself; many were to the Vala wiki. As I noted above, I also made additions to the VAPIs, in particular adding a complete binding for the POSIX, GNU and BSD regex APIs (Zile only needed the GNU API, but since the GNU regex module implements all three, I thought I might as well!), as well as <code>getopt_long()</code>. I added <code>freopen</code> to the POSIX VAPI (as <code>FILE.reopen()</code>), upgraded the curses VAPI to improve its Terminfo coverage and add key-codes for function keys, and added return codes to GLib’s <code>FileStream.putc</code> and <code>puts</code>.</p>
+<p>I was also able to offer my old-school expertise to the Vala project itself: I converted the test suite to use Automake’s relatively recent ability to run tests in parallel.</p>
+<h4 id="falling-between-two-stools">Falling between two stools<a class="zola-anchor" href="#falling-between-two-stools" aria-label="Anchor link for: falling-between-two-stools">#</a>
+</h4>
+<p>Vala itself mostly insulates you from the memory-management woes that bedevil C, but mid-translation there is still C code, so you have to be careful if you want to keep a working program. It’s always tempting to just plough on with the translation and hope that crashes will disappear, but I try not to give in, as that can bury bugs deeper and make them harder to find later. So, expect to spend some time studying <code>valac</code>-generated C, and revising your knowledge of <code>owned</code> and other esoteric Vala features.</p>
+<p>For me, this is particularly relevant to Enchant, as a C library whose API and ABI I want to maintain. I am happy to report that I have been mostly successful, and at the time of writing I am tracking down some problems with object lifetime management, but otherwise the Vala implementation seems to perfectly replicate the C.</p>
+<p>Another area of awkwardness is strings: as I hinted above, C often uses pointers to refer to string positions, whereas in Vala it’s usual to use integer offsets. This code is fairly easy to convert once you get the hang of it. Since C <em>can</em> use offsets instead of pointers, you can always rewrite the code in two stages, first changing the C to use offsets, and then translating it into Vala.</p>
+<p>Here’s an example of the translation from pointers in C to offsets in Vala. The C version refers to positions in strings with pointers:</p>
+<pre data-lang="c" class="language-c z-code"><code class="language-c" data-lang="c"><span class="z-source z-c"><span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span> <span class="z-meta z-function z-c"><span class="z-entity z-name z-function z-c">enchant_iso_639_from_tag</span></span><span class="z-meta z-function z-c"> </span><span class="z-meta z-function z-parameters z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span></span></span><span class="z-meta z-function z-parameters z-c"><span class="z-meta z-group z-c"><span class="z-storage z-modifier z-c">const</span> <span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span> <span class="z-storage z-modifier z-c">const</span> <span class="z-variable z-parameter z-c">dict_tag</span><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span><span class="z-meta z-function z-c"> </span><span class="z-meta z-function z-c"><span class="z-meta z-block z-c"><span class="z-punctuation z-section z-block z-begin z-c">{</span></span></span><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">    <span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span> new_tag <span class="z-keyword z-operator z-assignment z-c">=</span> <span class="z-meta z-function-call z-c"><span class="z-variable z-function z-c">strdup</span> <span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span></span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c">dict_tag</span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span><span class="z-punctuation z-terminator z-c">;</span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">    <span class="z-keyword z-control z-c">if</span> <span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span>new_tag <span class="z-keyword z-operator z-comparison z-c">==</span> <span class="z-constant z-language z-c">NULL</span><span class="z-punctuation z-section z-group z-end z-c">)</span></span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">        <span class="z-keyword z-control z-flow z-return z-c">return</span> <span class="z-constant z-language z-c">NULL</span><span class="z-punctuation z-terminator z-c">;</span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">    <span class="z-storage z-type z-c">char</span> <span class="z-keyword z-operator z-c">*</span> needle <span class="z-keyword z-operator z-assignment z-c">=</span> <span class="z-meta z-function-call z-c"><span class="z-support z-function z-C99 z-c">strchr</span> <span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span></span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c">new_tag<span class="z-punctuation z-separator z-c">,</span> <span class="z-string z-quoted z-single z-c"><span class="z-punctuation z-definition z-string z-begin z-c">&#39;</span>_<span class="z-punctuation z-definition z-string z-end z-c">&#39;</span></span></span></span><span class="z-meta z-function-call z-c"><span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-end z-c">)</span></span></span><span class="z-punctuation z-terminator z-c">;</span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">    <span class="z-keyword z-control z-c">if</span> <span class="z-meta z-group z-c"><span class="z-punctuation z-section z-group z-begin z-c">(</span>needle <span class="z-keyword z-operator z-comparison z-c">!=</span> <span class="z-constant z-language z-c">NULL</span><span class="z-punctuation z-section z-group z-end z-c">)</span></span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">        <span class="z-keyword z-operator z-c">*</span>needle <span class="z-keyword z-operator z-assignment z-c">=</span> <span class="z-string z-quoted z-single z-c"><span class="z-punctuation z-definition z-string z-begin z-c">&#39;</span><span class="z-constant z-character z-escape z-c">\0</span><span class="z-punctuation z-definition z-string z-end z-c">&#39;</span></span><span class="z-punctuation z-terminator z-c">;</span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c">    <span class="z-keyword z-control z-flow z-return z-c">return</span> new_tag<span class="z-punctuation z-terminator z-c">;</span>
+</span></span></span><span class="z-source z-c"><span class="z-meta z-function z-c"><span class="z-meta z-block z-c"></span></span><span class="z-meta z-function z-c"><span class="z-meta z-block z-c"><span class="z-punctuation z-section z-block z-end z-c">}</span></span></span>
+</span></code></pre>
+<p>In Vala, we use string offsets:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-storage z-modifier z-vala">static</span> <span class="z-storage z-type z-vala">string</span> <span class="z-meta z-method z-constructor z-vala"><span class="z-entity z-name z-function z-constructor z-vala">iso_639_from_tag</span><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-begin z-vala">(</span></span></span><span class="z-meta z-method z-constructor z-vala"><span class="z-meta z-method z-parameters z-vala"><span class="z-storage z-type z-vala">string</span> <span class="z-variable z-parameter z-vala">dict_tag</span></span><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-end z-vala">)</span></span> </span><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-keyword z-control z-flow z-return z-vala">return</span> <span class="z-variable z-other z-vala">dict_tag</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">substring</span><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-meta z-number z-integer z-decimal z-vala"><span class="z-constant z-numeric z-value z-vala">0</span></span><span class="z-punctuation z-separator z-argument z-vala">,</span> <span class="z-variable z-other z-vala">dict_tag</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">index_of_char</span><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-meta z-string z-vala"><span class="z-string z-quoted z-single z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&#39;</span><span class="z-constant z-character z-literal z-vala">_</span><span class="z-punctuation z-definition z-string z-end z-vala">&#39;</span></span></span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span></code></pre>
+<p>The comparison here is perhaps obscured by the simplification obtained in Vala from automatic memory management, which is nothing to do with string handling <em>per se</em>.</p>
+<h4 id="binding-challenges">Binding challenges<a class="zola-anchor" href="#binding-challenges" aria-label="Anchor link for: binding-challenges">#</a>
+</h4>
+<p>I had a number of particular challenges. Some of them may be relevant to other developers, but I detail them here mostly to illustrate that Vala can bind just about anything if you try!</p>
+<h5 id="config-h"><code>config.h</code><a class="zola-anchor" href="#config-h" aria-label="Anchor link for: config-h">#</a>
+</h5>
+<p>Like any Autoconf-based build system, mine produce a <code>config.h</code> header of various <code>#define</code>d symbols, some of which my C code uses. These I simply replicate in a <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/main/vapi/config.vapi"><code>Config</code> module</a></p>
+<p>One could imagine generating this automatically from <code>config.h</code>, but since I didn’t need more than a handful of values in my projects, I didn’t bother.</p>
+<h5 id="relocate"><code>relocate</code><a class="zola-anchor" href="#relocate" aria-label="Anchor link for: relocate">#</a>
+</h5>
+<p>This is a GNU API that returns a string that may or may not be <code>malloc</code>ed. You can tell which easily enough: if the return value is different from the argument, then it is a newly-allocated string. The problem is getting Vala to do the right thing. Even in C, I wrote my own wrapper function that would always return a <code>malloc</code>ed string.</p>
+<p>Here’s the Vala VAPI definition:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-meta z-annotation z-vala"><span class="z-punctuation z-definition z-annotation z-begin z-vala">[</span><span class="z-variable z-annotation z-vala">CCode</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-annotation z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-parameter z-vala">cheader_filename</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>relocatable.h<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-separator z-argument z-vala">,</span> <span class="z-variable z-parameter z-vala">cname</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>relocate<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-meta z-annotation z-vala"><span class="z-punctuation z-definition z-annotation z-end z-vala">]</span></span>
+</span><span class="z-source z-vala"><span class="z-storage z-modifier z-access z-vala">private</span> <span class="z-support z-type z-vala">unowned</span> <span class="z-variable z-other z-vala">string</span> <span class="z-variable z-other z-vala">_gnulib_relocate</span>(<span class="z-variable z-other z-vala">string</span> <span class="z-variable z-other z-vala">path</span><span class="z-invalid z-illegal z-stray z-brace z-vala">)</span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></code></pre>
+<p>I use the name <code>_gnulib_relocate</code> because I am about to add a Vala wrapper which uses the original name. We tell Vala that the return value is <code>unowned</code>, to prevent Vala thinking that it must <code>free</code> it.</p>
+<p>Here’s the wrapper, which I also put in the VAPI:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-meta z-annotation z-vala"><span class="z-punctuation z-definition z-annotation z-begin z-vala">[</span><span class="z-variable z-annotation z-vala">CCode</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-annotation z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-parameter z-vala">cname</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>_vala_relocate<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-meta z-annotation z-vala"><span class="z-punctuation z-definition z-annotation z-end z-vala">]</span></span>
+</span><span class="z-source z-vala"><span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-storage z-type z-vala">string</span> <span class="z-meta z-method z-constructor z-vala"><span class="z-entity z-name z-function z-constructor z-vala">relocate</span><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-begin z-vala">(</span></span></span><span class="z-meta z-method z-constructor z-vala"><span class="z-meta z-method z-parameters z-vala"><span class="z-storage z-type z-vala">string</span> <span class="z-variable z-parameter z-vala">path</span></span><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-end z-vala">)</span></span> </span><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-support z-type z-vala">unowned</span> <span class="z-variable z-other z-vala">string</span> <span class="z-variable z-other z-vala">newpath</span> <span class="z-keyword z-operator z-assignment z-variable z-vala">=</span> <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">_gnulib_relocate</span><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-other z-vala">path</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> If relocate malloced, then return the value, defeating Vala&#39;s attempt
+</span></span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> to (re-)strdup it.
+</span></span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-variable z-other z-vala">GLib</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">return_val_if_fail</span><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-other z-vala">newpath</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-vala">data</span> <span class="z-keyword z-operator z-vala">==</span> <span class="z-variable z-other z-vala">path</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-vala">data</span><span class="z-punctuation z-separator z-argument z-vala">,</span> <span class="z-variable z-other z-vala">newpath</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> Otherwise, allow Vala to strdup the non-malloced return value.
+</span></span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-keyword z-control z-flow z-return z-vala">return</span> <span class="z-variable z-other z-vala">newpath</span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span></code></pre>
+<p>This is tricky. First, it calls the “real” <code>relocate</code> (but using its Vala name), and stores the result in an <code>unowned</code> string. So far, <code>valac</code> will not allocate any memory.</p>
+<p>We then test the value returned, and if it is unequal to the original argument, return it. Because we use the <code>return_if_fail</code> macro, <code>valac</code> will not insert memory allocation code at this point, but that’s OK, because <code>relocate</code> has already <code>malloc</code>ed in this case, so the return value is an allocated <code>string</code> as indicated.</p>
+<p>Otherwise, we simply <code>return</code> the un-<code>malloc</code>ed value. In the generated C, <code>valac</code> will insert a <code>g_strdup</code> at this point, so again the return value is an allocated string.</p>
+<p>Phew!</p>
+<h5 id="strfreev"><code>strfreev</code><a class="zola-anchor" href="#strfreev" aria-label="Anchor link for: strfreev">#</a>
+</h5>
+<p>Rather surprisingly, while <code>g_strfreev</code> takes <code>char **</code> (because it frees a list of strings), <code>strfreev</code> takes <code>string **</code>. Why? Well, Vala uses one level of pointer indirection to indicate that a value is not managed by Vala. So we have the following set of equivalences:</p>
+<ul>
+<li><code>string</code> = <code>char *</code> (generates <code>char *</code>; as we expect, a string is a pointer to <code>char</code>)</li>
+<li><code>string *</code> = <code>char *</code> (generates <code>char *</code>; this is just a <code>string</code> that Vala does not manage)</li>
+<li><code>string **</code> = <code>char **</code> (generates <code>char **</code>; now we have a list of <code>string</code>)</li>
+</ul>
+<p>This was a problem for me because I wanted to use <code>strfreev</code> to free a “real” <code>char **</code> passed in from C. But <code>valac</code> gives a type error. I got sufficiently confused that I submitted a <a href="https://gitlab.gnome.org/GNOME/vala/-/merge_requests/383">merge request</a>, and Rico had to de-confuse me. In the end, all I needed was a cast:</p>
+<pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">strfreev</span><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala">(<span class="z-storage z-type z-vala">string</span> <span class="z-keyword z-operator z-vala">*</span><span class="z-keyword z-operator z-vala">*</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-variable z-other z-vala">c_string_list</span><span class="z-invalid z-illegal z-stray z-brace z-vala">)</span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></code></pre>
+<p>The cast placates <code>valac</code>, and the generated C ends up calling <code>g_strfreev</code>, which expected a <code>char **</code> all along.</p>
+<h5 id="s-size-t-is-not-really-s-size-t"><code>[s]size_t</code> is not really <code>[s]size_t</code><a class="zola-anchor" href="#s-size-t-is-not-really-s-size-t" aria-label="Anchor link for: s-size-t-is-not-really-s-size-t">#</a>
+</h5>
+<p>When compiling my Vala version of Enchant on Windows, I accidentally tried compiling it in a flavour of Windows I don’t normally test, namely Mingw MSYS (I normally build for Mingw64-x86_64 and Mingw64-i686). To my surprise, I got a compilation error: GCC complained that one 8-byte signed integer type (<code>long int</code>) was incompatible with another 8-byte signed integer type (<code>long long int</code>). Yes, these are both 64-bit types on this system, and yes, they are nonetheless incompatible.</p>
+<p>But why did I have this problem in the first place? I was using Vala’s <code>ssize_t</code>, and Vala maps this to GLib’s <code>gsize</code>. I don’t know why, but it’s a problem, because in some cases, like mine, these two types end up with different fundamental types in the C compiler, and an error results. I filed an <a href="https://gitlab.gnome.org/GNOME/vala/-/issues/1539">issue</a> and found a workaround, which was to copy the definition of <code>size_t</code> and <code>ssize_t</code> from <code>posix.vapi</code>, which are normally only used when <code>valac</code> is used with <code>--profile posix</code> and the GLib definitions are not used. The <code>posix.vapi</code> definitions correctly map <code>size_t</code> in Vala to <code>size_t</code> in C.</p>
+<h3 id="and-helping-hands">…and helping hands<a class="zola-anchor" href="#and-helping-hands" aria-label="Anchor link for: and-helping-hands">#</a>
+</h3>
+<p>I mentioned above that Vala is a small ecosystem. An up-side to this is that it’s friendly and usually quick to get things done. The fixes I offered were mostly triaged and applied by the indefatigable Rico Tzschichholz, who was often able to suggest more elegant solutions, mostly for my VAPI bindings. I ended up using a pre-release of <code>valac</code> for Zile, but I could release the code, since you didn’t need <code>valac</code> to build it, and within a few months, Vala 0.52 was released with all the fixes I needed.</p>
+<p>With Enchant I have had help from Rico again, and also from Lorenz Wildberg; many thanks to both of them, and to everyone else in the community to has both helped me with my projects, and welcomed my own contributions, which, I hope, improve things for everyone else.</p>
+<h2 id="was-it-worth-it">Was it worth it?<a class="zola-anchor" href="#was-it-worth-it" aria-label="Anchor link for: was-it-worth-it">#</a>
+</h2>
+<p>With GNU Zile I can say: probably, yes. I found one “brown-paper bag” bug in the initial stable release, but that’s it: I have made only two non-alpha releases of the Vala version. On the other hand, the C version was already very stable, and I suspect it’s not widely used any more (I myself have encouraged users to migrate to Emacs for some years!). But then, it was a low-risk project to try out this new technique. And a few years on, the code still builds with no problems: unlike some language ecosystems, Vala seems very stable, and code does not rot fast.</p>
+<p>For Enchant, it’s too early to say. It’s a much more widely-used package, and though it is quite mature, I have steadily improved and developed it over the past few years, and intend to continue in future. I hope that the switch to Vala will not annoy packagers (it shouldn’t, as they shouldn’t have to change their recipes at all if they don’t want to), and that developers should not notice (because the library remains API and ABI compatible), nor users (because the functionality should be identical, and the performance much the same). Certainly, I expect it will make my future work more productive and fun!</p>
+<h2 id="is-this-a-good-idea">Is this a good idea?<a class="zola-anchor" href="#is-this-a-good-idea" aria-label="Anchor link for: is-this-a-good-idea">#</a>
+</h2>
+<p>My projects are old-school: highly portable, low-level C. This is not an area that Vala is particularly aimed at, although it does pretty well here. For projects that are firmly in the GLib world, and especially when they use related libraries such as Gtk, rewriting C in Vala seems an excellent option to me.</p>
+<p>While I completely rewrote my projects before releasing them, I think I’ve shown there’s no need to do that. When I rewrote Zile in Lua, the intermediate steps had horrible performance, because the Lua/C interface I used was very inefficient (Lua has an efficient-but-complex C API; I chose to use some simple-but-slow home-grown macros instead). When I rewrote Zile in Vala, the performance was much the same at every stage of the process, and I could easily have translated just half of the code and released the project. Many projects, particularly larger ones, might benefit from such an approach.</p>
+<p>After completing the translation, the code was already significantly shorter and more readable than in C. This in turn unlocked further simplifications: able to “see the wood for the trees” it was much easier to refactor and further simplify the code. With Zile, I eventually reduced 8,000 lines of C to 6,000 of Vala, a 25% reduction; in Enchant the percentage saving was more like 35%, largely because of a reduction in GLib boilerplate, such as argument validation, which Vala mostly automates.</p>
+<p>One final thought: I hope that Vala will continue to flourish for many years, but if it doesn’t, then all is not lost: in the worst case, I or my successor could salvage the generated C code, which is ugly but far from impossible to read (and C, I think we can confidently say, will be around for many decades yet); and Vala is also a relatively “neutral” language that would be easy to translate again, into Rust, say; indeed, it would be easier to do that starting from Vala than from C, largely because the Vala code is easier to read and understand.</p>
+<hr />
+<p>You are always invited to join our matrix chat <a href="https://matrix.to/#/#_gimpnet_#vala:gnome.org">#vala:gnome.org</a> and ask questions about Vala or how to contribute. Until then, have a nice time and build great apps with Vala!</p>
+<!--  LocalWords:  Vala’s GLib GObject Lua’s VAPI GLib’s Enchant’s codegen
+<!--  LocalWords:  Automake’s Terminfo Gtk Mingw MSYS VAPIs regex libgee ed
+<!--  LocalWords:  ArrayList int getopt freopen FileStream putc valac Jürg
+<!--  LocalWords:  config Billeter malloc vala CCode cheader cname newpath
+<!--  LocalWords:  malloced Vala's strdup val un strfreev Mingw64 i686 vapi
+<!--  LocalWords:  ssize gsize posix gimpnet se
+-->
+
+</article>
+
+    </main>
+  </div>
+
+  <footer>
+  <div>
+    <ul>
+      Languages:
+      
+        <li><a href="https://vala.dev/cs/">
+  
+    Čeština
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/pt_BR/">
+  
+    Português Brasileiro
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/zh_CN/">
+  
+    简体中文
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/fr/">
+  
+    Français
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/ru/">
+  
+    Русский
+  
+</a></li>
+      
+    </ul>
+    <div>Made by the Vala Community</div>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;vala-lang&#x2F;vala-www">View The Website&#x27;s Source Code</a>
+    <p>This work is licensed under a <a rel="license" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+  </div>
+</footer>
+
+
+  <script src="https://vala.dev/js/global.js"></script>
+   
+
+</body>
+</html>
