@@ -14,12 +14,12 @@ compile_sass = true
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
-generate_feed = true
+generate_feeds = true
 
-# The filename to use for the feed. Used as the template filename, too.
-# Defaults to "atom.xml", which has a built-in template that renders an Atom 1.0 feed.
+# The filenames to use for the feeds. Used as the template filenames, too.
+# Defaults to ["atom.xml"], which has a built-in template that renders an Atom 1.0 feed.
 # There is also a built-in template "rss.xml" that renders an RSS 2.0 feed.
-feed_filename = "atom.xml"
+feed_filenames = ["atom.xml"]
 
 [markdown]
 # Whether to do syntax highlighting
@@ -124,12 +124,12 @@ devel = "Development"
 
 # Additional languages definition
 # You can define language specific config values and translations:
-# title, description, generate_feed, feed_filename, taxonomies, build_search_index
+# title, description, generate_feeds, feed_filenames, taxonomies, build_search_index
 # as well as its own search configuration and translations (see above for details on those)
 [languages]
 
 [languages.cs]
-generate_feed = true # there will be a feed for Czech content
+generate_feeds = true # there will be a feed for Czech content
 build_search_index = false # FIXME: cs not supported by Zola
 
 [languages.cs.translations]
@@ -208,7 +208,7 @@ stable_lts = "Stable Long-term Support"
 devel = "Development"
 
 [languages.fr]
-generate_feed = true # there will be a feed for French content
+generate_feeds = true # there will be a feed for French content
 build_search_index = true
 
 [languages.fr.translations]
@@ -287,8 +287,8 @@ stable_lts = "Stable Long-term Support"
 devel = "Development"
 
 [languages.pt_BR]
-generate_feed = true # haverá um feed para o conteúdo em Português Brasileiro
-build_search_indx = true
+generate_feeds = true # haverá um feed para o conteúdo em Português Brasileiro
+build_search_index = false # pt_BR not supported
 
 [languages.pt_BR.translations]
 bypass_block = "Ir para o conteúdo principal"
@@ -366,7 +366,7 @@ stable_lts = "Stable Long-term Support"
 devel = "Development"
 
 [languages.ru]
-generate_feed = true # there will be a feed for French content
+generate_feeds = true # there will be a feed for French content
 build_search_index = true
 
 [languages.ru.translations]
@@ -445,7 +445,7 @@ stable_lts = "Stable Long-term Support"
 devel = "Development"
 
 [languages.zh_CN]
-generate_feed = true # there will be a feed for Chinese content
+generate_feeds = true # there will be a feed for Chinese content
 build_search_index = false
 
 [languages.zh_CN.translations]
