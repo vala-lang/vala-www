@@ -55,7 +55,6 @@ blog = "Blog"
 documentation = "Docs"
 community = "Community"
 source_code = "Source Code"
-wiki = "Wiki"
 tagline = "A Familiar Way To Develop Applications"
 get_started = "Get Started"
 view_source_code = "View Source Code"
@@ -141,7 +140,6 @@ blog = "Blog"
 documentation = "Dokumentace"
 community = "Komunita"
 source_code = "Zdrojový kód"
-wiki = "Wiki"
 tagline = "Známý způsob vývoje aplikací"
 get_started = "Začít"
 view_source_code = "Zobrazit zdrojový kód"
@@ -221,7 +219,6 @@ blog = "Blog"
 documentation = "Docs"
 community = "communauté"
 source_code = "Le code source"
-wiki = "Wiki"
 tagline = "Développer des applications de manière naturelle et efficace"
 get_started = "Commencer"
 view_source_code = "Afficher le code source"
@@ -301,7 +298,6 @@ blog = "Blog"
 documentation = "Documentação"
 community = "Comunidade"
 source_code = "Código-fonte"
-wiki = "Wiki"
 tagline = "Uma forma familiar de desenvolver aplicações"
 get_started = "Começar"
 view_source_code = "Ver o código-fonte"
@@ -381,7 +377,6 @@ blog = "Блог"
 documentation = "Документация"
 community = "Сообщество"
 source_code = "Исходный код"
-wiki = "Вики"
 tagline = "Знакомый способ разработки приложений"
 get_started = "Начать"
 view_source_code = "Показать исходный код"
@@ -461,7 +456,6 @@ blog = "博客"
 documentation = "文档"
 community = "社区"
 source_code = "源码"
-wiki = "维基"
 tagline = "开发应用程序的熟悉方式"
 get_started = "入门"
 view_source_code = "查看源代码"
@@ -535,9 +529,9 @@ devel = "Development"
 [extra]
 # Put all your custom variables here
 
-docs_url="https://wiki.gnome.org/Projects/Vala/Documentation"
+docs_url="https://docs.vala.dev"
 
-tutorial_url = "https://wiki.gnome.org/Projects/Vala/Documentation#Getting_Started"
+tutorial_url = "https://docs.vala.dev/installation-guide.html"
 
 language_source_code_url = "https://gitlab.gnome.org/GNOME/vala"
 
@@ -545,7 +539,7 @@ site_source_code_url = "https://github.com/vala-lang/vala-www"
 
 license_url = "https://creativecommons.org/licenses/by-sa/4.0/"
 
-wiki_url = "https://wiki.gnome.org/Projects/Vala/"
+installation_guide = "https://docs.vala.dev/installation-guide.html"
 
 [extra.features]
 
@@ -564,7 +558,7 @@ vala_language_server = "https://github.com/vala-lang/vala-language-server"
 
 vala_lint = "https://github.com/vala-lang/vala-lint"
 
-valadoc = "https://docs.vala.dev/"
+valadoc = "https://valadoc.org"
 
 gnome_builder = "https://apps.gnome.org/en-GB/app/org.gnome.Builder/"
 
@@ -574,7 +568,7 @@ vim = "https://github.com/arrufat/vala.vim"
 
 meson = "https://mesonbuild.com/Vala.html"
 
-documentation = "https://wiki.gnome.org/Projects/Vala/Tools"
+documentation = "https://docs.vala.dev/tooling/index.html"
 
 [extra.socials]
 
