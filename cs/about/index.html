@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7239b3">
+  <link rel="stylesheet" href="https://vala.dev/css/global.css">
+  
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://vala.dev/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://vala.dev/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://vala.dev/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://vala.dev/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://vala.dev/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://vala.dev/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://vala.dev/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://vala.dev/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vala.dev/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://vala.dev/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vala.dev/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://vala.dev/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vala.dev/favicon-16x16.png">
+  <link type="text/plain" rel="author" href="https://vala.dev/humans.txt">
+  <link rel="manifest" href="https://vala.dev/manifest.json">
+  <meta name="msapplication-TileColor" content="#a56de2">
+  <meta name="msapplication-TileImage" content="https://vala.dev/ms-icon-144x144.png">
+  
+  
+   <link rel="alternate" type="application/atom+xml" title="Vala - Feed" href="https://vala.dev/atom.xml">
+  
+  
+  
+<title>O jazyce Vala</title>
+
+<link rel="alternate" hreflang="en" href="https://vala.dev/about">
+
+
+  
+    <link rel="alternate" hreflang="pt_BR" href="https://vala.dev/pt_BR/about">
+  
+
+  
+
+  
+    <link rel="alternate" hreflang="fr" href="https://vala.dev/fr/about">
+  
+
+  
+    <link rel="alternate" hreflang="ru" href="https://vala.dev/ru/about">
+  
+
+  
+    <link rel="alternate" hreflang="zh_CN" href="https://vala.dev/zh_CN/about">
+  
+
+
+
+  <link rel="alternate" hreflang="cs" href="https://vala.dev/cs/about">
+
+
+<link rel="alternate" hreflang="x-default" href="https://vala.dev/about">
+
+  
+  
+  <meta name="description" content="Vala je objektově orientovaný programovací jazyk s vlastním kompilátorem, který generuje kód v jazyce C a používá typový systém GObject.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vala_lang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="O jazyce Vala">
+  <meta property="og:description" content="Vala je objektově orientovaný programovací jazyk s vlastním kompilátorem, který generuje kód v jazyce C a používá typový systém GObject.">
+  <meta property="og:url" content="https://vala.dev/cs/about/">
+  <meta property="og:site_name" content="Vala">
+    
+  
+  <meta property="og:image" content="https://vala.dev/img/vala-hero-wide.png">
+
+
+  
+
+  
+
+  
+  
+  <meta property="article:section" content="Programovací jazyk Vala">
+
+
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Přejít k hlavnímu obsahu</a>
+
+  
+    
+  
+
+  
+
+  <header>
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="https://vala.dev/cs/">
+            
+<svg version="1.1" viewBox="0 0 7.9685 3.1998" xmlns="http://www.w3.org/2000/svg">
+ <title>Domů</title>
+ <g transform="translate(-17.82 -13.53)">
+  <g stroke-width=".26458">
+   <path d="m18.913 16.705-0.06821-2.8918q-0.29766 0.11162-0.46509 0.34933-0.16536 0.23771-0.16536 0.59118 0 0.17156 0.04754 0.25838 0.01034 0.01654 0.01034 0.02894-0.339 0-0.42375-0.21704-0.02894-0.07855-0.02894-0.1943 0-0.21291 0.13229-0.40928 0.13436-0.19844 0.3452-0.3514 0.48162-0.339 1.0087-0.339 0.08682 0 0.1695 0.0083l0.03721 2.6045 0.8909-2.5921h0.29559l-1.1762 3.1543z"/>
+   <path d="m22.804 15.946q-0.26872 0.78341-0.84956 0.78341-0.37414 0-0.41548-0.38861-0.27698 0.38861-0.64699 0.38861-0.36794 0-0.50023-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.13643 0 0.1819 0.17363 0.1819 0.22531 0 0.34313-0.39894zm-1.0666-0.95498q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+   <path d="m23.934 15.946q-0.27285 0.78341-0.91157 0.78341-0.16743 0-0.29972-0.11989-0.13022-0.11989-0.13022-0.38654 0-0.11989 0.03307-0.27698l0.45269-2.1208 0.62632-0.08475-0.48576 2.2862q-0.01654 0.07648-0.01654 0.1509 0 0.14263 0.17157 0.14263 0.12402 0 0.22944-0.10749 0.10749-0.10749 0.15296-0.26665z"/>
+   <path d="m24.896 16.337q-0.26252 0.39274-0.63872 0.39274-0.3762 0-0.5085-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.14883 0 0.14469 0.17363 0.14469 0.05581 0 0.09302-0.0186-0.08888 0.23771-0.1509 0.30799-0.10955 0.11989-0.27905 0.11989-0.16743 0-0.27492-0.10129-0.10749-0.10335-0.13229-0.29146zm0.19844-1.3457q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+  </g>
+ </g>
+</svg>
+
+          </a>
+        </div>
+        <ul>
+          <li><a href="https://vala.dev/cs/about/">O jazyce</a></li>
+            <li><a href="https:&#x2F;&#x2F;docs.vala.dev">Dokumentace</a></li>
+            <li><a href="https://vala.dev/cs/#community">Komunita</a></li>
+            <li><a href="https://vala.dev/blog/">Blog</a></li>
+            <li><a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Zdrojový kód</a></li>
+        </ul>
+        <button aria-label="Menu" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html" class="navbar-button">Začít</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  
+
+  <div class="container">
+    <main id="main-content">
+      
+<article>
+  <h1>O jazyce Vala</h1>
+<h2 id="co-je-vala">Co je Vala?<a class="zola-anchor" href="#co-je-vala" aria-label="Anchor link for: co-je-vala">#</a>
+</h2>
+<p>Vala je objektově orientovaný programovací jazyk s vlastním kompilátorem, který generuje kód v jazyce C a používá typový systém GObject.</p>
+<p>Vala podporuje moderní jazykové funkce, jako jsou:</p>
+<ul>
+<li>Rozhraní</li>
+<li>Vlastnosti</li>
+<li>Signály</li>
+<li>Konstrukce Foreach</li>
+<li>Výrazy lambda</li>
+<li>Odvozování typu pro místní proměnné</li>
+<li>Generické typy</li>
+<li>Ne-nullové typy</li>
+<li>Asistovanou správu paměti</li>
+<li>Zacházení s výjimkami</li>
+<li>Typové moduly (pluginy)</li>
+</ul>
+<h2 id="jakym-jazykem-je-vala">Jakým jazykem je Vala?<a class="zola-anchor" href="#jakym-jazykem-je-vala" aria-label="Anchor link for: jakym-jazykem-je-vala">#</a>
+</h2>
+<h3 id="produktivni">Produktivní<a class="zola-anchor" href="#produktivni" aria-label="Anchor link for: produktivni">#</a>
+</h3>
+<p>S Valou můžete začít pracovat rychle díky praktickým funkcím, jako jsou lambda výrazy, zpracování výjimek, rozhraní a generika.</p>
+<h3 id="vykonny">Výkonný<a class="zola-anchor" href="#vykonny" aria-label="Anchor link for: vykonny">#</a>
+</h3>
+<p>Kód Vala se zkompiluje na plně nativní binární soubory.</p>
+<h3 id="staticky-typovany">Staticky typovaný<a class="zola-anchor" href="#staticky-typovany" aria-label="Anchor link for: staticky-typovany">#</a>
+</h3>
+<p>Vala vám pomůže psát typově bezpečný kód bez zbytečných slov, a to díky odvozování typů.</p>
+<h3 id="integrativni">Integrativní<a class="zola-anchor" href="#integrativni" aria-label="Anchor link for: integrativni">#</a>
+</h3>
+<p>Vala je navržena tak, aby umožňovala přístup k existujícím knihovnám jazyka C, zejména ke knihovnám založeným na GObject, bez nutnosti runtime vazeb. Vše, co je potřeba k použití knihovny s Valou, je soubor API obsahující deklarace tříd a metod v syntaxi Vala. Vala v současné době obsahuje vazby pro GLib a GTK+ a mnoho dalších z platformy GNOME.</p>
+<p>Vala lze použít k vytváření knihoven také v jazyce C.</p>
+<h3 id="znamy">Známý<a class="zola-anchor" href="#znamy" aria-label="Anchor link for: znamy">#</a>
+</h3>
+<p>Syntaxe jazyka Vala je inspirována jazyky C# a Java, takže pokud jste některý z nich používali, snadno se přizpůsobíte psaní kódu jazyka Vala.</p>
+
+<div class="cta-stack">
+  <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html">Začít</a>
+
+  
+  <a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Zobrazit zdrojový kód</a>
+  
+</div>
+
+
+</article>
+
+    </main>
+  </div>
+
+  <footer>
+  <div>
+    <ul>
+      Jazyky:
+      
+        <li><a href="https://vala.dev/pt_BR/">
+  
+    Português Brasileiro
+  
+</a></li>
+      
+        <li><a href="https://vala.dev">
+  
+    English
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/fr/">
+  
+    Français
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/ru/">
+  
+    Русский
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/zh_CN/">
+  
+    简体中文
+  
+</a></li>
+      
+    </ul>
+    <div>Vytvořeno komunitou jazyka Vala</div>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;vala-lang&#x2F;vala-www">Zobrazit zdrojový kód webu</a>
+    <p>Tato práce je licencována pod <a rel="license" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+  </div>
+</footer>
+
+
+  <script src="https://vala.dev/js/global.js"></script>
+   
+
+</body>
+</html>

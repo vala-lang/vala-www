@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7239b3">
+  <link rel="stylesheet" href="https://vala.dev/css/global.css">
+  
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://vala.dev/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://vala.dev/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://vala.dev/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://vala.dev/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://vala.dev/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://vala.dev/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://vala.dev/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://vala.dev/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vala.dev/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://vala.dev/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vala.dev/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://vala.dev/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vala.dev/favicon-16x16.png">
+  <link type="text/plain" rel="author" href="https://vala.dev/humans.txt">
+  <link rel="manifest" href="https://vala.dev/manifest.json">
+  <meta name="msapplication-TileColor" content="#a56de2">
+  <meta name="msapplication-TileImage" content="https://vala.dev/ms-icon-144x144.png">
+  
+  
+   <link rel="alternate" type="application/atom+xml" title="Vala - Feed" href="https://vala.dev/atom.xml">
+  
+  
+  
+<title>Vala Programming Language </title>
+
+<link rel="alternate" hreflang="en" href="https://vala.dev">
+
+
+  
+    <link rel="alternate" hreflang="fr" href="https://vala.dev/fr/">
+  
+
+  
+    <link rel="alternate" hreflang="pt_BR" href="https://vala.dev/pt_BR/">
+  
+
+  
+    <link rel="alternate" hreflang="zh_CN" href="https://vala.dev/zh_CN/">
+  
+
+  
+    <link rel="alternate" hreflang="cs" href="https://vala.dev/cs/">
+  
+
+  
+    <link rel="alternate" hreflang="ru" href="https://vala.dev/ru/">
+  
+
+
+
+
+<link rel="alternate" hreflang="x-default" href="https://vala.dev">
+
+  
+  <meta name="description" content="Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vala_lang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vala Programming Language">
+  <meta property="og:description" content="Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system.">
+  <meta property="og:url" content="https://vala.dev/">
+  <meta property="og:site_name" content="Vala">
+    
+  
+  <meta property="og:image" content="https://vala.dev/img/vala-hero-wide.png">
+
+
+<link rel="stylesheet" href="https://vala.dev/css/index.css">
+
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+
+  
+  
+  
+  
+
+  
+      
+  
+
+  <header class="extended">
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="https://vala.dev">
+            
+<svg version="1.1" viewBox="0 0 7.9685 3.1998" xmlns="http://www.w3.org/2000/svg">
+ <title>Home</title>
+ <g transform="translate(-17.82 -13.53)">
+  <g stroke-width=".26458">
+   <path d="m18.913 16.705-0.06821-2.8918q-0.29766 0.11162-0.46509 0.34933-0.16536 0.23771-0.16536 0.59118 0 0.17156 0.04754 0.25838 0.01034 0.01654 0.01034 0.02894-0.339 0-0.42375-0.21704-0.02894-0.07855-0.02894-0.1943 0-0.21291 0.13229-0.40928 0.13436-0.19844 0.3452-0.3514 0.48162-0.339 1.0087-0.339 0.08682 0 0.1695 0.0083l0.03721 2.6045 0.8909-2.5921h0.29559l-1.1762 3.1543z"/>
+   <path d="m22.804 15.946q-0.26872 0.78341-0.84956 0.78341-0.37414 0-0.41548-0.38861-0.27698 0.38861-0.64699 0.38861-0.36794 0-0.50023-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.13643 0 0.1819 0.17363 0.1819 0.22531 0 0.34313-0.39894zm-1.0666-0.95498q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+   <path d="m23.934 15.946q-0.27285 0.78341-0.91157 0.78341-0.16743 0-0.29972-0.11989-0.13022-0.11989-0.13022-0.38654 0-0.11989 0.03307-0.27698l0.45269-2.1208 0.62632-0.08475-0.48576 2.2862q-0.01654 0.07648-0.01654 0.1509 0 0.14263 0.17157 0.14263 0.12402 0 0.22944-0.10749 0.10749-0.10749 0.15296-0.26665z"/>
+   <path d="m24.896 16.337q-0.26252 0.39274-0.63872 0.39274-0.3762 0-0.5085-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.14883 0 0.14469 0.17363 0.14469 0.05581 0 0.09302-0.0186-0.08888 0.23771-0.1509 0.30799-0.10955 0.11989-0.27905 0.11989-0.16743 0-0.27492-0.10129-0.10749-0.10335-0.13229-0.29146zm0.19844-1.3457q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+  </g>
+ </g>
+</svg>
+
+          </a>
+        </div>
+        <ul>
+          <li><a href="https://vala.dev/about/">About</a></li>
+            <li><a href="https:&#x2F;&#x2F;docs.vala.dev">Docs</a></li>
+            <li><a href="https://vala.dev#community">Community</a></li>
+            <li><a href="https://vala.dev/blog/">Blog</a></li>
+            <li><a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Source Code</a></li>
+        </ul>
+        <button aria-label="Menu" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html" class="navbar-button">Get Started</a>
+        </div>
+      </nav>
+        <h1>A Familiar Way To Develop Applications</h1>
+      
+    </div>
+  </header>
+
+
+
+
+  <div class="container">
+    <main id="main-content">
+      
+  <pre data-lang="vala" class="language-vala z-code"><code class="language-vala" data-lang="vala"><span class="z-source z-vala"><span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> ExampleApp.vala
+</span></span><span class="z-source z-vala">
+</span><span class="z-source z-vala"><span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-meta z-class z-vala"><span class="z-storage z-type z-class z-vala">class</span> <span class="z-entity z-name z-class z-vala">ExampleApp </span><span class="z-punctuation z-separator z-type z-vala">:</span> <span class="z-meta z-path z-vala">Gtk</span><span class="z-meta z-path z-vala"><span class="z-punctuation z-accessor z-dot z-namespace z-vala">.</span></span><span class="z-entity z-other z-inherited-class z-vala">Application</span> </span><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-meta z-method z-constructor z-vala"><span class="z-entity z-name z-function z-constructor z-vala">ExampleApp</span> <span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-begin z-vala">(</span></span></span><span class="z-meta z-method z-constructor z-vala"><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-end z-vala">)</span></span> </span><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">Object</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-parameter z-vala">application_id</span><span class="z-punctuation z-separator z-argument z-value z-vala">:</span> <span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>com.example.App<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-storage z-modifier z-vala">override</span> <span class="z-storage z-type z-vala">void</span> <span class="z-meta z-method z-constructor z-vala"><span class="z-entity z-name z-function z-constructor z-vala">activate</span> <span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-begin z-vala">(</span></span></span><span class="z-meta z-method z-constructor z-vala"><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-end z-vala">)</span></span> </span><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-storage z-type z-variable z-vala">var</span> <span class="z-variable z-other z-vala">win</span> <span class="z-keyword z-operator z-assignment z-variable z-vala">=</span> <span class="z-meta z-instance z-vala"><span class="z-keyword z-operator z-new z-vala">new</span></span><span class="z-meta z-instance z-vala"> </span><span class="z-meta z-instance z-vala"><span class="z-support z-type z-vala">Gtk</span><span class="z-punctuation z-accessor z-dot z-namespace z-vala">.</span><span class="z-support z-type z-vala">ApplicationWindow</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-instance z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-language z-vala">this</span><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-meta z-instance z-vala"></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-storage z-type z-variable z-vala">var</span> <span class="z-variable z-other z-vala">btn</span> <span class="z-keyword z-operator z-assignment z-variable z-vala">=</span> <span class="z-meta z-instance z-vala"><span class="z-keyword z-operator z-new z-vala">new</span></span><span class="z-meta z-instance z-vala"> </span><span class="z-meta z-instance z-vala"><span class="z-support z-type z-vala">Gtk</span><span class="z-punctuation z-accessor z-dot z-namespace z-vala">.</span><span class="z-support z-type z-vala">Button</span><span class="z-punctuation z-accessor z-dot z-namespace z-vala">.</span><span class="z-support z-type z-vala">with_label</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-instance z-vala"><span class="z-meta z-group z-vala"><span class="z-string z-quoted z-double z-vala"><span class="z-punctuation z-definition z-string z-begin z-vala">&quot;</span>Hello World<span class="z-punctuation z-definition z-string z-end z-vala">&quot;</span></span><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-meta z-instance z-vala"></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-variable z-other z-vala">btn</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-vala">clicked</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">connect</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-other z-vala">win</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-vala">close</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-variable z-other z-vala">win</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-variable z-other z-vala">child</span> <span class="z-keyword z-operator z-assignment z-vala">=</span> <span class="z-variable z-other z-vala">btn</span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-variable z-other z-vala">win</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">present</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-storage z-modifier z-access z-vala">public</span> <span class="z-storage z-modifier z-vala">static</span> <span class="z-storage z-type z-vala">int</span> <span class="z-meta z-method z-constructor z-vala"><span class="z-entity z-name z-function z-constructor z-vala">main</span> <span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-begin z-vala">(</span></span></span><span class="z-meta z-method z-constructor z-vala"><span class="z-meta z-method z-parameters z-vala"><span class="z-storage z-type z-vala">string</span><span class="z-meta z-brackets z-vala"><span class="z-punctuation z-section z-brackets z-begin z-vala">[</span><span class="z-punctuation z-section z-brackets z-end z-vala">]</span></span> <span class="z-variable z-parameter z-vala">args</span></span><span class="z-meta z-method z-parameters z-vala"><span class="z-punctuation z-section z-parameters z-end z-vala">)</span></span> </span><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-begin z-vala">{</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-storage z-type z-variable z-vala">var</span> <span class="z-variable z-other z-vala">app</span> <span class="z-keyword z-operator z-assignment z-variable z-vala">=</span> <span class="z-meta z-instance z-vala"><span class="z-keyword z-operator z-new z-vala">new</span></span><span class="z-meta z-instance z-vala"> </span><span class="z-meta z-instance z-vala"><span class="z-support z-type z-vala">ExampleApp</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-instance z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-meta z-instance z-vala"></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">    <span class="z-keyword z-control z-flow z-return z-vala">return</span> <span class="z-variable z-other z-vala">app</span><span class="z-punctuation z-accessor z-dot z-vala">.</span><span class="z-meta z-function-call z-vala"><span class="z-variable z-function z-vala">run</span> <span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-begin z-vala">(</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-variable z-other z-vala">args</span></span></span><span class="z-meta z-function-call z-vala"><span class="z-meta z-group z-vala"><span class="z-punctuation z-section z-group z-end z-vala">)</span></span></span><span class="z-punctuation z-terminator z-statement z-vala">;</span>
+</span></span></span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-meta z-method z-body z-vala"><span class="z-meta z-block z-vala">  <span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span></span></span><span class="z-source z-vala"><span class="z-meta z-class z-body z-vala"><span class="z-meta z-block z-vala"><span class="z-punctuation z-section z-block z-end z-vala">}</span></span></span>
+</span><span class="z-source z-vala">
+</span><span class="z-source z-vala"><span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> Compile command (requires gtk4 package to be installed):
+</span></span><span class="z-source z-vala"><span class="z-comment z-line z-vala"><span class="z-punctuation z-definition z-comment z-vala">//</span> valac --pkg gtk4 ExampleApp.vala
+</span></span></code></pre>
+
+
+  
+<div class="cta-stack">
+  <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html">Get Started</a>
+
+  
+  <a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">View Source Code</a>
+  
+</div>
+
+
+  <section>
+    <h2>Why Vala?</h2>
+<dl class="features">
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-gears"></use>
+
+</svg>
+
+        Productivity
+      </div>
+    </dt>
+    <dd>Comfortably write your code in an object-oriented way with high level abstractions, while having access to deep integrations with <a href="https://www.gnome.org">GNOME</a> technologies such as: <a href="https://docs.gtk.org/gobject/">GObject</a>, <a href="https://www.gtk.org">GTK</a> and more!</dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-rocket"></use>
+
+</svg>
+
+        Performance
+      </div>
+    </dt>
+    <dd>Vala compiles code down to blazingly fast, fully native binaries. You&#x27;re also able to reuse existing C Code in your Vala programs as well as generate C Code from Vala.</dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-open-source"></use>
+
+</svg>
+
+        Open-Source
+      </div>
+    </dt>
+    <dd>Vala is free and open-source software. It has a great community that contributes to the compiler and develops lots of tooling.</dd>
+    <dd><a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;tooling&#x2F;index.html">Tooling Documentation</a></dd>
+  </div>
+</dl>
+<a href="https://vala.dev/about/">Learn more about Vala</a>
+
+  </section>
+
+  <section>
+    <h2>What can you build?</h2>
+<dl class="features">
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-gui-app"></use>
+
+</svg>
+
+        GUI Applications
+      </div>
+    </dt>
+    <dd>Perfect integration of GTK, Libadwaita and Granite makes development super simple. Easily publish your apps on Flathub without bloated packages.</dd>
+    <dd>
+     <ul>
+        <li>
+          <a href="https:&#x2F;&#x2F;developer.gnome.org&#x2F;documentation&#x2F;tutorials&#x2F;beginners&#x2F;getting_started.html">GNOME Getting Started Tutorial</a>
+        </li>
+        <li>
+          <a href="https:&#x2F;&#x2F;docs.elementary.io&#x2F;develop&#x2F;">elementary OS App Tutorial</a>
+        </li>
+      </ul>
+    </dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-terminal"></use>
+
+</svg>
+
+        <span>Command Line Programs</span>
+        
+      </div>
+    </dt>
+    <dd>Use a large standard library and many third-party libraries available for use in Vala.</dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-library"></use>
+
+</svg>
+
+        Libraries
+      </div>
+    </dt>
+    <dd>Provide bindings for many other languages and API documentation without manual work. Also, dynamic and static linking are both supported.</dd>
+  </div>
+</dl>
+
+  </section>
+
+  <section>
+    
+
+
+
+<h2>What&#x27;s new?</h2>
+<div class="post-previews">
+  
+    
+
+    <a href="https:&#x2F;&#x2F;vala.dev&#x2F;blog&#x2F;valabot&#x2F;" class="post-preview">
+      <img src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;vala-hero.dd48a5dee00a3fe8.png" alt="Purple background with white text on center that says &#x27;Vala&#x27;.">
+      <div>
+        <div>ValaBot: an AI coding assistant fine-tuned for Vala</div>
+        <span>
+  
+    
+      Sam Cowen
+  
+</span>
+        <time datetime="2024-05-09">2024-05-09</time>
+      </div>
+    </a>
+  
+    
+
+    <a href="https:&#x2F;&#x2F;vala.dev&#x2F;blog&#x2F;c-off-ramp&#x2F;" class="post-preview">
+      <img src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;vala-hero.dd48a5dee00a3fe8.png" alt="Purple background with white text on center that says &#x27;Vala&#x27;.">
+      <div>
+        <div>Vala: the smoothest C off-ramp</div>
+        <span>
+  
+    
+      Reuben Thomas
+  
+</span>
+        <time datetime="2024-04-22">2024-04-22</time>
+      </div>
+    </a>
+  
+    
+
+    <a href="https:&#x2F;&#x2F;vala.dev&#x2F;blog&#x2F;planet-gnome&#x2F;" class="post-preview">
+      <img src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;vala-hero.dd48a5dee00a3fe8.png" alt="Purple background with white text on center that says &#x27;Vala&#x27;.">
+      <div>
+        <div>print(&quot;Hello Planet GNOME&quot;);</div>
+        <span>
+  
+    
+      Lorenz Wildberg
+  
+</span>
+        <time datetime="2023-10-11">2023-10-11</time>
+      </div>
+    </a>
+  
+    
+      
+</div>
+<a href="https:&#x2F;&#x2F;vala.dev&#x2F;blog&#x2F;">View Blog</a>
+
+  </section>
+
+  <section>
+    <h2>Current Versions</h2>
+<ul>
+  
+  <li>
+    <a href="https://gitlab.gnome.org/GNOME/vala/-/blob/0.56.17/NEWS">Vala 0.56.17</a> (Stable Long-term Support)
+  </li>
+  <li>
+    <a href="https://gitlab.gnome.org/GNOME/vala/-/commits/main">Vala main</a> (Development)
+  </li>
+</ul>
+<a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html">How to install</a>
+
+  </section>
+
+  <section>
+    
+
+<h2>Showcase</h2>
+<ul class="showcase">
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;tuba.geopjr.dev&#x2F;">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="548"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;tuba.7a1c7aac49ae2923.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;tuba.da9198ab70f554c6.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;tuba.7a1c7aac49ae2923.png"
+          alt="Tuba">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/tuba.svg" alt="Tuba">
+        <div class="text-info">
+          <div class="title">Tuba</div>
+          <p>Browse the Fediverse</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;apps.gnome.org&#x2F;Workbench&#x2F;">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="479"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;workbench.9949eab6a62a9842.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;workbench.8c3b3fa5950aed35.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;workbench.9949eab6a62a9842.png"
+          alt="Workbench">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/workbench.svg" alt="Workbench">
+        <div class="text-info">
+          <div class="title">Workbench</div>
+          <p>Learn and prototype with Vala and other GNOME technologies</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;dino.im&#x2F;">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="380"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;dino.df6bf1856311f7f6.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;dino.8d105749f739e8e0.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;dino.df6bf1856311f7f6.png"
+          alt="Dino">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/dino.svg" alt="Dino">
+        <div class="text-info">
+          <div class="title">Dino</div>
+          <p>A modern open-source chat client for the desktop. Focuses on providing a clean and reliable Jabber&#x2F;XMPP experience while having your privacy in mind.</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;stsdc&#x2F;monitor">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="370"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;monitor.3a1b6d01834c25b7.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;monitor.fb35e2a5ac300df1.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;monitor.3a1b6d01834c25b7.png"
+          alt="Monitor">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/monitor.svg" alt="Monitor">
+        <div class="text-info">
+          <div class="title">Monitor</div>
+          <p>Manage processes and monitor system resources</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;RajSolai&#x2F;TextSnatcher">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="456"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;textsnatcher.8ae2b60321ed0a4a.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;textsnatcher.394325ae8c65c222.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;textsnatcher.8ae2b60321ed0a4a.png"
+          alt="TextSnatcher">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/textsnatcher.svg" alt="TextSnatcher">
+        <div class="text-info">
+          <div class="title">TextSnatcher</div>
+          <p>Copy Text from Images with ease, Perform OCR operations in seconds.</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+  <li>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;linuxmint&#x2F;timeshift">
+      <div class="image-frame">
+        
+        
+
+        <img
+          width="640"
+          height="465"
+          srcset="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;timeshift.0c93e88769a287be.png, https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;timeshift.37674251bf830d9f.png 2x"
+          src="https:&#x2F;&#x2F;vala.dev&#x2F;processed_images&#x2F;timeshift.0c93e88769a287be.png"
+          alt="Timeshift">
+      </div>
+
+      <div class="info">
+        <img aria-hidden="true" src="https://vala.dev/icons/showcase/timeshift.png" alt="Timeshift">
+        <div class="text-info">
+          <div class="title">Timeshift</div>
+          <p>System restore tool for Linux. Creates filesystem snapshots using rsync+hardlinks, or BTRFS snapshots.</p>
+        </div>
+      </div>
+    </a>
+  </li>
+  
+</ul>
+<a href="https:&#x2F;&#x2F;github.com&#x2F;desiderantes&#x2F;awesome-vala">View More Vala Projects</a>
+
+  </section>
+
+  <section>
+    <h2 id="community">Community</h2>
+<dl class="features">
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-discourse"></use>
+
+</svg>
+
+        Forums
+      </div>
+    </dt>
+    <dd>Ask questions related to Vala in the GNOME Discourse forums under the &#x27;vala&#x27; tag.</dd>
+    <dd><a href="https:&#x2F;&#x2F;discourse.gnome.org&#x2F;tag&#x2F;vala">Discourse Forums</a></dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-matrix"></use>
+
+</svg>
+
+        Internals Chat
+      </div>
+    </dt>
+    <dd>Talk to the developers or ask questions about how to contribute to Vala, use the Vala Matrix channel.</dd>
+    <dd><a href="https:&#x2F;&#x2F;matrix.to&#x2F;#&#x2F;#vala:gnome.org">Matrix Room</a></dd>
+  </div>
+  <div>
+    <dt>
+      <div>
+        
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-discord"></use>
+
+</svg>
+
+        Community Server
+      </div>
+    </dt>
+    <dd>Connect with the community on the Discord server.</dd>
+    <dd><a href="https:&#x2F;&#x2F;discord.gg&#x2F;YFAzjSVHt7">Discord Server</a></dd>
+  </div>
+</dl>
+
+<h2>Social Media</h2>
+<div class="prose">
+  <p>Follow the Vala project across these platforms</p>
+  <ul class="social-links">
+    <li><a rel="me" href="https:&#x2F;&#x2F;mastodon.social&#x2F;@vala_lang">
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-mastodon"></use>
+
+</svg>
+Mastodon</a></li>
+    <li><a href="https:&#x2F;&#x2F;www.twitter.com&#x2F;vala_lang">
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-twitter"></use>
+
+</svg>
+Twitter</a></li>
+    <li><a href="https:&#x2F;&#x2F;t.me&#x2F;vala_lang">
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-telegram"></use>
+
+</svg>
+Telegram</a></li>
+    <li><a href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;vala">
+
+<svg aria-hidden="true" class="icon">
+  
+  <use href="https://vala.dev/icons/spritemap.svg#sprite-reddit"></use>
+
+</svg>
+Reddit</a></li>
+  </ul>
+</div>
+
+  </section>
+
+  
+<div class="cta-stack">
+  <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html">Get Started</a>
+
+  
+  <a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">View Source Code</a>
+  
+</div>
+
+
+
+    </main>
+  </div>
+
+  <footer>
+  <div>
+    <ul>
+      Languages:
+      
+        <li><a href="https://vala.dev/fr/">
+  
+    Français
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/pt_BR/">
+  
+    Português Brasileiro
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/zh_CN/">
+  
+    简体中文
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/cs/">
+  
+    Čeština
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/ru/">
+  
+    Русский
+  
+</a></li>
+      
+    </ul>
+    <div>Made by the Vala Community</div>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;vala-lang&#x2F;vala-www">View The Website&#x27;s Source Code</a>
+    <p>This work is licensed under a <a rel="license" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+  </div>
+</footer>
+
+
+  <script src="https://vala.dev/js/global.js"></script>
+  
+
+
+</body>
+</html>

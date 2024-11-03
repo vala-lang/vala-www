@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7239b3">
+  <link rel="stylesheet" href="https://vala.dev/css/global.css">
+  
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://vala.dev/css/syntax-theme-dark.css" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://vala.dev/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://vala.dev/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://vala.dev/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://vala.dev/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://vala.dev/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://vala.dev/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://vala.dev/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://vala.dev/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vala.dev/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://vala.dev/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vala.dev/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="https://vala.dev/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vala.dev/favicon-16x16.png">
+  <link type="text/plain" rel="author" href="https://vala.dev/humans.txt">
+  <link rel="manifest" href="https://vala.dev/manifest.json">
+  <meta name="msapplication-TileColor" content="#a56de2">
+  <meta name="msapplication-TileImage" content="https://vala.dev/ms-icon-144x144.png">
+  
+  
+   <link rel="alternate" type="application/atom+xml" title="Vala - Feed" href="https://vala.dev/atom.xml">
+  
+  
+  
+<title>ValaBot: an AI coding assistant fine-tuned for Vala</title>
+
+  
+  
+  <meta name="description" content="An AI coding assistant fine-tuned for Vala and Gtk">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@vala_lang">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ValaBot: an AI coding assistant fine-tuned for Vala">
+  <meta property="og:description" content="An AI coding assistant fine-tuned for Vala and Gtk">
+  <meta property="og:url" content="https://vala.dev/blog/valabot/">
+  <meta property="og:site_name" content="Vala">
+    
+  
+  <meta property="og:image" content="https://vala.dev/img/vala-hero-wide.png">
+
+
+  
+    <meta property="article:published_time" content="2024-05-09">
+  
+
+  
+
+  
+  
+  <meta property="article:section" content="Blog">
+
+<link rel="stylesheet" href="https://vala.dev/css/blog-post.css">
+
+</head>
+<body>
+  <a id="bypass-block" href="#main-content">Skip to main content</a>
+
+  
+    
+  
+
+  
+
+  <header>
+    <div>
+      <nav>
+        <div>
+          <a aria-label="Home" href="https://vala.dev">
+            
+<svg version="1.1" viewBox="0 0 7.9685 3.1998" xmlns="http://www.w3.org/2000/svg">
+ <title>Home</title>
+ <g transform="translate(-17.82 -13.53)">
+  <g stroke-width=".26458">
+   <path d="m18.913 16.705-0.06821-2.8918q-0.29766 0.11162-0.46509 0.34933-0.16536 0.23771-0.16536 0.59118 0 0.17156 0.04754 0.25838 0.01034 0.01654 0.01034 0.02894-0.339 0-0.42375-0.21704-0.02894-0.07855-0.02894-0.1943 0-0.21291 0.13229-0.40928 0.13436-0.19844 0.3452-0.3514 0.48162-0.339 1.0087-0.339 0.08682 0 0.1695 0.0083l0.03721 2.6045 0.8909-2.5921h0.29559l-1.1762 3.1543z"/>
+   <path d="m22.804 15.946q-0.26872 0.78341-0.84956 0.78341-0.37414 0-0.41548-0.38861-0.27698 0.38861-0.64699 0.38861-0.36794 0-0.50023-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.13643 0 0.1819 0.17363 0.1819 0.22531 0 0.34313-0.39894zm-1.0666-0.95498q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+   <path d="m23.934 15.946q-0.27285 0.78341-0.91157 0.78341-0.16743 0-0.29972-0.11989-0.13022-0.11989-0.13022-0.38654 0-0.11989 0.03307-0.27698l0.45269-2.1208 0.62632-0.08475-0.48576 2.2862q-0.01654 0.07648-0.01654 0.1509 0 0.14263 0.17157 0.14263 0.12402 0 0.22944-0.10749 0.10749-0.10749 0.15296-0.26665z"/>
+   <path d="m24.896 16.337q-0.26252 0.39274-0.63872 0.39274-0.3762 0-0.5085-0.36174-0.04754-0.13022-0.04754-0.29559 0-0.16743 0.02894-0.3328 0.02894-0.16743 0.08888-0.3328 0.13229-0.3638 0.37827-0.60151 0.24598-0.23771 0.59324-0.23771 0.1819 0 0.26252 0.06201 0.08062 0.05994 0.08062 0.15296v0.03101l0.04547-0.22531h0.60978l-0.30386 1.4387q-0.0186 0.07235-0.0186 0.14883 0 0.14469 0.17363 0.14469 0.05581 0 0.09302-0.0186-0.08888 0.23771-0.1509 0.30799-0.10955 0.11989-0.27905 0.11989-0.16743 0-0.27492-0.10129-0.10749-0.10335-0.13229-0.29146zm0.19844-1.3457q0-0.03927-0.03721-0.09922-0.03514-0.06201-0.15296-0.06201t-0.22944 0.12609q-0.26872 0.30386-0.33693 0.8723-0.01034 0.08682-0.01034 0.18397 0 0.1881 0.07855 0.26252 0.04547 0.04548 0.11369 0.04548 0.12609 0 0.22944-0.09922 0.10335-0.10128 0.14263-0.27492z"/>
+  </g>
+ </g>
+</svg>
+
+          </a>
+        </div>
+        <ul>
+          <li><a href="https://vala.dev/about/">About</a></li>
+            <li><a href="https:&#x2F;&#x2F;docs.vala.dev">Docs</a></li>
+            <li><a href="https://vala.dev#community">Community</a></li>
+            <li><a href="https://vala.dev/blog/">Blog</a></li>
+            <li><a href="https:&#x2F;&#x2F;gitlab.gnome.org&#x2F;GNOME&#x2F;vala">Source Code</a></li>
+        </ul>
+        <button aria-label="Menu" class="menu-toggle">
+          <span class="hamburger"></span>
+        </button>
+        <!-- Link to Installation section of tutorial -->
+        <div>
+          <a href="https:&#x2F;&#x2F;docs.vala.dev&#x2F;installation-guide.html" class="navbar-button">Get Started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  
+
+  <div class="container">
+    <main id="main-content">
+      
+<article class="blog-post">
+  <header>
+    <h1>ValaBot: an AI coding assistant fine-tuned for Vala</h1>
+    <p>An AI coding assistant fine-tuned for Vala and Gtk</p>
+    <span>
+  
+    
+      Sam Cowen
+  
+</span>
+    <time datetime="2024-05-09">2024-05-09</time>
+    <a href="https://vala.dev/blog/">Blog</a>
+  </header>
+  <h2 id="enhancing-ai-coding-assistants-for-vala-developers">Enhancing AI Coding Assistants for Vala Developers<a class="zola-anchor" href="#enhancing-ai-coding-assistants-for-vala-developers" aria-label="Anchor link for: enhancing-ai-coding-assistants-for-vala-developers">#</a>
+</h2>
+<p>As a programmer, I've been impressed by AI coding assistants like GitHub Copilot and Codeium, which have significantly boosted my productivity. These tools excel at reducing disruptive interruptions, saving time on typing, and often completing lines of code accurately. However, I've encountered limitations with Copilot while working with the Vala programming language. Its suggestions often get muddled with similar languages like Java and C#, and it lacks training on the more common Vala libraries.</p>
+<p>Like many other developers, I'm also dissatisfied with the dominance of Github Copilot and that open source code has been monetized without attribution or consideration for the original authors (some of whom now pay for the service).</p>
+<p>This challenge inspired me to enhance the Copilot concept by creating an AI coding assistant that is finely tuned to provide a viable and superior alternative that caters for the specific needs of Vala developers. I began with an open-source Large Language Model that had been trained on source code - the powerful Deepseek Coder 6.7b model. This model has been trained from scratch by Deepseek AI on 2 trillion tokens sourced from GitHub. Deepseek Coder significantly outperforms other open-source coding models, such as Codellama.</p>
+<p>I chose the Deepseekcoder-6.7b-base model as the foundation for fine-tuning because of its great benchmark performance and also because it was trained on Java and C# – languages syntactically close to Vala. This allowed me to build upon its existing capabilities and adapt it to the specific needs of Vala.</p>
+<h2 id="fine-tuning-for-vala">Fine-Tuning for Vala<a class="zola-anchor" href="#fine-tuning-for-vala" aria-label="Anchor link for: fine-tuning-for-vala">#</a>
+</h2>
+<p>I fine-tuned the model on Vala programming language datasets. This involved downloading as many Vala projects as I could find from GitHub, extracting the Vala source files, and splitting them into ~40 line segments. I then used Llama3 to create logical and predictable "holes" in each segment, which were then used to create the FIM (fill-in-the-middle) dataset. This data preparation process took 96 hours of GPU time using my quad-RX6800 machine over a weekend. The resulting dataset was cleaned to remove non-code elements, such as license headers, and personal identifiable information.</p>
+<h2 id="the-training">The Training<a class="zola-anchor" href="#the-training" aria-label="Anchor link for: the-training">#</a>
+</h2>
+<p>The fine-tuning process took 10 hours on an RTX 3090. The result was a LoRA, which was merged back into the base model, converted to GGUF, and quantized to q8_0, which is the format required by TabbyML.</p>
+<h2 id="the-result">The Result<a class="zola-anchor" href="#the-result" aria-label="Anchor link for: the-result">#</a>
+</h2>
+<p>The outcome was a model that is more helpful and productive for Vala-related projects. By fine-tuning Deepseek Coder, I was able to create a more accurate and effective AI coding assistant that understands the nuances of the Vala programming language. The model is hosted on Huggingface (<a href="https://huggingface.co/scowen/deepseek-coder-6.7b-vala/tree/main">https://huggingface.co/scowen/deepseek-coder-6.7b-vala/tree/main</a>). It can be used in VSCode, VIM, and other popular IDEs with TabbyML. The complete instructions, training scripts, and dataset are available on GitHub (<a href="https://github.com/supercamel/ValaBot">https://github.com/supercamel/ValaBot</a>).</p>
+<h2 id="licensing-and-fair-use">Licensing and Fair Use<a class="zola-anchor" href="#licensing-and-fair-use" aria-label="Anchor link for: licensing-and-fair-use">#</a>
+</h2>
+<p>As a project rooted in the principles of Free and Open-Source Software (FOSS), I believe in promoting freedom, community, and sharing knowledge. To facilitate collaboration and innovation, I've made the following resources publicly available:</p>
+<ul>
+<li>The fine-tuned model weights are hosted on Hugging Face for anyone to access and utilize in a TabbyML or other deployment.</li>
+<li>The training scripts and dataset preparation process are open-sourced on GitHub, providing a transparent and reproducible framework for others to build upon.</li>
+<li>A comprehensive list of repositories used during the fine-tuning process is available on GitHub, ensuring that contributors and users can easily identify and explore the sources that made this project possible.</li>
+</ul>
+<p>I hope that this openness will pave the way for further advancements and refinements, ultimately benefiting the Vala developer community as a whole.</p>
+<h2 id="conclusion">Conclusion<a class="zola-anchor" href="#conclusion" aria-label="Anchor link for: conclusion">#</a>
+</h2>
+<p>In this blog post, I've shared my experience with fine-tuning the Deepseek Coder for the Vala programming language, demonstrating how targeted adjustments can significantly enhance AI coding assistants. This project is just the beginning. I aim to continue developing models specifically optimized for Vala to support the Vala developer community. With the release of new base models, such as CodeQwen 7B, there are exciting possibilities for further advancements. Through this work, I hope to highlight the potential of AI fine-tuning in creating more effective coding assistants and inspire others to explore the possibilities of AI-assisted coding.</p>
+<p>Get started with ValaBot here: <a href="https://github.com/supercamel/ValaBot">https://github.com/supercamel/ValaBot</a></p>
+
+</article>
+
+    </main>
+  </div>
+
+  <footer>
+  <div>
+    <ul>
+      Languages:
+      
+        <li><a href="https://vala.dev/pt_BR/">
+  
+    Português Brasileiro
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/ru/">
+  
+    Русский
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/cs/">
+  
+    Čeština
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/zh_CN/">
+  
+    简体中文
+  
+</a></li>
+      
+        <li><a href="https://vala.dev/fr/">
+  
+    Français
+  
+</a></li>
+      
+    </ul>
+    <div>Made by the Vala Community</div>
+    <a href="https:&#x2F;&#x2F;github.com&#x2F;vala-lang&#x2F;vala-www">View The Website&#x27;s Source Code</a>
+    <p>This work is licensed under a <a rel="license" href="https:&#x2F;&#x2F;creativecommons.org&#x2F;licenses&#x2F;by-sa&#x2F;4.0&#x2F;">Creative Commons Attribution-ShareAlike 4.0 International License.</a></p>
+  </div>
+</footer>
+
+
+  <script src="https://vala.dev/js/global.js"></script>
+   
+
+</body>
+</html>
