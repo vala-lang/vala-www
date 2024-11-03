@@ -12,7 +12,7 @@ If you would like to contribute code, please try to do the following:
 4. Try to [reference issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue) so they can be automatically closed when the changes merged into the `main` branch.
 5. Make your pull request a draft if you think that there's needs to be regular feedback on the code as it's being developed.
 
-To deploy the website, push to the `deploy` branch (preferrably from the `main` branch).
+Pushing to the `main` branch will also deploy the website.
 
 ## Table of Contents
 
