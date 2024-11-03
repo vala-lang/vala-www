@@ -2,7 +2,7 @@
 
 Website of the Vala programming language. View the website here: https://vala.dev
 
-You can contribute to the new documentation website here: https://gitlab.gnome.org/lwildberg/vala-tutorial
+You can contribute to the new documentation website here: https://github.com/vala-lang/vala-docs
 
 ## Reporting bugs and requesting features
 
