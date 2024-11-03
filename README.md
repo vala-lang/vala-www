@@ -66,5 +66,5 @@ You can find out more about humans.txt at: https://humanstxt.org/.
 ## Additional Resources
 
 - [Zola Documentation](https://www.getzola.org/documentation/getting-started/overview/)
-- [Tera Documentation](https://tera.netlify.app/docs/)
+- [Tera Documentation](https://keats.github.io/tera/)
 - [MDN Web Docs](https://developer.mozilla.org)

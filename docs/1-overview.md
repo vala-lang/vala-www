@@ -18,7 +18,7 @@
 - The website is a static site and is generated using [Zola](https://www.getzola.org/)
   - Extremely fast (written in Rust)
   - Is a single binary with no dependencies (Very simple to install)
-- Pages templates are powered by the [Tera templating engine](https://tera.netlify.app/)
+- Pages templates are powered by the [Tera templating engine](https://keats.github.io/tera/)
 - Page content is written using the [CommonMark](https://commonmark.org/) implementation of [markdown](https://daringfireball.net/projects/markdown/)
   - Markdown files are human readable
   - Simple syntax
