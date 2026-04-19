@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { localeMessages, supportedLocales, defaultLocale } from './locales/index.js'
 import { site } from './data/site.js'
+import valaGrammar from './shiki/vala.tmLanguage.json'
 
 const commonHead = [
   ['meta', { name: 'theme-color', content: '#7239b3' }],
@@ -98,7 +99,17 @@ export default defineConfig({
     theme: {
       light: 'one-light',
       dark: 'one-dark-pro'
-    }
+    },
+    // Shiki has no built-in Vala grammar, so we ship a minimal TextMate
+    // grammar with the theme and register it here. Without this, fenced
+    // ```vala blocks would render as plain text.
+    languages: [
+      {
+        ...valaGrammar,
+        name: 'vala',
+        aliases: ['vapi']
+      }
+    ]
   },
 
   themeConfig: {

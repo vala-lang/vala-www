@@ -1,0 +1,149 @@
+{
+  "name": "Vala",
+  "scopeName": "source.vala",
+  "fileTypes": ["vala", "vapi"],
+  "patterns": [{ "include": "#code" }],
+  "repository": {
+    "code": {
+      "patterns": [
+        { "include": "#comments" },
+        { "include": "#strings" },
+        { "include": "#constants" },
+        { "include": "#keywords" },
+        { "include": "#types" },
+        { "include": "#functions" },
+        { "include": "#variables" }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.vala",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "captures": {
+            "0": { "name": "punctuation.definition.comment.vala" }
+          }
+        },
+        {
+          "name": "comment.line.double-slash.vala",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.vala",
+          "begin": "\"\"\"",
+          "end": "\"\"\""
+        },
+        {
+          "name": "string.quoted.interpolated.vala",
+          "begin": "@\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            },
+            {
+              "name": "variable.other.interpolation.vala",
+              "match": "\\$\\w+"
+            },
+            {
+              "name": "variable.other.interpolation.vala",
+              "match": "\\$\\([^)]*\\)"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.vala",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.vala",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.numeric.vala",
+          "match": "\\b((0(x|X)[0-9a-fA-F]+)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\\b"
+        },
+        {
+          "name": "constant.language.vala",
+          "match": "\\b(true|false|null)\\b"
+        },
+        {
+          "name": "variable.other.constant.vala",
+          "match": "\\b([A-Z][A-Z0-9_]+)\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.vala",
+          "match": "\\b(if|else|for|foreach|while|do|switch|case|default|break|continue|return|yield|throw|try|catch|finally|lock|unlock|with|in|is|as|new|delete|sizeof|typeof)\\b"
+        },
+        {
+          "name": "keyword.other.vala",
+          "match": "\\b(namespace|using|class|interface|struct|enum|errordomain|delegate|signal|construct|requires|ensures|this|base)\\b"
+        },
+        {
+          "name": "storage.modifier.vala",
+          "match": "\\b(public|private|protected|internal|static|const|abstract|virtual|override|sealed|async|extern|inline|weak|unowned|owned|out|ref|params|var|dynamic|volatile)\\b"
+        },
+        {
+          "name": "storage.type.primitive.vala",
+          "match": "\\b(bool|double|float|unichar|unichar2|char|uchar|int|uint|long|ulong|short|ushort|size_t|ssize_t|string|string16|string32|void|int8|int16|int32|int64|uint8|uint16|uint32|uint64|va_list|time_t)\\b"
+        },
+        {
+          "name": "keyword.control.directive.vala",
+          "match": "^\\s*#\\s*(if|elif|else|endif|define|undef)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "entity.name.type.vala",
+          "match": "\\b([A-Z]\\w*)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.vala",
+          "match": "(\\w+)(?=\\s*(<[\\s\\w.,]+>\\s*)?\\()"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.vala",
+          "match": "\\b([_a-z]\\w*)\\b"
+        }
+      ]
+    }
+  }
+}
