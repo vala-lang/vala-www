@@ -1,9 +1,11 @@
 <script setup>
 import { computed } from 'vue'
+import { withBase } from 'vitepress'
 import { data as allPosts } from '../data/posts.data.js'
 import { useI18n, localeLink } from '../composables/useI18n.js'
 
 const { t, code } = useI18n()
+const heroSrc = withBase('/img/vala-hero.png')
 
 const latest = computed(() => {
   const scoped = allPosts.filter((p) => p.locale === code.value)
@@ -37,7 +39,7 @@ function formatDate(iso) {
         :href="post.url"
         class="post-preview"
       >
-        <img src="/img/vala-hero.png" :alt="t.default_image_description" />
+        <img :src="heroSrc" :alt="t.default_image_description" />
         <div>
           <div>{{ post.frontmatter.title }}</div>
           <span>{{ authors(post) }}</span>

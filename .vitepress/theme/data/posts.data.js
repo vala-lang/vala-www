@@ -1,7 +1,6 @@
 // Blog post data loader for VitePress.
 //
-// Discovers per-locale post trees (e.g. `en/blog/*.md`, `cs/blog/*.md`) and
-// emits sorted metadata used by:
+// Discovers per-locale post trees and emits sorted metadata used by:
 // - LatestBlog.vue on the home page (top N per locale).
 // - BlogLayout.vue for the paginated blog index.
 // - PostLayout.vue for neighbour links.
@@ -12,35 +11,48 @@
 
 import { createContentLoader } from 'vitepress'
 
-const LOCALES = ['en', 'cs', 'fr', 'pt_BR', 'ru', 'zh_CN']
+// English posts live at the repo root (`blog/*.md`) because `en` is the
+// default locale. Translated posts live under `<code>/blog/*.md`.
+const POST_PATTERNS = [
+  'blog/*.md',
+  'cs/blog/*.md',
+  'fr/blog/*.md',
+  'pt_BR/blog/*.md',
+  'ru/blog/*.md',
+  'zh_CN/blog/*.md'
+]
 
-export default createContentLoader(
-  LOCALES.map((l) => `${l}/blog/*.md`),
-  {
-    excerpt: true,
-    transform(raw) {
-      return raw
-        .filter((page) => !page.url.endsWith('/blog/'))
-        .map((page) => {
-          const match = page.url.match(/^\/([^/]+)\/blog\//)
-          const locale = match ? match[1] : 'en'
-          return {
-            url: page.url,
-            locale,
-            excerpt: page.excerpt ?? '',
-            frontmatter: {
-              title: page.frontmatter.title ?? '',
-              date: page.frontmatter.date ?? '',
-              description: page.frontmatter.description ?? '',
-              authors: page.frontmatter.authors ?? []
-            }
-          }
-        })
-        .sort((a, b) => {
-          const ad = a.frontmatter.date || ''
-          const bd = b.frontmatter.date || ''
-          return bd.localeCompare(ad)
-        })
-    }
+function localeFromUrl(url) {
+  const match = url.match(/^\/(cs|fr|pt_BR|ru|zh_CN)\/blog\//)
+  return match ? match[1] : 'en'
+}
+
+function normalizeDate(value) {
+  if (!value) return ''
+  if (value instanceof Date) return value.toISOString().slice(0, 10)
+  return String(value)
+}
+
+export default createContentLoader(POST_PATTERNS, {
+  excerpt: true,
+  transform(raw) {
+    return raw
+      .filter((page) => {
+        // Skip the blog index pages (they don't have a title with a date).
+        if (page.url.endsWith('/blog/')) return false
+        return true
+      })
+      .map((page) => ({
+        url: page.url,
+        locale: localeFromUrl(page.url),
+        excerpt: page.excerpt ?? '',
+        frontmatter: {
+          title: page.frontmatter.title ?? '',
+          date: normalizeDate(page.frontmatter.date),
+          description: page.frontmatter.description ?? '',
+          authors: page.frontmatter.authors ?? []
+        }
+      }))
+      .sort((a, b) => b.frontmatter.date.localeCompare(a.frontmatter.date))
   }
-)
+})
