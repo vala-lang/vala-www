@@ -1,3 +1,5 @@
+@use '../utils/container' as *;
+
 body > header {
   --foreground-color: white;
   --focus-outline-color: white;

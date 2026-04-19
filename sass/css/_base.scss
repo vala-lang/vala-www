@@ -1,3 +1,17 @@
+@use "typography";
+
+/// Shared `<h3>` appearance (heading group + level-3 rules). Used by
+/// `components/_feature` via `@include` because `@extend h3` does not cross
+/// Sass module boundaries.
+@mixin h3-heading {
+  color: var(--foreground-color);
+  margin-top: 0.85em;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: typography.$font-weight-medium;
+  letter-spacing: -0.003125rem;
+}
+
 :root {
   --accent-color: #a56de2;
   --accent-color-light-2: #e4c6fa;
@@ -120,7 +134,6 @@ section.standalone {
 
 h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
@@ -156,21 +169,19 @@ h6:focus .zola-anchor {
 h1 {
   font-size: 3rem;
   letter-spacing: -0.04rem;
-  font-weight: $font-weight-semi-bold;
-  font-variation-settings: 'wght' $font-weight-semi-bold;
+  font-weight: typography.$font-weight-semi-bold;
+  font-variation-settings: 'wght' typography.$font-weight-semi-bold;
 }
 
 h2 {
   font-size: 2rem;
-  font-weight: $font-weight-semi-bold;
+  font-weight: typography.$font-weight-semi-bold;
   letter-spacing: -0.05rem;
-  font-variation-settings: 'wght' $font-weight-semi-bold;
+  font-variation-settings: 'wght' typography.$font-weight-semi-bold;
 }
 
 h3 {
-  font-size: 1.5rem;
-  font-weight: $font-weight-medium;
-  letter-spacing: -0.003125rem;
+  @include h3-heading;
 }
 
 p {

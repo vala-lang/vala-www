@@ -1,0 +1,7 @@
+// VitePress theme bundle: load order matches the old Zola per-template CSS
+// (global chrome -> home -> blog index -> blog post). `@forward` pulls each
+// stylesheet’s CSS into one module so the theme only `@use`s this file once.
+@forward 'global';
+@forward 'index';
+@forward 'blog';
+@forward 'blog-post';

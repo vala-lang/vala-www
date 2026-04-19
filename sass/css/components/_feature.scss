@@ -1,3 +1,5 @@
+@use '../base' as base;
+
 .features {
   display: flex;
   flex-direction: column;
@@ -28,7 +30,7 @@
   a inside <dt> element: https://html.spec.whatwg.org/multipage/grouping-content.html#the-dt-element
 */
 .features dt {
-  @extend h3;
+  @include base.h3-heading;
   margin-top: 0;
 }
 

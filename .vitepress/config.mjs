@@ -112,5 +112,17 @@ export default defineConfig({
 
   themeConfig: {
     siteData: site
+  },
+
+  // Use Sass’s modern embedded compiler API (not Vite’s default `legacy` API).
+  // See https://sass-lang.com/d/legacy-js-api and Vite `css.preprocessorOptions.scss.api`.
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler'
+        }
+      }
+    }
   }
 })

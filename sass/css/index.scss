@@ -1,3 +1,4 @@
+@use "sass:meta";
 body > header.extended {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
   padding: 0 0 30vh 0;
@@ -47,5 +48,5 @@ h1 {
   }
 }
 
-@import 'components/post-preview';
-@import 'components/showcase';
+@include meta.load-css('components/post-preview');
+@include meta.load-css('components/showcase');

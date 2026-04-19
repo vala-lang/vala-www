@@ -1,16 +1,8 @@
-// Global stylesheet entry imported from theme/index.js.
-//
-// The SCSS partials live at the repo root under ../../../sass/css and are
-// still authored with Sass `@import`, which works in Dart Sass 1.x (with
-// deprecation warnings). We keep the imports grouped: global chrome first,
-// then per-layout rules (home, blog index, blog post). Selectors are scoped
-// enough that bundling them together matches the behaviour of the earlier
-// Zola build where each template only linked the stylesheet it needed.
-
-@import '../../../sass/css/global.scss';
-@import '../../../sass/css/index.scss';
-@import '../../../sass/css/blog.scss';
-@import '../../../sass/css/blog-post.scss';
+// VitePress theme CSS entry (`theme/index.js`). Follows the Sass module system
+// (`@use` / `@forward`); see https://sass-lang.com/documentation/breaking-changes/import/
+// Re-run `bun run sass:migrate:dry` (or `sass:migrate`) after SCSS changes.
+// Site layers live under `sass/css/`; `site.scss` forwards them in load order.
+@use '../../../sass/css/site';
 
 body {
   margin: 0;

@@ -1,3 +1,4 @@
+@use "sass:string";
 footer {
   --foreground-color: white;
   --focus-outline-color: white;
@@ -19,9 +20,9 @@ footer {
   // plain CSS only. Doesn't currently work without `unquote()` in Zola's version of Sass.
   // Source: https://sass-lang.com/documentation/values/calculations#min-and-max
   @supports (padding: max(0px)) {
-    padding-left: unquote("max(1rem, env(safe-area-inset-left))");
-    padding-right: unquote("max(1rem, env(safe-area-inset-right))");
-    padding-bottom: unquote("max(1rem, env(safe-area-inset-bottom))");
+    padding-left: string.unquote("max(1rem, env(safe-area-inset-left))");
+    padding-right: string.unquote("max(1rem, env(safe-area-inset-right))");
+    padding-bottom: string.unquote("max(1rem, env(safe-area-inset-bottom))");
   }
 }
 
@@ -56,9 +57,9 @@ footer a:focus {
     // plain CSS only. Doesn't currently work without `unquote()` in Zola's version of Sass.
     // Source: https://sass-lang.com/documentation/values/calculations#min-and-max
     @supports (padding: max(0)) {
-      padding-left: unquote("max(2rem, env(safe-area-inset-left))");
-      padding-right: unquote("max(2rem, env(safe-area-inset-right))");
-      padding-bottom: unquote("max(1.5rem, env(safe-area-inset-bottom))");
+      padding-left: string.unquote("max(2rem, env(safe-area-inset-left))");
+      padding-right: string.unquote("max(2rem, env(safe-area-inset-right))");
+      padding-bottom: string.unquote("max(1.5rem, env(safe-area-inset-bottom))");
     }
   }
 }
