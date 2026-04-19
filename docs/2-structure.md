@@ -7,7 +7,7 @@
   - `config.mjs` - Site metadata, locales, markdown/shiki configuration, and `<head>` tags.
   - `data/` - Site-wide data loaded by Vue components and layouts (`site.js`, `showcase-items.json`).
   - `locales/` - One JavaScript module per language (`en.js`, `cs.js`, `fr.js`, `pt_BR.js`, `ru.js`, `zh_CN.js`) plus an `index.js` that re-exports them.
-  - `shiki/` - Custom TextMate grammars registered with Shiki (for example `vala.tmLanguage.json`).
+  - `shiki/` - Custom TextMate grammars registered with Shiki. `vala.tmLanguage.json` is the upstream grammar from [vala-lang/vala-vscode](https://github.com/vala-lang/vala-vscode), converted from YAML to JSON by `scripts/refresh-vala-grammar.mjs`.
   - `theme/` - The custom VitePress theme: Vue components, layouts, composables, and the SCSS entry point.
 - `blog/` - English blog posts as markdown files. Each file's slug becomes the URL.
 - `about/` - The English About page (`about/index.md`).
@@ -24,7 +24,7 @@
 - `sass/` - Sass/SCSS source. The VitePress theme imports these through `.vitepress/theme/styles/main.scss`.
   - `css/components/` - Files used to style small, specific parts of markup used across the entire site.
   - `css/utils/` - Utilities consumed by other sass files.
-- `scripts/` - Build-time scripts run with `bun run`. `generate-atom.mjs` writes the Atom feeds into `.vitepress/dist/` after `vitepress build`.
+- `scripts/` - Scripts run with `bun run`. `generate-atom.mjs` writes the Atom feeds into `.vitepress/dist/` after `vitepress build`. `refresh-vala-grammar.mjs` regenerates `.vitepress/shiki/vala.tmLanguage.json` from upstream.
 
 ## Root files
 

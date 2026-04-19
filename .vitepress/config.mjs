@@ -82,7 +82,7 @@ export default defineConfig({
   sitemap: { hostname: site.base_url },
 
   // Only the per-locale content trees at the repo root and inside each
-  // locale folder should produce pages. Everything else — contributor
+  // locale folder should produce pages. Everything else - contributor
   // docs, README etc. is excluded so it doesn't
   // leak into the build.
   srcExclude: ['**/README.md', 'docs/**'],
@@ -96,9 +96,11 @@ export default defineConfig({
       light: 'one-light',
       dark: 'one-dark-pro'
     },
-    // Shiki has no built-in Vala grammar, so we ship a minimal TextMate
-    // grammar with the theme and register it here. Without this, fenced
-    // ```vala blocks would render as plain text.
+    // Shiki has no built-in Vala grammar, so we ship the upstream
+    // vala-lang/vala-vscode grammar and register it here. Without
+    // this, fenced ```vala blocks would render as plain text. The
+    // JSON is regenerated from the upstream YAML by
+    // `bun run scripts/refresh-vala-grammar.mjs`.
     languages: [
       {
         ...valaGrammar,

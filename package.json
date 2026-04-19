@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.1",
     "prettier": "^3.3.3",
     "sass": "^1.79.4",
     "vitepress": "^1.4.1",

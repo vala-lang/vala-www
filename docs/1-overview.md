@@ -29,7 +29,7 @@
   - Splitting styles across files so that it's easier to make changes to specific places.
   - Taking advantage of preprocessing (calculations and variable substitutions during builds etc.).
 - Custom Vue components under `.vitepress/theme/` provide site chrome (header, footer, home sections) and layouts for the home, blog index, and blog posts.
-- [Shiki](https://shiki.style/) handles syntax highlighting. A small Vala TextMate grammar lives in `.vitepress/shiki/vala.tmLanguage.json` and is registered through the VitePress config.
+- [Shiki](https://shiki.style/) handles syntax highlighting. The Vala TextMate grammar from [vala-lang/vala-vscode](https://github.com/vala-lang/vala-vscode) is shipped in `.vitepress/shiki/vala.tmLanguage.json` and registered through the VitePress config. It can be refreshed in place with `bun run scripts/refresh-vala-grammar.mjs`.
 - The rest of the site uses the standard trio of [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
 ## Using Different Technologies
