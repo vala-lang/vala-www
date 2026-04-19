@@ -1,0 +1,17 @@
+// Global stylesheet entry imported from theme/index.js.
+//
+// Paths reach back to the legacy Zola SCSS under ../../../sass/css. The old
+// partials use Sass `@import`, which still works in Dart Sass 1.x (with
+// deprecation warnings). We keep the imports grouped: global chrome first,
+// then per-layout rules (home, blog index, blog post). Selectors are scoped
+// enough that bundling them together matches the previous behaviour where
+// each template only linked the stylesheet it needed.
+
+@import '../../../sass/css/global.scss';
+@import '../../../sass/css/index.scss';
+@import '../../../sass/css/blog.scss';
+@import '../../../sass/css/blog-post.scss';
+
+body {
+  margin: 0;
+}
