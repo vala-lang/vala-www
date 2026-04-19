@@ -4,6 +4,8 @@ import { useData } from 'vitepress'
 import { useI18n } from './composables/useI18n.js'
 import PageLayout from './layouts/PageLayout.vue'
 import HomeLayout from './layouts/HomeLayout.vue'
+import BlogLayout from './layouts/BlogLayout.vue'
+import PostLayout from './layouts/PostLayout.vue'
 import NotFoundLayout from './layouts/NotFoundLayout.vue'
 
 const { frontmatter, page } = useData()
@@ -17,6 +19,8 @@ const layoutName = computed(() => {
 const layouts = {
   page: PageLayout,
   home: HomeLayout,
+  blog: BlogLayout,
+  post: PostLayout,
   'not-found': NotFoundLayout
 }
 
