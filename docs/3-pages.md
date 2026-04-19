@@ -4,70 +4,85 @@
 
 ### Strategy
 
-If your page is structured like a post (e.g About page, blog posts, etc), you should opt create the majority of the content in markdown under its own directory under `content/` and use an existing template. Only create a new template if an existsing one doesn't meet your needs or can't be modified to fit your needs.
+If your page is structured like a post (the About page, blog posts, etc.) write the content in a markdown file and let VitePress render it through an existing layout. Only create a new layout or Vue component when none of the existing ones can do the job.
 
-For pages that making heavy use of HTML, macros and/or partials, you should make create the majority of the content in the template itself like how the home page was made (index.html).
-You will still need create a markdown file for it in order to set up the front matter. You just don't need to write any markdown inside of it.
+For pages that need rich, interactive markup (the home page is a good example), use a custom layout component under `.vitepress/theme/layouts/` and point the markdown file at it through the `layout` front matter field. The markdown file still supplies front matter (title, description, etc.) and can include any markdown body you want rendered via `<Content />` inside the layout.
 
-### Sections
+### Layouts
 
-Sections have pages under its directory. See `content/blog/_index.md` for an example of them. A section's index page is named `_index.md`.
+Each markdown page picks its layout through YAML front matter:
+
+```yaml
+---
+layout: home # or: page, blog, post
+title: Vala Programming Language
+description: …
+---
+```
+
+The supported layouts live in `.vitepress/theme/layouts/`:
+
+- `home` - The landing page with the hero, features, usages, latest blog, versions, showcase, and community sections.
+- `blog` - The paginated blog index rendered from `createContentLoader`.
+- `post` - An individual blog post with title, byline, date, and back link.
+- `page` - The default layout used for every other page (About, 404 fallback, etc.).
 
 ### Pages
 
-Pages can either have a unique name under a section's directory e.g `content/blog/vala-0.56.md` or be named `index.md`. If named `index.md`, they will have the same URL as the path they are under. The latter option is useful for creating one-off page like the about page (`content/about/index.md`).
-
-By default, all pages are under the root section which is the website's index page (`content/_index.md`).
+Markdown files live at the repository root (for the default locale) or under a locale folder. A file placed at `about/index.md` is served from `/about/`. A file placed at `blog/my-post.md` is served from `/blog/my-post/`. Translations mirror the same path under the locale prefix, so `cs/about/index.md` serves `/cs/about/`.
 
 ### Using Components
 
-There are two types of components you can create:
-
-1. Partials - Don't let you pass data in. 1 file = 1 partial.
-2. Macros - Allow you to pass data in. Muliple macros can exist in one file.
-
-It's up to you how you to decide to use these types of components to build up these pages. Each type has its advantages and disadvantages.
+VitePress supports Vue components inside markdown. Components registered globally in `.vitepress/theme/index.js` (for example `<PredefinedCtaStack />` or `<CtaStack />`) can be embedded anywhere in a markdown body. Local components can also be imported from markdown-aware `<script setup>` blocks when needed.
 
 ### Metadata
 
-A macros in `head.html` called `og_data` and  `og_data_with_image` take care of this for you. It handles the creates the Open Graph tags and adds the description meta tag for you. It's recommended that you assign the parameters to the page/sections's variables in templates you make.
+Front matter `title` and `description` flow through to `<title>` and `<meta name="description">` automatically. Additional `<head>` tags (theme-color, app icons, Open Graph data) are defined in `.vitepress/config.mjs`.
 
 #### Front Matter
 
-In all pages make sure that you fill in contain the following fields:
-- `title`
-- `date` (In the format of YYYY-MM-DD)
-- `description`
+In all pages make sure that you fill in the following fields:
 
-These are used when displaying the in link embeds.
+- `title`
+- `description`
+- `date` (for blog posts, in `"YYYY-MM-DD"` format and quoted so YAML keeps it as a string)
+
+These are used when displaying link embeds and when ordering the blog index / Atom feed.
 
 ## Blog
 
 ### Blog Front Matter
 
-As well as the [fields to include when creating pages in general](#front-matter), if the article is written from the context of a single person or group of people, you also should inlcude the `extra.authors` field with an array of strings (containg names).
+As well as the [fields to include when creating pages in general](#front-matter), you should also include `authors` as an array of strings when the post is written by a specific person or group:
 
-Filling the `extra.authors` field **is not** mandatory though. By default, the author will be set to "The Vala Team"
+```yaml
+---
+layout: post
+title: Vala 0.56
+description: Here's what's new in Vala release version 0.56.
+date: "2022-03-18"
+authors:
+  - Lorenz Wildberg
+---
+```
 
-These are used when displaying the posts across the site and also in link embeds.
+Filling in `authors` is not mandatory - by default the byline shows "The Vala Team".
 
 ### Blog Post Titles
 
-You don't need to create a `<h1>` in your markdown content. The value you have set in the `title` field of the front matter will be used in a `<h1>` that is part of the blog post template.
+You don't need to create an `<h1>` in your markdown content. The `title` field in front matter is used for the `<h1>` rendered by the `post` layout.
 
 ## Home Page
 
 ### Updating The Showcase Items
 
-The showcase is rendered from a partial in `templates/partials/showcase.html`.
+The showcase is rendered by `.vitepress/theme/components/ShowcaseSection.vue`. The actual data used to add each item to the showcase is in `.vitepress/data/showcase-items.json`.
 
-The actual data used to add each item to the showcase is in `assets/showcase-items.json`.
+It's an array where each item is a JSON object with the following fields:
 
-It's an array where each item is an JSON object with the following fields:
-
-- `name` - Name of the item
-- `icon_path` - Where the icon is relative to the website's repository.
-- `url` - Where the user goes whe they click on the item
+- `name` - Name of the item.
+- `icon_path` - Path to the icon relative to the `public/` folder (for example `icons/showcase/elementary.svg`).
+- `url` - Where the user goes when they click on the item.
 
 Here's an example:
 
@@ -82,33 +97,14 @@ Here's an example:
     "name": "GNOME Boxes",
     "icon_path": "icons/showcase/gnome-boxes.svg",
     "url": "https://apps.gnome.org/en-GB/app/org.gnome.Boxes/"
-  },
-  {
-    "name": "Planner",
-    "icon_path": "icons/showcase/planner.svg",
-    "url": "https://useplanner.com/"
-  },
-  {
-    "name": "Starfish",
-    "icon_path": "icons/showcase/starfish.svg",
-    "url": "https://appcenter.elementary.io/hr.from.josipantolis.starfish/"
-  },
-  {
-    "name": "BirdFont",
-    "icon_path": "icons/showcase/birdfont.svg",
-    "url": "https://birdfont.org/"
-  },
-  {
-    "name": "Peek",
-    "icon_path": "icons/showcase/peek.svg",
-    "url": "https://github.com/phw/peek"
   }
 ]
 ```
 
 ---
 
-## Related Resouces
+## Related Resources
 
-- https://www.getzola.org/documentation/content/overview/
-- https://www.getzola.org/documentation/templates/overview/
+- https://vitepress.dev/guide/markdown
+- https://vitepress.dev/guide/using-vue
+- https://vitepress.dev/reference/default-theme-config

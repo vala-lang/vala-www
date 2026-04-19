@@ -1,18 +1,39 @@
+name: Build and deploy GH Pages
+
 on:
   push:
-    branches: main
-name: Build and deploy GH Pages
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@master
-        env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: ${{ secrets.TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build site
+        run: bun run build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # Re-use the existing deploy token that was set up for the
+          # old Zola action. Personal token keeps the previous
+          # (cross-repo-capable) behaviour. Swap for github_token if
+          # the deploy stays within this repository.
+          personal_token: ${{ secrets.TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./.vitepress/dist
