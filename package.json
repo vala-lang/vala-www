@@ -1,0 +1,19 @@
+{
+  "name": "vala-www",
+  "version": "0.0.0",
+  "description": "Website of the Vala programming language",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build && bun run scripts/generate-atom.mjs",
+    "preview": "vitepress preview",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "sass": "^1.79.4",
+    "vitepress": "^1.4.1",
+    "vue": "^3.5.12"
+  }
+}
