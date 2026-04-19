@@ -46,3 +46,7 @@ const site = useSiteData()
   </div>
   <SiteFooter />
 </template>
+
+<style lang="scss">
+@use '../../../sass/css/index';
+</style>

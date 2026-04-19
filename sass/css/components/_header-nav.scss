@@ -1,6 +1,6 @@
 @use '../utils/container' as *;
 
-body > header {
+.site-header {
   --foreground-color: white;
   --focus-outline-color: white;
   width: 100%;
@@ -9,25 +9,25 @@ body > header {
   color: var(--foreground-color);
 }
 
-body > header > div {
+.site-header > div {
   @extend %container;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 
-body > header nav {
+.site-header nav {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr auto auto;
 }
 
 /* Align better with Vala Logo */
-body > header nav ul,
-body > header nav > :last-child {
+.site-header nav ul,
+.site-header nav > :last-child {
   margin-left: 0.25rem;
 }
 
-body > header nav ul {
+.site-header nav ul {
   grid-area: 2 / 1 / auto / -1;
   flex: 1 0 auto;
   display: flex;
@@ -39,30 +39,30 @@ body > header nav ul {
   margin-left: 0.25rem;
 }
 
-body > header nav > :first-child svg {
+.site-header nav > :first-child svg {
   transition: fill 0.3s ease;
   fill: white;
   width: 4rem;
   height: 1.6rem;
 }
 
-body > header nav > :first-child a:hover svg,
-body > header nav > :first-child a:focus svg {
+.site-header nav > :first-child a:hover svg,
+.site-header nav > :first-child a:focus svg {
   fill: var(--accent-color-light-1);
 }
 
-body > header a {
+.site-header a {
   display: block;
   color: var(--brim-link-color);
   text-decoration: none;
 }
 
-body > header a:hover,
-body > header a:focus {
+.site-header a:hover,
+.site-header a:focus {
   color: var(--brim-link-hover-color);
 }
 
-body > header nav > :last-child {
+.site-header nav > :last-child {
   grid-row: 1;
   grid-column-end: -2;
 }
@@ -135,15 +135,15 @@ body > header nav > :last-child {
 }
 
 @media (max-width: 56.25rem) {
-  body > header nav > :last-child {
+  .site-header nav > :last-child {
     margin-inline: 1rem;
   }
 
-  body:not(.js-enabled) > header nav ul {
+  body:not(.js-enabled) > .site-header nav ul {
     margin: 2rem 0 0 0;
   }
 
-  body.js-enabled > header nav ul {
+  body.js-enabled .site-header nav ul {
     display: block;
     text-align: left;
     margin-block: 0px;
@@ -159,8 +159,8 @@ body > header nav > :last-child {
     }
   }
 
-  body.js-enabled > header nav ul:not(.open):focus,
-  body.js-enabled > header nav ul:not(.open):focus-visible {
+  body.js-enabled .site-header nav ul:not(.open):focus,
+  body.js-enabled .site-header nav ul:not(.open):focus-visible {
     outline: none;
   }
 
@@ -170,36 +170,36 @@ body > header nav > :last-child {
 }
 
 @media (min-width: 56.25rem) {
-  body > header {
+  .site-header {
     margin: auto 0;
   }
 
-  body > header a {
+  .site-header a {
     display: inline-block;
   }
 
-  body > header > div {
+  .site-header > div {
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
   }
 
-  body > header nav {
+  .site-header nav {
     display: flex;
     align-items: center;
   }
 
-  body > header nav > :first-child,
-  body > header nav > :last-child {
+  .site-header nav > :first-child,
+  .site-header nav > :last-child {
     flex: 0 1 20%;
   }
 
-  body > header nav > :last-child {
+  .site-header nav > :last-child {
     text-align: right;
 
   }
 
-  body > header nav ul,
-  body > header nav :last-child {
+  .site-header nav ul,
+  .site-header nav :last-child {
     margin-left: 0rem;
   }
 }

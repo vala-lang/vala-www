@@ -59,7 +59,7 @@ watch(
 </script>
 
 <template>
-  <header :class="{ extended: type === 'extended' }">
+  <header class="site-header" :class="{ extended: type === 'extended' }">
     <div>
       <nav>
         <div>

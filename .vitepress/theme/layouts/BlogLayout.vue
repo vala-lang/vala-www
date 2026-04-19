@@ -80,3 +80,7 @@ function formatDate(iso) {
   </div>
   <SiteFooter />
 </template>
+
+<style lang="scss">
+@use '../../../sass/css/blog';
+</style>
