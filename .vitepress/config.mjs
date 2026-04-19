@@ -81,15 +81,11 @@ export default defineConfig({
   lastUpdated: false,
   sitemap: { hostname: site.base_url },
 
-  // Only the per-locale content trees at the root should produce pages.
-  // Everything else (legacy Zola content, contributor docs, README, assets)
-  // is excluded so it doesn't leak into the build.
-  srcExclude: [
-    '**/README.md',
-    'content/**',
-    'docs/**',
-    'assets/**',
-  ],
+  // Only the per-locale content trees at the repo root and inside each
+  // locale folder should produce pages. Everything else — contributor
+  // docs, README etc. is excluded so it doesn't
+  // leak into the build.
+  srcExclude: ['**/README.md', 'docs/**'],
 
   head: commonHead,
 

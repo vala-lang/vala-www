@@ -6,6 +6,3 @@ node_modules/
 # Editors / OS
 *~
 .DS_Store
-
-# Legacy Zola output (removed in final cleanup stage but ignored meanwhile)
-processed_images
