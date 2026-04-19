@@ -1,0 +1,51 @@
+// Shiki dual-theme support.
+//
+// `config.mjs` configures VitePress to emit Shiki output with both the
+// `one-light` and `one-dark-pro` themes, producing markup like:
+//
+//   <pre class="shiki shiki-themes one-light one-dark-pro vp-code">
+//     <code>
+//       <span class="line">
+//         <span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">async</span>
+//         …
+//       </span>
+//     </code>
+//   </pre>
+//
+// The default VitePress theme ships CSS that promotes the right variant
+// (`--shiki-light` vs. `--shiki-dark`) to actual `color` / `background-color`,
+// keyed off the `.dark` class VitePress adds to `<html>` at first paint.
+// This site runs a custom theme, so we replicate that minimal surface.
+//
+// Background colors mirror the upstream Shiki themes (`one-light` =
+// `#fafafa`, `one-dark-pro` = `#282c34`), matching the old Zola syntect
+// output shipped in `public/css/syntax-theme-{light,dark}.css`.
+
+.shiki {
+  background-color: #fafafa;
+}
+
+.shiki code {
+  display: inline-block;
+  min-width: 100%;
+}
+
+.shiki span {
+  color: var(--shiki-light);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+html.dark {
+  .shiki {
+    background-color: #282c34;
+  }
+
+  .shiki span {
+    color: var(--shiki-dark);
+    font-style: var(--shiki-dark-font-style);
+    font-weight: var(--shiki-dark-font-weight);
+    text-decoration: var(--shiki-dark-text-decoration);
+  }
+}
