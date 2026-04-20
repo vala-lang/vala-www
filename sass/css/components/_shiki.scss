@@ -3,14 +3,18 @@
 // `config.mjs` configures VitePress to emit Shiki output with both the
 // `one-light` and `one-dark-pro` themes, producing markup like:
 //
-//   <pre class="shiki shiki-themes one-light one-dark-pro vp-code">
-//     <code>
-//       <span class="line">
-//         <span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">async</span>
-//         …
-//       </span>
-//     </code>
-//   </pre>
+//   <div class="language-vala vp-adaptive-theme">
+//     <button class="copy"></button>
+//     <span class="lang">vala</span>
+//     <pre class="shiki shiki-themes one-light one-dark-pro vp-code">
+//       <code>
+//         <span class="line">
+//           <span style="--shiki-light:#A626A4;--shiki-dark:#C678DD;">async</span>
+//           …
+//         </span>
+//       </code>
+//     </pre>
+//   </div>
 //
 // The default VitePress theme ships CSS that promotes the right variant
 // (`--shiki-light` vs. `--shiki-dark`) to actual `color` / `background-color`,
@@ -20,6 +24,145 @@
 // Background colors mirror the upstream Shiki themes (`one-light` =
 // `#fafafa`, `one-dark-pro` = `#282c34`), matching the old Zola syntect
 // output shipped in `public/css/syntax-theme-{light,dark}.css`.
+
+// CSS variables used by VitePress's built-in copy button and lang label.
+// Icons are taken verbatim from VitePress's icons.css (Lucide, ISC licence).
+// Colors are mapped to this site's design tokens.
+:root {
+  /* stylelint-disable */
+  --vp-icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='rgba(128,128,128,1)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'%3E%3Crect width='8' height='4' x='8' y='2' rx='1' ry='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3C/svg%3E");
+  --vp-icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='rgba(128,128,128,1)' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24'%3E%3Crect width='8' height='4' x='8' y='2' rx='1' ry='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E");
+  /* stylelint-enable */
+  --vp-code-copy-code-border-color: #d4d4d4;
+  --vp-code-copy-code-bg: #f0f0f0;
+  --vp-code-copy-code-hover-border-color: var(--accent-color);
+  --vp-code-copy-code-hover-bg: #e4e4e4;
+  --vp-code-copy-code-active-text: var(--label-text-color);
+  --vp-code-copy-copied-text-content: 'Copied';
+  --vp-code-lang-color: #888888;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vp-code-copy-code-border-color: #444444;
+    --vp-code-copy-code-bg: #3a3f4b;
+    --vp-code-copy-code-hover-bg: #454c5a;
+    --vp-code-lang-color: #9aa0aa;
+  }
+}
+
+html.dark {
+  --vp-code-copy-code-border-color: #444444;
+  --vp-code-copy-code-bg: #3a3f4b;
+  --vp-code-copy-code-hover-bg: #454c5a;
+  --vp-code-lang-color: #9aa0aa;
+}
+
+// VitePress wraps each code block in `div.language-*`. This wrapper is the
+// real visual container (border, radius, overflow) so that `span.lang`,
+// which is a sibling of `pre` not a child, is genuinely inside the box.
+div[class*='language-'] {
+  position: relative;
+  border: 1px solid var(--vp-code-copy-code-border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+// Strip the box styles from `pre` when it lives inside the wrapper —
+// the wrapper provides them instead. Margin is zeroed (mirrors VitePress's
+// vp-doc.css) so `pre` doesn't create a blank strip inside the border.
+// padding-top is nudged up enough that the first code line clears the lang label.
+div[class*='language-'] pre {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding-top: 2rem;
+}
+
+// Copy button — rules ported from VitePress's vp-doc.css, minus the .vp-doc
+// scope, so they apply to this site's custom theme.
+div[class*='language-'] > button.copy {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  border: 1px solid var(--vp-code-copy-code-border-color);
+  border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--vp-code-copy-code-bg);
+  opacity: 0;
+  cursor: pointer;
+  background-image: var(--vp-icon-copy);
+  background-position: 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    opacity 0.25s;
+}
+
+div[class*='language-']:hover > button.copy,
+div[class*='language-'] > button.copy:focus {
+  opacity: 1;
+}
+
+div[class*='language-'] > button.copy:hover,
+div[class*='language-'] > button.copy.copied {
+  border-color: var(--vp-code-copy-code-hover-border-color);
+  background-color: var(--vp-code-copy-code-hover-bg);
+}
+
+div[class*='language-'] > button.copy.copied,
+div[class*='language-'] > button.copy:hover.copied {
+  border-radius: 0 4px 4px 0;
+  background-image: var(--vp-icon-copied);
+}
+
+div[class*='language-'] > button.copy.copied::before,
+div[class*='language-'] > button.copy:hover.copied::before {
+  position: relative;
+  top: -1px;
+  transform: translateX(calc(-100% - 1px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--vp-code-copy-code-hover-border-color);
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+  padding: 0 10px;
+  width: fit-content;
+  height: 40px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vp-code-copy-code-active-text);
+  background-color: var(--vp-code-copy-code-hover-bg);
+  white-space: nowrap;
+  content: var(--vp-code-copy-copied-text-content);
+}
+
+// Lang label — same positioning as VitePress vp-doc.css.
+// Fades out when the copy button is visible so they don't overlap.
+div[class*='language-'] > span.lang {
+  position: absolute;
+  top: 2px;
+  right: 8px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+  user-select: none;
+  color: var(--vp-code-lang-color);
+  transition:
+    color 0.4s,
+    opacity 0.4s;
+}
+
+div[class*='language-']:hover > button.copy + span.lang,
+div[class*='language-'] > button.copy:focus + span.lang {
+  opacity: 0;
+}
 
 .shiki {
   background-color: #fafafa;
