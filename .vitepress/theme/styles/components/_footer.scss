@@ -16,9 +16,6 @@ footer {
     padding-bottom: calc(1rem + env(safe-area-inset-bottom));
   }
 
-  // `unquote()` is used to force `max()` function to be parsed by
-  // plain CSS only. Doesn't currently work without `unquote()` in Zola's version of Sass.
-  // Source: https://sass-lang.com/documentation/values/calculations#min-and-max
   @supports (padding: max(0px)) {
     padding-left: string.unquote("max(1rem, env(safe-area-inset-left))");
     padding-right: string.unquote("max(1rem, env(safe-area-inset-right))");
@@ -53,9 +50,6 @@ footer a:focus {
       padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
     }
 
-    // `unquote()` is used to force `max()` function to be parsed by
-    // plain CSS only. Doesn't currently work without `unquote()` in Zola's version of Sass.
-    // Source: https://sass-lang.com/documentation/values/calculations#min-and-max
     @supports (padding: max(0)) {
       padding-left: string.unquote("max(2rem, env(safe-area-inset-left))");
       padding-right: string.unquote("max(2rem, env(safe-area-inset-right))");

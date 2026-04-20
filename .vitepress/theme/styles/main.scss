@@ -1,8 +1,7 @@
 // VitePress theme CSS entry (`theme/index.js`). Follows the Sass module system
 // (`@use` / `@forward`); see https://sass-lang.com/documentation/breaking-changes/import/
 // Re-run `bun run sass:migrate:dry` (or `sass:migrate`) after SCSS changes.
-// Site layers live under `sass/css/`; `site.scss` forwards them in load order.
-@use '../../../sass/css/site';
+@use './site';
 
 body {
   margin: 0;

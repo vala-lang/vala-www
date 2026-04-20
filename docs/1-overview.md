@@ -25,7 +25,7 @@
   - Markdown files are human readable.
   - Simple syntax.
   - Well-documented.
-- [Sass](https://sass-lang.com/) is used for preprocessed styles. The legacy `sass/css/**` tree is wired into the VitePress theme via `.vitepress/theme/styles/main.scss`.
+- [Sass](https://sass-lang.com/) is used for preprocessed styles. SCSS source lives under `.vitepress/theme/styles/`, with `main.scss` as the entry point imported by the VitePress theme.
   - Splitting styles across files so that it's easier to make changes to specific places.
   - Taking advantage of preprocessing (calculations and variable substitutions during builds etc.).
 - Custom Vue components under `.vitepress/theme/` provide site chrome (header, footer, home sections) and layouts for the home, blog index, and blog posts.

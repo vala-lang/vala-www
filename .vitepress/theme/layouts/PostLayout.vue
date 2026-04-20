@@ -44,5 +44,5 @@ function formatDate(iso) {
 </template>
 
 <style lang="scss">
-@use '../../../sass/css/blog-post';
+@use '../styles/blog-post';
 </style>

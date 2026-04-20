@@ -82,5 +82,5 @@ function formatDate(iso) {
 </template>
 
 <style lang="scss">
-@use '../../../sass/css/blog';
+@use '../styles/blog';
 </style>

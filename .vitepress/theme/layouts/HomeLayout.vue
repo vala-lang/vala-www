@@ -48,5 +48,5 @@ const site = useSiteData()
 </template>
 
 <style lang="scss">
-@use '../../../sass/css/index';
+@use '../styles/index';
 </style>
