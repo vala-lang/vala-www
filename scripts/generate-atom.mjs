@@ -5,8 +5,8 @@
 // `vitepress build` and emit the feeds straight into the final
 // `.vitepress/dist/` tree so they are deployed alongside the site.
 //
-// Mirrors the old Zola behaviour: the default locale writes to
-// /atom.xml and every other locale writes to /<code>/atom.xml.
+// The default locale writes to /atom.xml and every other locale
+// writes to /<code>/atom.xml.
 
 import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative, dirname } from 'node:path'

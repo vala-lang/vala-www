@@ -141,9 +141,7 @@ h6 {
   margin-bottom: 1rem;
 }
 
-// VitePress generates heading permalinks with class `.header-anchor`
-// (old Zola templates used `.zola-anchor`; that class no longer exists
-// in the output).
+// VitePress generates heading permalinks with class `.header-anchor`.
 h1 .header-anchor,
 h2 .header-anchor,
 h3 .header-anchor,

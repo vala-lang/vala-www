@@ -9,8 +9,6 @@
         "js-yaml": "^4.1.1",
         "prettier": "^3.3.3",
         "sass": "^1.79.4",
-        "sass-embedded": "^1.99.0",
-        "sass-migrator": "^2.5.7",
         "vitepress": "^1.4.1",
         "vue": "^3.5.12",
       },
@@ -430,8 +428,6 @@
     "sass-embedded-win32-arm64": ["sass-embedded-win32-arm64@1.99.0", "", { "os": "win32", "cpu": "arm64" }, "sha512-8whpsW7S+uO8QApKfQuc36m3P9EISzbVZOgC79goob4qGy09u8Gz/rYvw8h1prJDSjltpHGhOzBE6LDz7WvzVw=="],
 
     "sass-embedded-win32-x64": ["sass-embedded-win32-x64@1.99.0", "", { "os": "win32", "cpu": "x64" }, "sha512-ipuOv1R2K4MHeuCEAZGpuUbAgma4gb0sdacyrTjJtMOy/OY9UvWfVlwErdB09KIkp4fPDpQJDJfvYN6bC8jeNg=="],
-
-    "sass-migrator": ["sass-migrator@2.5.7", "", { "bin": { "sass-migrator": "sass-migrator.js" } }, "sha512-BDAr+LHFb4+0NEdc4/h6Gcyz79YgecHAc1lv7Pqibyj/tT+kK5vZFEmevbZj1Or5JkAsPUsAO7Awm8xFQZNy+Q=="],
 
     "search-insights": ["search-insights@2.17.3", "", {}, "sha512-RQPdCYTa8A68uM2jwxoY842xDhvx3E5LFL1LxvxCNMev4o5mLuokczhzjAgGwUZBAmOKZknArSxLKmXtIi2AxQ=="],
 

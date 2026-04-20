@@ -1,6 +1,5 @@
-// VitePress theme CSS entry (`theme/index.js`). Follows the Sass module system
-// (`@use` / `@forward`); see https://sass-lang.com/documentation/breaking-changes/import/
-// Re-run `bun run sass:migrate:dry` (or `sass:migrate`) after SCSS changes.
+// VitePress theme CSS entry (`theme/index.js`). Uses the Sass module system
+// (`@use` / `@forward`): https://sass-lang.com/documentation/at-rules/use/
 @use './site';
 
 body {

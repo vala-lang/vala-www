@@ -30,10 +30,6 @@ jobs:
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          # Re-use the existing deploy token that was set up for the
-          # old Zola action. Personal token keeps the previous
-          # (cross-repo-capable) behaviour. Swap for github_token if
-          # the deploy stays within this repository.
           personal_token: ${{ secrets.TOKEN }}
           publish_branch: gh-pages
           publish_dir: ./.vitepress/dist

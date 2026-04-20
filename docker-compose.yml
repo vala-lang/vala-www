@@ -1,9 +1,8 @@
-version: '3'
 services:
-  man:
+  web:
     build: .
     image: vala-website
     ports:
-      - "1111:1111"
+      - "5173:5173"
     volumes:
       - .:/app

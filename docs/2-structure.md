@@ -15,22 +15,21 @@
 - `index.md` - The English home page, rendered with the home layout.
 - `docs/` - The directory where this contributor guide lives.
 - `public/` - Static assets copied verbatim into the build output. Files in the root (`favicon.ico`, icons, `manifest.json`, `humans.txt`, `CNAME`, etc.) are served from the site root.
-  - `css/` - Precompiled CSS and any legacy stylesheets that ship alongside the site.
   - `fonts/` - Inter variable and static web fonts (`.woff` / `.woff2`).
   - `icons/` - Spritemap (containing icons used throughout the website) and showcase icons.
     - `showcase/` - Showcase icons.
   - `img/` - Generic images used across the site. `vala-hero-wide.png` is used in link embeds and `vala-hero.png` is the default image for blog posts.
   - `js/` - JavaScript files included via `<script>` tags.
-- `sass/` - Sass/SCSS source. The VitePress theme imports these through `.vitepress/theme/styles/main.scss`.
-  - `css/components/` - Files used to style small, specific parts of markup used across the entire site.
-  - `css/utils/` - Utilities consumed by other sass files.
+- `.vitepress/theme/styles/` - Sass/SCSS source for the custom theme. `main.scss` is the entry point imported by `theme/index.js`; it pulls in the baseline layers (`reset`, `typography`, `base`, `utils`) and the site chrome (`components/`). Page-specific layers (`index.scss`, `blog.scss`, `blog-post.scss`) are loaded from their matching Vue layout via `<style lang="scss">` so each page only ships the CSS it needs.
+  - `components/` - Styles for small, reusable pieces of markup used across the site (header nav, footer, feature/CTA blocks, Shiki code blocks, etc.).
+  - `utils/` - Utilities consumed by other Sass files (container widths, etc.).
 - `scripts/` - Scripts run with `bun run`. `generate-atom.mjs` writes the Atom feeds into `.vitepress/dist/` after `vitepress build`. `refresh-vala-grammar.mjs` regenerates `.vitepress/shiki/vala.tmLanguage.json` from upstream.
 
 ## Root files
 
 - **`package.json`** - Lists the JavaScript dependencies (VitePress, Vue, Sass, gray-matter, Prettier) and the `bun run` tasks (`dev`, `build`, `preview`, `format`).
 - **`bun.lock`** - Bun's lockfile, committed for reproducible installs.
-- **`.vitepress/config.mjs`** - The main VitePress configuration file. Previously `config.toml`.
+- **`.vitepress/config.mjs`** - The main VitePress configuration file.
 - `.editorconfig` - Cross-editor settings for keeping consistent formatting.
 - `.gitignore` - Defines files and directories that git should ignore (`node_modules/`, `.vitepress/cache/`, `.vitepress/dist/`, etc.).
 - `.prettierignore` - Defines files and directories that Prettier should ignore.

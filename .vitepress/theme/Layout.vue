@@ -27,7 +27,7 @@ const layouts = {
 const currentLayout = computed(() => layouts[layoutName.value] ?? PageLayout)
 
 // Expose current layout as a body class so page-specific stylesheets can
-// scope their rules (mirrors the old Zola per-template CSS loading).
+// scope their rules.
 if (typeof document !== 'undefined') {
   const LAYOUT_CLASSES = ['layout-page', 'layout-home', 'layout-blog', 'layout-post', 'layout-not-found']
   let previous = null

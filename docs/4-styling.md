@@ -1,6 +1,6 @@
 # Styling
 
-Sass files are stored under the `sass/` directory with the`.scss` file extension.
+Sass files are stored under `.vitepress/theme/styles/` with the `.scss` file extension. `main.scss` is the entry point imported by the theme; page-specific stylesheets (`index.scss`, `blog.scss`, `blog-post.scss`) are loaded from their matching layout under `.vitepress/theme/layouts/`.
 
 ## Coding Style
 
