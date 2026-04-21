@@ -31,7 +31,7 @@ function formatDate(iso) {
 
 <template>
   <section>
-    <h2>{{ t.whats_new }}</h2>
+    <h2>{{ t.blog }}</h2>
     <div class="post-previews">
       <a
         v-for="post in latest"
