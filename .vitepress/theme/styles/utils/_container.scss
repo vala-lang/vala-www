@@ -1,0 +1,37 @@
+@use "sass:string";
+$container-max-width: 76.25rem;
+
+.container, %container {
+  display: block;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @supports (padding: env(safe-area-inset-left)) {
+    padding-left: calc(1rem + env(safe-area-inset-left));
+    padding-right: calc(1rem + env(safe-area-inset-right));
+  }
+
+  @supports (padding: max(0px)) {
+    padding-left: string.unquote("max(1rem, env(safe-area-inset-left))");
+    padding-right: string.unquote("max(1rem, env(safe-area-inset-right))");
+  }
+
+  max-width: $container-max-width;
+  width: 100%;
+
+  @media (min-width: 700px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+    @supports (padding: env(safe-area-inset-left)) {
+      padding-left: calc(2rem + env(safe-area-inset-left));
+      padding-right: calc(2rem + env(safe-area-inset-right));
+    }
+
+    @supports (padding: max(0)) {
+      padding-left: string.unquote("max(2rem, env(safe-area-inset-left))");
+      padding-right: string.unquote("max(2rem, env(safe-area-inset-right))");
+    }
+  }
+}

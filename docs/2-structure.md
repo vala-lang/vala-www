@@ -2,35 +2,38 @@
 
 ## Directories
 
-- `.github` - GitHub-specific data is stored here like the [GitHub Pages Zola deploy action](https://github.com/shalzz/zola-deploy-action).
-- `assets/` - Files that aren't deployed with the website but are used to generate pages in the website.
-- `content/` - Here's where the content of pages is written with Markdown. Sections are defined here tohttps://github.com/shalzz/zola-deploy-action). There are more about this available here: https://www.getzola.org/documentation/content/overview/
-  - `blog/` - Vala Blog content. All the blog posts are stored under here.
-  - `about/` - About page contnet.
-- `docs/` - The directory where this guide you are reading is under.
-- `sass/` - Where sass code is stored. The `css/` folder inside there is intentional as it copies the sass output straight to the `static/` folder.
-  - `css/components/` - Contains files used to style small, specific parts of markup used across the entire site.
-  - `css/utils/` - Utilties to be used in other sass files.
-- `static/` - Here are the assets stored that will be deployed with the website. The files in the root of the static folder will be located in the root of the website when deployed.
-  - `./` - (The root). The favicon, platform icons and `manifest.json` file for the website is stored here.
-  - `css/` - CSS files are stored here. There are also generated syntax stylesheets stored here with the pattern: "syntax-theme.{color-scheme}.css". If you change the highlighting theme settings in Zola, you may need to remove these first to see the changes.
-  - `fonts/` - There is one variable font named `Inter-roman.var.woff2`. The rest of the files are all Inter fonts for different font weights if a browser doesn't support variable fonts. We use both `.woff` and `.woff2` fonts for better browser compatibility.
-  - `icons/` - spritemap (containing icons used throughout the website) and showcase icons are stored here
-    - `showcase/` - Showcase icons
-  - `img/` - These are generic images used in the website. `vala-hero-wide.png` is used in link embeds and `vala-hero` is the default image used for posts on the website.
-  - `js/` - JavaScript files used in the website.
-- `syntaxes/` - Custom syntaxes that aren't included with [Zola's built-in syntax highlighter](https://www.getzola.org/documentation/content/syntax-highlighting/) are stored here. Note: Vala's syntax can be added to Zola by default by creating an issue in the [Zola repo](https://github.com/getzola/zola)
-- `templates/` - This is where the majority of markup of the website is written using Tera. Templates are explained in detail here: https://www.getzola.org/documentation/templates/overview/
-  - `macros` - Contains files that with macros that generate markup based in data you pass in when you call them.
-  - `partials` - Similar to `macros` but only a file can be a partial. There can't be multiple partials in one file and you can't pass in data when including the partial to your template.
-  - `shortcodes` - Markdown or tera temlpate code that is called from your content markdown.
+- `.github/` - GitHub-specific data is stored here. `.github/workflows/deploy-website.yaml` installs Bun, builds the site with `bun run build`, and publishes `.vitepress/dist` to the `gh-pages` branch via [peaceiris/actions-gh-pages](https://github.com/peaceiris/actions-gh-pages).
+- `.vitepress/` - VitePress configuration, custom theme, and data modules.
+  - `config.mjs` - Site metadata, locales, markdown/shiki configuration, and `<head>` tags.
+  - `data/` - Site-wide data loaded by Vue components and layouts (`site.js`, `showcase-items.json`).
+  - `locales/` - One JavaScript module per language (`en.js`, `cs.js`, `fr.js`, `pt_BR.js`, `ru.js`, `zh_CN.js`) plus an `index.js` that re-exports them.
+  - `shiki/` - Custom TextMate grammars registered with Shiki. `vala.tmLanguage.json` is the upstream grammar from [vala-lang/vala-vscode](https://github.com/vala-lang/vala-vscode), converted from YAML to JSON by `scripts/refresh-vala-grammar.mjs`.
+  - `theme/` - The custom VitePress theme: Vue components, layouts, composables, and the SCSS entry point.
+- `blog/` - English blog posts as markdown files. Each file's slug becomes the URL.
+- `about/` - The English About page (`about/index.md`).
+- `<locale>/` (for example `cs/`, `fr/`, `pt_BR/`, `ru/`, `zh_CN/`) - Translations of the home, About, and blog pages. Each locale mirrors the structure at the repository root.
+- `index.md` - The English home page, rendered with the home layout.
+- `docs/` - The directory where this contributor guide lives.
+- `public/` - Static assets copied verbatim into the build output. Files in the root (`favicon.ico`, icons, `manifest.json`, `humans.txt`, `CNAME`, etc.) are served from the site root.
+  - `fonts/` - Inter variable and static web fonts (`.woff` / `.woff2`).
+  - `icons/` - Spritemap (containing icons used throughout the website) and showcase icons.
+    - `showcase/` - Showcase icons.
+  - `img/` - Generic images used across the site. `vala-hero-wide.png` is used in link embeds and `vala-hero.png` is the default image for blog posts.
+  - `js/` - JavaScript files included via `<script>` tags.
+- `.vitepress/theme/styles/` - Sass/SCSS source for the custom theme. `main.scss` is the entry point imported by `theme/index.js`; it pulls in the baseline layers (`reset`, `typography`, `base`, `utils`) and the site chrome (`components/`). Page-specific layers (`index.scss`, `blog.scss`, `blog-post.scss`) are loaded from their matching Vue layout via `<style lang="scss">` so each page only ships the CSS it needs.
+  - `components/` - Styles for small, reusable pieces of markup used across the site (header nav, footer, feature/CTA blocks, Shiki code blocks, etc.).
+  - `utils/` - Utilities consumed by other Sass files (container widths, etc.).
+- `scripts/` - Scripts run with `bun run`. `generate-atom.mjs` writes the Atom feeds into `.vitepress/dist/` after `vitepress build`. `refresh-vala-grammar.mjs` regenerates `.vitepress/shiki/vala.tmLanguage.json` from upstream.
 
 ## Root files
 
-- **`config.toml`** - Configuration file for Zola. Features The site's URL, markdown settings and custom variables. More information about this file is availble here: https://www.getzola.org/documentation/getting-started/configuration/
+- **`package.json`** - Lists the JavaScript dependencies (VitePress, Vue, Sass, gray-matter, Prettier) and the `bun run` tasks (`dev`, `build`, `preview`, `format`).
+- **`bun.lock`** - Bun's lockfile, committed for reproducible installs.
+- **`.vitepress/config.mjs`** - The main VitePress configuration file.
 - `.editorconfig` - Cross-editor settings for keeping consistent formatting.
-- `.gitignore` - Defines files and directories that git should ignore.
-- `.prettierignore` - Defines files and directories that prettier should ignore.
-- `.prettierrc` - Defines overrides for how prettier should format code in this repository.
+- `.gitignore` - Defines files and directories that git should ignore (`node_modules/`, `.vitepress/cache/`, `.vitepress/dist/`, etc.).
+- `.prettierignore` - Defines files and directories that Prettier should ignore.
+- `.prettierrc` - Defines overrides for how Prettier should format code in this repository.
+- `Dockerfile` / `.devcontainer.json` - A Bun-based container image that runs `bun run dev` on port 5173 for a reproducible development environment.
 - `LICENSE` - The website's license information.
-- `README.md` - The repository's README file. The first file we expect people to read to understand the repository. The contents of this file may be shown in this repository's page in codeforges such as GitHub, GitLab, etc.
+- `README.md` - The repository's README file. The first file we expect people to read to understand the repository.

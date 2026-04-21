@@ -1,0 +1,4 @@
+// VitePress theme baseline: chrome that applies on every page.
+// Page-specific layers (`index`, `blog`, `blog-post`) are loaded from their
+// matching Vue layout so each page only ships the CSS it needs.
+@forward 'global';

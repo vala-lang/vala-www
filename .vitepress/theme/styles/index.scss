@@ -1,0 +1,60 @@
+@use "sass:meta";
+
+// Home-only layout rules. Scoped under `body.layout-home` (added by the
+// custom theme's Layout.vue) so the hero clip-path and the negative
+// main margin don't leak into other pages. The class-scoped `post-preview`
+// and `showcase` bundles below are safe to load globally because their
+// selectors only match markup on pages that actually render them.
+body.layout-home {
+  header.extended {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vw), 0 100%);
+    padding: 0 0 30vh 0;
+  }
+
+  header.extended h1 {
+    text-align: center;
+    margin-top: 5rem;
+    display: block;
+  }
+
+  main {
+    margin-top: -40vh;
+    /* Gives enough space for code example's shadow to spread */
+    padding-top: 10vh;
+  }
+
+  main > pre,
+  main > pre + p {
+    max-width: 45rem;
+  }
+
+  main > pre {
+    position: relative;
+  }
+
+  section {
+    text-align: center;
+    max-width: none;
+  }
+
+  h1 {
+    font-weight: 300;
+    font-variation-settings: 'wght' 300;
+  }
+
+  @media (min-width: 800px) {
+    main > pre {
+      border: 0;
+      box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  @media (min-width: 800px) and (prefers-color-scheme: dark) {
+    main > pre {
+      box-shadow: 0px 4px 20px 10px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+@include meta.load-css('components/post-preview');
+@include meta.load-css('components/showcase');

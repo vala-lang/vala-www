@@ -1,9 +1,9 @@
 {
-  "name": "Zola Dev Container",
+  "name": "Vala Website Dev Container",
   "build": { "dockerFile": "Dockerfile" },
-  "forwardPorts": [1111],
+  "forwardPorts": [5173],
   "workspaceFolder": "/app",
-  "mounts": ["source=.", "target=/app", "type=bind", "consistency=cached"],
-  "appPort": [1111],
-  "remoteUser": "vscode"
+  "mounts": ["source=.,target=/app,type=bind,consistency=cached"],
+  "appPort": [5173],
+  "remoteUser": "bun"
 }

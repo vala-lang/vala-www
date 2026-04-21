@@ -1,0 +1,7 @@
+// VitePress theme CSS entry (`theme/index.js`). Uses the Sass module system
+// (`@use` / `@forward`): https://sass-lang.com/documentation/at-rules/use/
+@use './site';
+
+body {
+  margin: 0;
+}

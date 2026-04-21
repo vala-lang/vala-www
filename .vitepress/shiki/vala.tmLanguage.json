@@ -1,0 +1,192 @@
+{
+  "name": "Vala",
+  "scopeName": "source.vala",
+  "fileTypes": [
+    "vala",
+    "vapi",
+    "gs"
+  ],
+  "patterns": [
+    {
+      "include": "#code"
+    }
+  ],
+  "repository": {
+    "code": {
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#constants"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#keywords"
+        },
+        {
+          "include": "#types"
+        },
+        {
+          "include": "#functions"
+        },
+        {
+          "include": "#variables"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.empty.vala",
+          "match": "/\\*\\*/",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.vala"
+            }
+          }
+        },
+        {
+          "include": "#comments-inline"
+        }
+      ]
+    },
+    "comments-inline": {
+      "patterns": [
+        {
+          "name": "comment.block.vala",
+          "begin": "/\\*",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.vala"
+            }
+          },
+          "end": "\\*/"
+        },
+        {
+          "match": "\\s*((//).*$\\n?)",
+          "captures": {
+            "1": {
+              "name": "comment.line.double-slash.vala"
+            },
+            "2": {
+              "name": "punctuation.definition.comment.vala"
+            }
+          }
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.numeric.vala",
+          "match": "\\b((0(x|X)[0-9a-fA-F]*)|(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)([LlFfUuDd]|UL|ul)?\\b"
+        },
+        {
+          "name": "variable.other.constant.vala",
+          "match": "\\b([A-Z][A-Z0-9_]+)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.triple.vala",
+          "begin": "\"\"\"",
+          "end": "\"\"\""
+        },
+        {
+          "name": "string.quoted.interpolated.vala",
+          "begin": "@\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            },
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\$\\w+"
+            },
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\$\\(([^)(]|\\(([^)(]|\\([^)]*\\))*\\))*\\)"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.vala",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.vala",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.vala",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.regexp.vala",
+          "match": "/((\\\\/)|([^/]))*/(?=\\s*[,;)\\.\\n])"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.vala",
+          "match": "(?<=^|[^@\\w\\.])(as|do|if|in|is|not|or|and|for|get|new|out|ref|set|try|var|base|case|else|enum|lock|null|this|true|void|weak|async|break|catch|class|const|false|owned|throw|using|while|with|yield|delete|extern|inline|params|public|return|sealed|signal|sizeof|static|struct|switch|throws|typeof|unlock|default|dynamic|ensures|finally|foreach|private|unowned|virtual|abstract|continue|delegate|internal|override|requires|volatile|construct|interface|namespace|protected|errordomain)\\b"
+        },
+        {
+          "name": "keyword.vala",
+          "match": "(?<=^|[^@\\w\\.])(bool|double|float|unichar|unichar2|char|uchar|int|uint|long|ulong|short|ushort|size_t|ssize_t|string|string16|string32|void|signal|int8|int16|int32|int64|uint8|uint16|uint32|uint64|va_list|time_t)\\b"
+        },
+        {
+          "name": "keyword.vala",
+          "match": "(#if|#elif|#else|#endif)"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.primitive.vala",
+          "match": "(?<=^|[^@\\w\\.])(bool|double|float|unichar|unichar2|char|uchar|int|uint|long|ulong|short|ushort|size_t|ssize_t|string|string16|string32|void|signal|int8|int16|int32|int64|uint8|uint16|uint32|uint64|va_list|time_t)\\b"
+        },
+        {
+          "name": "entity.name.type.vala",
+          "match": "\\b([A-Z]+\\w*)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.vala",
+          "match": "(\\w+)(?=\\s*(<[\\s\\w.]+>\\s*)?\\()"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.vala",
+          "match": "\\b([_a-z]+\\w*)\\b"
+        }
+      ]
+    }
+  }
+}

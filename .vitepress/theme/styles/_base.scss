@@ -1,0 +1,411 @@
+@use "typography";
+
+/// Shared `<h3>` appearance (heading group + level-3 rules). Used by
+/// `components/_feature` via `@include` because `@extend h3` does not cross
+/// Sass module boundaries.
+@mixin h3-heading {
+  color: var(--foreground-color);
+  margin-top: 0.85em;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: typography.$font-weight-medium;
+  letter-spacing: -0.003125rem;
+}
+
+:root {
+  --accent-color: #a56de2;
+  --accent-color-light-2: #e4c6fa;
+  --accent-color-light-1: #cd9ef7;
+  --accent-color-dark-1: #7239b3;
+  --accent-color-dark-2: #452981;
+  --brim-background-color: #{var(--accent-color-dark-1)};
+  --brim-link-color: white;
+  --brim-link-hover-color: #{var(--accent-color-light-2)};
+  --card-border-color: #d4d4d4;
+  --secondary-cta-background: #fafafa;
+  --label-text-color: #555761;
+  --foreground-color: #1a1a1a;
+  --background-color: white;
+  --inline-code-background-color: #d4d4d4;
+  --focus-outline-color: #{var(--accent-color)};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+  Keyboard focus styles with fallback for older browsers
+  Source: https://css-tricks.com/focus-visible-and-backwards-compatibility/
+*/
+
+:focus {
+  outline: solid 2px var(--focus-outline-color);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: solid 2px var(--focus-outline-color);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  height: 100%;
+  min-height: calc(100vh + env(safe-area-inset-bottom));
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: 'Inter Variable', Arial, Helvetica, sans-serif;
+  }
+}
+
+body > div {
+  flex: 1 1 0%;
+}
+
+.container.error-404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+main {
+  display: flex;
+  overflow-x: auto;
+  text-align: center;
+  flex-direction: column;
+}
+
+article,
+section {
+  width: 100%;
+  text-align: left;
+  max-width: 43.75rem;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+section .prose {
+  max-width: 700px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+section:last-of-type {
+  padding-bottom: 0;
+}
+
+section > section {
+  max-width: 43.75rem;
+  margin: 0 auto;
+  text-align: left;
+  padding: 0.25rem 0;
+}
+
+section > section:last-of-type {
+  padding-bottom: 1rem;
+}
+
+section > a:last-child {
+  margin-top: 2rem;
+  display: inline-block;
+  text-align: center;
+}
+
+section.standalone {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+h1,
+h2,
+h4,
+h5,
+h6 {
+  color: var(--foreground-color);
+  margin-top: 0.85em;
+  margin-bottom: 1rem;
+}
+
+// VitePress generates heading permalinks with class `.header-anchor`.
+h1 .header-anchor,
+h2 .header-anchor,
+h3 .header-anchor,
+h4 .header-anchor,
+h5 .header-anchor,
+h6 .header-anchor {
+  visibility: hidden;
+}
+
+h1:hover .header-anchor,
+h1:focus .header-anchor,
+h2:hover .header-anchor,
+h2:focus .header-anchor,
+h3:hover .header-anchor,
+h3:focus .header-anchor,
+h4:hover .header-anchor,
+h4:focus .header-anchor,
+h5:hover .header-anchor,
+h5:focus .header-anchor,
+h6:hover .header-anchor,
+h6:focus .header-anchor {
+  visibility: visible;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.04rem;
+  font-weight: typography.$font-weight-semi-bold;
+  font-variation-settings: 'wght' typography.$font-weight-semi-bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: typography.$font-weight-semi-bold;
+  letter-spacing: -0.05rem;
+  font-variation-settings: 'wght' typography.$font-weight-semi-bold;
+}
+
+h3 {
+  @include h3-heading;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  transition: color 0.3s ease;
+  color: var(--accent-color-dark-1);
+  word-wrap: break-word;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--accent-color-dark-2);
+}
+
+.header-anchor {
+  margin-left: 0.5rem;
+}
+
+ul li a {
+  display: inline-flex;
+  align-items: center;
+}
+
+time {
+  display: block;
+}
+
+.social-links {
+  margin-bottom: 0;
+}
+
+.social-links li {
+  margin-top: 0.5rem;
+}
+
+.social-links li:first-child {
+  margin-top: 0;
+}
+
+ul li a svg {
+  transition: fill 0.3s ease;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.5rem;
+  fill: var(--accent-color-dark-1);
+}
+
+ul li a:hover svg,
+ul li a:focus svg {
+  fill: var(--accent-color-dark-2);
+}
+
+article ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+article ul li {
+  margin-top: 0.5rem;
+}
+
+article ul li:first-child {
+  margin-top: 0;
+}
+
+article img,
+iframe,
+picture {
+  width: 100%;
+  height: auto;
+}
+
+iframe {
+  min-height: 200px;
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 4px;
+  overflow: auto;
+  text-align: left;
+  border: 1px solid #d4d4d4;
+}
+
+// The line numbers already provide some kind of left/right padding
+pre[data-linenos] {
+  // padding: 1rem ;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  padding-left: 0;
+}
+pre table td {
+  padding: 0;
+}
+// The line number cells
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  text-align: left;
+}
+pre mark {
+  // If you want your highlights to take the full width.
+  display: block;
+  // The default background colour of a mark is bright yellow
+  background-color: rgba(254, 252, 232, 0.9);
+}
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+code {
+  border-radius: 4px;
+  background-color: var(--inline-code-background-color);
+  padding: 0.125rem 0.25rem;
+}
+
+pre code {
+  border-radius: 0;
+  background: none;
+  padding: 0;
+}
+
+
+#bypass-block {
+  --focus-outline-color: white;
+  transition: none;
+  position: absolute;
+  word-wrap: normal;
+  top: 0;
+  left: -999px;
+  width: 1px;
+  height: 1px;
+  text-align: center;
+  font-size: 2rem;
+  z-index: -2;
+  background: var(--vala-gradient);
+  color: black; // When off-screen, it contrasts with the body background
+  padding: 1rem;
+}
+
+#bypass-block:focus,
+#bypass-block:focus-visible {
+  opacity: 1;
+  z-index: 999;
+  display: block;
+  width: 100%;
+  height: auto;
+  left: auto;
+  background: var(--accent-color-dark-1);
+  color: white; // To create contrast with the background
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-color: white;
+    --background-color: #1a1a1a;
+    --card-border-color: #333333;
+    --inline-code-background-color: #333333;
+    --secondary-cta-background: #333333;
+    --label-text-color: #d4d4d4;
+  }
+
+  #bypass-block {
+    color: white; // When off-screen, it contrasts with the body background
+  }
+
+  a {
+    color: var(--accent-color-light-1);
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: var(--accent-color);
+  }
+
+  ul li a svg {
+    fill: var(--accent-color-light-1);
+  }
+
+  ul li a:hover svg,
+  ul li a:focus svg {
+    fill: var(--accent-color);
+  }
+
+  pre {
+    border: 1px solid #333333;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (min-width: 500px) {
+  iframe {
+    min-height: 300px;
+  }
+}
+
+@media (min-width: 740px) {
+  section > section:last-of-type {
+    padding-bottom: 2rem;
+  }
+}
+
+@media (min-width: 800px) {
+  main {
+    align-items: center;
+  }
+}
