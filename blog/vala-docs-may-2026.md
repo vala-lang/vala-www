@@ -16,7 +16,7 @@ Over time, updates have been made to the [documentation website repository](http
 - Sample code (In Progress)
 - Genie Programming Language Documentation
 
-However, people may not be aware  of the changes the updates to the documentation website. These blog posts should help with that.
+However, people may not be aware of the updates to the documentation website. These blog posts should help with that.
 
 Now, here’s what’s new (April - May 2026):
 
@@ -27,13 +27,13 @@ Now, here’s what’s new (April - May 2026):
 - [Overhaul of Main Tutorial](https://github.com/vala-lang/vala-docs/pull/50)
 	- Simply code examples in First Program chapter
 	- Explain the multiple ways we can write the main method
-	- Add structs methods example to language elements chapter
-	- Add Enums section to language elements chapter which expands on the features enums have
-	- Add Flags section to language elements chapter, showing how to use enums like flags
-	- Add Input / Output section to tutorial, explaining how to interact input, ouptut and file streams. Also contains info on how to use FileUtils convenience features for easily reading and writing contents of a file.
-	- Add section on the Async main function feature in Main Loop chapter
+	- Add Struct methods example to Language Elements chapter
+	- Add Enums section to Language Elements chapter which expands on the features enums have
+	- Add Flags section to Language Elements chapter, showing how to use enums like flags
+	- Add Input / Output section to tutorial, explaining how to interact with input, ouptut and file streams. Also contains info on how to use FileUtils convenience functions for easily reading and writing contents of a file.
+	- Add section on the async main function feature in Main Loop chapter
 	- Add async threads example to Asynchronous Methods chapter
-	- Add `with` statement feature chapter
+	- Add `with` statement feature chapter in Experimental Features section
 - [Add libsoup-3.0 (HTTP Client/Server Library) Samples](https://github.com/vala-lang/vala-docs/pull/194)
 - [Add Testing Samples page (#152)](https://github.com/vala-lang/vala-docs/pull/152)
 - [Add "Basics: Collections, Files, I/O, Networking, IPC" Sample code](https://github.com/vala-lang/vala-docs/pull/149)
@@ -52,7 +52,7 @@ Now, here’s what’s new (April - May 2026):
 
 ## Closing Statements
 
-Feel free to share your thoughts on this post in the [community spaces and social media](https://vala.dev/#community).
+Feel free to share your thoughts on this post in [community spaces and social media](https://vala.dev/#community).
 
 The repository for the documentation website is located at: [https://github.com/vala-lang/vala-docs](https://github.com/vala-lang/vala-docs). Feel free to report issues and help update the documentation.
 
