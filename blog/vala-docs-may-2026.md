@@ -56,6 +56,6 @@ Feel free to share your thoughts on this post in the [community spaces and socia
 
 The repository for the documentation website is located at: [https://github.com/vala-lang/vala-docs](https://github.com/vala-lang/vala-docs). Feel free to report issues and help update the documentation.
 
-Also, at the bottom of every page of the documentation site, there’s an “edit this page” link, which makes it easy to fix fix any issues you find on a page you were reading.
+Also, at the bottom of every page of the documentation site, there’s an “edit this page” link, which makes it easy to ~~fiz~~ fix any typos that you find on a page you were reading.
 
 Thanks for reading!
