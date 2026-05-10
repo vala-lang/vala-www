@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Vala Documentation Updates - May 2026
-date: “2026-05-10”
+date: "2026-05-10"
 description: Highlighting the latest updates to the Vala Documentation website as of May 2026
 authors:
  - Colin Kiama
