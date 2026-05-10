@@ -1,22 +1,24 @@
 ---
 layout: post
 title: Vala Documentation Updates - May 2026
+date: “2026-05-10”
 description: Highlighting the latest updates to the Vala Documentation website as of May 2026
-date: "2026-05-10"
 authors:
-	- Colin Kiama
+ - Colin Kiama
 ---
 
 
 ## Intro
 
-- Greet Reader
-- Explain why this blog series is being started in a 1-3 sentences.
-	- Vala Documentation has moved away from old GNOME Wiki - Which took ages to get updates
-	- New Vala Documentation is now in its own website and has its own repository that makes its easier than ever update the docs.
-	- The majority of the old docs have been ported over, what's left is:
-		- Sample Code (in-progress)
-		- Genie Programming Language Documentation
+In case you missed it, a new Vala Documentation website ([https://docs.vala.dev](https://docs.vala.dev)) was created to replace the old documentation in the deprecated GNOME Wiki website.
+
+Over time, updates have been made to the [documentation website repository](https://github.com/vala-lang/vala-docs). The majority of the old docs have been ported over. What’s left is:
+- Sample code (In Progress)
+- Genie Programming Language Documentation
+
+However, people may not be aware  of the changes the updates to the documentation website. These blog posts should help with that.
+
+Now, here’s what’s new (April - May 2026):
 
 ## What's New
 
@@ -50,9 +52,10 @@ authors:
 
 ## Closing Statements
 
-- Ask people to share their thoughts about these blog posts in the community spaces and social media accounts (Link to the community section of the vala website).
-- Remind readers again where the documentation repo is so they can help contribute to the docs
-	- Can report issues
-	- Can write docs themselves
-- Remind readers that in the docs, there is an "edit this page" link on the bottom of every page of the documentation, which is very useful for fixing typos in the pages.
-- Thank the reader for reading
+Feel free to share your thoughts on this post in the [community spaces and social media](https://vala.dev/#community).
+
+The repository for the documentation website is located at: [https://github.com/vala-lang/vala-docs](https://github.com/vala-lang/vala-docs). Feel free to report issues and help update the documentation.
+
+Also, at the bottom of every page of the documentation site, there’s an “edit this page” link, which makes it easy to fix fix any issues you find on a page you were reading.
+
+Thanks for reading!
