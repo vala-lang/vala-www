@@ -20,7 +20,7 @@ authors:
 
 ## What's New
 
-### Additions
+### Changes
 
 - [Overhaul of Main Tutorial](https://github.com/vala-lang/vala-docs/pull/50)
 	- Simply code examples in First Program chapter
@@ -32,11 +32,22 @@ authors:
 	- Add section on the Async main function feature in Main Loop chapter
 	- Add async threads example to Asynchronous Methods chapter
 	- Add `with` statement feature chapter
-
-
-### Changes
+- [Add libsoup-3.0 (HTTP Client/Server Library) Samples](https://github.com/vala-lang/vala-docs/pull/194)
+- [Add Testing Samples page (#152)](https://github.com/vala-lang/vala-docs/pull/152)
+- [Add "Basics: Collections, Files, I/O, Networking, IPC" Sample code](https://github.com/vala-lang/vala-docs/pull/149)
+- [Port Vala for Java Programmers Developer Guide](https://github.com/vala-lang/vala-docs/pull/6)
+- [Add Memory Management Guide](https://github.com/vala-lang/vala-docs/pull/144)
+- [Add Language Features and Introductory Samples pages to Sample Code](https://github.com/vala-lang/vala-docs/pull/143)
+- [Introduce Sample Code Section](https://github.com/vala-lang/vala-docs/pull/141)
 
 ### Fixes
+
+- [BNF Code blocks now have colouring](https://github.com/vala-lang/vala-docs/pull/145)
+- 
+- Grammar and typo fixes:
+	- [#191](https://github.com/vala-lang/vala-docs/pull/191)
+ 	- [#190](https://github.com/vala-lang/vala-docs/pull/190)
+ 	- [#140](https://github.com/vala-lang/vala-docs/pull/140)
 
 ## Closing Statements
 
