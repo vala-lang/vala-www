@@ -43,7 +43,6 @@ authors:
 ### Fixes
 
 - [BNF Code blocks now have colouring](https://github.com/vala-lang/vala-docs/pull/145)
-- 
 - Grammar and typo fixes:
 	- [#191](https://github.com/vala-lang/vala-docs/pull/191)
  	- [#190](https://github.com/vala-lang/vala-docs/pull/190)
