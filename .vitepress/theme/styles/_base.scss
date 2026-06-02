@@ -210,17 +210,17 @@ a:active {
   margin-left: 0.5rem;
 }
 
-ul li a {
-  display: inline-flex;
-  align-items: center;
-}
-
 time {
   display: block;
 }
 
 .social-links {
   margin-bottom: 0;
+}
+
+.social-links li a {
+  display: inline-flex;
+  align-items: center;
 }
 
 .social-links li {
