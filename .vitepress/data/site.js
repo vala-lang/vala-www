@@ -46,7 +46,9 @@ export const site = {
     stable: '0.56.17',
     lts: '0.56.17',
     devel: 'main'
-  }
+  },
+  
+  roadmap_url: 'https://gitlab.gnome.org/GNOME/vala/-/milestones',
 }
 
 export { showcaseItems }
