@@ -81,6 +81,8 @@ export default {
   stable_lts: 'Stable Long-term Support',
   devel: 'Development',
 
+  roadmap: 'Roadmap',
+
   site_title: 'Langage de programmation Vala',
   site_description:
     'Vala est un langage de programmation orienté objet avec un compilateur autonome qui génère du code C et utilise le système de types GObject.',

@@ -82,6 +82,8 @@ export default {
   stable_lts: 'Stable Long-term Support',
   devel: 'Development',
 
+  roadmap: 'Roadmap',
+
   site_title: 'Programovací jazyk Vala',
   site_description:
     'Vala je objektově orientovaný programovací jazyk s vlastním kompilátorem, který generuje kód v jazyce C a používá typový systém GObject.',

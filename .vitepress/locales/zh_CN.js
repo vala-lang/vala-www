@@ -78,6 +78,8 @@ export default {
   stable_lts: 'Stable Long-term Support',
   devel: 'Development',
 
+  roadmap: 'Roadmap',
+
   site_title: 'Vala 编程语言',
   site_description:
     'Vala 是一种面向对象的编程语言，其自托管编译器可生成 C 代码并使用 GObject 类型系统。',

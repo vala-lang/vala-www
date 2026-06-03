@@ -9,6 +9,7 @@ import FeaturesSection from '../components/FeaturesSection.vue'
 import UsagesSection from '../components/UsagesSection.vue'
 import LatestBlog from '../components/LatestBlog.vue'
 import VersionsSection from '../components/VersionsSection.vue'
+import RoadmapSection from '../components/RoadmapSection.vue'
 import ShowcaseSection from '../components/ShowcaseSection.vue'
 import CommunitySection from '../components/CommunitySection.vue'
 
@@ -33,6 +34,7 @@ const site = useSiteData()
       <UsagesSection />
       <LatestBlog />
       <VersionsSection />
+      <RoadmapSection />
       <ShowcaseSection />
       <CommunitySection />
 
