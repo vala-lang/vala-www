@@ -6,7 +6,7 @@ export default {
   documentation: 'Docs',
   community: 'Community',
   source_code: 'Source Code',
-  tagline: 'A Familiar Way To Develop Applications',
+  tagline: 'A Modern Programming Language For Native Application Development',
   get_started: 'Get Started',
   view_source_code: 'View Source Code',
   why_vala: 'Why Vala?',
