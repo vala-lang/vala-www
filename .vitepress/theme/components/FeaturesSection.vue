@@ -8,40 +8,17 @@ const { t, code } = useI18n()
 <template>
   <section>
     <h2>{{ t.why_vala }}</h2>
-    <dl class="features">
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="gears" />
-            {{ t.productivity }}
-          </div>
-        </dt>
-        <dd v-html="t.productivity_description" />
-      </div>
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="rocket" />
-            {{ t.performance }}
-          </div>
-        </dt>
-        <dd>{{ t.performance_description }}</dd>
-      </div>
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="open-source" />
-            {{ t.open_source }}
-          </div>
-        </dt>
-        <dd>{{ t.open_source_description }}</dd>
-        <dd>
-          <a href="https://docs.vala.dev/tooling/index.html">
-            {{ t.tooling_documentation }}
-          </a>
-        </dd>
-      </div>
-    </dl>
-    <a :href="localeLink(code, '/about/')">{{ t.learn_more_about_vala }}</a>
+    <div class="prose">
+      <ul>
+        <li>Clear and familiar syntax - productive from the first day</li>
+        <li>Object-oriented when you need it - classes, interfaces, inheritance, or just functions and structs</li> 
+        <li>Automatic memory management - without a garbage collector</li>
+        <li>Seamless C interoperability - use existing C libraries naturally</li>
+        <li>Compiles to native binaries - no VM, no runtime environment to install</li>
+        <li>Modern language features - type inference, null safety, generics, lambdas, async/await</li>
+        <li>First-class GObject and GTK support - optional, but unmatched when you need it</li>
+      </ul>
+    </div>
+    <a :href="localeLink(code, '/about/')">{{ t.learn_more_about_vala }}</a>  
   </section>
 </template>

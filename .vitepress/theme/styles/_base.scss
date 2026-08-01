@@ -194,6 +194,12 @@ ul {
   padding: 0;
 }
 
+.prose ul {
+  text-align: left;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
 a {
   transition: color 0.3s ease;
   color: var(--accent-color-dark-1);
