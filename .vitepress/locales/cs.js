@@ -10,6 +10,19 @@ export default {
   get_started: 'Začít',
   view_source_code: 'Zobrazit zdrojový kód',
   why_vala: 'Proč Vala?',
+  why_vala_syntax: 'Clear and familiar syntax - Based on C, C# and Java',
+  why_vala_oop:
+    'Object-oriented when you need it - Built-in support for classes, interfaces, inheritance and more, but you can also just use procedural programming features instead.',
+  why_vala_memory:
+    "Automatic memory management without overhead - Vala uses ref counting by default, so you won't have to worry about managing memory in most programs",
+  why_vala_c_interop:
+    'C interoperability - Use GObject-based C Libraries via binding files or call C functions directly from Vala',
+  why_vala_native:
+    'Compiles to native binaries - Extremely fast program execution times and no virtual machine or runtime environment is required to be installed for execution',
+  why_vala_modern_features:
+    'Modern language features - Type inference, null safety, generics, lambdas, async/await',
+  why_vala_gobject:
+    'First-class <a href="https://docs.gtk.org/gobject/">GObject</a> and <a href="https://www.gtk.org/">GTK</a> support - Optional, but unmatched when you need it',
 
   productivity: 'Produktivita',
   productivity_description:
