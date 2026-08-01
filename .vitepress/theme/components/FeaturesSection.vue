@@ -8,40 +8,17 @@ const { t, code } = useI18n()
 <template>
   <section>
     <h2>{{ t.why_vala }}</h2>
-    <dl class="features">
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="gears" />
-            {{ t.productivity }}
-          </div>
-        </dt>
-        <dd v-html="t.productivity_description" />
-      </div>
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="rocket" />
-            {{ t.performance }}
-          </div>
-        </dt>
-        <dd>{{ t.performance_description }}</dd>
-      </div>
-      <div>
-        <dt>
-          <div>
-            <SpriteIcon name="open-source" />
-            {{ t.open_source }}
-          </div>
-        </dt>
-        <dd>{{ t.open_source_description }}</dd>
-        <dd>
-          <a href="https://docs.vala.dev/tooling/index.html">
-            {{ t.tooling_documentation }}
-          </a>
-        </dd>
-      </div>
-    </dl>
-    <a :href="localeLink(code, '/about/')">{{ t.learn_more_about_vala }}</a>
+    <div class="prose">
+      <ul>
+        <li>{{ t.why_vala_syntax }}</li>
+        <li>{{ t.why_vala_oop }}</li>
+        <li>{{ t.why_vala_memory }}</li>
+        <li>{{ t.why_vala_c_interop }}</li>
+        <li>{{ t.why_vala_native }}</li>
+        <li>{{ t.why_vala_modern_features }}</li>
+        <li v-html="t.why_vala_gobject"></li>
+      </ul>
+    </div>
+    <a :href="localeLink(code, '/about/')">{{ t.learn_more_about_vala }}</a>  
   </section>
 </template>

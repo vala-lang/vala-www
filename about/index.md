@@ -7,7 +7,11 @@ description: Vala is an object-oriented programming language with a self-hosting
 
 ## What is Vala?
 
-Vala is an object-oriented programming language with a self-hosting compiler that generates C code and uses the GObject type system.
+Vala is a programming language with clear syntax inspired by C, C# and Java; automatic memory management; and modern language features. It compiles to C and produces binaries that run directly with native performance, without needing an interpreter, garbage collector, or any special environment setup. Vala provides excellent interoperability with C, enabling large parts of the existing ecosystem of C libraries to be used seamlessly from Vala.
+
+Vala is designed to work with the GObject type system and the wider GNOME platform. Classes, properties, signals, interfaces, asynchronous methods, and other GObject concepts are integrated directly into the language syntax. Vala lets you write GObject code in a concise and readable form, while the compiler generates the underlying C code, including the usual GObject boilerplate.
+
+Vala can also be used independently of GObject and GLib. In this role, it functions as a convenient, lightweight language, suitable for implementing command-line tools, services, libraries, and other kinds of software. You can use as much or as little of the GNOME stack as your use case calls for.
 
 Vala supports modern language features such as:
 
@@ -22,29 +26,5 @@ Vala supports modern language features such as:
 - Assisted memory management
 - Exception handling
 - Type modules (Plugins)
-
-## What kind of language is Vala?
-
-### Productive
-
-With Vala, you can get up and running quickly, thanks to convenient features like lambda expressions, exception handling, interfaces and generics.
-
-### Performant
-
-Vala code compiles down to fully native binaries.
-
-### Statically-Typed
-
-Vala helps you write type-safe code without the verbosity, thanks to type inference.
-
-### Integrative
-
-Vala is designed to allow access to existing C libraries, especially GObject-based libraries, without the need for runtime bindings. All that is needed to use a library with Vala is an API file, containing the class and method declarations in Vala syntax. Vala currently comes with bindings for GLib and GTK+ and many others from the GNOME Platform.
-
-Vala can also be used to create C libraries too.
-
-### Familiar
-
-The syntax of Vala is inspired by C# and Java, so if you have used either of those, you'll seamlessly adapt to writing Vala code.
 
 <PredefinedCtaStack />
