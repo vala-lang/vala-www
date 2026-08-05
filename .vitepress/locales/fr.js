@@ -86,15 +86,15 @@ export default {
 
   page_not_found: 'Erreur 404 - Page non trouvé',
   page_not_found_description: "la page que vous avez demandée n'existe plus.",
-  go_home: 'Go Home',
+  go_home: 'Accueil',
 
-  current_versions: 'Current Versions',
-  install_how: 'How to install',
+  current_versions: 'Versions actuelles',
+  install_how: 'Comment installer',
   stable: 'Stable',
-  stable_lts: 'Stable Long-term Support',
-  devel: 'Development',
+  stable_lts: 'Support à long terme',
+  devel: 'Développement',
 
-  roadmap: 'Roadmap',
+  roadmap: 'Feuille de route',
 
   site_title: 'Langage de programmation Vala',
   site_description:
