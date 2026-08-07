@@ -9,7 +9,7 @@ const { t, code } = useI18n()
   <section>
     <h2>{{ t.why_vala }}</h2>
     <div class="prose">
-      <ul>
+      <ul class="bulleted-list">
         <li>{{ t.why_vala_syntax }}</li>
         <li>{{ t.why_vala_oop }}</li>
         <li>{{ t.why_vala_memory }}</li>
