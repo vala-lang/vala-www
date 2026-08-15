@@ -10,19 +10,19 @@ export default {
   get_started: 'Commencer',
   view_source_code: 'Afficher le code source',
   why_vala: 'Pourquoi Vala?',
-  why_vala_syntax: 'Clear and familiar syntax - Based on C, C# and Java',
+  why_vala_syntax: 'Syntaxe claire et familière - Basée sur C, C# et Java',
   why_vala_oop:
-    'Object-oriented when you need it - Built-in support for classes, interfaces, inheritance and more, but you can also just use procedural programming features instead.',
+    "Orienté objet quand vous en avez besoin - Support intégré pour les classes, les interfaces, l'héritage et plus encore, mais vous pouvez également utiliser des fonctionnalités de programmation procédurale à la place.",
   why_vala_memory:
-    "Automatic memory management without overhead - Vala uses ref counting by default, so you won't have to worry about managing memory in most programs",
+    "Gestion automatique de la mémoire sans surcharge - Vala utilise le comptage de références par défaut, vous n'aurez donc pas à vous soucier de la gestion de la mémoire dans la plupart des programmes",
   why_vala_c_interop:
-    'C interoperability - Use GObject-based C Libraries via binding files or call C functions directly from Vala',
+    "Interopérabilité C - Utilisez des bibliothèques C basées sur GObject via des fichiers de liaison ou appelez des fonctions C directement depuis Vala",
   why_vala_native:
-    'Compiles to native binaries - Extremely fast program execution times and no virtual machine or runtime environment is required to be installed for execution',
+    "Compilation en binaires natifs - Des temps d'exécution extrêmement rapides et aucun environnement de machine virtuelle ou d'exécution requis pour l'exécution",
   why_vala_modern_features:
-    'Modern language features - Type inference, null safety, generics, lambdas, async/await',
+    "Fonctionnalités de langage modernes - Inférence de type, sécurité null, génériques, lambdas, async/await",
   why_vala_gobject:
-    'First-class <a href="https://docs.gtk.org/gobject/">GObject</a> and <a href="https://www.gtk.org/">GTK</a> support - Optional, but unmatched when you need it',
+    'Support de première classe pour <a href="https://docs.gtk.org/gobject/">GObject</a> et <a href="https://www.gtk.org/">GTK</a> - Optionnel, mais imbattable quand vous en avez besoin',
 
   productivity: 'Productivité',
   productivity_description:
