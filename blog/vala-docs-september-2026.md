@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Vala Documentation Updates - August 2026
+title: Vala Documentation Updates - September 2026
 date: "2026-09-01"
-description: Highlighting the latest updates to the Vala Documentation website as of August 2026
+description: Highlighting the latest updates to the Vala Documentation website as of September 2026
 authors:
  - Colin Kiama
 ---
