@@ -43,7 +43,7 @@ export const site = {
   },
 
   versions: {
-    stable: '0.56.17',
+    stable: '0.56.19',
     lts: '0.56.17',
     devel: 'main'
   },
